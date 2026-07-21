@@ -1,0 +1,13 @@
+---
+description: Content truthfulness, evidence and project-publication permissions
+alwaysApply: true
+---
+
+# Content truthfulness
+
+- Never fabricate clients, projects, testimonials, reviews, statistics, results, awards, client counts or ranking guarantees (D-07, D-10). No `AggregateRating`/review schema until genuine permissioned data exists.
+- The four case studies in `content/projects/` are clearly-labelled templates: noindex, out of the sitemap, badge rendered. They become real only when the owner grants `publishPermission` per `docs/content/CASE-STUDY-FRAMEWORK.md` and `docs/content/PROJECT-PUBLICATION-CHECKLIST.md`.
+- Never publish or reference content from unrelated repositories/projects (DamTech, PropertyGuy/Proplytic, etc.) without express owner permission.
+- Pricing stays `indicative: true` (visible notice) until the owner confirms — `docs/REQUIRED-USER-INPUTS.md` #6.
+- Research claims written into `docs/` require a source citation and access date. Availability language: say "no obvious conflict found (date)" — never "available" — for names, domains, handles and trademarks unless verified on the official platform.
+- en-ZA spelling in prose; US spelling stays in code identifiers and schema.org types (D-19).

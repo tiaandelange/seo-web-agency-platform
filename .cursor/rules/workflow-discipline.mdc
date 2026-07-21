@@ -1,0 +1,24 @@
+---
+description: Required checks, git and documentation discipline
+alwaysApply: true
+---
+
+# Workflow discipline
+
+Before declaring any task complete:
+
+1. `npm run check` — lint, strict typecheck, all 21 tests, SEO validator — must pass with zero errors.
+2. `npm run build` — production build must succeed (currently 64 pages, first-load JS ≤ 120 KB budget).
+
+Git:
+
+- One concern per commit; never mix validation repairs with brand or content work.
+- No uncontrolled dependency upgrades — version pins are deliberate (D-02, D-22); upgrades need a decision-log entry and a full re-validation.
+- Never commit secrets, `.env*` values, real credentials, or `validation-logs/`.
+
+Documentation:
+
+- Material decisions → `docs/DECISION-LOG.md` (ID, decision, rationale, status).
+- New assumptions → `docs/ASSUMPTIONS.md`. Owner-only decisions → `docs/REQUIRED-USER-INPUTS.md`.
+- Update `docs/PROJECT-STATUS.md` when a phase completes.
+- Adding content entries? Follow the recipes in `README.md` ("Content management") and update the URL register / keyword map CSVs where required.

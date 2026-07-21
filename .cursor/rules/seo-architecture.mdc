@@ -1,0 +1,14 @@
+---
+description: SEO architecture, route and indexation preservation rules
+alwaysApply: true
+---
+
+# SEO architecture preservation
+
+- 58 routes = 50 indexable + 8 noindex. `lib/routes.ts` is the single source of truth for routes, indexation flags, sitemap and robots. Never bypass it.
+- No URL additions/renames/removals without: a documented SEO reason in `docs/DECISION-LOG.md`, an update to `docs/architecture/URL-REGISTER.csv`, and (for moves) a redirect in `data/redirects.ts` + `docs/seo/REDIRECT-REGISTER.csv` with internal links re-pointed in the same commit.
+- Metadata only via `buildMetadata()` (`lib/seo.ts`): unique title + description, self-canonical with trailing slash, robots from the route registry.
+- JSON-LD only via builders in `lib/schema.ts`; no fabricated ratings, reviews, offers or prices (D-10).
+- Never flip a noindex route to index unless its gate condition is met (`docs/architecture/INDEXATION-RULES.md`) — e.g. project templates need real `publishPermission`.
+- Never weaken `lib/validate.ts`, `scripts/seo-validate.ts` or `tests/`. Fix the code, not the check.
+- Ranking content must be server-rendered; verify it exists in view-source HTML.

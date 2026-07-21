@@ -1,0 +1,13 @@
+---
+description: Brand configuration and design-token usage rules
+globs: app/**,components/**,config/**,data/**
+alwaysApply: false
+---
+
+# Brand tokens and configuration
+
+- Every visible company detail (name, legal name, tagline, contact, service areas, social) comes from `config/brand.ts`. Never hardcode brand strings in pages, components or data files.
+- "Meridian Web Systems" is a temporary placeholder (D-05). Do not build final branding, logos or name-specific copy around it. Replacement happens only after the owner decision in `docs/business/FOUNDER-NAME-DECISION.md`.
+- Visual identity is applied by swapping design-token values in the `@theme` block of `app/globals.css` and adjusting component classes — never by changing page structure, heading hierarchy, section order, metadata or routes. Procedure: `docs/prompts/18-visual-theme-development.md`; plan: `docs/brand/VISUAL-IMPLEMENTATION-PLAN.md`.
+- Empty-string contact fields mean "hidden in UI" — keep that behaviour; do not invent placeholder phone numbers or emails.
+- New colours must pass the contrast floors before being added as tokens (body ≥ 4.5:1, UI/large ≥ 3:1).

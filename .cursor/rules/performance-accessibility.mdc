@@ -1,0 +1,18 @@
+---
+description: Performance budgets, client-component limits and WCAG 2.2 AA floors
+alwaysApply: true
+---
+
+# Performance and accessibility floors
+
+Budgets (binding; detail in `docs/technical/PERFORMANCE-BUDGET.md`):
+
+- LCP ≤ 2.5 s mobile, INP ≤ 200 ms, CLS ≤ 0.1, first-load client JS ≤ 120 KB, self-hosted WOFF2 fonts ≤ 100 KB with size-adjusted fallbacks.
+- Server components by default. Only `components/mobile-nav.tsx` is a client component today; each new `'use client'` requires written justification and must fit the JS budget.
+- Banned: heavy animation libraries, carousels, video backgrounds, render-blocking third-party scripts.
+
+Accessibility (WCAG 2.2 AA; detail in `docs/technical/ACCESSIBILITY-STANDARDS.md`):
+
+- Contrast: body text ≥ 4.5:1; UI/large text ≥ 3:1; focus indicators ≥ 3:1 against adjacent colours.
+- Visible focus everywhere — never remove `:focus-visible` styles without an equal replacement. Skip link stays first in tab order. Touch targets ≥ 44 px.
+- Exactly one H1 per page; no skipped heading levels; `prefers-reduced-motion` honoured for every animation.
