@@ -591,7 +591,7 @@ export const services: Service[] = [
     title: 'Website Maintenance & Support',
     seoTitle: 'Website Maintenance & Support South Africa',
     metaDescription:
-      'Website maintenance plans for South African businesses: hosting admin, updates, backups, monitoring and monthly change time — from essential care to ecommerce SLAs.',
+      'Website maintenance plans for South African businesses: hosting admin, updates, backups, monitoring and monthly change time — from basic care to ecommerce SLAs.',
     heading: 'Website maintenance and support',
     intro:
       'Websites do not stay healthy by themselves: software ages, forms silently break, and small changes pile up. Our support plans keep your site fast, secure and current — with a human who already knows your build.',

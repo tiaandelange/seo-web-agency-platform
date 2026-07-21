@@ -33,3 +33,6 @@ next-env.d.ts
 
 # test coverage
 /coverage
+
+# local validation log captures (referenced by docs/technical/LOCAL-VALIDATION-REPORT.md)
+/validation-logs

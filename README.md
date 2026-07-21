@@ -14,7 +14,7 @@ SEO-first websites and lead-generation systems for **technical, industrial and s
 
 ## Technology stack
 
-Next.js 15.3 (App Router, static generation, server components), TypeScript strict, Tailwind CSS v4 (token-driven), Vitest, ESLint 9, tsx for scripts. Vercel-compatible. Version pinning rationale (and the planned Next 16 upgrade path): `docs/DECISION-LOG.md` D-02.
+Next.js 15.5 (App Router, static generation, server components), TypeScript strict, Tailwind CSS v4 (token-driven), Vitest, ESLint 9, tsx for scripts. Vercel-compatible. Version pinning rationale (and the planned Next 16 upgrade path): `docs/DECISION-LOG.md` D-02 and the security upgrade D-22.
 
 ## Installation
 
@@ -33,7 +33,7 @@ npm run build      # production build
 npm run start      # serve the production build
 ```
 
-> **Important — first run:** this repository was authored in an environment whose build sandbox was unavailable (see `docs/DECISION-LOG.md` D-16), so `npm install` / `build` / `check` have **not yet been executed**. Run `npm install && npm run check && npm run build` first and fix anything it reports before other work.
+> **Validation status:** fully validated 2026-07-21 — install, strict type check, lint, all 21 tests, SEO validator, production build (64 pages) and the live-browser runtime review all pass with zero errors (see `docs/technical/LOCAL-VALIDATION-REPORT.md`, D-21/D-23).
 
 ## Environment variables (`.env.example`)
 

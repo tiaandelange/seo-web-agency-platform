@@ -38,6 +38,18 @@ export async function submitLead(formData: FormData): Promise<void> {
     redirect('/request-a-quote/thank-you/');
   }
 
+  // Minimum-elapsed-time trap (D-12): humans take longer than a few seconds
+  // between page render and submit. Skipped when the field is missing or
+  // unparseable so no legitimate visitor can ever be falsely rejected.
+  const renderedAt = clean(formData.get('rendered_at'), 50);
+  if (renderedAt) {
+    const renderedMs = Date.parse(renderedAt);
+    if (!Number.isNaN(renderedMs) && Date.now() - renderedMs < 3000) {
+      // Silent discard, same as the honeypot.
+      redirect('/request-a-quote/thank-you/');
+    }
+  }
+
   const emailShape = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const valid =
     name.length > 0 && emailShape.test(email) && message.length > 0 && consent;
@@ -63,11 +75,15 @@ export async function submitLead(formData: FormData): Promise<void> {
   const webhookUrl = process.env.LEAD_WEBHOOK_URL;
   if (webhookUrl) {
     try {
-      await fetch(webhookUrl, {
+      const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(lead),
       });
+      if (!response.ok) {
+        // fetch does not throw on HTTP errors — surface them for ops follow-up.
+        console.error('[lead] webhook delivery failed', `HTTP ${response.status}`);
+      }
     } catch (error) {
       // Delivery failure must not lose the enquiry silently for the visitor;
       // log for ops follow-up. TODO (owner input #12): add a fallback channel.

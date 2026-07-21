@@ -12,7 +12,7 @@ export const locations: LocationArea[] = [
     province: 'Gauteng',
     title: 'Website Design & Development in Pretoria',
     metaDescription:
-      'Pretoria-based website design and development: SEO-first business websites, catalogues and custom systems, with in-person meetings across Pretoria and Centurion.',
+      'Pretoria-based website design and development: SEO-first business websites, catalogues and custom systems — in-person meetings across Pretoria and Centurion.',
     heading: 'Website design and development in Pretoria',
     intro:
       'We are based in Pretoria, which makes this the one page on this site where “local” means exactly that: scoping sessions over coffee in Menlyn or Centurion, on-site content walkthroughs at your premises, and a developer in the same time zone as your deadlines.',

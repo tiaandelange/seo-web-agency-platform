@@ -60,10 +60,12 @@ describe('sitemap generation', () => {
       expect(entry.url).toMatch(/^https?:\/\//);
       expect(entry.url.endsWith('/')).toBe(true);
     }
-    // Noindex URLs must never appear.
+    // Noindex URLs must never appear. (Scoped to /projects/ template case
+    // studies: /compare/custom-website-vs-template/ is a legitimately
+    // indexable comparison page whose slug also ends in "-template".)
     const urls = entries.map((e) => e.url);
     expect(urls.some((u) => u.includes('/thank-you/'))).toBe(false);
-    expect(urls.some((u) => u.includes('-template/'))).toBe(false);
+    expect(urls.some((u) => u.includes('/projects/') && u.endsWith('-template/'))).toBe(false);
   });
 });
 

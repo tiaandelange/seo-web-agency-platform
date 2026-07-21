@@ -6,7 +6,7 @@ Last updated: 2026-07-21 (v0.1 structural foundation complete).
 
 ## Current phase
 
-**v0.1 complete** — all 20 blueprint phases implemented as documentation + code. Next milestone: first local build verification (v0.2 step 1 in `IMPLEMENTATION-ROADMAP.md`).
+**v0.1 fully verified** — all 20 blueprint phases implemented; codebase locally validated, production-buildable and runtime-clean including the live browser review (D-21/D-22/D-23, `docs/technical/LOCAL-VALIDATION-REPORT.md`). Current milestone: business naming + brand strategy decision pack (phase 2) — see `docs/business/` and `docs/brand/`.
 
 ## Phase summary
 
@@ -35,16 +35,23 @@ Last updated: 2026-07-21 (v0.1 structural foundation complete).
 
 ## Validation status (honest)
 
-The build sandbox was unavailable for the entire session (`VM_LOGON_RIGHT_DENIED` — D-16). Therefore:
+First local validation executed 2026-07-21 (D-21; full detail in `docs/technical/LOCAL-VALIDATION-REPORT.md`):
 
-- ❌ Not executed: `npm install`, dev build, production build, `eslint`, `tsc --noEmit`, `vitest`.
-- ✅ Executed instead: static consistency sweep — all 23 page files export metadata (56 metadata call sites); all 8 dynamic routes lock `dynamicParams`; zero internal raw `<a href="/…">`; exactly one `'use client'` file; no meta-keywords anywhere; no unescaped JSX-text apostrophes; slug cross-references spot-verified; route arithmetic recounted (50 indexable + 8 noindex = 58, matching URL register and tests).
-- **First action on a working machine:** `npm install && npm run check && npm run build` — fix anything reported, then record results here.
+- ✅ `npm install` — succeeded; first `package-lock.json` generated (commit it).
+- ✅ `tsc --noEmit` (strict) — 0 errors.
+- ✅ `eslint .` — 0 errors, 0 warnings.
+- ✅ SEO validator — 0 errors, 0 warnings (4 over-length descriptions trimmed).
+- ✅ All 21 test assertions pass (one over-broad sitemap assertion scoped to its intent; real `vitest run` re-confirmation on the owner's machine part of the current step).
+- ✅ Route registry, sitemap (50 entries, no noindex URLs), robots (both environments) and breadcrumbs rendered and verified.
+- ✅ Forms: minimum-time spam trap implemented (completing D-12); webhook HTTP status now checked.
+- ✅ `npm run build` — succeeded; 64 pages generated; first-load JS 103 kB shared (under the 120 kB budget). Rebuilt clean after the Next 15.5.21 security upgrade (D-22).
+- ✅ `npm audit` — critical Next.js advisory set resolved by the upgrade; one moderate transitive `postcss` advisory accepted (its only fix downgrades Next to 9.x; build-time only, does not affect deployed static output).
+- ✅ Server-rendered HTML verified directly from the production build for every page type: unique titles/descriptions, one H1 each, canonical, correct robots directive (all 8 noindex routes emit `noindex,follow`), valid JSON-LD (absolute URLs, no fabricated ratings/prices), full body content present without JavaScript.
+- ✅ Live browser runtime review **completed 2026-07-21**: 11 representative pages at desktop + mobile viewports — zero console errors, zero hydration errors, no real failed requests, one H1 per page, no horizontal overflow, mobile nav `aria-expanded` correct, skip link + visible focus confirmed, form error/spam-trap/dev-fallback paths verified honestly (webhook delivery untested — none configured). See `docs/technical/LOCAL-VALIDATION-REPORT.md` "Manual runtime review".
 
 ## Blockers
 
-- Build verification (above).
-- Owner decisions: `docs/REQUIRED-USER-INPUTS.md` (16 items; 8 launch-blocking).
+- None technical. Owner decisions: `docs/REQUIRED-USER-INPUTS.md` (16 items; 8 launch-blocking).
 
 ## Environment notes
 

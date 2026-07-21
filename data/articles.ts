@@ -114,7 +114,7 @@ export const articles: Article[] = [
     category: 'website-cost-guides',
     title: 'How to Choose a Website Development Company in South Africa',
     metaDescription:
-      'How to choose a website development company in South Africa: the questions that expose method, the red flags that predict regret, and a practical shortlist test.',
+      'How to choose a website development company in South Africa: the questions that expose method, the red flags that predict regret, and a simple shortlist test.',
     heading: 'How to choose a website development company in South Africa',
     intro:
       'Every provider shows you their best three sites and says the right words about “SEO-friendly” and “mobile-first”. This guide gives you the questions that separate method from marketing, the red flags that reliably predict regret, and a simple shortlist test.',
@@ -152,7 +152,7 @@ export const articles: Article[] = [
     category: 'seo-guides',
     title: 'What Is an SEO-First Website?',
     metaDescription:
-      'What an SEO-first website actually means: architecture from search demand, one page per intent, technical standards Google rewards — and what it deliberately is not.',
+      'What an SEO-first website means: architecture from search demand, one page per intent, technical standards Google rewards — and what it deliberately is not.',
     heading: 'What is an SEO-first website?',
     intro:
       '“SEO-friendly” has been marketed into meaninglessness. An SEO-first website is something specific: a site whose page list, structure and technical build are derived from researched search demand before design begins. Here is what that means in practice — and what it does not promise.',
