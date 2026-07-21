@@ -1,5 +1,7 @@
 # Target customers
 
+Re-affirmed 2026-07-21 during the positioning re-verification (`POSITIONING-STRATEGY.md`): segment budgets remain consistent with the professional tier observed in 2026 pricing sources (professional builds R25k–R60k, custom applications R80k+ — symaxx.com/web-design/pricing, accessed 2026-07-21). Segments 1–3 are the launch priority; the positioning answers for these buyers are formalised in `BRAND-POSITIONING-STATEMENT.md`.
+
 ## Primary segments (Direction 2)
 
 ### 1. Contractors and trade businesses

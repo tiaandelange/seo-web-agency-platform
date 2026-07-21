@@ -6,7 +6,7 @@ Last updated: 2026-07-21 (v0.1 structural foundation complete).
 
 ## Current phase
 
-**v0.1 fully verified** — all 20 blueprint phases implemented; codebase locally validated, production-buildable and runtime-clean including the live browser review (D-21/D-22/D-23, `docs/technical/LOCAL-VALIDATION-REPORT.md`). Current milestone: business naming + brand strategy decision pack (phase 2) — see `docs/business/` and `docs/brand/`.
+**v0.1 fully verified; brand-phase decision pack complete (2026-07-21)** — codebase locally validated, production-buildable and runtime-clean including the live browser review (D-21/D-22/D-23, `docs/technical/LOCAL-VALIDATION-REPORT.md`). The naming/positioning/messaging/pricing/brand-direction decision pack is prepared and awaiting owner decisions: positioning re-verified (`docs/business/POSITIONING-STRATEGY.md`), name research + recommendation (`docs/business/FOUNDER-NAME-DECISION.md` — Datum Web Systems recommended, checks provisional), messaging (`docs/business/MESSAGING-FRAMEWORK.md`), service/pricing/support decisions (`docs/business/*-DECISION.md`), three name-adaptable brand directions with A recommended (`docs/brand/`), evidence register (`docs/content/EVIDENCE-REQUIREMENTS.md`) and the visual implementation plan (`docs/brand/VISUAL-IMPLEMENTATION-PLAN.md`). Agent guardrails now version-controlled (`AGENTS.md`, `.cursor/rules/`). **Next action: owner decisions** — then official name/domain/trademark verification, then the config swap and visual phase.
 
 ## Phase summary
 

@@ -1,8 +1,10 @@
 # Differentiation
 
-## The market gap (from 2026 SERP research)
+## The market gap (2026 SERP research; re-verified 2026-07-21)
 
-The SA web-design SERPs split into: (a) volume template sellers competing on price from R1,990; (b) brand/design agencies selling aesthetics to funded companies; (c) offshore/software firms selling development capacity. Almost nobody speaks to technical and industrial SMEs about *measurable lead generation plus the systems behind it*.
+The SA web-design SERPs split into: (a) volume template sellers competing on price from R1,500–R8,000 with subscription models from R179/month (shepherddesignedit.co.za, cjxstudio.co.za, jwd.co.za — accessed 2026-07-21); (b) brand/design agencies selling aesthetics to funded companies; (c) offshore/software firms selling development capacity. Few speak to technical and industrial SMEs about *measurable lead generation plus the systems behind it*.
+
+**Honest update (2026-07-21):** the industrial niche is not empty. WebproX (Boksburg) targets East Rand manufacturing/logistics with SEO-integrated builds; New Perspective Design (East London) publishes a manufacturing/industrial specialism and a headless-WordPress + Next.js case study with custom wholesale logic; CubicICE (Johannesburg) sells industrial marketing (all accessed 2026-07-21 — sources in `POSITIONING-STRATEGY.md`). Our edge is therefore the **combination** — engineering-led delivery, SEO-decided architecture, modern stack, and the in-house systems expansion path — not the niche alone.
 
 ## Claims we can truthfully make from day one
 

@@ -4,7 +4,7 @@ Decisions only the owner can make. Nothing on this list blocks local development
 
 | # | Decision | Where it lands | Blocks launch? |
 |---|---|---|---|
-| 1 | Final business name (see `docs/business/NAME-SHORTLIST.md`) + CIPC name reservation/registration | `config/brand.ts` → `name`, `legalName` | Yes |
+| 1 | Final business name — full research + recommendation now in `docs/business/FOUNDER-NAME-DECISION.md` (recommended: Datum Web Systems; all checks provisional) + CIPC name reservation/registration | `config/brand.ts` → `name`, `legalName` | Yes |
 | 2 | Final domain (`.co.za` recommended) and preferred host (`www` vs apex) | `NEXT_PUBLIC_SITE_URL`, DNS, canonicalisation | Yes |
 | 3 | Verified contact details: phone, email, WhatsApp number | `config/brand.ts` → `contact` | Yes |
 | 4 | Publish a physical address? (If no: remain a service-area business in GBP and schema) | `config/brand.ts` → `address`, GBP setup | Yes |
@@ -17,6 +17,6 @@ Decisions only the owner can make. Nothing on this list blocks local development
 | 11 | Google accounts: Search Console, GA4 property, Google Business Profile | Env vars + launch checklists | Yes (GSC), GA optional |
 | 12 | Lead-delivery choice: email provider (e.g. Resend/SMTP) or webhook for form submissions | `LEAD_WEBHOOK_URL` + `lib/actions.ts` TODO | Yes |
 | 13 | Social profiles to create/link (LinkedIn recommended first) | `config/brand.ts` → `social`, Organization schema `sameAs` | No |
-| 14 | Final brand and visual direction (phase 2 — see recommended next prompt in the final report) | Design tokens in `app/globals.css` | No |
-| 15 | Sign-off on recommended positioning (Direction 2) and the working service list | Business docs | No |
+| 14 | Final brand and visual direction — three complete directions prepared, A recommended: `docs/brand/FOUNDER-BRAND-DECISION.md` | Design tokens in `app/globals.css` | No |
+| 15 | Sign-off on recommended positioning (Direction 2, re-verified 2026-07-21: `docs/business/BRAND-POSITIONING-STATEMENT.md`) and the launch service/pricing/support decisions (`docs/business/LAUNCH-SERVICE-DECISION.md`, `PRICING-DECISION.md`, `SUPPORT-PACKAGE-DECISION.md`) | Business docs | No |
 | 16 | Trademark screening for the chosen name (attorney or CIPC/TMView search) | Name shortlist | Advisable before spend |
