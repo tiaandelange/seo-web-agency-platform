@@ -1,0 +1,60 @@
+url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_navigation,parent,launch_phase,primary_keyword_cluster
+/,SEO-First Website Development Company in South Africa,homepage,live-skeleton,index,self,yes,logo,,1,website development company south africa
+/services/,Web Development Services,hub,live-skeleton,index,self,yes,header+footer,/,1,web development services south africa
+/services/business-websites/,Business Website Design,service,live-skeleton,index,self,yes,footer,/services/,1,business website design south africa
+/services/lead-generation-websites/,Lead Generation Website Design,service,live-skeleton,index,self,yes,footer,/services/,1,lead generation website design
+/services/product-catalogue-websites/,Product Catalogue Website Development,service,live-skeleton,index,self,yes,footer,/services/,1,product catalogue website south africa
+/services/ecommerce-websites/,Ecommerce Website Development,service,live-skeleton,index,self,yes,footer,/services/,1,ecommerce website development south africa
+/services/custom-web-applications/,Custom Web Application Development,service,live-skeleton,index,self,yes,footer,/services/,1,custom web application development south africa
+/services/admin-panel-development/,Admin Panel Development,service,live-skeleton,index,self,yes,none,/services/,1,admin panel development
+/services/rfq-and-quotation-systems/,RFQ & Quotation System Development,service,live-skeleton,index,self,yes,none,/services/,1,quotation system development
+/services/customer-and-supplier-portals/,Customer & Supplier Portal Development,service,live-skeleton,index,self,yes,none,/services/,1,customer portal development
+/services/website-redesign/,Website Redesign Services,service,live-skeleton,index,self,yes,none,/services/,1,website redesign south africa
+/services/seo-website-development/,SEO Website Development,service,live-skeleton,index,self,yes,none,/services/,1,seo website design south africa
+/services/website-maintenance-and-support/,Website Maintenance & Support,service,live-skeleton,index,self,yes,footer,/services/,1,website maintenance south africa
+/solutions/,Industry Solutions,hub,live-skeleton,index,self,yes,header,/,1,websites by industry
+/solutions/contractors/,Websites for Contractors,solution,live-skeleton,index,self,yes,none,/solutions/,1,websites for contractors
+/solutions/engineering-companies/,Websites for Engineering Companies,solution,live-skeleton,index,self,yes,none,/solutions/,1,engineering company website
+/solutions/manufacturers-and-suppliers/,Websites for Manufacturers & Suppliers,solution,live-skeleton,index,self,yes,none,/solutions/,1,manufacturer website design
+/solutions/property-businesses/,Websites & Systems for Property Businesses,solution,live-skeleton,index,self,yes,none,/solutions/,1,property business website
+/solutions/professional-services/,Websites for Professional Services Firms,solution,live-skeleton,index,self,yes,none,/solutions/,1,website for professional services
+/solutions/small-businesses/,Websites for Small Businesses,solution,live-skeleton,index,self,yes,none,/solutions/,1,small business website south africa
+/website-packages/,Website Packages & Pricing,hub,live-skeleton,index,self,yes,header+footer,/,1,business website packages south africa
+/website-packages/starter-business-website/,Starter Business Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,starter website package
+/website-packages/professional-business-website/,Professional Business Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,professional website package
+/website-packages/product-catalogue-website/,Product Catalogue Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,product catalogue website package
+/website-packages/ecommerce-website/,Ecommerce Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,ecommerce website package
+/website-packages/custom-web-system/,Custom Web System,package,live-skeleton,index,self,yes,none,/website-packages/,1,custom web system
+/projects/,Projects & Case Studies,hub,live-skeleton,index,self,yes,header+footer,/,1,web development portfolio south africa
+/projects/websites/,Website Projects,project-category,live-skeleton,noindex,self,no,none,/projects/,1,(noindex until real projects — D-07)
+/projects/ecommerce/,Ecommerce Projects,project-category,live-skeleton,noindex,self,no,none,/projects/,1,(noindex until real projects — D-07)
+/projects/admin-systems/,Admin & System Projects,project-category,live-skeleton,noindex,self,no,none,/projects/,1,(noindex until real projects — D-07)
+/projects/contractor-website-template/,Case Study Template: Contractor Website,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
+/projects/catalogue-rfq-website-template/,Case Study Template: Catalogue & RFQ Website,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
+/projects/property-management-system-template/,Case Study Template: Property Management System,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
+/projects/admin-quotation-platform-template/,Case Study Template: Admin & Quotation Platform,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
+/resources/,Guides & Resources,hub,live-skeleton,index,self,yes,header+footer,/,1,web development guides
+/resources/website-cost-guides/,Website Cost Guides,resource-category,live-skeleton,index,self,yes,none,/resources/,1,website cost guides
+/resources/seo-guides/,SEO Guides,resource-category,live-skeleton,index,self,yes,none,/resources/,1,seo guides for business
+/resources/website-cost-south-africa/,How Much Does a Website Cost in South Africa?,article,draft-live,index,self,yes,none,/resources/website-cost-guides/,1,website cost south africa
+/resources/choosing-a-website-development-company/,How to Choose a Website Development Company in South Africa,article,draft-live,index,self,yes,none,/resources/website-cost-guides/,1,how to choose a web developer
+/resources/what-is-an-seo-first-website/,What Is an SEO-First Website?,article,draft-live,index,self,yes,none,/resources/seo-guides/,1,what is seo website design
+/compare/,Comparisons,hub,live-skeleton,index,self,yes,footer,/,1,website decision comparisons
+/compare/custom-website-vs-template/,Custom Website vs Template: Which Should You Choose?,comparison,live-skeleton,index,self,yes,none,/compare/,1,custom website vs template
+/compare/wordpress-vs-nextjs/,WordPress vs Next.js for Business Websites,comparison,live-skeleton,index,self,yes,none,/compare/,1,wordpress vs nextjs
+/compare/website-vs-web-application/,Website vs Web Application: What Does Your Business Need?,comparison,live-skeleton,index,self,yes,none,/compare/,1,website vs web application
+/compare/website-maintenance-options/,Website Maintenance Options Compared,comparison,live-skeleton,index,self,yes,none,/compare/,1,website maintenance options
+/areas-we-serve/,Areas We Serve,hub,live-skeleton,index,self,yes,footer,/,1,web development south africa areas
+/areas-we-serve/pretoria/,Website Design & Development in Pretoria,location,live-skeleton,index,self,yes,none,/areas-we-serve/,1,website design pretoria
+/areas-we-serve/johannesburg/,Website Design & Development in Johannesburg,location,live-skeleton,index,self,yes,none,/areas-we-serve/,1,website design johannesburg
+/areas-we-serve/cape-town/,Website Design & Development in Cape Town,location,planned,not-generated,self,no,none,/areas-we-serve/,2,website design cape town
+/about/,About Us,about,live-skeleton,index,self,yes,footer,/,1,about (navigational)
+/process/,Our Web Development Process,process,live-skeleton,index,self,yes,footer,/,1,web development process
+/pricing/,Website Design Pricing,pricing,live-skeleton,index,self,yes,header+footer,/,1,website design prices south africa
+/faq/,Frequently Asked Questions,faq,live-skeleton,index,self,yes,footer,/,1,web development company faq
+/contact/,Contact Us,contact,live-skeleton,index,self,yes,header+footer,/,1,contact web developer
+/request-a-quote/,Request a Quote,quote,live-skeleton,index,self,yes,cta,/,1,request website quote
+/request-a-quote/thank-you/,Thank You,utility,live-skeleton,noindex,self,no,none,/request-a-quote/,1,(conversion completion — noindex)
+/legal/privacy-policy/,Privacy Policy,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
+/legal/terms-of-service/,Terms of Service,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
+/legal/cookie-policy/,Cookie Policy,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
