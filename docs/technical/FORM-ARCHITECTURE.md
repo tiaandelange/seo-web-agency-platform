@@ -10,28 +10,29 @@
 
 File upload (briefs/plans): deliberately NOT rendered at v0.1 — needs a storage decision (size limits, virus scanning, POPIA retention). Documented here as the designed extension: add `<input type="file">` posting to the same action once storage is chosen.
 
-## Processing flow (implemented in `lib/actions.ts`, server action)
+## Processing flow (`lib/actions.ts` → `lib/lead-delivery.ts`)
 
-1. Server action receives FormData (no client JS required — form works with JS disabled; progressive enhancement can come later).
-2. Spam gate: honeypot field must be empty; (documented option) minimum-elapsed-time check against the rendered timestamp; both silent-discard on failure (bots get a generic success).
-3. Validation: required fields present, email shape, message length caps (anti-abuse), field-length limits.
-4. Delivery: if `LEAD_WEBHOOK_URL` is set → POST JSON to it (email service, Zapier/Make, or own endpoint). If unset → server-side log only (dev mode). **No secrets in client code; no direct SMTP from the browser — ever.**
-5. Redirect to `/request-a-quote/thank-you/` (noindex) — the reliable conversion point.
-6. Failure path: redirect back with `?error=1` (page renders a polite retry notice); no data loss beyond the attempt (documented enhancement: session-less repopulation is deliberately skipped at v0.1).
+1. Server action receives FormData (no client JS required).
+2. Spam gate: honeypot empty; minimum-elapsed-time ≥3s when `rendered_at` is parseable; both silent-discard on failure (bots get thank-you without delivery).
+3. Validation: required fields, email shape, length caps. Failure → `?error=1`.
+4. Delivery via `deliverLead()`:
+   - `LEAD_DELIVERY_PROVIDER=webhook` → POST JSON to `LEAD_WEBHOOK_URL` (optional `LEAD_WEBHOOK_SECRET` bearer).
+   - `LEAD_DELIVERY_PROVIDER=resend` → Resend HTTP API (`LEAD_DELIVERY_API_KEY` / `RESEND_API_KEY`, `LEAD_TO_EMAIL`, `LEAD_FROM_EMAIL` verified domain).
+   - `log` / unset → server metadata log only (dev).
+5. Delivery **success** → `/request-a-quote/thank-you/` (noindex).
+6. Delivery **failure** → `?error=1` on the form page (never a false thank-you). Ops log: submission id, provider, reason, form type, timestamp — no message body.
 
 ## POPIA / consent model
 
-- Consent checkbox label states: purpose (respond to the enquiry), storage, no third-party sharing beyond the processing provider, and links the privacy policy. Unchecked = submission rejected server-side.
-- Data minimisation: we ask only what a quote needs; budget is a band, not an amount.
-- Retention + information-officer details go in the privacy policy (owner input #10; legal review required — pages are marked placeholder drafts).
-- Analytics cookies are separate from form consent — see ANALYTICS-EVENTS.md; no analytics loads at v0.1.
+- Consent checkbox required server-side; label links `/legal/privacy-policy/`.
+- Data minimisation: budget is a band, not an amount.
+- Processors (hosting + email/webhook) named in the privacy policy draft.
 
 ## Anti-spam roadmap
 
-v0.1: honeypot (+ time-trap ready). If spam appears: add Cloudflare Turnstile (privacy-friendlier than reCAPTCHA) — keyed via env, server-verified in the action. Never block on JS-dependent CAPTCHA without a fallback contact path (email link remains).
+v0.1: honeypot + time trap. If spam appears: Cloudflare Turnstile via env, server-verified.
 
 ## Security notes
 
-- Server action validates everything server-side regardless of any client validation.
-- Rate limiting: platform-level (Vercel) at v0.1; in-action IP throttle documented as an option if abuse appears.
-- No form data is ever written into URLs (except the boolean `?error=1`) or logged with PII in production log drains.
+- No secrets in client bundles; no SMTP from the browser.
+- Rate limiting: platform-level (Vercel) at v0.1.

@@ -1,12 +1,15 @@
 'use server';
 
 import { redirect } from 'next/navigation';
+import { deliverLead } from '@/lib/lead-delivery';
 
 /**
  * Lead-form server action — docs/technical/FORM-ARCHITECTURE.md.
  * - Honeypot check (silent discard: bots see success).
+ * - Minimum-time trap (silent discard).
  * - Server-side validation regardless of client behaviour.
- * - Delivery: POST to LEAD_WEBHOOK_URL when configured; otherwise server log.
+ * - Delivery via lib/lead-delivery.ts (webhook | resend | log).
+ * - Delivery failure → error redirect (never a false thank-you).
  * - Never exposes secrets to the client; never sends email from client code.
  */
 
@@ -45,7 +48,6 @@ export async function submitLead(formData: FormData): Promise<void> {
   if (renderedAt) {
     const renderedMs = Date.parse(renderedAt);
     if (!Number.isNaN(renderedMs) && Date.now() - renderedMs < 3000) {
-      // Silent discard, same as the honeypot.
       redirect('/request-a-quote/thank-you/');
     }
   }
@@ -72,32 +74,25 @@ export async function submitLead(formData: FormData): Promise<void> {
     submittedAt: new Date().toISOString(),
   };
 
-  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
-  if (webhookUrl) {
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(lead),
-      });
-      if (!response.ok) {
-        // fetch does not throw on HTTP errors — surface them for ops follow-up.
-        console.error('[lead] webhook delivery failed', `HTTP ${response.status}`);
-      }
-    } catch (error) {
-      // Delivery failure must not lose the enquiry silently for the visitor;
-      // log for ops follow-up. TODO (owner input #12): add a fallback channel.
-      console.error('[lead] webhook delivery failed', error);
-    }
-  } else {
-    // Development / not-yet-configured mode: server-side log only (no PII in
-    // production log drains — configure the webhook before launch).
-    console.log('[lead] received (no LEAD_WEBHOOK_URL configured)', {
+  const result = await deliverLead(lead);
+
+  if (!result.ok) {
+    console.error('[lead] delivery failed', {
+      submissionId: result.submissionId,
+      provider: result.provider,
+      reason: result.reason,
       formType: lead.formType,
-      serviceInterest: lead.serviceInterest,
       submittedAt: lead.submittedAt,
     });
+    redirect(`${returnPath}?error=1`);
   }
+
+  console.log('[lead] delivery ok', {
+    submissionId: result.submissionId,
+    provider: result.provider,
+    formType: lead.formType,
+    submittedAt: lead.submittedAt,
+  });
 
   redirect('/request-a-quote/thank-you/');
 }
