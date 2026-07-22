@@ -131,7 +131,7 @@ export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contac
         <input id={`consent_${formType}`} name="consent" type="checkbox" required className="mt-1 h-4 w-4" />
         <label htmlFor={`consent_${formType}`} className="text-sm leading-relaxed text-muted">
           I consent to my details being used to respond to this enquiry, as described in the{' '}
-          <Link href="/legal/privacy-policy/" className="text-accent underline">
+          <Link href="/legal/privacy-policy/" className="text-link underline">
             privacy policy
           </Link>
           . (Required)
@@ -140,7 +140,7 @@ export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contac
 
       <button
         type="submit"
-        className="rounded-card bg-accent px-6 py-3 font-semibold text-accent-contrast hover:opacity-90"
+        className="rounded-card bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90"
       >
         {isQuote ? 'Send proposal request' : 'Send message'}
       </button>

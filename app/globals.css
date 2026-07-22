@@ -1,26 +1,45 @@
 @import 'tailwindcss';
 
 /*
- * DESIGN TOKENS — deliberately neutral (blueprint Phase 10).
- * The visual-identity phase replaces values here (and only here) —
- * see docs/prompts/18-visual-theme-development.md. Contrast floors:
- * body text ≥4.5:1, UI/large ≥3:1 (docs/technical/ACCESSIBILITY-STANDARDS.md).
+ * KOPPIE SYSTEMS design tokens
+ * Source: docs/brand/KOPPIE-SYSTEMS-BRAND-IDENTITY.md
+ * Semantic names preserve re-theme capability; brand hexes map here only.
+ * Contrast floors: body ≥4.5:1, UI/large ≥3:1 (WCAG 2.2 AA).
  */
 @theme {
+  /* Semantic surfaces */
   --color-canvas: #ffffff;
-  --color-surface: #f6f7f8;
-  --color-ink: #16181d;
-  --color-muted: #4a5361;
-  --color-line: #e2e5e9;
-  --color-accent: #1f3a5f;
-  --color-accent-soft: #eef2f7;
+  --color-surface: #f6f7f4; /* Cloud White */
+  --color-ink: #14242b; /* Koppie Slate — headings, dark bands, strong UI */
+  --color-muted: #4a5560; /* Accessible secondary text on white/surface (~7:1) */
+  --color-line: #d6dbd9;
+  --color-accent: #1e6f6d; /* Mineral Teal — links & secondary (legacy text-accent) */
+  --color-accent-soft: #e8dfc9; /* Sandstone */
   --color-accent-contrast: #ffffff;
   --color-notice: #fff8e6;
   --color-notice-border: #e6d9a8;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  /* Brand-named semantic tokens */
+  --color-cta: #b85c24; /* Signal Copper — primary commercial action */
+  --color-cta-contrast: #ffffff;
+  --color-link: #1e6f6d; /* Mineral Teal */
+  --color-link-contrast: #ffffff;
+  --color-sandstone: #e8dfc9;
+  --color-graphite: #2c3338;
+  --color-success: #287453;
+  --color-warning: #b86e16;
+  --color-error: #a8433f;
+  --color-information: #3569a8;
+  --color-disabled: #7a8387;
+  --color-input: #fbfcfa;
 
-  --radius-card: 0.5rem;
+  --font-sans: var(--font-body), Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading), Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-technical), ui-monospace, monospace;
+
+  --radius-card: 0.625rem; /* 10px */
+  --shadow-card: 0 8px 24px rgba(20, 36, 43, 0.08);
+  --shadow-elevated: 0 16px 40px rgba(20, 36, 43, 0.14);
 }
 
 /* Base */
@@ -30,14 +49,31 @@ html {
 
 body {
   background-color: var(--color-canvas);
-  color: var(--color-ink);
+  color: var(--color-graphite);
   font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
 }
 
 /* Visible focus everywhere — never removed without replacement. */
 :focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-link);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -48,9 +84,11 @@ body {
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--color-accent);
-  color: var(--color-accent-contrast);
+  background: var(--color-cta);
+  color: var(--color-cta-contrast);
   padding: 0.5rem 1rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
 }
 .skip-link:focus {
   left: 0.5rem;
@@ -62,6 +100,27 @@ body {
   content: '›';
   margin: 0 0.5rem;
   color: var(--color-muted);
+}
+
+/* Contour + grid motif — lightweight CSS only (no raster, no JS). */
+.contour-grid {
+  background-image:
+    linear-gradient(115deg, transparent 0%, transparent 42%, rgba(232, 223, 201, 0.07) 42%, rgba(232, 223, 201, 0.07) 43%, transparent 43%),
+    linear-gradient(115deg, transparent 0%, transparent 55%, rgba(232, 223, 201, 0.05) 55%, rgba(232, 223, 201, 0.05) 56%, transparent 56%),
+    linear-gradient(115deg, transparent 0%, transparent 68%, rgba(184, 92, 36, 0.08) 68%, rgba(184, 92, 36, 0.08) 69%, transparent 69%),
+    radial-gradient(circle at 1px 1px, rgba(232, 223, 201, 0.18) 1px, transparent 0);
+  background-size: auto, auto, auto, 28px 28px;
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+.shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 /* Reduced motion: kill animation/transitions globally. */
