@@ -10,7 +10,7 @@
 
 import { sendContactSubmission } from '@/lib/email/send-contact-emails';
 import { sendProposalSubmission } from '@/lib/email/send-proposal-emails';
-import { getEmailDeliveryMode } from '@/lib/email/config';
+import { getEmailDeliveryMode, resolveResendEmailConfig } from '@/lib/email/config';
 
 export type LeadPayload = {
   formType: string;
@@ -234,7 +234,20 @@ export async function deliverLead(lead: LeadPayload): Promise<LeadDeliveryResult
         });
         return { ok: true, provider: 'log', submissionId };
       }
-      return deliverContactOrProposalTemplates(lead);
+
+      // Prefer hosted templates when fully configured; otherwise keep delivering
+      // via legacy text so a partial Resend setup cannot block real enquiries.
+      const templatesReady = resolveResendEmailConfig();
+      if (templatesReady.ok) {
+        return deliverContactOrProposalTemplates(lead);
+      }
+
+      console.warn('[lead] Resend templates incomplete — falling back to legacy text', {
+        submissionId,
+        formType: lead.formType,
+        reason: templatesReady.reason,
+      });
+      return deliverResendLegacyText(lead, submissionId);
     }
     // SEO-audit intake and other form types: legacy text until dedicated templates exist
     return deliverResendLegacyText(lead, submissionId);

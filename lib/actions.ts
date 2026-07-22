@@ -67,7 +67,7 @@ export async function submitLead(formData: FormData): Promise<void> {
     website.ok;
 
   if (!valid) {
-    redirect(`${returnPath}?error=1`);
+    redirect(`${returnPath}?error=validation`);
   }
 
   const lead = {
@@ -95,7 +95,7 @@ export async function submitLead(formData: FormData): Promise<void> {
       formType: lead.formType,
       submittedAt: lead.submittedAt,
     });
-    redirect(`${returnPath}?error=1`);
+    redirect(`${returnPath}?error=delivery`);
   }
 
   console.log('[lead] delivery ok', {

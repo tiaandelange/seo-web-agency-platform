@@ -45,8 +45,9 @@ export default async function ContactPage({
             role="alert"
             className="max-w-2xl rounded-card border border-error/40 bg-notice p-4 text-ink"
           >
-            We could not complete that submission. Please check the required fields and try again.
-            If the problem continues, call, WhatsApp or email us using the details below.
+            {error === 'delivery'
+              ? 'We could not send your enquiry right now. Please try again shortly, or call, WhatsApp or email us using the details below.'
+              : 'We could not complete that submission. Please check the required fields and try again. If the problem continues, call, WhatsApp or email us using the details below.'}
           </p>
         </Container>
       )}
