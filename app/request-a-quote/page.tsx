@@ -110,9 +110,9 @@ export default async function RequestQuotePage({
             role="alert"
             className="max-w-2xl rounded-card border border-error/40 bg-notice p-4 text-ink"
           >
-            We could not complete that submission. Please check the required fields (name, email,
-            service, project description and consent) and try again. If delivery fails repeatedly,
-            call or WhatsApp us.
+            {error === 'delivery'
+              ? 'We could not send your enquiry right now. Please try again shortly, or call or WhatsApp us using the details on this site.'
+              : 'We could not complete that submission. Please check the required fields (name, email, service, project description and consent) and try again. If the problem continues, call or WhatsApp us.'}
           </p>
         </Container>
       )}

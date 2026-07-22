@@ -137,4 +137,29 @@ describe('deliverLead', () => {
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.reason).toContain('401');
   });
+
+  it('falls back to legacy Resend text when templates are incomplete', async () => {
+    vi.stubEnv('LEAD_DELIVERY_PROVIDER', 'resend');
+    vi.stubEnv('RESEND_API_KEY', 're_test');
+    vi.stubEnv('LEAD_TO_EMAIL', 'ops@example.com');
+    vi.stubEnv('LEAD_FROM_EMAIL', 'leads@koppiesystems.co.za');
+    vi.stubEnv('RESEND_TEMPLATE_CONTACT_INTERNAL', '');
+    vi.stubEnv('RESEND_TEMPLATE_CONTACT_CONFIRMATION', '');
+    vi.stubEnv('RESEND_TEMPLATE_PROPOSAL_INTERNAL', '');
+    vi.stubEnv('RESEND_TEMPLATE_PROPOSAL_CONFIRMATION', '');
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await deliverLead(baseLead);
+
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.provider).toBe('resend');
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://api.resend.com/emails',
+      expect.objectContaining({ method: 'POST' })
+    );
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.text).toBeDefined();
+    expect(body.template).toBeUndefined();
+  });
 });
