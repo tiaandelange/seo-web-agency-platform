@@ -8,7 +8,7 @@ export function SiteFooter() {
   const hasContact = Boolean(brand.contact.phone || email || brand.contact.whatsapp);
 
   return (
-    <footer className="mt-16 border-t border-line bg-ink text-accent-contrast">
+    <footer className="band-ink mt-16 border-t border-line">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {footerColumns.map((column) => (

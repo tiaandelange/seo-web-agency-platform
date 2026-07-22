@@ -42,6 +42,9 @@
   --radius-card: 0.625rem; /* 10px */
   --shadow-card: 0 8px 24px rgba(20, 36, 43, 0.08);
   --shadow-elevated: 0 16px 40px rgba(20, 36, 43, 0.14);
+
+  /* Default heading colour; overridden inside .band-ink (dark sections). */
+  --heading-color: var(--color-ink);
 }
 
 /* Base */
@@ -64,7 +67,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-ink);
+  color: var(--heading-color);
   font-family: var(--font-heading);
   line-height: 1.2;
 }
@@ -104,6 +107,13 @@ h6 {
   color: var(--color-muted);
 }
 
+/* Dark ink band — hero, footer. Headings inherit light text; explicit text-* utilities still win. */
+.band-ink {
+  --heading-color: var(--color-accent-contrast);
+  background-color: var(--color-ink);
+  color: var(--color-accent-contrast);
+}
+
 /* Contour + grid motif — lightweight CSS only (no raster, no JS). */
 .contour-grid {
   background-image:
@@ -125,6 +135,127 @@ h6 {
   font-family: var(--font-mono);
 }
 
+/* —— Homepage editorial system —— */
+.home-container {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1rem;
+}
+
+.home-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-cta);
+}
+
+.home-display {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.home-heading-major {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.home-heading-functional {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.home-select {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  background-color: var(--color-input);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-ink);
+}
+
+.home-system-canvas {
+  box-shadow: var(--shadow-elevated);
+}
+
+.home-cap-label {
+  display: block;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.home-cap-label:hover {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.home-cap-panel {
+  display: none;
+}
+
+.home-capability-map:has(.cap-radio-lead-gen:checked) .home-cap-panel-lead-gen,
+.home-capability-map:has(.cap-radio-catalogue:checked) .home-cap-panel-catalogue,
+.home-capability-map:has(.cap-radio-ecommerce:checked) .home-cap-panel-ecommerce,
+.home-capability-map:has(.cap-radio-systems:checked) .home-cap-panel-systems,
+.home-capability-map:has(.cap-radio-maintenance:checked) .home-cap-panel-maintenance {
+  display: block;
+}
+
+.home-capability-map:has(.cap-radio-lead-gen:checked) label[for='cap-lead-gen'],
+.home-capability-map:has(.cap-radio-catalogue:checked) label[for='cap-catalogue'],
+.home-capability-map:has(.cap-radio-ecommerce:checked) label[for='cap-ecommerce'],
+.home-capability-map:has(.cap-radio-systems:checked) label[for='cap-systems'],
+.home-capability-map:has(.cap-radio-maintenance:checked) label[for='cap-maintenance'] {
+  border-left-color: var(--color-cta);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.technical-grid {
+  background-image:
+    linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.home-flow-line {
+  width: 1px;
+  min-height: 1.5rem;
+  background: linear-gradient(to bottom, var(--color-cta), transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-workflow-step {
+    animation: home-fade-in 0.5s ease both;
+  }
+  .home-workflow-step:nth-child(2) { animation-delay: 0.08s; }
+  .home-workflow-step:nth-child(3) { animation-delay: 0.16s; }
+  .home-workflow-step:nth-child(4) { animation-delay: 0.24s; }
+  .home-workflow-step:nth-child(5) { animation-delay: 0.32s; }
+}
+
+@keyframes home-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Reduced motion: kill animation/transitions globally. */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -135,4 +266,100 @@ h6 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* —— Projects hub —— */
+.projects-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-cta);
+}
+
+.projects-display {
+  font-family: var(--font-heading);
+  font-size: clamp(2.125rem, 4.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.projects-heading-functional {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.projects-trust-note {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-showcase-card:hover .project-layer-1,
+  .project-showcase-card:focus-within .project-layer-1 {
+    transform: translate(-2px, -3px) scale(1.02);
+  }
+  .project-showcase-card:hover .project-layer-2,
+  .project-showcase-card:focus-within .project-layer-2 {
+    transform: translate(3px, -5px) scale(1.015);
+  }
+  .project-showcase-card:hover .project-layer-3,
+  .project-showcase-card:focus-within .project-layer-3 {
+    transform: translate(-4px, 4px);
+  }
+  .project-showcase-card:hover .project-layer-4,
+  .project-showcase-card:focus-within .project-layer-4 {
+    transform: translate(5px, 6px);
+  }
+}
+
+.project-layer {
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.engine-connector {
+  stroke: #2dd4bf;
+  stroke-linecap: round;
+  transition: stroke-width 0.3s;
+}
+
+.engine-connector-complete {
+  stroke: rgba(45, 212, 191, 0.55);
+}
+
+.engine-connector-active {
+  stroke: #22d3ee;
+  stroke-dasharray: 6 4;
+  animation: engine-dash 0.8s linear infinite;
+}
+
+@keyframes engine-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .engine-node-pulse {
+    animation: engine-pulse 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes engine-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.engine-formula .kw {
+  color: #67e8f9;
 }

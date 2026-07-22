@@ -5,13 +5,15 @@ export function Section({
   heading,
   children,
   tone = 'plain',
+  id,
 }: {
   heading?: string;
   children: React.ReactNode;
   tone?: 'plain' | 'surface';
+  id?: string;
 }) {
   return (
-    <section className={tone === 'surface' ? 'bg-surface' : ''}>
+    <section id={id} className={tone === 'surface' ? 'bg-surface' : ''}>
       <div className="mx-auto max-w-6xl px-4 py-10">
         {heading && (
           <h2 className="mb-6 text-2xl font-bold tracking-tight text-ink">{heading}</h2>
