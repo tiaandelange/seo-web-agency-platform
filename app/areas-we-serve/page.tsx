@@ -12,7 +12,7 @@ import { getLiveLocations } from '@/data/locations';
 const PATH = '/areas-we-serve/';
 const TITLE = 'Areas We Serve';
 const DESCRIPTION =
-  'Where we work: based in Pretoria, serving Johannesburg and clients across South Africa — with honest pages only for areas we genuinely serve.';
+  'Based in Pretoria and serving businesses throughout South Africa — with honest location pages only for areas we genuinely serve.';
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -24,7 +24,7 @@ export default function AreasPage() {
       <Breadcrumbs path={PATH} />
       <PageHeader
         heading="Areas we serve"
-        intro="We are based in Pretoria and work with clients across South Africa — websites and systems deliver perfectly well remotely. The pages below exist only for areas where we can say something genuinely local; you will not find a hundred interchangeable town pages here."
+        intro="We are based in Pretoria and work with businesses throughout South Africa — websites and systems deliver well remotely. The pages below exist only for areas where we can say something genuinely local; you will not find interchangeable town pages here."
       />
       <Section>
         <CardGrid>

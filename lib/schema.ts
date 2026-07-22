@@ -52,6 +52,7 @@ export function websiteSchema(): SchemaObject {
  * Address is emitted only when a real address is configured (A-03).
  */
 export function professionalServiceSchema(areaServed?: string[]): SchemaObject {
+  const email = publicEmail();
   return {
     '@context': CONTEXT,
     '@type': 'ProfessionalService',
@@ -61,7 +62,7 @@ export function professionalServiceSchema(areaServed?: string[]): SchemaObject {
     description: brand.description,
     areaServed: (areaServed ?? brand.serviceAreas).map((name) => ({ '@type': 'Place', name })),
     ...(brand.contact.phone ? { telephone: brand.contact.phone } : {}),
-    ...(brand.contact.email ? { email: brand.contact.email } : {}),
+    ...(email ? { email } : {}),
     ...(brand.address
       ? {
           address: {
