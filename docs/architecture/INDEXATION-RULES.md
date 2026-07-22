@@ -10,7 +10,7 @@ Single mechanism: every route in `lib/routes.ts` carries `index: boolean` + `inS
 | 2 | Project case-study templates: noindex, out of sitemap, until `publishPermission: true` **and** `placeholder: false` | D-07; flags in `content/projects/*` |
 | 3 | Project category listings: noindex while they contain zero real projects | computed in `lib/routes.ts` from project data |
 | 4 | Resource categories generate only when they contain ≥1 live article | D-18; planned categories 404 until then |
-| 5 | `/request-a-quote/thank-you/`: noindex, follow, out of sitemap | conversion URL must never earn organic entrances |
+| 5 | `/request-a-quote/thank-you/` and `/seo-audit/thank-you/` (+ `/seo-audit/intake/`): noindex, follow, out of sitemap | conversion URLs must never earn organic entrances |
 | 6 | Location pages only for genuinely served areas with unique content | D-08; new ones require owner sign-off |
 | 7 | No query-parameter content: filters/sorting (future catalogue features) must be client-state or rel=canonical to the clean URL; tracking params (`utm_*`) never internally linked | CRAWL-AND-INDEXATION-POLICY.md |
 | 8 | One host, HTTPS, trailing slash — enforced at platform level + `trailingSlash: true` | CANONICALISATION-POLICY.md |

@@ -6,7 +6,8 @@ import type { Crumb } from '@/lib/routes';
 /**
  * JSON-LD builders — docs/seo/STRUCTURED-DATA-MAP.md.
  * Policy: schema mirrors visible content; absolute URLs; one Organization node;
- * no Review/AggregateRating/Offer-prices until genuine (D-10, D-11).
+ * no Review/AggregateRating; no fabricated Offer prices (D-10, D-11).
+ * Genuine fixed-price entry products may emit Service + Offer (D-30).
  */
 
 export type SchemaObject = Record<string, unknown>;
@@ -202,4 +203,37 @@ export function itemListSchema(items: { name: string; path: string }[]): SchemaO
 
 export function locationServiceSchema(location: LocationArea): SchemaObject {
   return professionalServiceSchema([location.city, ...location.consolidatedAreas]);
+}
+
+/**
+ * Service + Offer for the SEO Audit pack. Price must match visible copy
+ * (config/seo-audit-product.ts). No ratings. Availability reflects checkout/active state.
+ */
+export function seoAuditServiceSchema(input: {
+  path: string;
+  name: string;
+  description: string;
+  priceZar: number;
+  currency: string;
+  available: boolean;
+}): SchemaObject {
+  return {
+    '@context': CONTEXT,
+    '@type': 'Service',
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    serviceType: 'SEO audit',
+    provider: { '@id': organizationId() },
+    areaServed: brand.serviceAreas.map((name) => ({ '@type': 'Place', name })),
+    offers: {
+      '@type': 'Offer',
+      price: String(input.priceZar),
+      priceCurrency: input.currency,
+      url: absoluteUrl(input.path),
+      availability: input.available
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/OutOfStock',
+    },
+  };
 }

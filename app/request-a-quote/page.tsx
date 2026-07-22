@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/page-header';
 import { Section, BulletList } from '@/components/section';
 import { QuoteForm } from '@/components/quote-form';
 import { JsonLd } from '@/components/json-ld';
+import { buildIndustrialEngineMessage } from '@/lib/industrial-engine/quote-prefill';
 import { webPageSchema } from '@/lib/schema';
 
 const PATH = '/request-a-quote/';
@@ -17,9 +18,31 @@ export const metadata: Metadata = buildMetadata({ title: TITLE, description: DES
 export default async function RequestQuotePage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string; type?: string }>;
+  searchParams: Promise<{
+    error?: string;
+    type?: string;
+    service_interest?: string;
+    budget_band?: string;
+    message?: string;
+    source?: string;
+    scenario?: string;
+    complexity?: string;
+    approval?: string;
+  }>;
 }) {
-  const { error } = await searchParams;
+  const {
+    error,
+    service_interest,
+    budget_band,
+    message,
+    source,
+    scenario,
+    complexity,
+    approval,
+  } = await searchParams;
+
+  const engineMessage = buildIndustrialEngineMessage({ source, scenario, complexity, approval });
+  const defaultMessage = message ?? engineMessage;
 
   return (
     <>
@@ -39,7 +62,13 @@ export default async function RequestQuotePage({
       )}
 
       <Section>
-        <QuoteForm />
+        <QuoteForm
+          defaults={{
+            serviceInterest: service_interest,
+            budgetBand: budget_band,
+            message: defaultMessage,
+          }}
+        />
       </Section>
 
       <Section heading="What happens after you submit" tone="surface">

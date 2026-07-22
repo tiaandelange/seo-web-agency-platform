@@ -123,6 +123,26 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
         </Section>
       )}
 
+      {(service.slug === 'seo-website-development' ||
+        service.slug === 'website-redesign' ||
+        service.slug === 'website-maintenance-and-support' ||
+        service.slug === 'ecommerce-websites' ||
+        service.slug === 'product-catalogue-websites') && (
+        <Section heading="Prefer a fixed-price SEO audit first?">
+          <p className="max-w-3xl leading-relaxed text-muted">
+            Small sites: the{' '}
+            <Link href="/seo-audit/" className="text-link underline">
+              SEO Audit &amp; Priority Fix Pack
+            </Link>{' '}
+            (R1,999). Larger, ecommerce or catalogue sites: the{' '}
+            <Link href="/seo-audit/advanced/" className="text-link underline">
+              Advanced SEO Audit
+            </Link>{' '}
+            (R5,999) with architecture review and a 90-day roadmap.
+          </p>
+        </Section>
+      )}
+
       <CtaQuote
         heading={
           service.ctaType === 'consultation'

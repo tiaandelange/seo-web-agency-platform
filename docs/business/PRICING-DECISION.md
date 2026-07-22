@@ -19,6 +19,8 @@ Prepared 2026-07-21 for owner sign-off. Reviews the placeholder ranges in `PRICI
 | Ecommerce website | R70,000–R160,000 | **Keep** | Matches R60k–R150k+ evidence. |
 | Custom web system | from R80,000 (discovery R8,000–R15,000) | **Keep** | Paid discovery is the scope-protection mechanism — hold the line. |
 | Hourly (out-of-plan) | R650–R950/h | **Keep** | Market band R450–R950/h; positioning supports the upper half. |
+| SEO Audit & Priority Fix Pack | **R1,999 once-off (fixed)** | **Publish as fixed** | Entry product (D-30/D-31). Not indicative. |
+| Advanced SEO Audit & Implementation Roadmap | **R5,999 once-off (fixed)** | **Publish as fixed** | Large-site tier (D-31). Custom above 250 URLs. |
 
 ## Indicative price presentation (recommended rules — already partially implemented)
 

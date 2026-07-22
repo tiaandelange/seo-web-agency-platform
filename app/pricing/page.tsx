@@ -10,6 +10,7 @@ import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
 import { packages } from '@/data/packages';
+import { SEO_AUDIT_PROJECT_PRICING } from '@/config/seo-audit-product';
 
 const PATH = '/pricing/';
 const TITLE = 'Website Design Pricing';
@@ -32,7 +33,7 @@ const PRICING_FAQS = [
   {
     question: 'Do prices include VAT?',
     answer:
-      'VAT treatment will be stated clearly on every quote once registration status is confirmed. Quotes always state the total you will actually pay.',
+      'VAT treatment will be stated clearly on every quote once registration status is confirmed. Quotes always state the total you will actually pay. The fixed SEO Audit pack is currently shown as a once-off total while we are not VAT registered.',
   },
 ];
 
@@ -45,10 +46,64 @@ export default function PricingPage() {
         intro="Published openly because price-hiding wastes everyone's time. Ranges below are indicative; every project receives a fixed, itemised quote after one scoping conversation, and the quote is the binding number."
       />
       <PlaceholderNotice>
-        All figures on this page are indicative working ranges pending final confirmation.
+        All figures on this page are indicative working ranges pending final confirmation — except
+        the fixed SEO Audit entry product, which is a published once-off price.
       </PlaceholderNotice>
 
-      <Section heading="Project pricing">
+      <Section heading="Fixed-price SEO audits">
+        <p className="mb-6 max-w-3xl text-sm text-muted">
+          Distinct from website packages, monthly SEO support and maintenance — once-off diagnostics
+          with capped implementation.
+        </p>
+        <div className="grid max-w-4xl gap-6 sm:grid-cols-2">
+          <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
+            <h3 className="text-lg font-semibold text-ink">
+              <Link href="/seo-audit/" className="hover:underline">
+                SEO Audit &amp; Priority Fix Pack
+              </Link>
+            </h3>
+            <p className="mt-2 text-base font-medium text-ink">R1,999 once-off</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Up to 10 pages · five fixes or 90 minutes · 30-day plan · five business days after
+              access. Not for ecommerce/multilingual sites.
+            </p>
+            <p className="mt-4">
+              <Link href="/seo-audit/#eligibility" className="text-sm font-semibold text-link underline">
+                Check eligibility
+              </Link>
+            </p>
+          </article>
+          <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
+            <h3 className="text-lg font-semibold text-ink">
+              <Link href="/seo-audit/advanced/" className="hover:underline">
+                Advanced SEO Audit &amp; Implementation Roadmap
+              </Link>
+            </h3>
+            <p className="mt-2 text-base font-medium text-ink">R5,999 once-off</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Up to 250 crawlable URLs · architecture/content/competitors · eight fixes or two hours
+              · 90-day roadmap · 7–10 business days after access.
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/seo-audit/advanced/#eligibility"
+                className="text-sm font-semibold text-link underline"
+              >
+                Check eligibility
+              </Link>
+            </p>
+          </article>
+        </div>
+        <p className="mt-4 max-w-3xl text-sm text-muted">
+          Above those limits?{' '}
+          <Link href="/request-a-quote/?type=custom-seo-audit" className="text-link underline">
+            Request a custom SEO audit
+          </Link>
+          .
+        </p>
+      </Section>
+
+      <Section heading="Project pricing" tone="surface">
         <div className="overflow-x-auto">
           <table className="w-full max-w-4xl border-collapse text-sm">
             <thead>
@@ -74,6 +129,18 @@ export default function PricingPage() {
                   <td className="py-3 text-muted">{pkg.timeline}</td>
                 </tr>
               ))}
+              <tr className="border-b border-line align-top">
+                <th scope="row" className="py-3 pr-4 text-left font-medium">
+                  <Link href={SEO_AUDIT_PROJECT_PRICING.hubPath} className="text-accent underline">
+                    {SEO_AUDIT_PROJECT_PRICING.label}
+                  </Link>
+                </th>
+                <td className="py-3 pr-4 text-muted">
+                  R{SEO_AUDIT_PROJECT_PRICING.priceRange.min.toLocaleString('en-ZA')} – R
+                  {SEO_AUDIT_PROJECT_PRICING.priceRange.max.toLocaleString('en-ZA')} (indicative)
+                </td>
+                <td className="py-3 text-muted">{SEO_AUDIT_PROJECT_PRICING.timeline}</td>
+              </tr>
             </tbody>
           </table>
         </div>

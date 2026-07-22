@@ -22,6 +22,7 @@ Typed definitions live in `types/content.ts`; entries in `data/*.ts` and `conten
 | TeamMember | `name`, `role`, `bio`, `placeholder` |
 | SiteSettings | brand config (`config/brand.ts`) — name, contact, areas, social, hours |
 | Redirect | `source`, `destination`, `permanent` |
+| SeoAuditProduct | Typed in `config/seo-audit-product.ts`: `id` (`priority-fix` \| `advanced`), `name`, `shortName`, `priceZar`, `currency`, route, active/indexable flags, crawl/manual/competitor limits, implementation minutes/fix limit, turnaround, `bestFor`/`includes`/`excludes`, optional `checkoutUrl`. Comparison rows + eligibility routing live beside the products — not duplicated as page literals. |
 
 ## Authoring rules
 

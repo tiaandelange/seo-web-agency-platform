@@ -22,6 +22,15 @@ Status: **instrumentation-ready, nothing loaded**. No analytics script ships unt
 | `pricing_view` | /pricing/ view | — |
 | `case_study_view` | Project detail view | `project_slug` |
 | `guide_to_service_click` | In-article link to a commercial page | `article_slug`, `target_slug` |
+| `seo_audit_view` | `/seo-audit/` view | — |
+| `seo_audit_advanced_view` | `/seo-audit/advanced/` view | — |
+| `seo_audit_eligibility_start` | Eligibility form focus/submit start | `tier` optional |
+| `seo_audit_eligibility_complete` | Eligibility redirect | `result=basic\|advanced\|custom` |
+| `seo_audit_buy_click` | Buy CTA click (only when checkout URL set) | `tier=priority-fix\|advanced` |
+| `seo_audit_checkout_start` | External checkout navigation | `tier` |
+| `seo_audit_payment_confirmed` | Server webhook success (server-side only) | `order_ref` hash/id, `tier` — no PII |
+| `seo_audit_intake_submit` | Intake thank-you | `tier` |
+| `seo_audit_followup_request` | Follow-up / custom audit CTA | `source` |
 
 Key conversions in GA4: `quote_form_submit`, `consultation_request`, `phone_click`, `whatsapp_click`.
 

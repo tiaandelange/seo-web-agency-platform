@@ -58,3 +58,9 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /legal/privacy-policy/,Privacy Policy,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
 /legal/terms-of-service/,Terms of Service,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
 /legal/cookie-policy/,Cookie Policy,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
+/seo-audit/,SEO Audits,product,live,index,self,yes,contextual,/,1,seo audit south africa
+/seo-audit/intake/,SEO Audit Intake,utility,live,noindex,self,no,none,/seo-audit/,1,(conversion intake)
+/seo-audit/thank-you/,SEO Audit Thank You,utility,live,noindex,self,no,none,/seo-audit/,1,(conversion confirmation)
+/seo-audit/advanced/,Advanced SEO Audit South Africa,product,live,index,self,yes,contextual,/seo-audit/,1,advanced seo audit south africa
+/seo-audit/advanced/intake/,Advanced SEO Audit Intake,utility,live,noindex,self,no,none,/seo-audit/advanced/,1,(conversion intake)
+/seo-audit/advanced/thank-you/,Advanced SEO Audit Thank You,utility,live,noindex,self,no,none,/seo-audit/advanced/,1,(conversion confirmation)

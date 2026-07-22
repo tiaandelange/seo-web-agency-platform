@@ -15,8 +15,10 @@ Principle: links are editorial assertions of relevance, not plumbing. Every link
 | Comparison | The 1–2 services it supports, consultation CTA | `supportsServiceSlugs` |
 | Location | Services genuinely offered there, local projects (when real), contact, areas hub | location fields |
 | Hubs | All live children as cards | collection queries |
-| Pricing | Packages, maintenance service, cost-guide article | curated |
+| Pricing | Packages, maintenance service, cost-guide article, fixed-price SEO audits | curated |
 | Process/About/FAQ | Services hub, contact/quote | curated |
+| SEO Audit hub `/seo-audit/` | Advanced audit page, SEO service, redesign, maintenance, relevant guides, pricing | curated + CTAs |
+| Advanced audit `/seo-audit/advanced/` | Audit hub, ecommerce/catalogue/redesign services, technical guides | curated + CTAs |
 
 ## Canonical link directions (avoid loops of equal weight)
 

@@ -22,7 +22,17 @@ const TIMELINES = ['As soon as possible', 'Within 1–2 months', 'Within 3–6 m
 const inputClass =
   'w-full rounded-card border border-line bg-canvas px-3 py-2.5 text-ink placeholder:text-muted';
 
-export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contact' }) {
+export function QuoteForm({
+  formType = 'quote',
+  defaults,
+}: {
+  formType?: 'quote' | 'contact';
+  defaults?: {
+    serviceInterest?: string;
+    budgetBand?: string;
+    message?: string;
+  };
+}) {
   const isQuote = formType === 'quote';
 
   return (
@@ -74,7 +84,12 @@ export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contac
             <label htmlFor="service_interest" className="mb-1 block text-sm font-medium text-ink">
               What do you need?
             </label>
-            <select id="service_interest" name="service_interest" className={inputClass} defaultValue="">
+            <select
+              id="service_interest"
+              name="service_interest"
+              className={inputClass}
+              defaultValue={defaults?.serviceInterest ?? ''}
+            >
               <option value="">Select a service (optional)</option>
               {services.map((s) => (
                 <option key={s.slug} value={s.slug}>
@@ -88,7 +103,12 @@ export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contac
             <label htmlFor="budget_band" className="mb-1 block text-sm font-medium text-ink">
               Indicative budget (optional)
             </label>
-            <select id="budget_band" name="budget_band" className={inputClass} defaultValue="">
+            <select
+              id="budget_band"
+              name="budget_band"
+              className={inputClass}
+              defaultValue={defaults?.budgetBand ?? ''}
+            >
               <option value="">Select a range (optional)</option>
               {BUDGET_BANDS.map((band) => (
                 <option key={band} value={band}>
@@ -124,6 +144,7 @@ export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contac
           rows={5}
           maxLength={5000}
           className={inputClass}
+          defaultValue={defaults?.message ?? ''}
         />
       </div>
 

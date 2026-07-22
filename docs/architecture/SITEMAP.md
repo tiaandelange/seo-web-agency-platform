@@ -64,7 +64,7 @@ Legend: ✅ indexable at launch · 🚫 generated but noindex · 🕐 planned, n
     └── /cookie-policy/                          ✅
 ```
 
-Counts at launch: **50 indexable URLs**, 8 generated-noindex, 3 planned.
+Counts at launch: **52 indexable URLs**, 12 generated-noindex (thank-you/intake utilities + project gates), planned categories remain deferred.
 
 ## Consolidations vs the blueprint’s starting hypothesis
 

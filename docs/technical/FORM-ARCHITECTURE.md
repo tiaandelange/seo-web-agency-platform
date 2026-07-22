@@ -4,9 +4,14 @@
 
 | Form | Page | Fields |
 |---|---|---|
-| Quote request (primary) | `/request-a-quote/` | name*, email*, phone, company, service interest (select from services data), budget band (optional select, indicative bands), timeline (select), message*, consent* (checkbox), honeypot, render-timestamp |
+| Quote request (primary) | `/request-a-quote/` | name*, email*, phone, company, service interest, budget band, timeline, message*, consent*, honeypot, render-timestamp |
 | Contact (short) | `/contact/` | name*, email*, message*, consent*, honeypot, render-timestamp |
-| Consultation / support enquiry | Reuse quote form with `enquiryType` preset via link (`/request-a-quote/?type=consultation`) — no third form to maintain |
+| SEO Audit eligibility | `/seo-audit/#eligibility` (also linked from advanced) | website size band, ecommerce/catalogue, multilingual/multi-domain, complexity flags, honeypot, render-timestamp → routes to basic intake, advanced intake, or custom quote |
+| SEO Audit intake (Priority Fix) | `/seo-audit/intake/` | name*, company, website URL*, email*, phone, services*, areas, platform, page count, SEO concern*, GSC, GBP, priority pages, payment ref, permissions*, backup*, consent*, honeypot, render-timestamp · `tier=priority-fix` |
+| SEO Audit intake (Advanced) | `/seo-audit/advanced/intake/` | Same core fields plus crawl/URL estimate, competitors, GA4 access, catalogue notes · `tier=advanced` |
+| Consultation / support enquiry | Reuse quote form with `enquiryType` preset via link (`/request-a-quote/?type=consultation` or `?type=custom-seo-audit`) — no third form to maintain |
+
+SEO Audit actions live in `lib/seo-audit-actions.ts` and reuse `deliverLead()`. Payment webhook: `POST /api/seo-audit/webhook/` (shared secret; no browser trust of query success params). Per-tier checkout URLs via `SEO_AUDIT_BASIC_*` / `SEO_AUDIT_ADVANCED_*`.
 
 File upload (briefs/plans): deliberately NOT rendered at v0.1 — needs a storage decision (size limits, virus scanning, POPIA retention). Documented here as the designed extension: add `<input type="file">` posting to the same action once storage is chosen.
 

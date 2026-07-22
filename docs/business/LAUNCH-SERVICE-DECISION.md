@@ -48,6 +48,15 @@ Prepared 2026-07-21 for owner sign-off. Reviews the 11 services (`SERVICE-OFFERI
 | Ecommerce website | Live, quoted on request at launch. |
 | Custom web system | Discovery-first entry (paid discovery R8k–R15k indicative) — protects against unscoped custom work. |
 
+## Fixed-price entry products (Phase 8)
+
+| Product | Emphasis |
+|---|---|
+| SEO Audit & Priority Fix Pack (R1,999) | Entry diagnostic for ≤10-page sites — hub `/seo-audit/` |
+| Advanced SEO Audit & Implementation Roadmap (R5,999) | Large-site / ecommerce / architecture — `/seo-audit/advanced/` |
+
+Promote on homepage (below primary website value prop), pricing, and relevant SEO/ecommerce pages. Public Buy remains blocked until payment provider + commercial terms. Complexity above advanced limits → custom quote, not rejection.
+
 ## Conversion actions (confirm)
 
 - Build services/packages → "Request a quote" (form).

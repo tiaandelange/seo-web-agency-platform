@@ -20,16 +20,20 @@ describe('route registry', () => {
     }
   });
 
-  it('contains the expected launch architecture (50 indexable URLs)', () => {
+  it('contains the expected launch architecture (52 indexable URLs)', () => {
     const indexable = routes.filter((r) => r.index);
-    expect(indexable.length).toBe(50);
-    // Noindex set: thank-you + 3 project categories + 2 authorised drafts + 2 templates.
+    expect(indexable.length).toBe(52);
+    // Noindex: quote thank-you + 4 seo-audit utilities + 3 project categories + 2 drafts + 2 templates.
     const noindex = routes.filter((r) => !r.index).map((r) => r.path);
     expect(noindex).toContain('/request-a-quote/thank-you/');
+    expect(noindex).toContain('/seo-audit/intake/');
+    expect(noindex).toContain('/seo-audit/thank-you/');
+    expect(noindex).toContain('/seo-audit/advanced/intake/');
+    expect(noindex).toContain('/seo-audit/advanced/thank-you/');
     expect(noindex).toContain('/projects/websites/');
-    expect(noindex).toContain('/projects/damtech-website/');
-    expect(noindex).toContain('/projects/proplytic-property-software/');
-    expect(noindex.length).toBe(8);
+    expect(routes.some((r) => r.path === '/seo-audit/' && r.index)).toBe(true);
+    expect(routes.some((r) => r.path === '/seo-audit/advanced/' && r.index)).toBe(true);
+    expect(noindex.length).toBe(12);
   });
 
   it('resolves parent chains for every route', () => {

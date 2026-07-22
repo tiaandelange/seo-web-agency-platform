@@ -126,6 +126,34 @@ export function getAllRoutes(): RouteEntry[] {
     entry('/about/', 'About', '/', 'about'),
     entry('/process/', 'Our Process', '/', 'process'),
     entry('/pricing/', 'Pricing', '/', 'pricing'),
+    entry('/seo-audit/', 'SEO Audits', '/', 'product', {
+      lastModified: '2026-07-22',
+    }),
+    entry('/seo-audit/advanced/', 'Advanced SEO Audit', '/seo-audit/', 'product', {
+      lastModified: '2026-07-22',
+    }),
+    entry('/seo-audit/intake/', 'SEO Audit Intake', '/seo-audit/', 'utility', {
+      index: false,
+      lastModified: '2026-07-22',
+    }),
+    entry('/seo-audit/thank-you/', 'SEO Audit Thank You', '/seo-audit/', 'utility', {
+      index: false,
+      lastModified: '2026-07-22',
+    }),
+    entry('/seo-audit/advanced/intake/', 'Advanced SEO Audit Intake', '/seo-audit/advanced/', 'utility', {
+      index: false,
+      lastModified: '2026-07-22',
+    }),
+    entry(
+      '/seo-audit/advanced/thank-you/',
+      'Advanced SEO Audit Thank You',
+      '/seo-audit/advanced/',
+      'utility',
+      {
+        index: false,
+        lastModified: '2026-07-22',
+      }
+    ),
     entry('/faq/', 'FAQ', '/', 'faq'),
     entry('/contact/', 'Contact', '/', 'contact'),
     entry('/request-a-quote/', 'Request a Quote', '/', 'quote'),
