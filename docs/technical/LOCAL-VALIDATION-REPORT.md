@@ -1,28 +1,29 @@
-# Local validation report — launch preparation (2026-07-22)
+# Local validation report — Resend template delivery (2026-07-22)
 
-## Commands
+## Baseline (branch start)
 
 | Command | Result |
 |---|---|
-| `npm ci` | Pass (after stopping locked `next` processes) |
-| `npm run check` | Pass — lint, tsc, **29** tests, SEO validator |
-| `npm run build` | Pass — 64 pages; shared first-load JS ~103 kB |
-| `npm run validate:seo` | Pass — 58 routes / 50 indexable / 8 noindex |
-| `npm audit` | 3 transitive advisories in Next/sharp/postcss — **do not** `audit fix --force` (would downgrade Next; D-02/D-22) |
+| `npm run check` | Pass — lint, tsc, **66** tests, SEO validator |
+| `npm run build` | Pass — 64 routes; shared first-load JS ~103 kB |
+| `npm run validate:seo` | Pass — 64 / 52 indexable / 12 noindex |
 
-## Runtime (production `next start`)
+## After Resend template integration
 
-- Homepage Koppie branding present; Meridian absent
-- `robots.txt` → `Disallow: /` under non-production env
-- Sample routes 200: services, pricing, contact, quote, privacy, projects, Pretoria
-- No horizontal overflow on homepage spot-check
+| Command | Result |
+|---|---|
+| `npm run check` | Pass — lint, tsc, **83** tests, SEO validator |
+| `npm run build` | Pass — 64 routes; first-load JS ≤ 120 kB budget |
+| `npm run validate:seo` | Pass — unchanged route totals |
+| `npm audit` | 3 transitive advisories (postcss/sharp via Next) — **do not** `audit fix --force` (D-02/D-22) |
 
-## Lead delivery tests (unit)
+## Email delivery tests
 
-Covered in `tests/lead-delivery.test.ts`: log fallback, webhook success/HTTP fail/network fail/missing URL, Resend success/missing From/HTTP fail.
+- `tests/lead-delivery.test.ts` — log, webhook, legacy Resend text for SEO-audit intake
+- `tests/email-delivery.test.ts` — config failures, variable builders, contact/proposal template payloads (no html/text/react), internal-blocks-confirmation, confirmation soft-fail, idempotency keys, no PII in logs
 
-Live provider delivery requires host secrets (not committed).
+Live provider delivery requires published template IDs on the host (not committed).
 
 ## Blockers remaining
 
-See `docs/brand/KOPPIE-REMAINING-INPUTS.md`. Production indexing: **DO NOT ENABLE**.
+Published Resend template IDs/aliases on Vercel before production form email. See `docs/technical/RESEND-INTEGRATION.md`. Production indexing: **DO NOT ENABLE**.

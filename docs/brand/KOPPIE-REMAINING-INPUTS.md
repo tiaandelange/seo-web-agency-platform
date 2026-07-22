@@ -16,7 +16,8 @@ Preview identity is on `main`. Private Vercel preview may proceed with `NEXT_PUB
 | 10 | Business hours | **Complete** — enquiries any day, respond ASAP (SA) | No |
 | 11 | Google Business Profile | Not created | Yes for local SEO |
 | 12 | Social profiles | None | No |
-| 13 | Lead-delivery provider credentials on host | Code ready (Resend/webhook); secrets not in repo | Yes until Preview env configured & tested live |
+| 13 | Lead-delivery provider credentials on host | Code ready (Resend hosted templates + webhook); set `RESEND_*` template IDs/aliases + From/To on Vercel; live-test | Yes until Preview env configured & tested live |
+| 13b | Publish four contact/proposal Resend templates | Names: New Contact Enquiry, Contact Enquiry Confirmation, New Proposal Request, Proposal Request Confirmation | Yes before production form email |
 | 14 | GA4 measurement ID | Unset — see `docs/launch/ANALYTICS-PREPARATION.md` | No |
 | 15 | Search Console verification | Unset — not for preview | Yes at go-live |
 | 16 | Final logo SVG supplied and installed | **Blocked** — no file supplied; provisional wordmark active | Yes for public brand |
