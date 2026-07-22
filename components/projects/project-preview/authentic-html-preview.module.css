@@ -1,0 +1,11 @@
+.previewRoot {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.previewRoot :global(a),
+.previewRoot :global(button) {
+  pointer-events: none;
+}

@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Unlayered — must sit outside @layer to beat Koppie globals.css element selectors */
+
+.damtechPreviewRoot,
+.damtechPreviewRoot *,
+.damtechPreviewRoot *::before,
+.damtechPreviewRoot *::after {
+  box-sizing: border-box;
+}
+
+.damtechPreviewRoot :where(h1, h2, h3, h4, h5, h6, p, ul, ol, nav, a, button) {
+  font-family: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+/* Desktop preview canvas — force source composition regardless of browser viewport */
+.damtechPreviewRoot {
+  isolation: isolate;
+  position: relative;
+  width: 1440px;
+  min-height: 100%;
+  --font-inter: 'Inter', sans-serif;
+  --font-main: 'Inter', sans-serif;
+  font-family: var(--font-inter);
+  color: var(--text-on-light, #031926);
+  --site-header-height: 5.75rem;
+  --header-height: 5.75rem;
+}
+
+.damtechPreviewRoot .site-header {
+  position: absolute !important;
+}
+
+.damtechPreviewRoot .site-header__nav {
+  display: flex !important;
+}
+
+.damtechPreviewRoot .site-header__actions > div.relative {
+  display: none !important;
+}
+
+.damtechPreviewRoot .site-header__dropdown-panel {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.damtechPreviewRoot .site-header__dropdown-panel--open {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.damtechPreviewRoot .home-hero {
+  min-height: 720px !important;
+}
+
+.damtechPreviewRoot .home-hero__inner {
+  min-height: 720px !important;
+}
+
+.damtechPreviewRoot .home-hero__title {
+  font-family: var(--font-main) !important;
+  color: var(--color-white) !important;
+}
+
+/* Tailwind utilities present in extracted SSR markup */
+.damtechPreviewRoot .absolute {
+  position: absolute;
+}
+
+.damtechPreviewRoot .inset-x-0 {
+  left: 0;
+  right: 0;
+}
+
+.damtechPreviewRoot .top-0 {
+  top: 0;
+}
+
+.damtechPreviewRoot .z-50 {
+  z-index: 50;
+}
+
+.damtechPreviewRoot .border-b {
+  border-bottom-width: 1px;
+}
+
+.damtechPreviewRoot .h-4 {
+  height: 1rem;
+}
+
+.damtechPreviewRoot .w-4 {
+  width: 1rem;
+}
+
+.damtechPreviewRoot .h-5 {
+  height: 1.25rem;
+}
+
+.damtechPreviewRoot .w-5 {
+  width: 1.25rem;
+}
+
+.damtechPreviewRoot .h-12 {
+  height: 3rem;
+}
+
+.damtechPreviewRoot .w-12 {
+  width: 3rem;
+}
+
+.damtechPreviewRoot .inline-flex {
+  display: inline-flex;
+}
+
+.damtechPreviewRoot .items-center {
+  align-items: center;
+}
+
+.damtechPreviewRoot .justify-center {
+  justify-content: center;
+}
+
+.damtechPreviewRoot .rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.damtechPreviewRoot .border {
+  border-width: 1px;
+}
+
+.damtechPreviewRoot .border-slate-200 {
+  border-color: #e2e8f0;
+}
+
+.damtechPreviewRoot .translate-y-0 {
+  transform: translateY(0);
+}
+
+.damtechPreviewRoot .hidden {
+  display: none;
+}
+
+.damtechPreviewRoot .site-header__nav.hidden {
+  display: flex !important;
+}

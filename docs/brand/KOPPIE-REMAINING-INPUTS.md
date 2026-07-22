@@ -25,6 +25,8 @@ Preview identity is on `main`. Private Vercel preview may proceed with `NEXT_PUB
 | 19 | Final founder-biography approval | Draft with placeholder notice | Soft |
 | 20 | Attorney review of legal pages | Operational drafts live; not attorney-approved | Advisable / Yes for public comfort |
 | 21 | Production indexing explicitly authorised | **DO NOT ENABLE** | Yes |
+| 22 | SEO Audit payment provider + live checkout (both tiers) + durable webhook idempotency | Code ready; checkout URLs unset | Yes before public Buy |
+| 23 | SEO Audit commercial terms attorney review (both tiers + complexity refund policy) | Operational terms on product pages | Advisable before public Buy |
 
 ## Environment reminder
 

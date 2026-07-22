@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Unlayered — must sit outside @layer to beat Koppie globals.css element selectors */
+
+.proplyticPreviewRoot,
+.proplyticPreviewRoot *,
+.proplyticPreviewRoot *::before,
+.proplyticPreviewRoot *::after {
+  box-sizing: border-box;
+}
+
+.proplyticPreviewRoot :where(h1, h2, h3, h4, h5, h6, p, ul, ol, nav, a, button) {
+  font-family: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.proplyticPreviewRoot {
+  isolation: isolate;
+  position: relative;
+  width: 1440px;
+  min-height: 100%;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary, #f8fafc);
+}
+
+.proplyticPreviewRoot .pg-home-site-header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.proplyticPreviewRoot .pg-home-site-header-nav--desktop {
+  display: flex !important;
+}
+
+.proplyticPreviewRoot .pg-home-site-header-actions--desktop {
+  display: flex !important;
+}
+
+.proplyticPreviewRoot .pg-home-site-header-burger {
+  display: none !important;
+}
+
+.proplyticPreviewRoot .pg-home-site-header-mega-panel {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.proplyticPreviewRoot .hm-hero {
+  min-height: 820px !important;
+  padding-top: 4.5rem;
+}
+
+.proplyticPreviewRoot .hm-hero-title__text--mobile,
+.proplyticPreviewRoot .hm-hero-eyebrow__text--mobile {
+  display: none !important;
+}
+
+.proplyticPreviewRoot .hm-hero-title__text--desktop,
+.proplyticPreviewRoot .hm-hero-eyebrow__text--desktop {
+  display: inline !important;
+}
+
+.proplyticPreviewRoot .hm-hero-visual__dash--mobile {
+  display: none !important;
+}
+
+.proplyticPreviewRoot .hm-hero-visual__dash--desktop {
+  display: block !important;
+}
+
+.proplyticPreviewRoot .hm-hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  align-items: center;
+  gap: 2rem;
+}
+
+.proplyticPreviewRoot .hm-hero-visual--premium {
+  min-height: 420px;
+  overflow: visible !important;
+}
+
+.proplyticPreviewRoot .hm-hero-visual__stage {
+  transform: none !important;
+}
+
+.proplyticPreviewRoot .hm-hero-title,
+.proplyticPreviewRoot .hm-hero-title__text {
+  font-family: inherit !important;
+  color: var(--text-primary) !important;
+}
