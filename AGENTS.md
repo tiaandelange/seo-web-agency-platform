@@ -36,7 +36,7 @@ Binding rules for any AI agent or contributor working in this repository. Detail
 ## 6. Brand tokens, not hardcoding
 
 - Every visible company detail (name, contact, areas, tagline) comes from `config/brand.ts`. Never hardcode brand strings in components, pages or data.
-- "Meridian Web Systems" is a placeholder; do not treat it as final and do not begin final branding under it.
+- Active public identity is Koppie Systems (`docs/brand/KOPPIE-SYSTEMS-BRAND-IDENTITY.md`). Do not reintroduce Meridian as public branding. Unverified registration, domain, phone and testimonials must stay hidden or explicitly provisional.
 - Visual identity changes happen by swapping design tokens in `app/globals.css` `@theme` and component classes only — never by restructuring templates. Procedure: `docs/prompts/18-visual-theme-development.md`, plan: `docs/brand/VISUAL-IMPLEMENTATION-PLAN.md`.
 
 ## 7. Git and documentation discipline

@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import { brand } from '@/config/brand';
+import { brand, publicEmail } from '@/config/brand';
 import { footerColumns, footerLegal } from '@/data/navigation';
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
-  const hasContact = brand.contact.phone || brand.contact.email || brand.contact.whatsapp;
+  const email = publicEmail();
+  const hasContact = Boolean(brand.contact.phone || email || brand.contact.whatsapp);
 
   return (
     <footer className="mt-16 border-t border-line bg-surface">
@@ -37,10 +38,10 @@ export function SiteFooter() {
                   </a>
                 </li>
               )}
-              {brand.contact.email && (
+              {email && (
                 <li>
-                  <a href={`mailto:${brand.contact.email}`} className="hover:text-ink">
-                    {brand.contact.email}
+                  <a href={`mailto:${email}`} className="hover:text-ink">
+                    {email}
                   </a>
                 </li>
               )}
@@ -51,8 +52,16 @@ export function SiteFooter() {
                   </a>
                 </li>
               )}
-              {!hasContact && <li>Contact details coming soon.</li>}
-              <li className="pt-2">Serving {brand.serviceAreas.slice(0, 3).join(', ')} and clients across South Africa.</li>
+              {!hasContact && (
+                <li>
+                  <Link href="/contact/" className="hover:text-ink">
+                    Request a proposal
+                  </Link>
+                </li>
+              )}
+              <li className="pt-2">
+                Based in {brand.baseCity}, serving businesses throughout South Africa.
+              </li>
             </ul>
           </div>
         </nav>
