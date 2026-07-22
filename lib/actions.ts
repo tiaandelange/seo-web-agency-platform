@@ -9,7 +9,8 @@ import { normalizeWebsiteUrl } from '@/lib/website-url';
  * - Honeypot check (silent discard: bots see success).
  * - Minimum-time trap (silent discard).
  * - Server-side validation regardless of client behaviour.
- * - Delivery via lib/lead-delivery.ts (webhook | resend | log).
+ * - Delivery via lib/lead-delivery.ts (webhook | resend templates | log).
+ * - Contact/proposal: hosted Resend templates (internal first; confirmation second).
  * - Delivery failure → error redirect (never a false thank-you).
  * - Never exposes secrets to the client; never sends email from client code.
  */
