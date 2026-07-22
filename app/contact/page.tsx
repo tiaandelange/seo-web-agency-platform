@@ -30,13 +30,14 @@ export default async function ContactPage({
       <Breadcrumbs path={PATH} />
       <PageHeader
         heading="Contact us"
-        intro={`Based in ${brand.baseCity} and serving businesses throughout South Africa. A short message is enough — tell us roughly what you need and we will come back with the right questions. We aim to respond within one business day.`}
+        intro={`Based in ${brand.baseCity} and serving businesses throughout South Africa and selected international engagements. A short message is enough — tell us roughly what you need and we will come back with the right questions. We aim to respond within one business day.`}
       />
 
       {error && (
         <div className="mx-auto max-w-6xl px-4">
           <p role="alert" className="max-w-2xl rounded-card border border-line bg-surface p-4 text-ink">
-            Something was missing from the form — please check the required fields and try again.
+            We could not complete that submission. Please check the required fields and try again. If
+            the problem continues, call or WhatsApp us using the details above.
           </p>
         </div>
       )}

@@ -32,8 +32,8 @@ export default async function RequestQuotePage({
       {error && (
         <div className="mx-auto max-w-6xl px-4">
           <p role="alert" className="max-w-2xl rounded-card border border-line bg-surface p-4 text-ink">
-            Something was missing from the form — please check the required fields (name, email,
-            message and consent) and try again.
+            We could not complete that submission. Please check the required fields (name, email,
+            message and consent) and try again. If delivery fails repeatedly, call or WhatsApp us.
           </p>
         </div>
       )}

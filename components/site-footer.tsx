@@ -60,7 +60,8 @@ export function SiteFooter() {
                 </li>
               )}
               <li className="pt-2 text-sandstone">
-                Based in {brand.baseCity}, serving businesses throughout South Africa.
+                Based in {brand.baseCity}, serving businesses throughout South Africa and selected
+                international engagements.
               </li>
               <li className="text-xs text-accent-contrast/60">{brand.tagline}</li>
             </ul>

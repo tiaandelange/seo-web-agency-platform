@@ -5,16 +5,17 @@
  * app may hardcode the business name, domain, contact details or service areas.
  *
  * Preview identity approved 2026-07-22 (docs/brand/KOPPIE-SYSTEMS-BRAND-IDENTITY.md).
- * Registration, trademark and domain ownership are NOT verified — do not claim them.
- * Empty contact strings are hidden in the UI.
+ * Owner launch inputs 2026-07-22: domain, phone/WhatsApp, lead email, VAT not registered,
+ * nationwide + international service policy. Registration number and final logo still open.
+ * Empty contact strings remain hidden in the UI.
  */
 
 export interface BrandContact {
-  /** Empty string = not rendered. */
+  /** Empty string = not rendered. E.164 preferred for tel: links. */
   phone: string;
-  /** Empty until domain-owned mailbox is live. */
+  /** Public display email — only rendered when verification.emailLive. */
   email: string;
-  /** International format, digits only, e.g. "27821234567". Empty = WhatsApp links hidden. */
+  /** International format, digits only, e.g. "27614188807". Empty = WhatsApp links hidden. */
   whatsapp: string;
 }
 
@@ -31,7 +32,7 @@ export interface BrandVerification {
   registration: boolean;
   /** Trademark screening / registration confirmed. */
   trademark: boolean;
-  /** Domain ownership confirmed and DNS live. */
+  /** Domain ownership confirmed and DNS live on the production host. */
   domain: boolean;
   /** Public email mailbox live and monitored. */
   emailLive: boolean;
@@ -41,6 +42,13 @@ export interface BrandVerification {
   founderBioApproved: boolean;
 }
 
+export interface BrandVat {
+  /** True only when registered for VAT. */
+  registered: boolean;
+  /** VAT number when registered; empty when not applicable. */
+  number: string;
+}
+
 export interface BrandConfig {
   /** Trading name shown across the site. */
   name: string;
@@ -48,6 +56,10 @@ export interface BrandConfig {
   shortName: string;
   /** Proposed registered legal name — not claimed as registered until verification.registration. */
   legalName: string;
+  /** Company registration number when verified. Empty = not claimed. */
+  registrationNumber: string;
+  /** VAT status. */
+  vat: BrandVat;
   /** Marketing tagline (hero/footer). Title template uses a functional descriptor separately if needed. */
   tagline: string;
   /** Brand promise — short supporting line. */
@@ -58,16 +70,23 @@ export interface BrandConfig {
   description: string;
   /** Absolute origin, no trailing slash. Overridden by NEXT_PUBLIC_SITE_URL at runtime. */
   fallbackSiteUrl: string;
-  /** Proposed primary domain (not canonical until verification.domain). */
-  proposedPrimaryDomain: string;
+  /** Primary production domain (apex). Canonical host uses www when production is live. */
+  primaryDomain: string;
+  /** Canonical production origin (https + www). Used only when verification.domain and production env. */
+  productionOrigin: string;
   /** Proposed secondary domain. */
   proposedSecondaryDomain: string;
-  /** Planned public email once domain is owned — never rendered while emailLive is false. */
+  /** Planned public email once domain mailbox is live — never rendered while emailLive is false. */
   proposedEmail: string;
+  /**
+   * Lead-delivery destination (ops). Never rendered as a public mailto unless also
+   * set as contact.email with emailLive. Configure via LEAD_TO_EMAIL in the host env.
+   */
+  leadDeliveryEmail: string;
   contact: BrandContact;
   /**
    * Physical address. null = service-area business, address omitted from schema
-   * and pages (current policy).
+   * and pages (current policy: nationwide & international, no public street address).
    */
   address: BrandAddress | null;
   /** Base city for geographic copy. */
@@ -93,34 +112,42 @@ export interface BrandConfig {
 export const brand: BrandConfig = {
   name: 'Koppie Systems',
   shortName: 'Koppie',
-  legalName: 'Koppie Systems (Pty) Ltd', // Proposed — not verified as registered
+  legalName: 'Koppie Systems (Pty) Ltd', // Proposed — registration number not yet verified
+  registrationNumber: '',
+  vat: {
+    registered: false,
+    number: '',
+  },
   tagline: 'Built to be found. Designed to work.',
   brandPromise: 'Clear digital systems that produce practical business value.',
   positioning:
     'Koppie Systems builds SEO-first websites and practical digital systems for technical, industrial and service businesses.',
   description:
-    'Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa.',
+    'Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.',
   fallbackSiteUrl: 'http://localhost:3000',
-  proposedPrimaryDomain: 'koppiesystems.co.za',
+  primaryDomain: 'koppiesystems.co.za',
+  productionOrigin: 'https://www.koppiesystems.co.za',
   proposedSecondaryDomain: 'koppiesystems.com',
   proposedEmail: 'hello@koppiesystems.co.za',
+  leadDeliveryEmail: 'delangetiaanoffice@gmail.com',
   contact: {
-    phone: '',
-    email: '', // Render only when verification.emailLive — leave empty until domain-owned mailbox exists
-    whatsapp: '',
+    phone: '+27614188807',
+    email: '', // Domain mailbox not live — do not render Gmail as the public brand email
+    whatsapp: '27614188807',
   },
   address: null,
   baseCity: 'Pretoria',
   province: 'Gauteng',
-  serviceAreas: ['Pretoria', 'Centurion', 'Gauteng', 'South Africa'],
+  serviceAreas: ['Pretoria', 'Centurion', 'Gauteng', 'South Africa', 'International'],
   country: 'ZA',
   social: [],
   googleBusinessProfile: '',
-  hours: '', // Confirm before publishing
+  hours: 'Enquiries welcome any day — we respond as soon as practical (South Africa).',
   locale: 'en_ZA',
   verification: {
     registration: false,
     trademark: false,
+    // Owner named the primary domain; DNS/host connection for production is still a launch gate.
     domain: false,
     emailLive: false,
     logoFinal: false,
@@ -128,7 +155,7 @@ export const brand: BrandConfig = {
   },
 };
 
-/** Site origin: env first, then fallback. No trailing slash. Never hardcodes the proposed domain. */
+/** Site origin: env first, then fallback. No trailing slash. Never hardcodes the production domain. */
 export function siteOrigin(): string {
   const url = process.env.NEXT_PUBLIC_SITE_URL || brand.fallbackSiteUrl;
   return url.endsWith('/') ? url.slice(0, -1) : url;
@@ -142,4 +169,11 @@ export function isProductionSite(): boolean {
 /** Public email only when a live mailbox is confirmed. */
 export function publicEmail(): string {
   return brand.verification.emailLive ? brand.contact.email || brand.proposedEmail : '';
+}
+
+/** VAT notice for invoices/legal copy. */
+export function vatStatusLabel(): string {
+  return brand.vat.registered
+    ? `VAT registered${brand.vat.number ? ` (${brand.vat.number})` : ''}`
+    : 'Not VAT registered';
 }
