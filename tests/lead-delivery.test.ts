@@ -162,4 +162,24 @@ describe('deliverLead', () => {
     expect(body.text).toBeDefined();
     expect(body.template).toBeUndefined();
   });
+
+  it('falls back to Resend when webhook delivery fails', async () => {
+    vi.stubEnv('LEAD_DELIVERY_PROVIDER', 'webhook');
+    vi.stubEnv('LEAD_WEBHOOK_URL', 'https://hooks.example.com/lead');
+    vi.stubEnv('RESEND_API_KEY', 're_test');
+    vi.stubEnv('LEAD_TO_EMAIL', 'ops@example.com');
+    vi.stubEnv('LEAD_FROM_EMAIL', 'leads@koppiesystems.co.za');
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, status: 502 })
+      .mockResolvedValueOnce({ ok: true, status: 200 });
+    vi.stubGlobal('fetch', fetchMock);
+    vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+    const result = await deliverLead(baseLead);
+
+    expect(result.ok).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock.mock.calls[1][0]).toBe('https://api.resend.com/emails');
+  });
 });

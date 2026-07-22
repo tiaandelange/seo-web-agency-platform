@@ -99,28 +99,37 @@ async function deliverWebhook(
 
 /**
  * Legacy raw-text Resend path for form types without published hosted templates
- * (e.g. SEO-audit intake). Do not use for contact/proposal when templates exist.
+ * (e.g. SEO-audit intake), and as a safety net when template sends fail.
  */
 async function deliverResendLegacyText(
   lead: LeadPayload,
   submissionId: string
 ): Promise<LeadDeliveryResult> {
-  const apiKey = process.env.LEAD_DELIVERY_API_KEY || process.env.RESEND_API_KEY;
-  const to = process.env.RESEND_INTERNAL_TO_EMAIL || process.env.LEAD_TO_EMAIL;
-  const from = process.env.RESEND_FROM_EMAIL || process.env.LEAD_FROM_EMAIL;
+  const apiKey = (process.env.LEAD_DELIVERY_API_KEY || process.env.RESEND_API_KEY || '').trim();
+  const to = (
+    process.env.RESEND_INTERNAL_TO_EMAIL ||
+    process.env.LEAD_TO_EMAIL ||
+    ''
+  ).trim();
+  const from = (process.env.RESEND_FROM_EMAIL || process.env.LEAD_FROM_EMAIL || '').trim();
 
   if (!apiKey) {
     return { ok: false, provider: 'resend', submissionId, reason: 'API key unset' };
   }
   if (!to) {
-    return { ok: false, provider: 'resend', submissionId, reason: 'LEAD_TO_EMAIL unset' };
+    return {
+      ok: false,
+      provider: 'resend',
+      submissionId,
+      reason: 'RESEND_INTERNAL_TO_EMAIL (or LEAD_TO_EMAIL) unset',
+    };
   }
   if (!from) {
     return {
       ok: false,
       provider: 'resend',
       submissionId,
-      reason: 'LEAD_FROM_EMAIL unset (verified domain address required)',
+      reason: 'RESEND_FROM_EMAIL (or LEAD_FROM_EMAIL) unset — verified domain required',
     };
   }
 
@@ -142,11 +151,20 @@ async function deliverResendLegacyText(
     });
 
     if (!response.ok) {
+      let providerCode = '';
+      try {
+        const payload = (await response.json()) as { name?: string; message?: string };
+        providerCode = [payload.name, payload.message].filter(Boolean).join(':').slice(0, 120);
+      } catch {
+        providerCode = '';
+      }
       return {
         ok: false,
         provider: 'resend',
         submissionId,
-        reason: `HTTP ${response.status}`,
+        reason: providerCode
+          ? `HTTP ${response.status}:${providerCode}`
+          : `HTTP ${response.status}`,
       };
     }
     return { ok: true, provider: 'resend', submissionId };
@@ -219,10 +237,6 @@ export async function deliverLead(lead: LeadPayload): Promise<LeadDeliveryResult
   const provider = providerName();
   const templatedForm = lead.formType === 'contact' || lead.formType === 'quote';
 
-  if (provider === 'webhook') {
-    return deliverWebhook(lead, submissionId);
-  }
-
   if (provider === 'resend') {
     if (templatedForm) {
       // EMAIL_DELIVERY_MODE=log forces local no-send even when provider=resend
@@ -235,11 +249,27 @@ export async function deliverLead(lead: LeadPayload): Promise<LeadDeliveryResult
         return { ok: true, provider: 'log', submissionId };
       }
 
-      // Prefer hosted templates when fully configured; otherwise keep delivering
-      // via legacy text so a partial Resend setup cannot block real enquiries.
+      // Prefer hosted templates when fully configured.
       const templatesReady = resolveResendEmailConfig();
       if (templatesReady.ok) {
-        return deliverContactOrProposalTemplates(lead);
+        const templated = await deliverContactOrProposalTemplates(lead);
+        if (templated.ok) return templated;
+
+        // Template IDs may be set but unpublished / mismatched — keep the lead.
+        console.warn('[lead] template delivery failed — falling back to legacy text', {
+          submissionId: templated.submissionId,
+          formType: lead.formType,
+          reason: templated.reason,
+        });
+        const legacy = await deliverResendLegacyText(lead, templated.submissionId);
+        if (legacy.ok) return legacy;
+
+        return {
+          ok: false,
+          provider: 'resend',
+          submissionId: templated.submissionId,
+          reason: `template:${templated.reason};legacy:${legacy.reason}`,
+        };
       }
 
       console.warn('[lead] Resend templates incomplete — falling back to legacy text', {
@@ -251,6 +281,33 @@ export async function deliverLead(lead: LeadPayload): Promise<LeadDeliveryResult
     }
     // SEO-audit intake and other form types: legacy text until dedicated templates exist
     return deliverResendLegacyText(lead, submissionId);
+  }
+
+  // If webhook is selected but Resend is also configured, try Resend after webhook failure
+  // so a stale webhook URL cannot permanently block enquiries.
+  if (provider === 'webhook') {
+    const webhookResult = await deliverWebhook(lead, submissionId);
+    if (webhookResult.ok) return webhookResult;
+
+    const hasResend =
+      Boolean((process.env.RESEND_API_KEY || process.env.LEAD_DELIVERY_API_KEY || '').trim()) &&
+      Boolean(
+        (process.env.RESEND_FROM_EMAIL || process.env.LEAD_FROM_EMAIL || '').trim()
+      ) &&
+      Boolean(
+        (process.env.RESEND_INTERNAL_TO_EMAIL || process.env.LEAD_TO_EMAIL || '').trim()
+      );
+
+    if (hasResend) {
+      console.warn('[lead] webhook failed — falling back to Resend', {
+        submissionId,
+        formType: lead.formType,
+        reason: webhookResult.reason,
+      });
+      return deliverResendLegacyText(lead, submissionId);
+    }
+
+    return webhookResult;
   }
 
   // Development / not-yet-configured: log metadata only (no PII).

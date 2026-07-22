@@ -40,7 +40,10 @@ export async function sendTemplateEmail(args: {
     );
 
     if (error) {
-      return { ok: false, reason: error.name || 'provider_error' };
+      return {
+        ok: false,
+        reason: [error.name, error.message].filter(Boolean).join(':').slice(0, 160) || 'provider_error',
+      };
     }
     if (!data?.id) {
       return { ok: false, reason: 'missing_email_id' };
