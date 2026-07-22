@@ -142,7 +142,7 @@ export function QuoteForm({ formType = 'quote' }: { formType?: 'quote' | 'contac
         type="submit"
         className="rounded-card bg-accent px-6 py-3 font-semibold text-accent-contrast hover:opacity-90"
       >
-        {isQuote ? 'Send quote request' : 'Send message'}
+        {isQuote ? 'Send proposal request' : 'Send message'}
       </button>
       <p className="text-sm text-muted">
         We aim to respond within one business day. Your details are never shared or sold.

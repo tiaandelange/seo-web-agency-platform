@@ -1,7 +1,8 @@
 /**
  * Navigation data — consumed by site-header and site-footer.
  * Model documented in docs/architecture/NAVIGATION-MODEL.md.
- * Rules: header ≤7 links + 1 CTA; footers curated, never sitemap dumps.
+ * Labels follow Koppie Systems brand (docs/brand/KOPPIE-SYSTEMS-BRAND-IDENTITY.md).
+ * URLs are unchanged from the approved route architecture.
  */
 
 export interface NavLink {
@@ -10,16 +11,16 @@ export interface NavLink {
 }
 
 export const headerNav: NavLink[] = [
-  { label: 'Services', href: '/services/' },
-  { label: 'Solutions', href: '/solutions/' },
-  { label: 'Packages', href: '/website-packages/' },
-  { label: 'Projects', href: '/projects/' },
-  { label: 'Resources', href: '/resources/' },
+  { label: 'Websites', href: '/services/' },
+  { label: 'Ecommerce', href: '/services/ecommerce-websites/' },
+  { label: 'Portals & Systems', href: '/services/custom-web-applications/' },
+  { label: 'SEO', href: '/services/seo-website-development/' },
+  { label: 'Work', href: '/projects/' },
   { label: 'Pricing', href: '/pricing/' },
   { label: 'Contact', href: '/contact/' },
 ];
 
-export const headerCta: NavLink = { label: 'Request a quote', href: '/request-a-quote/' };
+export const headerCta: NavLink = { label: 'Request a Proposal', href: '/request-a-quote/' };
 
 export interface FooterColumn {
   heading: string;
@@ -34,7 +35,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Lead generation websites', href: '/services/lead-generation-websites/' },
       { label: 'Product catalogue websites', href: '/services/product-catalogue-websites/' },
       { label: 'Ecommerce websites', href: '/services/ecommerce-websites/' },
-      { label: 'Custom web applications', href: '/services/custom-web-applications/' },
+      { label: 'Portals & custom systems', href: '/services/custom-web-applications/' },
       { label: 'Maintenance & support', href: '/services/website-maintenance-and-support/' },
       { label: 'All services', href: '/services/' },
     ],
@@ -44,7 +45,7 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: 'About', href: '/about/' },
       { label: 'Our process', href: '/process/' },
-      { label: 'Projects', href: '/projects/' },
+      { label: 'Work', href: '/projects/' },
       { label: 'Pricing', href: '/pricing/' },
       { label: 'FAQ', href: '/faq/' },
       { label: 'Contact', href: '/contact/' },
@@ -57,7 +58,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Website cost guide', href: '/resources/website-cost-south-africa/' },
       { label: 'Comparisons', href: '/compare/' },
       { label: 'Areas we serve', href: '/areas-we-serve/' },
-      { label: 'Request a quote', href: '/request-a-quote/' },
+      { label: 'Request a proposal', href: '/request-a-quote/' },
     ],
   },
 ];
