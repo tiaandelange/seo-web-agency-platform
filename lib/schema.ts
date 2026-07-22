@@ -1,4 +1,4 @@
-import { brand, siteOrigin } from '@/config/brand';
+import { brand, siteOrigin, publicEmail } from '@/config/brand';
 import { absoluteUrl } from '@/lib/seo';
 import type { Article, Comparison, Faq, LocationArea, Project, Service } from '@/types/content';
 import type { Crumb } from '@/lib/routes';
@@ -22,6 +22,7 @@ export function websiteId(): string {
 }
 
 export function organizationSchema(): SchemaObject {
+  const email = publicEmail();
   return {
     '@context': CONTEXT,
     '@type': 'Organization',
@@ -30,7 +31,7 @@ export function organizationSchema(): SchemaObject {
     url: `${siteOrigin()}/`,
     description: brand.description,
     ...(brand.social.length > 0 ? { sameAs: brand.social } : {}),
-    ...(brand.contact.email ? { email: brand.contact.email } : {}),
+    ...(email ? { email } : {}),
     ...(brand.contact.phone ? { telephone: brand.contact.phone } : {}),
   };
 }
@@ -51,6 +52,7 @@ export function websiteSchema(): SchemaObject {
  * Address is emitted only when a real address is configured (A-03).
  */
 export function professionalServiceSchema(areaServed?: string[]): SchemaObject {
+  const email = publicEmail();
   return {
     '@context': CONTEXT,
     '@type': 'ProfessionalService',
@@ -60,7 +62,7 @@ export function professionalServiceSchema(areaServed?: string[]): SchemaObject {
     description: brand.description,
     areaServed: (areaServed ?? brand.serviceAreas).map((name) => ({ '@type': 'Place', name })),
     ...(brand.contact.phone ? { telephone: brand.contact.phone } : {}),
-    ...(brand.contact.email ? { email: brand.contact.email } : {}),
+    ...(email ? { email } : {}),
     ...(brand.address
       ? {
           address: {

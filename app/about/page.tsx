@@ -10,12 +10,12 @@ import { PlaceholderNotice } from '@/components/placeholder-notice';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
-import { team } from '@/data/team';
+import { founderExtendedBio, team } from '@/data/team';
 
 const PATH = '/about/';
 const TITLE = 'About Us';
 const DESCRIPTION =
-  'An engineering-led South African web development studio: who builds your project, the standards it is held to, and why the business exists.';
+  'About Koppie Systems — a Pretoria-based studio building SEO-first websites and practical digital systems for technical, industrial and service businesses.';
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
       <Breadcrumbs path={PATH} />
       <PageHeader
         heading={`About ${brand.name}`}
-        intro="A small, engineering-led studio with a simple thesis: South African businesses deserve websites architected to be found and systems built to fit — from one accountable person, not a hand-off chain."
+        intro={`${brand.positioning} Based in ${brand.baseCity}, we work with businesses throughout South Africa through structured discovery, design, development, testing and review.`}
       />
 
       <Section heading="Why this business exists">
@@ -33,10 +33,11 @@ export default function AboutPage() {
           The local market splits into template sellers competing on price and agencies competing
           on gloss. Between them sits an underserved buyer: the contractor, engineer, manufacturer
           or practice owner who needs the phone to ring and the admin to shrink. {brand.name}{' '}
-          exists for that buyer. We build search-first websites, and — because the founder is a
-          systems engineer at heart — the quotation tools, admin panels and portals that websites
-          grow into. One partner, both layers, everything owned by you.
+          exists for that buyer. We build search-first websites, and the quotation tools, admin
+          panels and portals those websites grow into. One partner, both layers, everything owned
+          by you.
         </p>
+        <p className="mt-4 max-w-3xl leading-relaxed text-muted">{brand.brandPromise}</p>
       </Section>
 
       <Section heading="How we're different" tone="surface">
@@ -48,14 +49,16 @@ export default function AboutPage() {
           <div key={member.name} className="max-w-3xl">
             {member.placeholder && (
               <PlaceholderNotice>
-                Founder bio pending — will be replaced with the real profile before launch (owner
-                input #9).
+                Founder biography is drafted for preview and awaits final owner approval before
+                public launch. ECSA registration category is not published until verified wording
+                is supplied.
               </PlaceholderNotice>
             )}
             <h3 className="text-lg font-semibold text-ink">
               {member.name} — {member.role}
             </h3>
             <p className="mt-2 leading-relaxed text-muted">{member.bio}</p>
+            <p className="mt-4 leading-relaxed text-muted">{founderExtendedBio}</p>
           </div>
         ))}
       </Section>
@@ -63,22 +66,26 @@ export default function AboutPage() {
       <Section heading="What to look at next" tone="surface">
         <p className="max-w-3xl leading-relaxed text-muted">
           The most useful pages for judging us: the{' '}
-          <Link href="/process/" className="text-accent underline">
+          <Link href="/process/" className="text-link underline">
             process page
           </Link>{' '}
           (how projects actually run),{' '}
-          <Link href="/pricing/" className="text-accent underline">
+          <Link href="/pricing/" className="text-link underline">
             pricing
           </Link>{' '}
-          (published openly), and{' '}
-          <Link href="/projects/" className="text-accent underline">
-            projects
+          (indicative ranges published openly), and{' '}
+          <Link href="/projects/" className="text-link underline">
+            work
           </Link>{' '}
-          (where real case studies publish as work completes — honestly labelled until then).
+          (where real case studies publish as work completes with permission — honestly labelled
+          until then).
         </p>
       </Section>
 
-      <CtaQuote heading="Talk to the person who would build it" ctaLabel="Book a consultation" />
+      <CtaQuote
+        heading="Talk to the person who would build it"
+        ctaLabel="Request a Proposal"
+      />
       <JsonLd data={webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION, pageType: 'AboutPage' })} />
     </>
   );

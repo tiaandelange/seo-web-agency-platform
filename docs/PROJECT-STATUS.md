@@ -1,59 +1,37 @@
 # Project status
 
-Project: SEO-first website platform for a new South African web-development and digital-systems company.
-Working brand: **Meridian Web Systems** (temporary — see `config/brand.ts`).
-Last updated: 2026-07-21 (v0.1 structural foundation complete).
+Project: SEO-first website platform — **Koppie Systems** preview identity.
+Last updated: 2026-07-22 (Koppie brand implementation on `brand/koppie-systems`).
 
 ## Current phase
 
-**v0.1 fully verified; brand-phase decision pack complete (2026-07-21)** — codebase locally validated, production-buildable and runtime-clean including the live browser review (D-21/D-22/D-23, `docs/technical/LOCAL-VALIDATION-REPORT.md`). The naming/positioning/messaging/pricing/brand-direction decision pack is prepared and awaiting owner decisions: positioning re-verified (`docs/business/POSITIONING-STRATEGY.md`), name research + recommendation (`docs/business/FOUNDER-NAME-DECISION.md` — Datum Web Systems recommended, checks provisional), messaging (`docs/business/MESSAGING-FRAMEWORK.md`), service/pricing/support decisions (`docs/business/*-DECISION.md`), three name-adaptable brand directions with A recommended (`docs/brand/`), evidence register (`docs/content/EVIDENCE-REQUIREMENTS.md`) and the visual implementation plan (`docs/brand/VISUAL-IMPLEMENTATION-PLAN.md`). Agent guardrails now version-controlled (`AGENTS.md`, `.cursor/rules/`). **Next action: owner decisions** — then official name/domain/trademark verification, then the config swap and visual phase.
+**Private preview branding in progress.** Technical foundation remains verified (D-21/D-23). Active public identity is Koppie Systems (`docs/brand/KOPPIE-SYSTEMS-BRAND-IDENTITY.md`). Registration, trademark, domain ownership and final logo are **not verified**. Public launch is blocked until `docs/brand/KOPPIE-REMAINING-INPUTS.md` is cleared.
 
 ## Phase summary
 
 | Phase | Scope | Status |
 |---|---|---|
-| 1 | Workspace inspection, project setup, core docs | ✅ Done |
-| 2 | Positioning, naming (32 options, scored shortlist), brand config | ✅ Done — owner sign-off pending |
-| 3 | Market, competitor and keyword research (live SERP evidence, dated) | ✅ Done |
-| 4 | Information architecture: sitemap, URL register (58 routes), nav, taxonomy | ✅ Done |
-| 5 | 21 page-template specifications | ✅ Done |
-| 6 | Service (11) / package (5) / support structure + pricing architecture | ✅ Done — pricing placeholder |
-| 7 | Case-study framework + 4 template projects (noindex) | ✅ Done |
-| 8 | Content model: typed local TS, full schema, example entries | ✅ Done |
-| 9 | Stack: Next 15.3 pinned, TS strict, Tailwind 4, Vitest, ESLint 9 | ✅ Done — build unverified (below) |
-| 10 | Skeleton: 23 page files (58 URLs), 16 components, neutral tokens | ✅ Done |
-| 11 | Metadata system + validator (uniqueness, lengths, canonicals) | ✅ Done |
-| 12 | Structured data: 12 builders, anti-fabrication rules, tests | ✅ Done |
-| 13 | Crawl/indexation: robots, sitemap, env-gated staging, redirects register | ✅ Done |
-| 14 | Internal linking: curated relations + orphan BFS check | ✅ Done |
-| 15 | Local SEO: service-area model, 2 genuine location pages, GBP checklist | ✅ Done |
-| 16 | Performance budgets + accessibility standards (1 client component total) | ✅ Done |
-| 17 | Forms: server action, honeypot, consent, webhook delivery point | ✅ Done — delivery provider pending |
-| 18 | Launch docs: pre-launch checklist, GSC setup, 90-day plan | ✅ Done |
-| 19 | Content roadmap: launch plan + 12-month CSV (24 rows) | ✅ Done |
-| 20 | Prompt library: 20 prompts + index | ✅ Done |
+| 1–20 | Blueprint structural foundation | ✅ Done |
+| Validation | Install, lint, types, 21 tests, SEO validator, build, runtime | ✅ Done 2026-07-21 |
+| Brand strategy pack | Positioning, naming research, messaging, pricing, directions | ✅ Done 2026-07-21 |
+| **Koppie implementation** | Config, messaging, visual system, metadata, wordmark | ✅ Preview done 2026-07-22 on `brand/koppie-systems` |
+| Official verification | CIPC, trademark, domain, contacts, logo, case studies | ⏳ Owner |
+| Public launch | Production domain, indexing, GBP, GSC | 🚫 Blocked |
 
-## Validation status (honest)
+## Validation (current branch)
 
-First local validation executed 2026-07-21 (D-21; full detail in `docs/technical/LOCAL-VALIDATION-REPORT.md`):
+Baseline before brand work + post-implementation:
 
-- ✅ `npm install` — succeeded; first `package-lock.json` generated (commit it).
-- ✅ `tsc --noEmit` (strict) — 0 errors.
-- ✅ `eslint .` — 0 errors, 0 warnings.
-- ✅ SEO validator — 0 errors, 0 warnings (4 over-length descriptions trimmed).
-- ✅ All 21 test assertions pass (one over-broad sitemap assertion scoped to its intent; real `vitest run` re-confirmation on the owner's machine part of the current step).
-- ✅ Route registry, sitemap (50 entries, no noindex URLs), robots (both environments) and breadcrumbs rendered and verified.
-- ✅ Forms: minimum-time spam trap implemented (completing D-12); webhook HTTP status now checked.
-- ✅ `npm run build` — succeeded; 64 pages generated; first-load JS 103 kB shared (under the 120 kB budget). Rebuilt clean after the Next 15.5.21 security upgrade (D-22).
-- ✅ `npm audit` — critical Next.js advisory set resolved by the upgrade; one moderate transitive `postcss` advisory accepted (its only fix downgrades Next to 9.x; build-time only, does not affect deployed static output).
-- ✅ Server-rendered HTML verified directly from the production build for every page type: unique titles/descriptions, one H1 each, canonical, correct robots directive (all 8 noindex routes emit `noindex,follow`), valid JSON-LD (absolute URLs, no fabricated ratings/prices), full body content present without JavaScript.
-- ✅ Live browser runtime review **completed 2026-07-21**: 11 representative pages at desktop + mobile viewports — zero console errors, zero hydration errors, no real failed requests, one H1 per page, no horizontal overflow, mobile nav `aria-expanded` correct, skip link + visible focus confirmed, form error/spam-trap/dev-fallback paths verified honestly (webhook delivery untested — none configured). See `docs/technical/LOCAL-VALIDATION-REPORT.md` "Manual runtime review".
+- ✅ `npm run check` — lint, strict tsc, 21/21 tests, SEO validator 0 errors
+- ✅ `npm run build` — 64 pages; first-load JS 103 kB shared
+- ✅ `npm run validate:seo` — 58 routes, 50 indexable, 8 noindex
+- ✅ Live HTTP + Playwright mobile review (2026-07-22): Koppie present, Meridian absent from active pages, one H1/page, no overflow, no console/page errors on sampled pages, mobile nav ARIA correct
+- ✅ Contrast audit documented (`docs/brand/CONTRAST-AUDIT.md`) — all listed combinations PASS AA
 
-## Blockers
+## Architecture preserved
 
-- None technical. Owner decisions: `docs/REQUIRED-USER-INPUTS.md` (16 items; 8 launch-blocking).
+58 routes · 50 indexable · 8 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · project templates remain noindex.
 
-## Environment notes
+## Blockers (public launch)
 
-- Workspace `C:\Users\delanget\Documents\GitHub` contains unrelated projects (`Damtech-Website`, `PropertyGuy`) — untouched.
-- Blueprint PDF was unreachable (same VM failure); implemented from the complete in-message blueprint (A-09).
+See `docs/brand/KOPPIE-REMAINING-INPUTS.md` (20 items). Preview may proceed with staging robots protection.

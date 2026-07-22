@@ -8,9 +8,9 @@ import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
 
 const PATH = '/request-a-quote/';
-const TITLE = 'Request a Quote';
+const TITLE = 'Request a Proposal';
 const DESCRIPTION =
-  'Request a website or system quote: a few scoping questions, a response within one business day, and a fixed itemised quote after one conversation — no obligation.';
+  'Request a website or system proposal from Koppie Systems: a few scoping questions, a response within one business day, and a fixed itemised quote after one conversation — clear scope, no obligation.';
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -25,8 +25,8 @@ export default async function RequestQuotePage({
     <>
       <Breadcrumbs path={PATH} />
       <PageHeader
-        heading="Request a quote"
-        intro="Answer what you can below — rough is fine. You will hear back within one business day with either a scoping call invitation or clarifying questions, and after one conversation you receive a fixed, itemised quote. No obligation, no follow-up spam."
+        heading="Request a proposal"
+        intro="Answer what you can below — rough is fine. You will hear back within one business day with either a scoping call invitation or clarifying questions, and after one conversation you receive a fixed, itemised quote. Clear scope, transparent pricing, no obligation."
       />
 
       {error && (

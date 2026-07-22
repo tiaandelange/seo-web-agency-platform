@@ -45,7 +45,7 @@ export function MobileNav({ links, cta }: { links: NavLink[]; cta: NavLink }) {
             <li className="pt-2">
               <Link
                 href={cta.href}
-                className="block rounded-card bg-accent px-4 py-3 text-center text-base font-semibold text-accent-contrast"
+            className="block rounded-card bg-cta px-4 py-3 text-center text-base font-semibold text-cta-contrast"
                 onClick={() => setOpen(false)}
               >
                 {cta.label}

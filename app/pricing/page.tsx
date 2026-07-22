@@ -80,10 +80,10 @@ export default function PricingPage() {
         <p className="mt-4 max-w-3xl text-sm text-muted">
           Out-of-plan hourly work: indicative R650–R950 per hour. Support plans: indicative
           R850–R8,000 per month by tier — detailed on the{' '}
-          <Link href="/services/website-maintenance-and-support/" className="text-accent underline">
+          <Link href="/services/website-maintenance-and-support/" className="text-link underline">
             maintenance and support page
           </Link>
-          .
+          . VAT treatment is stated on quotes once registration status is confirmed — ranges here are VAT-neutral.
         </p>
       </Section>
 
@@ -100,7 +100,7 @@ export default function PricingPage() {
       <Section heading="Wondering what the wider market charges?">
         <p className="max-w-3xl leading-relaxed text-muted">
           Our guide to{' '}
-          <Link href="/resources/website-cost-south-africa/" className="text-accent underline">
+          <Link href="/resources/website-cost-south-africa/" className="text-link underline">
             website costs in South Africa
           </Link>{' '}
           covers the full market honestly — from R2,000 templates to R160,000 builds — with dated
@@ -112,7 +112,11 @@ export default function PricingPage() {
         <FaqList items={PRICING_FAQS} />
       </Section>
 
-      <CtaQuote heading="Get your fixed number" body="One scoping conversation converts these ranges into a written, itemised quote — valid, binding and jargon-free." />
+      <CtaQuote
+        heading="Get a scoped proposal"
+        body="One scoping conversation converts these indicative ranges into a written, itemised quote — clear scope, transparent pricing, no obligation."
+        ctaLabel="Request a Proposal"
+      />
       <JsonLd data={webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION })} />
     </>
   );

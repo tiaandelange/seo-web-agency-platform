@@ -8,7 +8,7 @@ import type { Article, Comparison, PackageOffer, Project, Service, Solution } fr
 
 function CardShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-full flex-col rounded-card border border-line bg-canvas p-5">
+    <div className="flex h-full flex-col rounded-card border border-line bg-canvas p-5 shadow-card">
       {children}
     </div>
   );
