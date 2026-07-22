@@ -14,21 +14,22 @@ import { organizationSchema, websiteSchema } from '@/lib/schema';
 const manrope = Manrope({
   subsets: ['latin'],
   weight: ['500', '600', '700'],
-  variable: '--font-heading',
+  // Distinct from @theme --font-heading to avoid circular var() references.
+  variable: '--font-manrope',
   display: 'swap',
 });
 
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
-  variable: '--font-body',
+  variable: '--font-inter',
   display: 'swap',
 });
 
 const plexMono = IBM_Plex_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
-  variable: '--font-technical',
+  variable: '--font-plex-mono',
   display: 'swap',
 });
 
@@ -39,9 +40,7 @@ export const metadata: Metadata = {
     template: `%s | ${brand.name}`,
   },
   description: brand.description,
-  icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
-  },
+  // Favicon is provided by app/icon.svg (App Router file convention).
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -33,9 +33,11 @@
   --color-disabled: #7a8387;
   --color-input: #fbfcfa;
 
-  --font-sans: var(--font-body), Arial, ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-heading), Arial, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-technical), ui-monospace, monospace;
+  /* next/font sets --font-manrope / --font-inter / --font-plex-mono on <html>.
+     Theme tokens reference those — never self-reference (circular var crashes). */
+  --font-sans: var(--font-inter), Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
   --radius-card: 0.625rem; /* 10px */
   --shadow-card: 0 8px 24px rgba(20, 36, 43, 0.08);
