@@ -1,21 +1,21 @@
-ID,Category,Item,Current placeholder state,File / location,Replacement required,Owner action,Blocks launch,Status 2026-07-21
+ID,Category,Item,Current placeholder state,File / location,Replacement required,Owner action,Blocks launch,Status 2026-07-22
 P-01,Identity,Trading name,"Koppie Systems (preview approved; CIPC not verified)",config/brand.ts name,CIPC-verified registered name,Complete CIPC checks,Yes,Preview set — verification open
 P-02,Identity,Legal name,"Koppie Systems (Pty) Ltd (proposed — not verified registered)",config/brand.ts legalName,Registered company name + number,Register company at CIPC,Yes,Open
-P-03,Identity,Domain,env fallback only — koppiesystems.co.za proposed not owned in-repo,config/brand.ts + NEXT_PUBLIC_SITE_URL,Registered domain,Register + point DNS,Yes,Open
-P-04,Contact,Phone,empty (hidden in UI),config/brand.ts contact.phone,Verified number founder answers,Supply,Yes,Open
-P-05,Contact,Email,empty until verification.emailLive — proposed hello@koppiesystems.co.za,config/brand.ts proposedEmail,Live mailbox on owned domain,Create after domain,Yes,Open
-P-06,Contact,WhatsApp,empty (links hidden),config/brand.ts contact.whatsapp,Verified WhatsApp business number,Supply (optional but recommended),No,Open
-P-07,Contact,Business hours,"Mon-Fri 08:00-17:00 placeholder",config/brand.ts hours,Confirmed hours,Confirm,No,Open
-P-08,Contact,Address policy,null (service-area business),config/brand.ts address,Decision: publish address or stay service-area,Decide (input #4),Yes,Open
-P-09,Identity,Service areas,"Pretoria/Johannesburg/Centurion/Gauteng assumed (A-01)",config/brand.ts serviceAreas + data/locations.ts,Confirmed genuine service areas,Confirm,No,Open
+P-03,Identity,Domain,"Primary named koppiesystems.co.za; canonical https://www.koppiesystems.co.za — DNS cutover open",config/brand.ts + NEXT_PUBLIC_SITE_URL,DNS live on production host,Point DNS + set production env,Yes,Named — cutover open
+P-04,Contact,Phone,+27614188807 (rendered),config/brand.ts contact.phone,Keep monitored,Done,No,Complete
+P-05,Contact,Email,empty until verification.emailLive — proposed hello@; ops via LEAD_TO_EMAIL,config/brand.ts + env,Live mailbox on owned domain,Create after domain,Yes,Open
+P-06,Contact,WhatsApp,27614188807 (rendered),config/brand.ts contact.whatsapp,Keep monitored,Done,No,Complete
+P-07,Contact,Business hours,"Enquiries any day — respond ASAP (SA)",config/brand.ts hours,Done,Done,No,Complete
+P-08,Contact,Address policy,null (nationwide & international; no street address),config/brand.ts address,Done,Done,No,Complete
+P-09,Identity,Service areas,"Pretoria/Centurion/Gauteng/South Africa/International",config/brand.ts serviceAreas + data/locations.ts,Confirmed genuine service areas,Confirm,No,Updated
 P-10,Identity,Social profiles,empty array,config/brand.ts social,LinkedIn company page (first),Create after naming,No,Open
 P-11,Identity,Google Business Profile,empty,config/brand.ts googleBusinessProfile,Verified GBP,Create post-registration,Yes (for local SEO),Open
 P-12,People,Founder bio,"Draft Tiaan de Lange bio with placeholder notice until founderBioApproved",data/team.ts,Owner-approved bio + verified ECSA wording,Approve / amend,No,Draft in preview
 P-13,People,Founder name/qualifications,not stated,data/team.ts + About page,Verified name + qualifications (claim nothing unverified),Supply,No,Open
 P-14,People,Headshot,none,public/images/,Decision + photo if yes,Decide,No,Open
-P-15,Evidence,Testimonials,empty by design,data/testimonials.ts,1-3 genuine quotes with written permission,Collect from first clients,No,Open
-P-16,Evidence,Case study 1,contractor-website-template (noindex),content/projects/contractor-website-template.ts,Real permissioned project (DamTech candidate),Answer permission questions,No,Open
-P-17,Evidence,Case study 2,property-management-system-template (noindex),content/projects/property-management-system-template.ts,Real permissioned project (Proplytic/PropertyGuy candidate),Answer permission questions,No,Open
+P-15,Evidence,Testimonials,empty by design — inventing refused,data/testimonials.ts,1-3 genuine quotes with written permission,Collect from first clients,No,Open
+P-16,Evidence,Case study 1,damtech-website (noindex draft; permission granted),content/projects/damtech-website.ts,PII-cleared screenshots + flip indexation,Supply screenshots,No,Permissioned draft
+P-17,Evidence,Case study 2,proplytic-property-software (noindex draft; permission granted),content/projects/proplytic-property-software.ts,PII-cleared screenshots + flip indexation,Supply screenshots,No,Permissioned draft
 P-18,Evidence,Case study 3,admin-quotation-platform-template (noindex),content/projects/admin-quotation-platform-template.ts,Real permissioned system,Answer permission questions,No,Open
 P-19,Evidence,Case study 4,catalogue-rfq-website-template (noindex),content/projects/catalogue-rfq-website-template.ts,Real catalogue/RFQ build,Await first matching client if none exists,No,Open
 P-20,Evidence,Project screenshots,public/images/ empty (.gitkeep only),public/images/,PII-cleared screenshots per published project,Capture per PROJECT-PUBLICATION-CHECKLIST.md,No,Open
@@ -24,14 +24,14 @@ P-22,Commercial,Package pricing,all ranges indicative:true with notice,data/pack
 P-23,Commercial,Hourly rate,indicative R650-950/h,docs + pricing page,Confirmed rate,Sign off,No,Open
 P-24,Commercial,Support plan prices,indicative ranges,data/packages.ts / support page,Confirmed plans per SUPPORT-PACKAGE-DECISION.md,Sign off,No,Open
 P-25,Commercial,Payment terms,proposed in PRICING-DECISION.md,proposals + terms page,Confirmed terms,Sign off,No,Open
-P-26,Legal,Privacy policy,structured draft placeholder:true,data/legal.ts,Completed POPIA-reviewed policy,Legal review,Yes,Open
-P-27,Legal,Terms of service,structured draft placeholder:true,data/legal.ts,Reviewed terms,Legal review,Yes,Open
-P-28,Legal,Cookie policy,structured draft placeholder:true,data/legal.ts,Reviewed policy (update when analytics enabled),Legal review,Yes,Open
-P-29,Legal,Company registration details,none,legal pages + footer,Reg number + VAT status,Register + supply,Yes,Open
-P-30,Legal,POPIA Information Officer,placeholder in privacy policy,data/legal.ts,Named officer + contact,Designate,Yes,Open
-P-31,Technical,Lead delivery,LEAD_WEBHOOK_URL unset (server-log fallback),.env + lib/actions.ts,Real webhook/email provider tested end-to-end,Choose provider (input #12),Yes,Open
-P-32,Technical,OG/social share image,none,public/,Branded 1200x630 image (after visual identity),Create in visual phase,No,Open
+P-26,Legal,Privacy policy,operational draft placeholder:false — not attorney-reviewed,data/legal.ts,Attorney review,Legal review,Yes,Draft complete
+P-27,Legal,Terms of service,operational draft placeholder:false — not attorney-reviewed,data/legal.ts,Attorney review,Legal review,Yes,Draft complete
+P-28,Legal,Cookie policy,operational draft placeholder:false,data/legal.ts,Update when analytics enabled,Legal review,Yes,Draft complete
+P-29,Legal,Company registration details,VAT not registered recorded; reg number open,legal pages + footer,Reg number,Register + supply,Yes,Partial
+P-30,Legal,POPIA Information Officer,open — contact form/phone used meantime,data/legal.ts,Named officer + contact,Designate,Yes,Open
+P-31,Technical,Lead delivery,Resend/webhook/log in lib/lead-delivery.ts — host secrets required,.env + lib/lead-delivery.ts,Configure Preview env + live test,Set Vercel secrets,Yes,Code ready
+P-32,Technical,OG/social share image,none,public/,Branded 1200x630 image (after final logo),Create after logo,No,Open
 P-33,Technical,Analytics,GA measurement ID unset (disabled),env NEXT_PUBLIC_GA_MEASUREMENT_ID,GA4 property + consent handling,Create accounts (input #11),No,Open
 P-34,Technical,Search Console,not set up,launch checklist,Domain property verified,Post-domain,Yes,Open
 P-35,Brand,Design tokens,Koppie palette implemented in app/globals.css,app/globals.css,Final logo + any token tweaks after logo,Approve logo,No,Preview complete
-P-36,Brand,Logo,Temporary typographic wordmark + provisional geometric K,components/brand-wordmark.tsx + app/icon.svg,Final SVG per LOGO-PRODUCTION-BRIEF.md,Commission + approve,Yes for public brand,Provisional
+P-36,Brand,Logo,Provisional wordmark active — final SVG not supplied,components/brand-wordmark.tsx + app/icon.svg,Final SVG per LOGO-PRODUCTION-BRIEF.md,Supply approved SVG,Yes for public brand,Blocked
