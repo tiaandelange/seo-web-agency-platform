@@ -91,7 +91,7 @@ describe('deliverLead', () => {
     if (!result.ok) expect(result.reason).toMatch(/LEAD_WEBHOOK_URL/);
   });
 
-  it('sends via Resend when configured', async () => {
+  it('sends non-templated leads via legacy Resend text when configured', async () => {
     vi.stubEnv('LEAD_DELIVERY_PROVIDER', 'resend');
     vi.stubEnv('LEAD_DELIVERY_API_KEY', 're_test');
     vi.stubEnv('LEAD_TO_EMAIL', 'ops@example.com');
@@ -99,7 +99,7 @@ describe('deliverLead', () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
     vi.stubGlobal('fetch', fetchMock);
 
-    const result = await deliverLead(baseLead);
+    const result = await deliverLead({ ...baseLead, formType: 'seo-audit-intake' });
 
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.provider).toBe('resend');
@@ -117,11 +117,12 @@ describe('deliverLead', () => {
     vi.stubEnv('LEAD_DELIVERY_API_KEY', 're_test');
     vi.stubEnv('LEAD_TO_EMAIL', 'ops@example.com');
     vi.stubEnv('LEAD_FROM_EMAIL', '');
+    vi.stubEnv('RESEND_FROM_EMAIL', '');
 
-    const result = await deliverLead(baseLead);
+    const result = await deliverLead({ ...baseLead, formType: 'seo-audit-intake' });
 
     expect(result.ok).toBe(false);
-    if (!result.ok) expect(result.reason).toMatch(/LEAD_FROM_EMAIL/);
+    if (!result.ok) expect(result.reason).toMatch(/LEAD_FROM_EMAIL|RESEND_FROM_EMAIL/);
   });
 
   it('fails Resend on provider HTTP errors', async () => {
@@ -131,7 +132,7 @@ describe('deliverLead', () => {
     vi.stubEnv('LEAD_FROM_EMAIL', 'leads@koppiesystems.co.za');
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 401 }));
 
-    const result = await deliverLead(baseLead);
+    const result = await deliverLead({ ...baseLead, formType: 'seo-audit-intake' });
 
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.reason).toContain('401');

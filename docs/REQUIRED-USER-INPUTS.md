@@ -15,7 +15,8 @@ Decisions only the owner can make. Nothing on this list blocks local development
 | 9 | Founder bio, headshot decision, and how to present the team | `data/team.ts`, About page | No |
 | 10 | Company registration + VAT — **VAT not registered** recorded; reg number + Information Officer open | Legal pages, footer | Yes (reg / IO) |
 | 11 | Google accounts: Search Console, GA4 property, Google Business Profile | Env vars + launch checklists | Yes (GSC), GA optional |
-| 12 | Lead-delivery — **Resend/webhook code ready**; configure host secrets + verified From domain | `.env` + `lib/lead-delivery.ts` | Yes until live-tested |
+| 12 | Lead-delivery — **Resend hosted templates for contact/proposal**; set published template IDs + From/To/Reply-To on host; live-test to approved inbox | `.env` + `lib/email/*` + `lib/lead-delivery.ts` | Yes until live-tested |
+| 12b | Future Resend templates for SEO-audit order/intake/payment (do not reuse contact/proposal) | Resend dashboard + env | Yes before paid-audit email automation |
 | 13 | Social profiles to create/link (LinkedIn recommended first) | `config/brand.ts` → `social`, Organization schema `sameAs` | No |
 | 14 | Final brand — preview identity live; **final logo SVG not supplied** | `docs/brand/ASSET-REGISTER.md` | Yes for public brand |
 | 15 | Sign-off on positioning — **approved and applied** (Koppie primary positioning). Confirm founder bio + ECSA wording for public launch. | Business docs + `data/team.ts` | Soft |
