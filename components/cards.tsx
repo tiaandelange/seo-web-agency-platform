@@ -66,6 +66,11 @@ export function ProjectCard({ project }: { project: Project }) {
           Example template
         </p>
       )}
+      {project.publishPermission && project.placeholder && project.status !== 'template' && (
+        <p className="mb-2 inline-block self-start rounded-card bg-surface px-2 py-1 text-xs font-semibold uppercase tracking-wide text-muted">
+          Draft — screenshots pending
+        </p>
+      )}
       <h3 className="text-base font-semibold text-ink">
         <Link href={`/projects/${project.slug}/`} className="hover:underline">
           {project.heading}

@@ -28,7 +28,7 @@ export const solutions: Solution[] = [
       'Job and project proof structured as real case studies, ready to fill as you complete work.',
     ],
     recommendedServiceSlugs: ['lead-generation-websites', 'seo-website-development', 'website-maintenance-and-support'],
-    relatedProjectSlugs: ['contractor-website-template'],
+    relatedProjectSlugs: ['damtech-website'],
     faqs: [
       {
         question: 'Can the site show emergency contact details prominently?',
@@ -151,7 +151,7 @@ export const solutions: Solution[] = [
       'Staged delivery: website first for cash flow, system modules as the portfolio grows.',
     ],
     recommendedServiceSlugs: ['custom-web-applications', 'business-websites', 'customer-and-supplier-portals'],
-    relatedProjectSlugs: ['property-management-system-template'],
+    relatedProjectSlugs: ['proplytic-property-software'],
     faqs: [
       {
         question: 'We manage 40 units — is custom software overkill?',
@@ -233,7 +233,7 @@ export const solutions: Solution[] = [
       'Growth path: the same architecture extends into more services, areas, catalogues or systems without rebuilding.',
     ],
     recommendedServiceSlugs: ['business-websites', 'seo-website-development', 'website-maintenance-and-support'],
-    relatedProjectSlugs: ['contractor-website-template'],
+    relatedProjectSlugs: ['damtech-website'],
     faqs: [
       {
         question: 'Why not just use Wix or a R2,000 special?',

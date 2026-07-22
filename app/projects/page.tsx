@@ -12,9 +12,12 @@ import { projects } from '@/data/projects';
 const PATH = '/projects/';
 const TITLE = 'Projects & Case Studies';
 const DESCRIPTION =
-  'How we document projects: substantive case studies covering the business problem, scope, solution and verified results — publishing as client work completes.';
+  'Selected Koppie Systems work — Damtech and Proplytic — plus the documentation standard used for every published case study.';
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
+
+const publishedDrafts = projects.filter((p) => p.publishPermission && p.status !== 'template');
+const templates = projects.filter((p) => p.status === 'template');
 
 export default function ProjectsPage() {
   return (
@@ -22,34 +25,48 @@ export default function ProjectsPage() {
       <Breadcrumbs path={PATH} />
       <PageHeader
         heading="Projects and case studies"
-        intro="We are a new studio, so this section is honest about what it is: the documentation standard our projects will be published to, with real case studies appearing here as client work completes and publication permission is granted. No invented clients, no borrowed portfolios."
+        intro="Authorised projects appear here with honest scope. Pages stay out of search indexes until screenshots and remaining publication gates are complete — no invented results or testimonials."
       />
 
       <Section heading="How we document every project">
         <p className="max-w-3xl leading-relaxed text-muted">
-          A project page here is never a screenshot gallery. Each case study records the business
-          problem in the client&apos;s terms, the objectives and scope, the solution and why those
-          choices, the implementation process, the SEO work performed, and — only where verified —
-          measured results. The example templates below show that structure exactly as future case
-          studies will use it.
+          A project page records the business problem, objectives and scope, the solution and why
+          those choices, the implementation process, the SEO or product work performed, and —
+          only where verified — measured results. We do not invent clients, metrics or reviews.
         </p>
       </Section>
 
-      <Section heading="Case-study structure examples" tone="surface">
-        <p className="mb-6 max-w-3xl text-sm text-muted">
-          These are clearly-marked example templates, not real projects. They are excluded from
-          search engines by design.
-        </p>
-        <CardGrid>
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </CardGrid>
-      </Section>
+      {publishedDrafts.length > 0 && (
+        <Section heading="Authorised projects" tone="surface">
+          <p className="mb-6 max-w-3xl text-sm text-muted">
+            Named with owner permission. Draft screenshots and indexation are still gated until
+            imagery clears privacy review.
+          </p>
+          <CardGrid>
+            {publishedDrafts.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </CardGrid>
+        </Section>
+      )}
+
+      {templates.length > 0 && (
+        <Section heading="Case-study structure examples">
+          <p className="mb-6 max-w-3xl text-sm text-muted">
+            Clearly-marked example templates, not client work. Excluded from search engines by
+            design.
+          </p>
+          <CardGrid>
+            {templates.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </CardGrid>
+        </Section>
+      )}
 
       <CtaQuote
-        heading="Want to be an early case study?"
-        body="Early clients get senior attention at a new-studio price — and, only with your written permission, a documented case study that markets both of us."
+        heading="Want a documented case study?"
+        body="When we publish your project, it is only with written permission — and only with facts we can stand behind."
       />
       <JsonLd data={webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION, pageType: 'CollectionPage' })} />
     </>

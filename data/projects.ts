@@ -1,7 +1,7 @@
 import type { Project, ProjectCategory } from '@/types/content';
-import { contractorWebsiteTemplate } from '@/content/projects/contractor-website-template';
+import { damtechWebsite } from '@/content/projects/damtech-website';
+import { proplyticPropertySoftware } from '@/content/projects/proplytic-property-software';
 import { catalogueRfqWebsiteTemplate } from '@/content/projects/catalogue-rfq-website-template';
-import { propertyManagementSystemTemplate } from '@/content/projects/property-management-system-template';
 import { adminQuotationPlatformTemplate } from '@/content/projects/admin-quotation-platform-template';
 
 /**
@@ -9,11 +9,14 @@ import { adminQuotationPlatformTemplate } from '@/content/projects/admin-quotati
  * each — see docs/content/CASE-STUDY-FRAMEWORK.md). Integrity rule (validator +
  * effectiveNoindex): publishPermission: false ⇒ page is noindex regardless of
  * its own noindex field (D-07).
+ *
+ * Damtech + Proplytic: owner-authorised naming (2026-07-22) but remain noindex
+ * until screenshots/alt clear Gate 4. Two structural templates remain.
  */
 export const projects: Project[] = [
-  contractorWebsiteTemplate,
+  damtechWebsite,
+  proplyticPropertySoftware,
   catalogueRfqWebsiteTemplate,
-  propertyManagementSystemTemplate,
   adminQuotationPlatformTemplate,
 ];
 

@@ -1,1 +1,3 @@
 source,destination,type,date_added,reason,added_by,status
+/projects/contractor-website-template/,/projects/damtech-website/,301,2026-07-22,Owner-authorised Damtech case study replaces contractor template slug,agent,active
+/projects/property-management-system-template/,/projects/proplytic-property-software/,301,2026-07-22,Owner-authorised Proplytic case study replaces property PMS template slug,agent,active

@@ -23,11 +23,12 @@ describe('route registry', () => {
   it('contains the expected launch architecture (50 indexable URLs)', () => {
     const indexable = routes.filter((r) => r.index);
     expect(indexable.length).toBe(50);
-    // Noindex set: thank-you + 3 project categories + 4 project templates.
+    // Noindex set: thank-you + 3 project categories + 2 authorised drafts + 2 templates.
     const noindex = routes.filter((r) => !r.index).map((r) => r.path);
     expect(noindex).toContain('/request-a-quote/thank-you/');
     expect(noindex).toContain('/projects/websites/');
-    expect(noindex).toContain('/projects/contractor-website-template/');
+    expect(noindex).toContain('/projects/damtech-website/');
+    expect(noindex).toContain('/projects/proplytic-property-software/');
     expect(noindex.length).toBe(8);
   });
 

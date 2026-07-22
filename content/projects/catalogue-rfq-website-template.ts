@@ -57,6 +57,6 @@ export const catalogueRfqWebsiteTemplate: Project = {
   projectStatus: 'template',
   publishPermission: false,
   gallery: [],
-  relatedProjectSlugs: ['admin-quotation-platform-template', 'contractor-website-template'],
+  relatedProjectSlugs: ['admin-quotation-platform-template', 'damtech-website'],
   relatedArticleSlugs: ['website-cost-south-africa'],
 };

@@ -54,6 +54,6 @@ export const adminQuotationPlatformTemplate: Project = {
   projectStatus: 'template',
   publishPermission: false,
   gallery: [],
-  relatedProjectSlugs: ['catalogue-rfq-website-template', 'property-management-system-template'],
+  relatedProjectSlugs: ['catalogue-rfq-website-template', 'proplytic-property-software'],
   relatedArticleSlugs: [],
 };

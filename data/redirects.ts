@@ -6,4 +6,15 @@ import type { RedirectRule } from '@/types/content';
  * Rules: 301s point at final destinations only (no chains); internal links are
  * re-pointed at the new URL in the same change (docs/seo/CRAWL-AND-INDEXATION-POLICY.md).
  */
-export const redirects: RedirectRule[] = [];
+export const redirects: RedirectRule[] = [
+  {
+    source: '/projects/contractor-website-template/',
+    destination: '/projects/damtech-website/',
+    permanent: true,
+  },
+  {
+    source: '/projects/property-management-system-template/',
+    destination: '/projects/proplytic-property-software/',
+    permanent: true,
+  },
+];

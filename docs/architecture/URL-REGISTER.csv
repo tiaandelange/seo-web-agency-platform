@@ -29,9 +29,9 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /projects/websites/,Website Projects,project-category,live-skeleton,noindex,self,no,none,/projects/,1,(noindex until real projects — D-07)
 /projects/ecommerce/,Ecommerce Projects,project-category,live-skeleton,noindex,self,no,none,/projects/,1,(noindex until real projects — D-07)
 /projects/admin-systems/,Admin & System Projects,project-category,live-skeleton,noindex,self,no,none,/projects/,1,(noindex until real projects — D-07)
-/projects/contractor-website-template/,Case Study Template: Contractor Website,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
+/projects/damtech-website/,Damtech Website — Dam Lining & Water Storage,project,live-draft,noindex,self,no,none,/projects/,1,(authorised; noindex until screenshots — D-28)
 /projects/catalogue-rfq-website-template/,Case Study Template: Catalogue & RFQ Website,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
-/projects/property-management-system-template/,Case Study Template: Property Management System,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
+/projects/proplytic-property-software/,Proplytic — Property Portfolio Software,project,live-draft,noindex,self,no,none,/projects/,1,(authorised; noindex until screenshots — D-28)
 /projects/admin-quotation-platform-template/,Case Study Template: Admin & Quotation Platform,project,template,noindex,self,no,none,/projects/,1,(template — D-07)
 /resources/,Guides & Resources,hub,live-skeleton,index,self,yes,header+footer,/,1,web development guides
 /resources/website-cost-guides/,Website Cost Guides,resource-category,live-skeleton,index,self,yes,none,/resources/,1,website cost guides
