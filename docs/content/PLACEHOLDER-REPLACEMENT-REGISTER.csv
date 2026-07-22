@@ -1,16 +1,16 @@
 ID,Category,Item,Current placeholder state,File / location,Replacement required,Owner action,Blocks launch,Status 2026-07-21
-P-01,Identity,Trading name,"Meridian Web Systems (labelled placeholder)",config/brand.ts name,Final verified name,Decide per FOUNDER-NAME-DECISION.md; CIPC + registrar checks,Yes,Open
-P-02,Identity,Legal name,"Meridian Web Systems (Pty) Ltd (not registered)",config/brand.ts legalName,Registered company name + number,Register company at CIPC,Yes,Open
-P-03,Identity,Domain,localhost fallback only,config/brand.ts fallbackSiteUrl + NEXT_PUBLIC_SITE_URL,Registered domain,Register chosen .co.za (+.com),Yes,Open
+P-01,Identity,Trading name,"Koppie Systems (preview approved; CIPC not verified)",config/brand.ts name,CIPC-verified registered name,Complete CIPC checks,Yes,Preview set — verification open
+P-02,Identity,Legal name,"Koppie Systems (Pty) Ltd (proposed — not verified registered)",config/brand.ts legalName,Registered company name + number,Register company at CIPC,Yes,Open
+P-03,Identity,Domain,env fallback only — koppiesystems.co.za proposed not owned in-repo,config/brand.ts + NEXT_PUBLIC_SITE_URL,Registered domain,Register + point DNS,Yes,Open
 P-04,Contact,Phone,empty (hidden in UI),config/brand.ts contact.phone,Verified number founder answers,Supply,Yes,Open
-P-05,Contact,Email,empty (hidden in UI),config/brand.ts contact.email,Address on final domain,Create after domain,Yes,Open
+P-05,Contact,Email,empty until verification.emailLive — proposed hello@koppiesystems.co.za,config/brand.ts proposedEmail,Live mailbox on owned domain,Create after domain,Yes,Open
 P-06,Contact,WhatsApp,empty (links hidden),config/brand.ts contact.whatsapp,Verified WhatsApp business number,Supply (optional but recommended),No,Open
 P-07,Contact,Business hours,"Mon-Fri 08:00-17:00 placeholder",config/brand.ts hours,Confirmed hours,Confirm,No,Open
 P-08,Contact,Address policy,null (service-area business),config/brand.ts address,Decision: publish address or stay service-area,Decide (input #4),Yes,Open
 P-09,Identity,Service areas,"Pretoria/Johannesburg/Centurion/Gauteng assumed (A-01)",config/brand.ts serviceAreas + data/locations.ts,Confirmed genuine service areas,Confirm,No,Open
 P-10,Identity,Social profiles,empty array,config/brand.ts social,LinkedIn company page (first),Create after naming,No,Open
 P-11,Identity,Google Business Profile,empty,config/brand.ts googleBusinessProfile,Verified GBP,Create post-registration,Yes (for local SEO),Open
-P-12,People,Founder bio,"[PLACEHOLDER] with placeholder:true",data/team.ts,Real 60-120 word bio + long About version,Answer bio questionnaire,No,Open
+P-12,People,Founder bio,"Draft Tiaan de Lange bio with placeholder notice until founderBioApproved",data/team.ts,Owner-approved bio + verified ECSA wording,Approve / amend,No,Draft in preview
 P-13,People,Founder name/qualifications,not stated,data/team.ts + About page,Verified name + qualifications (claim nothing unverified),Supply,No,Open
 P-14,People,Headshot,none,public/images/,Decision + photo if yes,Decide,No,Open
 P-15,Evidence,Testimonials,empty by design,data/testimonials.ts,1-3 genuine quotes with written permission,Collect from first clients,No,Open
@@ -33,5 +33,5 @@ P-31,Technical,Lead delivery,LEAD_WEBHOOK_URL unset (server-log fallback),.env +
 P-32,Technical,OG/social share image,none,public/,Branded 1200x630 image (after visual identity),Create in visual phase,No,Open
 P-33,Technical,Analytics,GA measurement ID unset (disabled),env NEXT_PUBLIC_GA_MEASUREMENT_ID,GA4 property + consent handling,Create accounts (input #11),No,Open
 P-34,Technical,Search Console,not set up,launch checklist,Domain property verified,Post-domain,Yes,Open
-P-35,Brand,Design tokens,neutral placeholder theme,app/globals.css,Final direction tokens per DESIGN-TOKEN-MAP.md,Decide brand direction,No,Open
-P-36,Brand,Logo,none (text header),components/site-header.tsx renders brand name,Final logo per approved direction,Commission after name decision,No,Open
+P-35,Brand,Design tokens,Koppie palette implemented in app/globals.css,app/globals.css,Final logo + any token tweaks after logo,Approve logo,No,Preview complete
+P-36,Brand,Logo,Temporary typographic wordmark + provisional geometric K,components/brand-wordmark.tsx + app/icon.svg,Final SVG per LOGO-PRODUCTION-BRIEF.md,Commission + approve,Yes for public brand,Provisional
