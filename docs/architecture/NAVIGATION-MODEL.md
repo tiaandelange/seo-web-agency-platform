@@ -14,7 +14,7 @@ Data source: `data/navigation.ts` (header + footer arrays consumed by `component
 | 5 | Resources | `/resources/` | |
 | 6 | Pricing | `/pricing/` | |
 | 7 | Contact | `/contact/` | |
-| CTA | Request a Quote | `/request-a-quote/` | Visually distinct button; present on mobile too |
+| CTA | Request a Proposal | `/request-a-quote/` | Visually distinct button; present on mobile too |
 
 Mobile: same items in a disclosure panel (`<details>`-free client toggle, aria-expanded, focus-trapped none — simple list). CTA pinned at panel bottom.
 
@@ -24,7 +24,7 @@ Column 1 — Services (top demand): Business Websites, Lead Generation Websites,
 
 Column 2 — Company: About, Our Process, Projects, Pricing, FAQ, Contact.
 
-Column 3 — Resources: Guides & Resources, Website Cost Guide, Comparisons, Areas We Serve, Request a Quote.
+Column 3 — Resources: Guides & Resources, Website Cost Guide, Comparisons, Areas We Serve, Request a Proposal.
 
 Column 4 — Contact block: phone / email / WhatsApp from brand config (hidden while placeholders are empty), service areas line.
 

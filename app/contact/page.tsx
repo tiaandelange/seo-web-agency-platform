@@ -1,20 +1,28 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
-import { brand, publicEmail } from '@/config/brand';
+import { brand } from '@/config/brand';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
-import { Section } from '@/components/section';
 import { ContactForm } from '@/components/contact-form';
 import { JsonLd } from '@/components/json-ld';
 import { professionalServiceSchema, webPageSchema } from '@/lib/schema';
+import { Container } from '@/components/layout/container';
+import { ContactHero } from '@/components/contact/contact-hero';
+import {
+  ContactGuidanceCard,
+  ContactReachCard,
+} from '@/components/contact/contact-info-cards';
+import { ContactRoutePanel } from '@/components/contact/contact-route-panel';
 
 const PATH = '/contact/';
-const TITLE = 'Contact Us';
+const TITLE = 'Contact Koppie Systems | Pretoria & South Africa';
 const DESCRIPTION =
-  'Contact Koppie Systems — a Pretoria-based website and digital-systems studio serving businesses throughout South Africa. Send a short message and we aim to respond within one business day.';
+  'Contact Koppie Systems about website development, ecommerce, SEO or digital business systems. Based in Pretoria and serving clients across South Africa.';
 
-export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
+export const metadata: Metadata = buildMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: PATH,
+});
 
 export default async function ContactPage({
   searchParams,
@@ -22,89 +30,68 @@ export default async function ContactPage({
   searchParams: Promise<{ error?: string }>;
 }) {
   const { error } = await searchParams;
-  const email = publicEmail();
-  const hasContact = Boolean(brand.contact.phone || email || brand.contact.whatsapp);
 
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader
-        heading="Contact us"
-        intro={`Based in ${brand.baseCity} and serving businesses throughout South Africa and selected international engagements. A short message is enough — tell us roughly what you need and we will come back with the right questions. We aim to respond within one business day.`}
+      <ContactHero
+        title="Contact Koppie Systems"
+        intro={`${brand.name} is based in ${brand.baseCity} and works with businesses throughout South Africa. Send us a short message about what you need, and we will respond with the right questions or recommend the next step.`}
       />
 
       {error && (
-        <div className="mx-auto max-w-6xl px-4">
-          <p role="alert" className="max-w-2xl rounded-card border border-line bg-surface p-4 text-ink">
-            We could not complete that submission. Please check the required fields and try again. If
-            the problem continues, call or WhatsApp us using the details above.
+        <Container className="pt-6">
+          <p
+            role="alert"
+            className="max-w-2xl rounded-card border border-error/40 bg-notice p-4 text-ink"
+          >
+            We could not complete that submission. Please check the required fields and try again.
+            If the problem continues, call, WhatsApp or email us using the details below.
           </p>
-        </div>
+        </Container>
       )}
 
-      <Section heading="Ways to reach us">
-        <ul className="max-w-2xl space-y-3 text-muted">
-          {brand.contact.phone && (
-            <li>
-              Phone:{' '}
-              <a href={`tel:${brand.contact.phone}`} className="text-link underline">
-                {brand.contact.phone}
-              </a>
-            </li>
-          )}
-          {email && (
-            <li>
-              Email:{' '}
-              <a href={`mailto:${email}`} className="text-link underline">
-                {email}
-              </a>
-            </li>
-          )}
-          {brand.contact.whatsapp && (
-            <li>
-              WhatsApp:{' '}
-              <a href={`https://wa.me/${brand.contact.whatsapp}`} className="text-link underline">
-                message us directly
-              </a>
-            </li>
-          )}
-          {!hasContact && (
-            <li>
-              Direct telephone and email channels are being finalised — use the form below or{' '}
-              <Link href="/request-a-quote/" className="text-link underline">
-                request a proposal
-              </Link>
-              . Public contact details will appear here once verified.
-            </li>
-          )}
-          {brand.hours && <li>Hours: {brand.hours}</li>}
-          <li>
-            Based in {brand.baseCity}; serving {brand.serviceAreas.join(', ')} —{' '}
-            <Link href="/areas-we-serve/" className="text-link underline">
-              areas we serve
-            </Link>
-            .
-          </li>
-        </ul>
-      </Section>
+      <section className="border-b border-line py-8 md:py-10">
+        <Container>
+          <div className="grid gap-5 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-6">
+              <ContactReachCard />
+            </div>
+            <div className="lg:col-span-6">
+              <ContactGuidanceCard />
+            </div>
+          </div>
+        </Container>
+      </section>
 
-      <Section heading="Send a message" tone="surface">
-        <ContactForm />
-      </Section>
+      <section className="border-b border-line bg-surface py-10 md:py-12">
+        <Container>
+          <h2 className="text-section-title text-ink">Send a message</h2>
+          <p className="mt-2 max-w-2xl text-sm text-muted">
+            Ask a question, request support or tell us briefly what you need.
+          </p>
 
-      <Section heading="Ready for a scoped proposal?">
-        <p className="max-w-3xl leading-relaxed text-muted">
-          If you already know roughly what you need, the{' '}
-          <Link href="/request-a-quote/" className="text-link underline">
-            proposal request form
-          </Link>{' '}
-          asks the right scoping questions and gets you a faster, more useful first reply.
-        </p>
-      </Section>
+          <div className="mt-6 grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-8">
+            <div className="lg:col-span-7">
+              <div className="contact-form-card measure-narrow rounded-card border border-line bg-canvas p-5 shadow-card sm:p-8">
+                <ContactForm />
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <ContactRoutePanel />
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <JsonLd
         data={[
-          webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION, pageType: 'ContactPage' }),
+          webPageSchema({
+            path: PATH,
+            title: TITLE,
+            description: DESCRIPTION,
+            pageType: 'ContactPage',
+          }),
           professionalServiceSchema(),
         ]}
       />

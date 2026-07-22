@@ -156,7 +156,7 @@ export function getAllRoutes(): RouteEntry[] {
     ),
     entry('/faq/', 'FAQ', '/', 'faq'),
     entry('/contact/', 'Contact', '/', 'contact'),
-    entry('/request-a-quote/', 'Request a Quote', '/', 'quote'),
+    entry('/request-a-quote/', 'Request a Proposal', '/', 'quote'),
     entry('/request-a-quote/thank-you/', 'Thank You', '/request-a-quote/', 'utility', {
       index: false,
     }),

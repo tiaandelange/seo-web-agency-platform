@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useMemo, useRef } from 'react';
+import { Container } from '@/components/layout/container';
 import { useWorkflowSimulation } from '@/lib/industrial-engine/use-workflow-simulation';
 import { SCENARIO_PRESETS } from '@/lib/industrial-engine/presets';
 import { formatElapsed } from '@/lib/industrial-engine/calculations';
@@ -67,7 +68,7 @@ export function IndustrialEnginePreview() {
       className="band-ink engine-section border-y border-white/10 bg-[#0b1f28] text-white"
       aria-labelledby="engine-heading"
     >
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
+      <Container width="wide" className="py-16 lg:py-20">
         <EngineHeader engineStatusLabel={engineStatusLabel} />
 
         <p className="sr-only" aria-live="polite" aria-atomic="true">
@@ -156,7 +157,7 @@ export function IndustrialEnginePreview() {
             </Link>
           </div>
         )}
-      </div>
+      </Container>
     </section>
   );
 }

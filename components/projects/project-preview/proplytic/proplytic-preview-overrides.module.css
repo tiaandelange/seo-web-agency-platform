@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 /* Unlayered — must sit outside @layer to beat Koppie globals.css element selectors */
+/* Fonts: next/font via preview-fonts.ts — do not @import Google Fonts here. */
 
 .proplyticPreviewRoot,
 .proplyticPreviewRoot *,
@@ -21,7 +20,7 @@
   position: relative;
   width: 1440px;
   min-height: 100%;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-preview-inter), Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text-primary, #f8fafc);
 }
 

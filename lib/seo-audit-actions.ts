@@ -175,6 +175,7 @@ export async function submitSeoAuditIntake(formData: FormData): Promise<void> {
     email,
     phone,
     company,
+    websiteUrl,
     serviceInterest: product.sku,
     budgetBand: `R${price} once-off`,
     timeline: product.turnaround,

@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { deliverLead } from '@/lib/lead-delivery';
+import { normalizeWebsiteUrl } from '@/lib/website-url';
 
 /**
  * Lead-form server action — docs/technical/FORM-ARCHITECTURE.md.
@@ -27,6 +28,7 @@ export async function submitLead(formData: FormData): Promise<void> {
   const email = clean(formData.get('email'));
   const phone = clean(formData.get('phone'), 50);
   const company = clean(formData.get('company'));
+  const websiteRaw = clean(formData.get('website_url'), 500);
   const serviceInterest = clean(formData.get('service_interest'));
   const budgetBand = clean(formData.get('budget_band'), 100);
   const timeline = clean(formData.get('timeline'), 100);
@@ -52,9 +54,16 @@ export async function submitLead(formData: FormData): Promise<void> {
     }
   }
 
+  const website = normalizeWebsiteUrl(websiteRaw);
   const emailShape = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const serviceOk = formType !== 'quote' || serviceInterest.length > 0;
   const valid =
-    name.length > 0 && emailShape.test(email) && message.length > 0 && consent;
+    name.length > 0 &&
+    emailShape.test(email) &&
+    message.length > 0 &&
+    consent &&
+    serviceOk &&
+    website.ok;
 
   if (!valid) {
     redirect(`${returnPath}?error=1`);
@@ -66,6 +75,7 @@ export async function submitLead(formData: FormData): Promise<void> {
     email,
     phone,
     company,
+    websiteUrl: website.ok ? website.value : '',
     serviceInterest,
     budgetBand,
     timeline,

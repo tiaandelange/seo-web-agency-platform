@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { brand } from '@/config/brand';
 import { buildMetadata } from '@/lib/seo';
+import { formatPhoneDisplay } from '@/lib/phone';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { PageHeader } from '@/components/page-header';
-import { Section, BulletList } from '@/components/section';
 import { QuoteForm } from '@/components/quote-form';
 import { JsonLd } from '@/components/json-ld';
 import { buildIndustrialEngineMessage } from '@/lib/industrial-engine/quote-prefill';
 import { webPageSchema } from '@/lib/schema';
+import { Container } from '@/components/layout/container';
 
 const PATH = '/request-a-quote/';
-const TITLE = 'Request a Proposal';
+const TITLE = 'Request a Website Proposal';
 const DESCRIPTION =
-  'Request a website or system proposal from Koppie Systems: a few scoping questions, a response within one business day, and a fixed itemised quote after one conversation — clear scope, no obligation.';
+  'Tell Koppie Systems about your website, ecommerce or business-system project. Receive a clear, itemised proposal with scope, pricing and next steps.';
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -28,10 +31,17 @@ export default async function RequestQuotePage({
     scenario?: string;
     complexity?: string;
     approval?: string;
+    problem?: string;
+    step?: string | string[];
+    products?: string;
+    payments?: string;
+    delivery?: string;
+    model?: string;
   }>;
 }) {
   const {
     error,
+    type,
     service_interest,
     budget_band,
     message,
@@ -39,49 +49,171 @@ export default async function RequestQuotePage({
     scenario,
     complexity,
     approval,
+    problem,
+    step,
+    products,
+    payments,
+    delivery,
+    model,
   } = await searchParams;
 
   const engineMessage = buildIndustrialEngineMessage({ source, scenario, complexity, approval });
-  const defaultMessage = message ?? engineMessage;
+
+  const steps = step === undefined ? [] : Array.isArray(step) ? step : [step];
+  const readinessBits = [
+    products && `Products: ${products}`,
+    payments && `Payments: ${payments}`,
+    delivery && `Delivery: ${delivery}`,
+    model && `Model: ${model}`,
+  ].filter(Boolean);
+
+  const workflowPreface =
+    steps.length > 0
+      ? `Workflow map (selected steps): ${steps.join(' → ')}.`
+      : readinessBits.length > 0
+        ? `Ecommerce readiness check — ${readinessBits.join('; ')}.`
+        : problem
+          ? `System-map problem: ${problem.replace(/-/g, ' ')}.`
+          : '';
+
+  const defaultMessage = [workflowPreface, message ?? engineMessage].filter(Boolean).join('\n\n') || undefined;
+
+  const typeToInterest: Record<string, string> = {
+    'custom-system': 'custom-web-applications',
+    'lead-generation': 'lead-generation-websites',
+    'seo-website': 'seo-website-development',
+    ecommerce: 'ecommerce-websites',
+    'custom-seo-audit': 'seo-audit-advanced',
+  };
+  const serviceAliases: Record<string, string> = {
+    'business-websites': 'seo-website-development',
+    'rfq-and-quotation-systems': 'admin-panel-development',
+    'seo-website-development': 'seo-website-development',
+  };
+  const rawInterest =
+    service_interest ?? (type ? typeToInterest[type] : undefined) ?? undefined;
+  const resolvedInterest = rawInterest
+    ? (serviceAliases[rawInterest] ?? rawInterest)
+    : undefined;
 
   return (
     <>
       <Breadcrumbs path={PATH} />
       <PageHeader
-        heading="Request a proposal"
-        intro="Answer what you can below — rough is fine. You will hear back within one business day with either a scoping call invitation or clarifying questions, and after one conversation you receive a fixed, itemised quote. Clear scope, transparent pricing, no obligation."
+        heading="Request a website proposal"
+        intro="Tell us what you need — rough details are completely fine. We will respond within one business day with any initial questions or a link to arrange a short scoping call. Once the requirements are clear, we will send an itemised proposal with the recommended scope, price and next steps."
       />
 
       {error && (
-        <div className="mx-auto max-w-6xl px-4">
-          <p role="alert" className="max-w-2xl rounded-card border border-line bg-surface p-4 text-ink">
+        <Container className="pb-2">
+          <p
+            role="alert"
+            className="max-w-2xl rounded-card border border-error/40 bg-notice p-4 text-ink"
+          >
             We could not complete that submission. Please check the required fields (name, email,
-            message and consent) and try again. If delivery fails repeatedly, call or WhatsApp us.
+            service, project description and consent) and try again. If delivery fails repeatedly,
+            call or WhatsApp us.
           </p>
-        </div>
+        </Container>
       )}
 
-      <Section>
-        <QuoteForm
-          defaults={{
-            serviceInterest: service_interest,
-            budgetBand: budget_band,
-            message: defaultMessage,
-          }}
-        />
-      </Section>
+      <section className="proposal-form-section border-b border-line pb-14 pt-6 md:pb-16 md:pt-8 lg:pb-20 lg:pt-12">
+        <Container>
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-8">
+              <div className="rounded-card border border-line bg-surface p-5 sm:p-8">
+                <QuoteForm
+                  defaults={{
+                    serviceInterest: resolvedInterest,
+                    budgetBand: budget_band,
+                    message: defaultMessage,
+                  }}
+                />
+              </div>
+            </div>
 
-      <Section heading="What happens after you submit" tone="surface">
-        <BulletList
-          items={[
-            'Within one business day: a reply from the person who would actually build your project — not a sales handler.',
-            'One scoping conversation: your goals, our questions, honest guidance (including “you don’t need us” when true).',
-            'A written fixed quote: itemised inclusions, exclusions, timeline and payment terms. It stays valid while you decide.',
-          ]}
-        />
-      </Section>
+            <aside className="lg:col-span-4">
+              <div className="proposal-aside proposal-aside-sticky rounded-card border border-line bg-canvas p-6 lg:p-8">
+                <div className="proposal-aside-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+                <div className="relative">
+                  <p className="text-label text-cta">Process</p>
+                  <h2 className="text-subsection-title mt-3 text-ink">What happens next</h2>
+                  <ol className="mt-6 space-y-4">
+                    {[
+                      'We review your requirements.',
+                      'We reply within one business day.',
+                      'We clarify the scope where necessary.',
+                      'You receive an itemised proposal.',
+                    ].map((stepLabel, i) => (
+                      <li key={stepLabel} className="flex gap-3 text-sm leading-relaxed text-ink">
+                        <span
+                          className="w-6 shrink-0 font-mono text-xs tabular-nums text-cta"
+                          aria-hidden="true"
+                        >
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span>{stepLabel}</span>
+                      </li>
+                    ))}
+                  </ol>
 
-      <JsonLd data={webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION, pageType: 'ContactPage' })} />
+                  <div className="mt-7 border-t border-line pt-6">
+                    <ul className="space-y-3 text-sm text-muted">
+                      <li>No-obligation proposal.</li>
+                      <li>Direct communication with the person scoping the work.</li>
+                      <li>
+                        {brand.baseCity}-based, serving {brand.country} nationwide.
+                      </li>
+                      <li>Your information is used only to handle your enquiry.</li>
+                    </ul>
+
+                    <p className="mt-5 text-sm">
+                      Prefer to browse first? See{' '}
+                      <Link href="/pricing/" className="text-link underline">
+                        pricing
+                      </Link>{' '}
+                      or{' '}
+                      <Link href="/services/" className="text-link underline">
+                        services
+                      </Link>
+                      .
+                    </p>
+
+                    {(brand.contact.phone || brand.contact.whatsapp) && (
+                      <p className="mt-4 text-sm text-muted">
+                        Alternative contact:{' '}
+                        {brand.contact.phone && (
+                          <a href={`tel:${brand.contact.phone}`} className="text-link underline">
+                            {formatPhoneDisplay(brand.contact.phone)}
+                          </a>
+                        )}
+                        {brand.contact.phone && brand.contact.whatsapp && ' · '}
+                        {brand.contact.whatsapp && (
+                          <a
+                            href={`https://wa.me/${brand.contact.whatsapp}`}
+                            className="text-link underline"
+                          >
+                            WhatsApp
+                          </a>
+                        )}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </Container>
+      </section>
+
+      <JsonLd
+        data={webPageSchema({
+          path: PATH,
+          title: TITLE,
+          description: DESCRIPTION,
+          pageType: 'ContactPage',
+        })}
+      />
     </>
   );
 }

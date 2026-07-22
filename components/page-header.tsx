@@ -1,28 +1,34 @@
 /**
- * Page header — enforces exactly one H1 per page. Every page renders its H1
- * through this component (docs/architecture/PAGE-TEMPLATES.md baseline).
+ * Page header — enforces exactly one H1 per page via PageHero standard variant.
+ * (docs/architecture/PAGE-TEMPLATES.md baseline).
  */
+import { PageHero } from '@/components/layout/page-hero';
+
 export function PageHeader({
   heading,
   intro,
   updated,
+  eyebrow,
 }: {
   heading: string;
   intro?: string;
   updated?: string;
+  eyebrow?: string;
 }) {
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-4 pt-6">
-      <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-        {heading}
-      </h1>
-      {intro && <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{intro}</p>}
-      {updated && (
-        <p className="mt-3 text-sm text-muted">
-          Updated{' '}
-          {new Date(updated).toLocaleDateString('en-ZA', { year: 'numeric', month: 'long' })}
-        </p>
-      )}
-    </div>
+    <PageHero
+      variant="standard"
+      eyebrow={eyebrow}
+      title={heading}
+      description={intro}
+      meta={
+        updated ? (
+          <p className="text-sm text-muted">
+            Updated{' '}
+            {new Date(updated).toLocaleDateString('en-ZA', { year: 'numeric', month: 'long' })}
+          </p>
+        ) : undefined
+      }
+    />
   );
 }

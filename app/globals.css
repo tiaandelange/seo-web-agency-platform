@@ -40,8 +40,45 @@
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
   --radius-card: 0.625rem; /* 10px */
+  --radius-control: 0.25rem; /* homepage CTA — rounded-sm equivalent */
   --shadow-card: 0 8px 24px rgba(20, 36, 43, 0.08);
   --shadow-elevated: 0 16px 40px rgba(20, 36, 43, 0.14);
+
+  /* Layout — homepage measured (72rem / 1rem) */
+  --width-content: 72rem;
+  --width-content-wide: 77.5rem; /* 1240px — interactive / preview grids only */
+  --width-content-narrow: 47.5rem; /* ~760px readable measure */
+  --gutter-content: 1rem;
+
+  /* Type roles — homepage is source of truth */
+  --text-display-marketing: clamp(2.25rem, 4vw, 3.25rem);
+  --text-display-editorial: clamp(2rem, 5vw, 3.5rem);
+  --text-page-title: clamp(1.875rem, 3.2vw, 2.5rem);
+  --text-section-title: clamp(1.75rem, 3.5vw, 2.5rem);
+  --text-subsection-title: clamp(1.25rem, 2.5vw, 1.75rem);
+  --text-card-title: 1.125rem;
+  --text-lead: 1.125rem;
+  --text-body: 1.0625rem;
+  --text-small: 0.875rem;
+  --text-label: 0.6875rem;
+  --text-micro: 0.65rem;
+
+  --leading-display: 1.1;
+  --leading-display-tight: 1.08;
+  --leading-heading: 1.2;
+  --leading-body: 1.65;
+  --leading-lead: 1.625;
+
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.025em;
+  --tracking-subsection: -0.01em;
+  --tracking-label: 0.16em;
+
+  --space-section-y: 3.5rem;
+  --space-section-y-md: 5rem;
+  --space-section-y-lg: 6rem;
+  --space-hero-y: 5rem;
+  --space-hero-y-lg: 7rem;
 
   /* Default heading colour; overridden inside .band-ink (dark sections). */
   --heading-color: var(--color-ink);
@@ -56,8 +93,8 @@ body {
   background-color: var(--color-canvas);
   color: var(--color-graphite);
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -135,40 +172,132 @@ h6 {
   font-family: var(--font-mono);
 }
 
-/* —— Homepage editorial system —— */
+/* —— Shared layout / type roles (homepage-measured) —— */
+.koppie-container {
+  margin-inline: auto;
+  max-width: var(--width-content);
+  padding-inline: var(--gutter-content);
+  width: 100%;
+}
+
+.koppie-container-wide {
+  margin-inline: auto;
+  max-width: var(--width-content-wide);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  width: 100%;
+}
+
+.koppie-container-narrow {
+  margin-inline: auto;
+  max-width: var(--width-content-narrow);
+  padding-inline: var(--gutter-content);
+  width: 100%;
+}
+
+/* Readable measure for long copy (service body, intros). */
+.measure-narrow {
+  max-width: var(--width-content-narrow);
+}
+
+.text-display-marketing {
+  font-family: var(--font-heading);
+  font-size: var(--text-display-marketing);
+  font-weight: 700;
+  line-height: var(--leading-display-tight);
+  letter-spacing: var(--tracking-heading);
+}
+
+.text-display-editorial {
+  font-family: var(--font-heading);
+  font-size: var(--text-display-editorial);
+  font-weight: 700;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.text-page-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-page-title);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+.text-section-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-section-title);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+}
+
+.text-subsection-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-subsection-title);
+  font-weight: 700;
+  letter-spacing: var(--tracking-subsection);
+}
+
+.text-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-card-title);
+  font-weight: 700;
+}
+
+.text-lead {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+}
+
+.text-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.text-micro {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* —— Homepage editorial system (aliases → shared tokens) —— */
 .home-container {
   margin-inline: auto;
-  max-width: 72rem;
-  padding-inline: 1rem;
+  max-width: var(--width-content);
+  padding-inline: var(--gutter-content);
 }
 
 .home-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-cta);
 }
 
 .home-display {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: var(--text-display-editorial);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
 }
 
 .home-heading-major {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: var(--text-section-title);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-display);
 }
 
 .home-heading-functional {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-size: var(--text-subsection-title);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-subsection);
 }
 
 .home-select {
@@ -229,6 +358,28 @@ h6 {
   background-size: 24px 24px;
 }
 
+/* Proposal page — process aside grid + sticky (xl+ only) */
+.proposal-aside {
+  position: relative;
+  overflow: hidden;
+}
+
+.proposal-aside-grid {
+  background-image:
+    linear-gradient(var(--color-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-ink) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.05;
+  border-radius: inherit;
+}
+
+@media (min-width: 1280px) {
+  .proposal-aside-sticky {
+    position: sticky;
+    top: calc(4.25rem + 1.5rem); /* header clearance + 24px */
+  }
+}
+
 .home-flow-line {
   width: 1px;
   min-height: 1.5rem;
@@ -268,33 +419,34 @@ h6 {
   }
 }
 
-/* —— Projects hub —— */
+/* —— Projects hub (aligned to shared tokens) —— */
 .projects-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-cta);
 }
 
 .projects-display {
+  /* Alias — prefer .text-display-editorial in new code */
   font-family: var(--font-heading);
-  font-size: clamp(2.125rem, 4.5vw, 4.5rem);
+  font-size: var(--text-display-editorial);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
 }
 
 .projects-heading-functional {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-size: var(--text-subsection-title);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-display);
 }
 
 .projects-trust-note {
-  font-size: 0.8125rem;
+  font-size: var(--text-small);
   line-height: 1.5;
   color: var(--color-muted);
 }
@@ -362,4 +514,287 @@ h6 {
 
 .engine-formula .kw {
   color: #67e8f9;
+}
+
+/* —— Service proof layouts (D-32) —— */
+.visually-hidden-control {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* System map hook */
+.system-map-panel {
+  display: none;
+}
+.system-map-root:has(.problem-radio-qualified-enquiries:checked) .system-map-panel-qualified-enquiries,
+.system-map-root:has(.problem-radio-spreadsheet-quoting:checked) .system-map-panel-spreadsheet-quoting,
+.system-map-root:has(.problem-radio-status-calls:checked) .system-map-panel-status-calls,
+.system-map-root:has(.problem-radio-search-visibility:checked) .system-map-panel-search-visibility,
+.system-map-root:has(.problem-radio-disconnected-systems:checked) .system-map-panel-disconnected-systems {
+  display: block;
+}
+
+.system-map-root:has(.problem-radio-qualified-enquiries:checked) .problem-label-qualified-enquiries,
+.system-map-root:has(.problem-radio-spreadsheet-quoting:checked) .problem-label-spreadsheet-quoting,
+.system-map-root:has(.problem-radio-status-calls:checked) .problem-label-status-calls,
+.system-map-root:has(.problem-radio-search-visibility:checked) .problem-label-search-visibility,
+.system-map-root:has(.problem-radio-disconnected-systems:checked) .problem-label-disconnected-systems {
+  border-left-color: var(--color-cta);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.system-map-label:hover {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+/* Capability architecture */
+.capability-tier-panel {
+  display: none;
+}
+.capability-arch-map:has(.tier-radio-acquire:checked) .capability-tier-panel-acquire,
+.capability-arch-map:has(.tier-radio-operate:checked) .capability-tier-panel-operate,
+.capability-arch-map:has(.tier-radio-scale:checked) .capability-tier-panel-scale {
+  display: block;
+}
+
+.capability-arch-map:has(.tier-radio-acquire:checked) .tier-label-acquire,
+.capability-arch-map:has(.tier-radio-operate:checked) .tier-label-operate,
+.capability-arch-map:has(.tier-radio-scale:checked) .tier-label-scale {
+  border-left-color: var(--color-cta);
+  background-color: var(--color-surface);
+}
+
+.capability-arch-map:has(.tier-radio-acquire:checked) .tier-label-acquire .font-mono,
+.capability-arch-map:has(.tier-radio-operate:checked) .tier-label-operate .font-mono,
+.capability-arch-map:has(.tier-radio-scale:checked) .tier-label-scale .font-mono {
+  color: var(--color-link);
+}
+
+.capability-tier-label:hover {
+  background-color: var(--color-surface);
+}
+
+/* App shell tabs */
+.shell-panel {
+  display: none;
+}
+.custom-systems-hero-demo:has(.shell-radio-ops:checked) .shell-panel-ops,
+.custom-systems-hero-demo:has(.shell-radio-commercial:checked) .shell-panel-commercial,
+.custom-systems-hero-demo:has(.shell-radio-management:checked) .shell-panel-management {
+  display: block;
+}
+
+.custom-systems-hero-demo:has(.shell-radio-ops:checked) .shell-tab-ops,
+.custom-systems-hero-demo:has(.shell-radio-commercial:checked) .shell-tab-commercial,
+.custom-systems-hero-demo:has(.shell-radio-management:checked) .shell-tab-management {
+  border-color: var(--color-cta);
+  background-color: var(--color-notice);
+  color: var(--color-ink);
+}
+
+/* Workflow bottleneck rules — explicit combinations only */
+.workflow-builder:has(input[value='enquiry']:checked):has(input[value='costing']:checked)
+  .bottleneck--retyping,
+.workflow-builder:has(input[value='site-visit']:checked):has(input[value='costing']:checked)
+  .bottleneck--field-handover,
+.workflow-builder:has(input[value='costing']:checked):has(input[value='approval']:checked):has(
+    input[value='quote']:checked
+  )
+  .bottleneck--approval-delay,
+.workflow-builder:has(input[value='quote']:checked):has(input[value='job']:checked)
+  .bottleneck--commercial-ops,
+.workflow-builder:has(input[value='job']:checked):has(input[value='invoice']:checked)
+  .bottleneck--handover,
+.workflow-builder:has(input[value='enquiry']:checked):has(input[value='invoice']:checked)
+  .bottleneck--shared-model {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-tier-label,
+  .system-map-label,
+  .shell-tab,
+  .workflow-step-label,
+  .seo-issue-label,
+  .seo-scan-label,
+  .ecom-tab,
+  .friction-label {
+    transition: none;
+  }
+}
+
+/* —— Phase 2: SEO + ecommerce proof —— */
+.seo-issue-panel,
+.seo-scan-panel,
+.friction-panel,
+.ecom-panel {
+  display: none;
+}
+
+.seo-audit-sim:has(.seo-issue-radio-duplicate-intent:checked) .seo-issue-panel-duplicate-intent,
+.seo-audit-sim:has(.seo-issue-radio-thin-service:checked) .seo-issue-panel-thin-service,
+.seo-audit-sim:has(.seo-issue-radio-internal-link-gap:checked) .seo-issue-panel-internal-link-gap,
+.seo-audit-sim:has(.seo-issue-radio-missing-schema:checked) .seo-issue-panel-missing-schema,
+.seo-audit-sim:has(.seo-issue-radio-slow-mobile:checked) .seo-issue-panel-slow-mobile,
+.seo-audit-sim:has(.seo-issue-radio-indexation-conflict:checked) .seo-issue-panel-indexation-conflict {
+  display: block;
+}
+
+.seo-audit-sim:has(.seo-issue-radio-duplicate-intent:checked) .seo-issue-label-duplicate-intent,
+.seo-audit-sim:has(.seo-issue-radio-thin-service:checked) .seo-issue-label-thin-service,
+.seo-audit-sim:has(.seo-issue-radio-internal-link-gap:checked) .seo-issue-label-internal-link-gap,
+.seo-audit-sim:has(.seo-issue-radio-missing-schema:checked) .seo-issue-label-missing-schema,
+.seo-audit-sim:has(.seo-issue-radio-slow-mobile:checked) .seo-issue-label-slow-mobile,
+.seo-audit-sim:has(.seo-issue-radio-indexation-conflict:checked) .seo-issue-label-indexation-conflict {
+  border-left-color: var(--color-cta);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.seo-scan-root:has(.seo-scan-radio-architecture:checked) .seo-scan-panel-architecture,
+.seo-scan-root:has(.seo-scan-radio-metadata:checked) .seo-scan-panel-metadata,
+.seo-scan-root:has(.seo-scan-radio-indexation:checked) .seo-scan-panel-indexation,
+.seo-scan-root:has(.seo-scan-radio-performance:checked) .seo-scan-panel-performance,
+.seo-scan-root:has(.seo-scan-radio-structured-data:checked) .seo-scan-panel-structured-data,
+.seo-scan-root:has(.seo-scan-radio-internal-links:checked) .seo-scan-panel-internal-links {
+  display: block;
+}
+
+.seo-scan-root:has(.seo-scan-radio-architecture:checked) .seo-scan-label-architecture,
+.seo-scan-root:has(.seo-scan-radio-metadata:checked) .seo-scan-label-metadata,
+.seo-scan-root:has(.seo-scan-radio-indexation:checked) .seo-scan-label-indexation,
+.seo-scan-root:has(.seo-scan-radio-performance:checked) .seo-scan-label-performance,
+.seo-scan-root:has(.seo-scan-radio-structured-data:checked) .seo-scan-label-structured-data,
+.seo-scan-root:has(.seo-scan-radio-internal-links:checked) .seo-scan-label-internal-links {
+  border-left-color: var(--color-cta);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.ecommerce-hero-demo:has(.ecom-layer-radio-catalogue:checked) .ecom-panel-catalogue,
+.ecommerce-hero-demo:has(.ecom-layer-radio-checkout:checked) .ecom-panel-checkout,
+.ecommerce-hero-demo:has(.ecom-layer-radio-order:checked) .ecom-panel-order {
+  display: grid;
+}
+
+.ecommerce-hero-demo:has(.ecom-layer-radio-checkout:checked) .ecom-panel-checkout,
+.ecommerce-hero-demo:has(.ecom-layer-radio-order:checked) .ecom-panel-order {
+  display: block;
+}
+
+.ecommerce-hero-demo:has(.ecom-layer-radio-catalogue:checked) .ecom-tab-catalogue,
+.ecommerce-hero-demo:has(.ecom-layer-radio-checkout:checked) .ecom-tab-checkout,
+.ecommerce-hero-demo:has(.ecom-layer-radio-order:checked) .ecom-tab-order {
+  border-color: var(--color-cta);
+  background-color: var(--color-notice);
+  color: var(--color-ink);
+}
+
+.commerce-friction:has(.friction-radio-discovery:checked) .friction-panel-discovery,
+.commerce-friction:has(.friction-radio-product:checked) .friction-panel-product,
+.commerce-friction:has(.friction-radio-cart:checked) .friction-panel-cart,
+.commerce-friction:has(.friction-radio-payment:checked) .friction-panel-payment,
+.commerce-friction:has(.friction-radio-confirmation:checked) .friction-panel-confirmation {
+  display: block;
+}
+
+.commerce-friction:has(.friction-radio-discovery:checked) .friction-label-discovery,
+.commerce-friction:has(.friction-radio-product:checked) .friction-label-product,
+.commerce-friction:has(.friction-radio-cart:checked) .friction-label-cart,
+.commerce-friction:has(.friction-radio-payment:checked) .friction-label-payment,
+.commerce-friction:has(.friction-radio-confirmation:checked) .friction-label-confirmation {
+  border-color: var(--color-cta);
+  background-color: var(--color-notice);
+  color: var(--color-ink);
+}
+
+/* Ecommerce readiness classifications — explicit priority rules */
+.ecommerce-readiness:has(input[name='model'][value='catalogue-rfq']:checked) .commerce-class--catalogue,
+.ecommerce-readiness:has(input[name='delivery'][value='quote']:checked):not(
+    :has(input[name='model'][value='b2b']:checked)
+  )
+  .commerce-class--catalogue {
+  display: block;
+}
+
+.ecommerce-readiness:has(input[name='model'][value='b2b']:checked) .commerce-class--b2b,
+.ecommerce-readiness:has(input[name='payments'][value='b2b-account']:checked):not(
+    :has(input[name='model'][value='catalogue-rfq']:checked)
+  )
+  .commerce-class--b2b {
+  display: block;
+}
+
+.ecommerce-readiness:has(input[name='products'][value='500-plus']:checked):not(
+    :has(input[name='model'][value='catalogue-rfq']:checked)
+  ):not(:has(input[name='model'][value='b2b']:checked)):not(
+    :has(input[name='payments'][value='b2b-account']:checked)
+  ):not(:has(input[name='delivery'][value='quote']:checked))
+  .commerce-class--custom,
+.ecommerce-readiness:has(input[name='delivery'][value='complex']:checked):not(
+    :has(input[name='model'][value='catalogue-rfq']:checked)
+  ):not(:has(input[name='model'][value='b2b']:checked)):not(
+    :has(input[name='payments'][value='b2b-account']:checked)
+  ):not(:has(input[name='delivery'][value='quote']:checked))
+  .commerce-class--custom {
+  display: block;
+}
+
+  .ecommerce-readiness:has(input[name='model'][value='retail']:checked):not(
+    :has(input[name='products'][value='500-plus']:checked)
+  ):not(:has(input[name='delivery'][value='complex']:checked)):not(
+    :has(input[name='delivery'][value='quote']:checked)
+  ):not(:has(input[name='payments'][value='b2b-account']:checked)):not(
+    :has(input[name='model'][value='catalogue-rfq']:checked)
+  ):not(:has(input[name='model'][value='b2b']:checked))
+  .commerce-class--standard {
+  display: block;
+}
+
+/* Proposal form — fixed-price SEO audit routing notices */
+.proposal-form--quote:has(select#service_interest:has(option[value='seo-audit-basic']:checked))
+  .proposal-audit-notice--basic {
+  display: block;
+}
+
+.proposal-form--quote:has(select#service_interest:has(option[value='seo-audit-advanced']:checked))
+  .proposal-audit-notice--advanced {
+  display: block;
+}
+
+/* —— Contact page composition —— */
+.contact-card--reach {
+  border-top: 3px solid var(--color-cta);
+}
+
+.contact-card--guidance {
+  border-top: 3px solid var(--color-link);
+}
+
+.contact-form-card {
+  border-top: 3px solid var(--color-cta);
+  max-width: 46.875rem; /* 750px — within 720–760 form card guidance */
+  border-radius: 0.875rem; /* 14px — form-specific, within 12–16px guidance */
+}
+
+.contact-process-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 0.85rem;
+  top: 1.75rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-link);
+  opacity: 0.35;
+}
+
+.contact-hero-motif {
+  opacity: 0.55;
 }

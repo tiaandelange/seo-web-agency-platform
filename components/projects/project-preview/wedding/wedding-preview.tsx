@@ -3,6 +3,7 @@
 import { previewCanvasHeight, previewDisplayHeightClass } from '../preview-config';
 import { ProjectPreviewViewport } from '../project-preview-viewport';
 import { usePreviewEntrance } from '../use-preview-entrance';
+import { previewAllura, previewFraunces, previewInter } from '../preview-fonts';
 import './wedding-preview.css';
 
 export function WeddingPreview() {
@@ -15,7 +16,11 @@ export function WeddingPreview() {
       displayHeightClass={previewDisplayHeightClass('wedding')}
       active
     >
-      <div ref={rootRef} className="weddingPreviewRoot" data-project-preview="wedding">
+      <div
+        ref={rootRef}
+        className={`weddingPreviewRoot ${previewInter.variable} ${previewFraunces.variable} ${previewAllura.variable} ${previewInter.className}`}
+        data-project-preview="wedding"
+      >
         <header className="site-header" id="wedding-preview-top">
           <nav className="nav is-scrolled" aria-label="Primary">
             <span className="brand">

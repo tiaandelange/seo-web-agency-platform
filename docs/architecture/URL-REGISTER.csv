@@ -53,7 +53,7 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /pricing/,Website Design Pricing,pricing,live-skeleton,index,self,yes,header+footer,/,1,website design prices south africa
 /faq/,Frequently Asked Questions,faq,live-skeleton,index,self,yes,footer,/,1,web development company faq
 /contact/,Contact Us,contact,live-skeleton,index,self,yes,header+footer,/,1,contact web developer
-/request-a-quote/,Request a Quote,quote,live-skeleton,index,self,yes,cta,/,1,request website quote
+/request-a-quote/,Request a Proposal,quote,live-skeleton,index,self,yes,cta,/,1,request website quote
 /request-a-quote/thank-you/,Thank You,utility,live-skeleton,noindex,self,no,none,/request-a-quote/,1,(conversion completion — noindex)
 /legal/privacy-policy/,Privacy Policy,legal,draft,index,self,yes,footer-legal,/,1,(navigational)
 /legal/terms-of-service/,Terms of Service,legal,draft,index,self,yes,footer-legal,/,1,(navigational)

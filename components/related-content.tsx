@@ -15,11 +15,11 @@ export function RelatedContent({ heading = 'Related', items }: { heading?: strin
   if (items.length === 0) return null;
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-bold tracking-tight text-ink">{heading}</h2>
-      <ul className="grid max-w-4xl gap-3 sm:grid-cols-2">
+      <h2 className="text-section-title mb-4 tracking-tight text-ink">{heading}</h2>
+      <ul className="grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <li key={item.href} className="rounded-card border border-line bg-canvas p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted">{item.kind}</p>
+            <p className="text-label text-muted">{item.kind}</p>
             <Link href={item.href} className="mt-1 block font-medium text-ink hover:underline">
               {item.title}
             </Link>

@@ -9,10 +9,10 @@ export function HomeHero() {
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="home-eyebrow text-sandstone">SEO-first websites &amp; digital systems</p>
-            <h1 className="mt-5 max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
+            <h1 className="text-display-marketing mt-5 max-w-2xl">
               Websites and systems built to generate enquiries
             </h1>
-            <p className="mt-6 max-w-prose text-lg leading-relaxed text-sandstone">
+            <p className="text-lead mt-6 max-w-prose text-sandstone">
               {brand.name} develops high-performance websites, portals and workflow tools for
               technical, industrial and service businesses throughout South Africa.
             </p>
@@ -32,9 +32,7 @@ export function HomeHero() {
             </div>
           </div>
           <div className="lg:col-span-5 lg:pb-2">
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cta">
-              System 01 · Commercial acquisition
-            </p>
+            <p className="text-micro text-cta">System 01 · Commercial acquisition</p>
             <p className="mt-3 text-2xl font-semibold leading-snug text-accent-contrast sm:text-3xl">
               From search demand
               <span className="block text-sandstone">to signed quotation.</span>

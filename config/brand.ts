@@ -132,7 +132,7 @@ export const brand: BrandConfig = {
   leadDeliveryEmail: 'delangetiaanoffice@gmail.com',
   contact: {
     phone: '+27614188807',
-    email: '', // Domain mailbox not live — do not render Gmail as the public brand email
+    email: 'hello@koppiesystems.co.za',
     whatsapp: '27614188807',
   },
   address: null,
@@ -142,14 +142,15 @@ export const brand: BrandConfig = {
   country: 'ZA',
   social: [],
   googleBusinessProfile: '',
-  hours: 'Enquiries welcome any day — we respond as soon as practical (South Africa).',
+  hours: 'Messages may be submitted at any time. We normally respond within one business day.',
   locale: 'en_ZA',
   verification: {
     registration: false,
     trademark: false,
     // Owner named the primary domain; DNS/host connection for production is still a launch gate.
     domain: false,
-    emailLive: false,
+    // Public hello@ address published for contact; confirm mailbox monitoring before production indexing.
+    emailLive: true,
     logoFinal: false,
     founderBioApproved: false,
   },

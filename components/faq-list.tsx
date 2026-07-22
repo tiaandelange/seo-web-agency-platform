@@ -8,7 +8,7 @@ export function FaqList({ items, headingLevel = 3 }: { items: Faq[]; headingLeve
   if (items.length === 0) return null;
   const H: 'h3' | 'h4' = headingLevel === 3 ? 'h3' : 'h4';
   return (
-    <div className="max-w-3xl space-y-6">
+    <div className="measure-narrow space-y-6">
       {items.map((faq) => (
         <div key={faq.question}>
           <H className="text-base font-semibold text-ink">{faq.question}</H>

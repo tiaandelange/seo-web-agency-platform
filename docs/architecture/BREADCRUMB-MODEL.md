@@ -17,7 +17,7 @@ Breadcrumbs render on every page except home, immediately above the H1, as both 
 | Location | Home › Areas We Serve › {City} |
 | Core pages (about, process, pricing, faq, contact, quote) | Home › {Page} |
 | Legal | Home › {Document} (no /legal/ crumb — no index page exists) |
-| Thank-you | Home › Request a Quote › Thank You (noindex page; visible crumb only, no schema emission needed but harmless — we emit for consistency) |
+| Thank-you | Home › Request a Proposal › Thank You (noindex page; visible crumb only, no schema emission needed but harmless — we emit for consistency) |
 
 ## Rules
 

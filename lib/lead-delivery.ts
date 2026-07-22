@@ -14,6 +14,7 @@ export type LeadPayload = {
   email: string;
   phone: string;
   company: string;
+  websiteUrl: string;
   serviceInterest: string;
   budgetBand: string;
   timeline: string;
@@ -47,6 +48,7 @@ function formatLeadText(lead: LeadPayload, submissionId: string): string {
     `Email: ${lead.email}`,
     `Phone: ${lead.phone || '(none)'}`,
     `Company: ${lead.company || '(none)'}`,
+    `Website: ${lead.websiteUrl || '(none)'}`,
     `Service interest: ${lead.serviceInterest || '(none)'}`,
     `Budget band: ${lead.budgetBand || '(none)'}`,
     `Timeline: ${lead.timeline || '(none)'}`,

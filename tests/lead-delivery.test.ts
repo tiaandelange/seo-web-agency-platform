@@ -7,6 +7,7 @@ const baseLead: LeadPayload = {
   email: 'test@example.com',
   phone: '+27821234567',
   company: 'Example Co',
+  websiteUrl: '',
   serviceInterest: 'business-websites',
   budgetBand: 'R28k–R60k',
   timeline: '1–3 months',

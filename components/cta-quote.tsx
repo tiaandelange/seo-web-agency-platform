@@ -20,7 +20,7 @@ export function CtaQuote({
     <section className="bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="rounded-card border border-line bg-canvas p-8 shadow-card">
-          <h2 className="text-2xl font-bold tracking-tight text-ink">{heading}</h2>
+          <h2 className="text-section-title text-ink">{heading}</h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-muted">{body}</p>
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Link

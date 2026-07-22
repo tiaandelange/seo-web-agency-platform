@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { Container } from '@/components/layout/container';
 
 const IndustrialEnginePreview = dynamic(
   () =>
@@ -17,14 +18,14 @@ function EngineSkeleton() {
       className="band-ink min-h-[52rem] border-y border-white/10 bg-[#0b1f28]"
       aria-hidden
     >
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 lg:px-10">
+      <Container width="wide" className="py-16">
         <div className="h-8 w-64 rounded bg-white/10" />
         <div className="mt-4 h-4 max-w-md rounded bg-white/5" />
         <div className="mt-12 grid gap-6 lg:grid-cols-12">
           <div className="h-80 rounded bg-white/5 lg:col-span-7" />
           <div className="h-80 rounded bg-white/5 lg:col-span-5" />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

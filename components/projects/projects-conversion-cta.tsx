@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { brand } from '@/config/brand';
+import { Container } from '@/components/layout/container';
+import { Heading } from '@/components/typography/heading';
+import { Lead } from '@/components/typography/lead';
 
 export function ProjectsConversionCTA() {
   const discussHref =
@@ -10,15 +13,15 @@ export function ProjectsConversionCTA() {
 
   return (
     <section className="border-t border-line bg-surface">
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <Container className="py-14 md:py-20">
         <div className="max-w-2xl">
-          <h2 className="projects-heading-functional">
+          <Heading as="h2" variant="subsectionTitle">
             Have a process that has outgrown spreadsheets?
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted">
+          </Heading>
+          <Lead className="mt-4">
             Koppie Systems can map the workflow, define the business rules and build the interface
             around the way your company actually operates.
-          </p>
+          </Lead>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href="/request-a-quote/?service_interest=custom-web-applications&source=projects-page"
@@ -28,7 +31,7 @@ export function ProjectsConversionCTA() {
             </Link>
             <Link
               href={discussHref}
-              className="inline-flex min-h-11 items-center justify-center rounded-card border border-line bg-white px-6 py-3 font-heading text-sm font-semibold text-ink transition-colors hover:bg-canvas"
+              className="inline-flex min-h-11 items-center justify-center rounded-card border border-line bg-canvas px-6 py-3 font-heading text-sm font-semibold text-ink transition-colors hover:bg-surface"
             >
               Discuss the workflow
             </Link>
@@ -46,7 +49,7 @@ export function ProjectsConversionCTA() {
             )}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

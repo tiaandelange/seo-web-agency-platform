@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './authentic-html-preview.module.css';
+import { previewInter } from './preview-fonts';
 
 export function AuthenticHtmlPreview({
   rootClassName,
@@ -16,7 +17,7 @@ export function AuthenticHtmlPreview({
   return (
     <div
       ref={rootRef}
-      className={`${rootClassName} ${styles.previewRoot} pointer-events-none select-none`}
+      className={`${rootClassName} ${previewInter.variable} ${previewInter.className} ${styles.previewRoot} pointer-events-none select-none`}
       data-project-preview-root
     >
       <div dangerouslySetInnerHTML={{ __html: headerHtml }} />

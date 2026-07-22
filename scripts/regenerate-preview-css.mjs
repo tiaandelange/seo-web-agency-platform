@@ -42,7 +42,11 @@ function fixDamtechMarkup() {
 }
 
 function convertOverrides(css) {
-  return css.replace(/:global\(([^)]+)\)/g, '$1');
+  return css
+    .replace(/:global\(([^)]+)\)/g, '$1')
+    // Never keep remote @import — mid-file @import is invalid CSS and caused
+    // Next.js Runtime Error "[object Event]" when preview stylesheets loaded.
+    .replace(/@import\s+url\([^)]+\)\s*;?/gi, '');
 }
 
 function buildPreviewCss(scopedCss, id) {
