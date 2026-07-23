@@ -48,8 +48,8 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <HomeProofStrip />
       <EnquirySystemAnchor />
+      <HomeProofStrip />
       <CapabilityPaths />
       <ServiceArchitecture />
       <EditorialBreak />

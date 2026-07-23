@@ -90,6 +90,7 @@ export const showcaseProjects: ProjectCardData[] = [
     ],
     ctaLabel: 'Discuss an event website',
     href: '/request-a-quote/?service_interest=business-websites&source=wedding-portfolio',
+    externalSiteUrl: 'https://delangetroue.co.za/',
     desktopSrc: '/images/work/wedding-desktop.webp',
     mobileSrc: '/images/work/wedding-mobile.webp',
     imageAlt:
