@@ -39,11 +39,15 @@ export function BrandWordmark({
         </span>
       )}
       <span className={`leading-none ${nameColor}`}>
-        <span className="block font-heading text-base font-bold tracking-tight sm:text-lg">
+        <span
+          data-brand-name
+          className="block font-heading text-base font-bold tracking-tight sm:text-lg"
+        >
           {brand.shortName}
         </span>
         {!compact && (
           <span
+            data-brand-systems
             className={`mt-0.5 block font-heading text-[0.65rem] font-semibold uppercase tracking-[0.16em] ${systemsColor}`}
           >
             Systems

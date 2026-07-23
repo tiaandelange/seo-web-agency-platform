@@ -68,7 +68,7 @@ export function ProjectCard({ project }: { project: Project }) {
       )}
       {project.publishPermission && project.placeholder && project.status !== 'template' && (
         <p className="mb-2 inline-block self-start rounded-card bg-surface px-2 py-1 text-xs font-semibold uppercase tracking-wide text-muted">
-          Draft — screenshots pending
+          Case study
         </p>
       )}
       <h3 className="text-base font-semibold text-ink">

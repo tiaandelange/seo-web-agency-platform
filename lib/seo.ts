@@ -32,6 +32,10 @@ export interface PageMeta {
   ogDescription?: string;
   /** Absolute URL or /public path for the social image. */
   socialImage?: string;
+  /** Accessible description for the social/OG image (not page alt text). */
+  socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
   /** ISO date; emitted as og modified time for article-type pages. */
   dateUpdated?: string;
 }
@@ -43,13 +47,24 @@ export function buildMetadata(meta: PageMeta): Metadata {
   const ogDescription = meta.ogDescription ?? meta.description;
   const index = meta.index !== false;
 
+  const ogImages = meta.socialImage
+    ? [
+        {
+          url: meta.socialImage,
+          ...(meta.socialImageAlt ? { alt: meta.socialImageAlt } : {}),
+          ...(meta.socialImageWidth ? { width: meta.socialImageWidth } : {}),
+          ...(meta.socialImageHeight ? { height: meta.socialImageHeight } : {}),
+        },
+      ]
+    : undefined;
+
   const ogBase = {
     title: ogTitle,
     description: ogDescription,
     url: canonical,
     siteName: brand.name,
     locale: brand.locale,
-    ...(meta.socialImage ? { images: [{ url: meta.socialImage }] } : {}),
+    ...(ogImages ? { images: ogImages } : {}),
   };
 
   const openGraph: Metadata['openGraph'] =
@@ -67,5 +82,15 @@ export function buildMetadata(meta: PageMeta): Metadata {
     alternates: { canonical },
     robots: index ? { index: true, follow: true } : { index: false, follow: true },
     openGraph,
+    ...(ogImages
+      ? {
+          twitter: {
+            card: 'summary_large_image',
+            title: ogTitle,
+            description: ogDescription,
+            images: [meta.socialImage as string],
+          },
+        }
+      : {}),
   };
 }

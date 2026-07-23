@@ -1,0 +1,53 @@
+{
+  "capturedAt": "2026-07-23T09:25:55.145Z",
+  "results": [
+    {
+      "id": "damtech",
+      "mode": "desktop",
+      "file": "public/images/work/damtech-desktop.webp",
+      "width": 1440,
+      "height": 900,
+      "bytes": 120516
+    },
+    {
+      "id": "damtech",
+      "mode": "mobile",
+      "file": "public/images/work/damtech-mobile.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 36440
+    },
+    {
+      "id": "proplytic",
+      "mode": "desktop",
+      "file": "public/images/work/proplytic-desktop.webp",
+      "width": 1440,
+      "height": 900,
+      "bytes": 60924
+    },
+    {
+      "id": "proplytic",
+      "mode": "mobile",
+      "file": "public/images/work/proplytic-mobile.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 27032
+    },
+    {
+      "id": "wedding",
+      "mode": "desktop",
+      "file": "public/images/work/wedding-desktop.webp",
+      "width": 1440,
+      "height": 900,
+      "bytes": 101630
+    },
+    {
+      "id": "wedding",
+      "mode": "mobile",
+      "file": "public/images/work/wedding-mobile.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 32354
+    }
+  ]
+}

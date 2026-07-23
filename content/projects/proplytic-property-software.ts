@@ -4,8 +4,9 @@ import type { Project } from '@/types/content';
  * Proplytic property portfolio software — owner-authorised publication (2026-07-22).
  * Live product: https://proplytic.co.za
  *
- * Founder-built product (self-permission). Indexation stays noindex until Gate 4
- * completes (PII-cleared screenshots + alt). No testimonials or fabricated metrics.
+ * Founder-built product (self-permission). Screenshots captured 2026-07-23 from
+ * the live marketing homepage. Indexation stays noindex until the remaining
+ * case-study publication gate clears. No testimonials or fabricated metrics.
  * Sample UI figures on the marketing site are illustrative product demos, not
  * Koppie Systems performance claims.
  */
@@ -19,9 +20,9 @@ export const proplyticPropertySoftware: Project = {
     'Proplytic is a founder-built SaaS product for South African owner-managers and small portfolio investors. It connects property records, rental admin and portfolio analytics in one workspace. The live product is proplytic.co.za.',
   status: 'live',
   noindex: true,
-  placeholder: true,
+  placeholder: false,
   dateCreated: '2026-07-22',
-  dateUpdated: '2026-07-22',
+  dateUpdated: '2026-07-23',
   clientDescriptor: 'Proplytic (founder product)',
   industry: 'Property / PropTech',
   location: 'South Africa',
@@ -71,7 +72,20 @@ export const proplyticPropertySoftware: Project = {
   dates: {},
   projectStatus: 'completed',
   publishPermission: true,
-  gallery: [],
+  featuredImage: {
+    src: '/images/work/proplytic-desktop.webp',
+    alt: 'Desktop screenshot of the Proplytic marketing homepage with portfolio software positioning and product interface preview',
+    width: 1440,
+    height: 900,
+  },
+  gallery: [
+    {
+      src: '/images/work/proplytic-mobile.webp',
+      alt: 'Mobile screenshot of the Proplytic marketing homepage',
+      width: 390,
+      height: 844,
+    },
+  ],
   relatedProjectSlugs: ['damtech-website'],
   relatedArticleSlugs: ['what-is-an-seo-first-website'],
 };

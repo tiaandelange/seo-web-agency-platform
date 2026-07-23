@@ -1,0 +1,1060 @@
+{
+  "generatedAt": "2026-07-23T09:32:48.264Z",
+  "routeTotals": {
+    "registry": 64,
+    "registryIndexable": 52,
+    "inventoryRows": 37
+  },
+  "rows": [
+    {
+      "url": "/",
+      "pageType": "homepage",
+      "primaryIntent": "Brand + service orientation + enquiry",
+      "targetAudience": "Technical, industrial and service businesses (SA + selected international)",
+      "h1": "Built to be found. Designed to work. (brand hero)",
+      "wordCount": 0,
+      "primaryCta": "Request a proposal / Contact",
+      "relatedProject": "damtech-website; proplytic-property-software; wedding-website-portfolio",
+      "relatedService": "websites; systems",
+      "authorByline": "—",
+      "indexingStatus": "indexable (intended; live env currently broken)",
+      "similarityRisk": "Low",
+      "recommendedAction": "Expand",
+      "notes": "Needs earlier proof strip + systems distinction + geography in support copy"
+    },
+    {
+      "url": "/services/business-websites/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "business website design south africa",
+      "h1": "Business website design",
+      "wordCount": 349,
+      "primaryCta": "Request a quote",
+      "relatedProject": "damtech-website",
+      "relatedService": "seo-website-development; website-redesign; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~22% vs /services/seo-website-development/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=3; projectsLinked=true"
+    },
+    {
+      "url": "/services/lead-generation-websites/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "lead generation website design",
+      "h1": "Lead generation website design",
+      "wordCount": 298,
+      "primaryCta": "Request a quote",
+      "relatedProject": "damtech-website",
+      "relatedService": "seo-website-development; business-websites; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~13% vs /services/business-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/product-catalogue-websites/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "product catalogue website south africa",
+      "h1": "Product catalogue website development",
+      "wordCount": 307,
+      "primaryCta": "Request a quote",
+      "relatedProject": "catalogue-rfq-website-template",
+      "relatedService": "rfq-and-quotation-systems; ecommerce-websites; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /services/business-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/ecommerce-websites/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "ecommerce website development south africa",
+      "h1": "Ecommerce website development",
+      "wordCount": 285,
+      "primaryCta": "Request a quote",
+      "relatedProject": "catalogue-rfq-website-template",
+      "relatedService": "product-catalogue-websites; seo-website-development; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~13% vs /services/product-catalogue-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/custom-web-applications/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "custom web application development south africa",
+      "h1": "Custom web application development",
+      "wordCount": 304,
+      "primaryCta": "Book consultation / proposal",
+      "relatedProject": "proplytic-property-software; admin-quotation-platform-template",
+      "relatedService": "admin-panel-development; rfq-and-quotation-systems; customer-and-supplier-portals",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /services/admin-panel-development/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/admin-panel-development/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "admin panel development",
+      "h1": "Admin panel development",
+      "wordCount": 286,
+      "primaryCta": "Book consultation / proposal",
+      "relatedProject": "admin-quotation-platform-template; proplytic-property-software",
+      "relatedService": "custom-web-applications; rfq-and-quotation-systems; customer-and-supplier-portals",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /services/custom-web-applications/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/rfq-and-quotation-systems/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "quotation system development",
+      "h1": "RFQ and quotation system development",
+      "wordCount": 292,
+      "primaryCta": "Book consultation / proposal",
+      "relatedProject": "admin-quotation-platform-template; catalogue-rfq-website-template",
+      "relatedService": "product-catalogue-websites; admin-panel-development; custom-web-applications",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~10% vs /services/lead-generation-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/customer-and-supplier-portals/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "customer portal development",
+      "h1": "Customer and supplier portal development",
+      "wordCount": 287,
+      "primaryCta": "Book consultation / proposal",
+      "relatedProject": "proplytic-property-software",
+      "relatedService": "admin-panel-development; custom-web-applications; rfq-and-quotation-systems",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~10% vs /services/lead-generation-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/website-redesign/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "website redesign south africa",
+      "h1": "Website redesign services",
+      "wordCount": 316,
+      "primaryCta": "Book consultation / proposal",
+      "relatedProject": "—",
+      "relatedService": "seo-website-development; business-websites; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~17% vs /services/business-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=false"
+    },
+    {
+      "url": "/services/seo-website-development/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "seo website design south africa",
+      "h1": "SEO website development",
+      "wordCount": 286,
+      "primaryCta": "Book consultation / proposal",
+      "relatedProject": "damtech-website",
+      "relatedService": "lead-generation-websites; website-redesign; business-websites",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~22% vs /services/business-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=true"
+    },
+    {
+      "url": "/services/website-maintenance-and-support/",
+      "pageType": "service",
+      "primaryIntent": "Service evaluation / buy",
+      "targetAudience": "website maintenance south africa",
+      "h1": "Website maintenance and support",
+      "wordCount": 269,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "business-websites; ecommerce-websites; website-redesign",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~11% vs /services/business-websites/)",
+      "recommendedAction": "Expand",
+      "notes": "deliverables=8; faqs=2; projectsLinked=false"
+    },
+    {
+      "url": "/solutions/contractors/",
+      "pageType": "solution",
+      "primaryIntent": "Industry fit / buy",
+      "targetAudience": "Contractors and trade businesses",
+      "h1": "Websites for contractors",
+      "wordCount": 265,
+      "primaryCta": "Request a quote",
+      "relatedProject": "damtech-website",
+      "relatedService": "lead-generation-websites; seo-website-development; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /solutions/engineering-companies/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=false; pains=5"
+    },
+    {
+      "url": "/solutions/engineering-companies/",
+      "pageType": "solution",
+      "primaryIntent": "Industry fit / buy",
+      "targetAudience": "Engineering and industrial services",
+      "h1": "Websites for engineering companies",
+      "wordCount": 252,
+      "primaryCta": "Request a quote",
+      "relatedProject": "admin-quotation-platform-template",
+      "relatedService": "business-websites; rfq-and-quotation-systems; customer-and-supplier-portals",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /solutions/contractors/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=false; pains=5"
+    },
+    {
+      "url": "/solutions/manufacturers-and-suppliers/",
+      "pageType": "solution",
+      "primaryIntent": "Industry fit / buy",
+      "targetAudience": "Manufacturers, suppliers and distributors",
+      "h1": "Websites for manufacturers and suppliers",
+      "wordCount": 248,
+      "primaryCta": "Request a quote",
+      "relatedProject": "catalogue-rfq-website-template",
+      "relatedService": "product-catalogue-websites; rfq-and-quotation-systems; ecommerce-websites",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~10% vs /solutions/engineering-companies/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=false; pains=5"
+    },
+    {
+      "url": "/solutions/property-businesses/",
+      "pageType": "solution",
+      "primaryIntent": "Industry fit / buy",
+      "targetAudience": "Property businesses",
+      "h1": "Websites and systems for property businesses",
+      "wordCount": 273,
+      "primaryCta": "Request a quote",
+      "relatedProject": "proplytic-property-software",
+      "relatedService": "custom-web-applications; business-websites; customer-and-supplier-portals",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~8% vs /solutions/engineering-companies/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=false; pains=5"
+    },
+    {
+      "url": "/solutions/professional-services/",
+      "pageType": "solution",
+      "primaryIntent": "Industry fit / buy",
+      "targetAudience": "Professional services firms",
+      "h1": "Websites for professional services firms",
+      "wordCount": 234,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "business-websites; seo-website-development; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /solutions/engineering-companies/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=false; pains=5"
+    },
+    {
+      "url": "/solutions/small-businesses/",
+      "pageType": "solution",
+      "primaryIntent": "Industry fit / buy",
+      "targetAudience": "Small businesses",
+      "h1": "Websites for small businesses",
+      "wordCount": 260,
+      "primaryCta": "Request a quote",
+      "relatedProject": "damtech-website",
+      "relatedService": "business-websites; seo-website-development; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~10% vs /solutions/engineering-companies/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=false; pains=5"
+    },
+    {
+      "url": "/website-packages/starter-business-website/",
+      "pageType": "package",
+      "primaryIntent": "Package self-qualification / buy",
+      "targetAudience": "A new business that needs a credible presence customers can find; A trade or service owner replacing a DIY builder site that never ranked; A one-person practice that wants the fundamentals done properly once",
+      "h1": "Starter business website package",
+      "wordCount": 252,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "business-websites",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /website-packages/professional-business-website/)",
+      "recommendedAction": "Expand",
+      "notes": "price=R14000-25000 indicative; timeline=2–4 weeks from content kickoff"
+    },
+    {
+      "url": "/website-packages/professional-business-website/",
+      "pageType": "package",
+      "primaryIntent": "Package self-qualification / buy",
+      "targetAudience": "A contractor or service business whose growth depends on steady enquiries; An established SME whose current site looks fine but produces nothing; A firm entering a competitive metro market that needs to rank properly",
+      "h1": "Professional business website package",
+      "wordCount": 234,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "lead-generation-websites",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /website-packages/starter-business-website/)",
+      "recommendedAction": "Expand",
+      "notes": "price=R28000-60000 indicative; timeline=4–7 weeks from content kickoff"
+    },
+    {
+      "url": "/website-packages/product-catalogue-website/",
+      "pageType": "package",
+      "primaryIntent": "Package self-qualification / buy",
+      "targetAudience": "A manufacturer or distributor whose range lives in PDF price lists; A supplier losing product searches to marketplaces and rivals; A B2B seller that quotes rather than checkouts",
+      "h1": "Product catalogue website package",
+      "wordCount": 256,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "product-catalogue-websites",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~16% vs /website-packages/ecommerce-website/)",
+      "recommendedAction": "Expand",
+      "notes": "price=R45000-90000 indicative; timeline=5–8 weeks, driven mostly by product-data readiness"
+    },
+    {
+      "url": "/website-packages/ecommerce-website/",
+      "pageType": "package",
+      "primaryIntent": "Package self-qualification / buy",
+      "targetAudience": "A retailer outgrowing a template-platform store that ranks for nothing; A B2B seller adding fixed-price online ordering to a catalogue; A brand that needs speed, SEO and checkout quality more than plugins",
+      "h1": "Ecommerce website package",
+      "wordCount": 230,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "ecommerce-websites",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~16% vs /website-packages/product-catalogue-website/)",
+      "recommendedAction": "Expand",
+      "notes": "price=R70000-160000 indicative; timeline=6–10 weeks depending on range size and integrations"
+    },
+    {
+      "url": "/website-packages/custom-web-system/",
+      "pageType": "package",
+      "primaryIntent": "Package self-qualification / buy",
+      "targetAudience": "A business run on spreadsheets that have started costing real money; A quote-driven company ready to systematise intake and follow-up; An operation whose software wishlist starts with “nothing out there quite…”",
+      "h1": "Custom web system",
+      "wordCount": 247,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "custom-web-applications",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~10% vs /website-packages/product-catalogue-website/)",
+      "recommendedAction": "Expand",
+      "notes": "price=POA; timeline=Discovery 2–3 weeks; builds typically 6–16 weeks in stages"
+    },
+    {
+      "url": "/projects/damtech-website/",
+      "pageType": "project",
+      "primaryIntent": "Proof / case study",
+      "targetAudience": "Construction / water infrastructure",
+      "h1": "Damtech: dam lining and water-storage website",
+      "wordCount": 232,
+      "primaryCta": "Request a quote",
+      "relatedProject": "proplytic-property-software",
+      "relatedService": "lead-generation-websites; seo-website-development; business-websites",
+      "authorByline": "—",
+      "indexingStatus": "noindex/draft",
+      "similarityRisk": "Low",
+      "recommendedAction": "Expand",
+      "notes": "status=live; screenshots=true; resultsVerified=0; publishPermission=true"
+    },
+    {
+      "url": "/projects/proplytic-property-software/",
+      "pageType": "project",
+      "primaryIntent": "Proof / case study",
+      "targetAudience": "Property / PropTech",
+      "h1": "Proplytic: property portfolio software",
+      "wordCount": 221,
+      "primaryCta": "Request a quote",
+      "relatedProject": "damtech-website",
+      "relatedService": "custom-web-applications; admin-panel-development; customer-and-supplier-portals",
+      "authorByline": "—",
+      "indexingStatus": "noindex/draft",
+      "similarityRisk": "Low",
+      "recommendedAction": "Expand",
+      "notes": "status=live; screenshots=true; resultsVerified=0; publishPermission=true"
+    },
+    {
+      "url": "/projects/catalogue-rfq-website-template/",
+      "pageType": "project",
+      "primaryIntent": "Proof / case study",
+      "targetAudience": "Manufacturing / distribution",
+      "h1": "Case study template: product catalogue and RFQ website",
+      "wordCount": 185,
+      "primaryCta": "Request a quote",
+      "relatedProject": "admin-quotation-platform-template; damtech-website",
+      "relatedService": "product-catalogue-websites; rfq-and-quotation-systems",
+      "authorByline": "—",
+      "indexingStatus": "noindex/draft",
+      "similarityRisk": "Template",
+      "recommendedAction": "Keep",
+      "notes": "status=template; screenshots=false; resultsVerified=0; publishPermission=false"
+    },
+    {
+      "url": "/projects/admin-quotation-platform-template/",
+      "pageType": "project",
+      "primaryIntent": "Proof / case study",
+      "targetAudience": "Industrial services",
+      "h1": "Case study template: admin and quotation platform",
+      "wordCount": 169,
+      "primaryCta": "Request a quote",
+      "relatedProject": "catalogue-rfq-website-template; proplytic-property-software",
+      "relatedService": "admin-panel-development; rfq-and-quotation-systems",
+      "authorByline": "—",
+      "indexingStatus": "noindex/draft",
+      "similarityRisk": "Template",
+      "recommendedAction": "Keep",
+      "notes": "status=template; screenshots=false; resultsVerified=0; publishPermission=false"
+    },
+    {
+      "url": "/resources/website-cost-south-africa/",
+      "pageType": "article",
+      "primaryIntent": "Educate / nurture + soft convert",
+      "targetAudience": "Buyers researching websites/SEO/cost in SA",
+      "h1": "How much does a website cost in South Africa?",
+      "wordCount": 539,
+      "primaryCta": "Related services / proposal",
+      "relatedProject": "—",
+      "relatedService": "business-websites",
+      "authorByline": "MISSING",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /resources/choosing-a-website-development-company/)",
+      "recommendedAction": "Expand",
+      "notes": "category=website-cost-guides; updated=2026-07-21; sources=4; sections=4"
+    },
+    {
+      "url": "/resources/choosing-a-website-development-company/",
+      "pageType": "article",
+      "primaryIntent": "Educate / nurture + soft convert",
+      "targetAudience": "Buyers researching websites/SEO/cost in SA",
+      "h1": "How to choose a website development company in South Africa",
+      "wordCount": 360,
+      "primaryCta": "Related services / proposal",
+      "relatedProject": "—",
+      "relatedService": "business-websites",
+      "authorByline": "MISSING",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~15% vs /resources/what-is-an-seo-first-website/)",
+      "recommendedAction": "Expand",
+      "notes": "category=website-cost-guides; updated=2026-07-21; sources=0; sections=3"
+    },
+    {
+      "url": "/resources/what-is-an-seo-first-website/",
+      "pageType": "article",
+      "primaryIntent": "Educate / nurture + soft convert",
+      "targetAudience": "Buyers researching websites/SEO/cost in SA",
+      "h1": "What is an SEO-first website?",
+      "wordCount": 369,
+      "primaryCta": "Related services / proposal",
+      "relatedProject": "—",
+      "relatedService": "seo-website-development",
+      "authorByline": "MISSING",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~15% vs /resources/choosing-a-website-development-company/)",
+      "recommendedAction": "Expand",
+      "notes": "category=seo-guides; updated=2026-07-21; sources=0; sections=3"
+    },
+    {
+      "url": "/compare/custom-website-vs-template/",
+      "pageType": "comparison",
+      "primaryIntent": "Decision support / compare options",
+      "targetAudience": "Buyers choosing build approach",
+      "h1": "Custom website vs template: which should you choose?",
+      "wordCount": 341,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "business-websites; seo-website-development",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "TBD",
+      "recommendedAction": "Keep",
+      "notes": "criteria=7; A=Custom-built website; B=Template or website builder"
+    },
+    {
+      "url": "/compare/wordpress-vs-nextjs/",
+      "pageType": "comparison",
+      "primaryIntent": "Decision support / compare options",
+      "targetAudience": "Buyers choosing build approach",
+      "h1": "WordPress vs Next.js for business websites",
+      "wordCount": 326,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "custom-web-applications; seo-website-development",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "TBD",
+      "recommendedAction": "Keep",
+      "notes": "criteria=7; A=WordPress; B=Next.js (custom build)"
+    },
+    {
+      "url": "/compare/website-vs-web-application/",
+      "pageType": "comparison",
+      "primaryIntent": "Decision support / compare options",
+      "targetAudience": "Buyers choosing build approach",
+      "h1": "Website vs web application: what does your business need?",
+      "wordCount": 256,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "custom-web-applications; admin-panel-development",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "TBD",
+      "recommendedAction": "Keep",
+      "notes": "criteria=6; A=Website; B=Web application"
+    },
+    {
+      "url": "/compare/website-maintenance-options/",
+      "pageType": "comparison",
+      "primaryIntent": "Decision support / compare options",
+      "targetAudience": "Buyers choosing build approach",
+      "h1": "Website maintenance options compared",
+      "wordCount": 261,
+      "primaryCta": "Request a quote",
+      "relatedProject": "—",
+      "relatedService": "website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "TBD",
+      "recommendedAction": "Keep",
+      "notes": "criteria=6; A=Maintenance plan; B=Ad-hoc support"
+    },
+    {
+      "url": "/areas-we-serve/pretoria/",
+      "pageType": "location",
+      "primaryIntent": "Local relevance / contact",
+      "targetAudience": "Pretoria, Gauteng",
+      "h1": "Website design and development in Pretoria",
+      "wordCount": 50,
+      "primaryCta": "Contact / quote",
+      "relatedProject": "—",
+      "relatedService": "business-websites; lead-generation-websites; product-catalogue-websites; ecommerce-websites; custom-web-applications; website-redesign; seo-website-development; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /areas-we-serve/johannesburg/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=true; status=live"
+    },
+    {
+      "url": "/areas-we-serve/johannesburg/",
+      "pageType": "location",
+      "primaryIntent": "Local relevance / contact",
+      "targetAudience": "Johannesburg, Gauteng",
+      "h1": "Website design and development in Johannesburg",
+      "wordCount": 57,
+      "primaryCta": "Contact / quote",
+      "relatedProject": "—",
+      "relatedService": "business-websites; lead-generation-websites; product-catalogue-websites; ecommerce-websites; custom-web-applications; website-redesign; seo-website-development; website-maintenance-and-support",
+      "authorByline": "—",
+      "indexingStatus": "indexable",
+      "similarityRisk": "Low (~14% vs /areas-we-serve/pretoria/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=true; status=live"
+    },
+    {
+      "url": "/areas-we-serve/cape-town/",
+      "pageType": "location",
+      "primaryIntent": "Local relevance / contact",
+      "targetAudience": "Cape Town, Western Cape",
+      "h1": "Website design and development in Cape Town",
+      "wordCount": 19,
+      "primaryCta": "Contact / quote",
+      "relatedProject": "—",
+      "relatedService": "—",
+      "authorByline": "—",
+      "indexingStatus": "planned",
+      "similarityRisk": "Low (~10% vs /areas-we-serve/pretoria/)",
+      "recommendedAction": "Expand",
+      "notes": "placeholder=true; status=planned"
+    }
+  ],
+  "proofGaps": [
+    {
+      "slug": "business-websites",
+      "title": "Business Website Design",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": false,
+        "workflow": "N/A or weak on page",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": false,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "damtech-website"
+      ],
+      "relatedPackages": [
+        "starter-business-website",
+        "professional-business-website"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 3,
+      "exclusionCount": 4
+    },
+    {
+      "slug": "lead-generation-websites",
+      "title": "Lead Generation Website Design",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": false,
+        "workflow": "N/A or weak on page",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "damtech-website"
+      ],
+      "relatedPackages": [
+        "professional-business-website"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "product-catalogue-websites",
+      "title": "Product Catalogue Website Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": true,
+        "workflow": "Should show workflow",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "catalogue-rfq-website-template"
+      ],
+      "relatedPackages": [
+        "product-catalogue-website"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "ecommerce-websites",
+      "title": "Ecommerce Website Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": true,
+        "workflow": "Should show workflow",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "catalogue-rfq-website-template"
+      ],
+      "relatedPackages": [
+        "ecommerce-website"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "custom-web-applications",
+      "title": "Custom Web Application Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": false,
+        "workflow": "N/A or weak on page",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "proplytic-property-software",
+        "admin-quotation-platform-template"
+      ],
+      "relatedPackages": [
+        "custom-web-system"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "admin-panel-development",
+      "title": "Admin Panel Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": false,
+        "workflow": "Should show workflow",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "admin-quotation-platform-template",
+        "proplytic-property-software"
+      ],
+      "relatedPackages": [
+        "custom-web-system"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "rfq-and-quotation-systems",
+      "title": "RFQ & Quotation System Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": true,
+        "workflow": "Should show workflow",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": true,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "admin-quotation-platform-template",
+        "catalogue-rfq-website-template"
+      ],
+      "relatedPackages": [
+        "custom-web-system"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 2
+    },
+    {
+      "slug": "customer-and-supplier-portals",
+      "title": "Customer & Supplier Portal Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": false,
+        "workflow": "Should show workflow",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": true,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "proplytic-property-software"
+      ],
+      "relatedPackages": [
+        "custom-web-system"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 2
+    },
+    {
+      "slug": "website-redesign",
+      "title": "Website Redesign Services",
+      "missing": {
+        "relatedProject": true,
+        "screenshotLink": true,
+        "workflow": "N/A or weak on page",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [],
+      "relatedPackages": [
+        "professional-business-website"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "seo-website-development",
+      "title": "SEO Website Development",
+      "missing": {
+        "relatedProject": false,
+        "screenshotLink": false,
+        "workflow": "N/A or weak on page",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": false,
+        "timelineGuidance": true,
+        "maintenancePosition": true,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [
+        "damtech-website"
+      ],
+      "relatedPackages": [
+        "professional-business-website"
+      ],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    },
+    {
+      "slug": "website-maintenance-and-support",
+      "title": "Website Maintenance & Support",
+      "missing": {
+        "relatedProject": true,
+        "screenshotLink": true,
+        "workflow": "N/A or weak on page",
+        "deliverables": false,
+        "process": true,
+        "technicalStack": true,
+        "scopeBoundaries": false,
+        "pricingGuidance": true,
+        "timelineGuidance": true,
+        "maintenancePosition": false,
+        "faq": true,
+        "authorReviewer": true
+      },
+      "relatedProjects": [],
+      "relatedPackages": [],
+      "deliverableCount": 8,
+      "faqCount": 2,
+      "exclusionCount": 3
+    }
+  ],
+  "overlapPairs": [],
+  "showcase": [
+    {
+      "slug": "damtech-website",
+      "statusLabel": "Live project",
+      "href": "/projects/damtech-website/"
+    },
+    {
+      "slug": "proplytic-property-software",
+      "statusLabel": "Live project",
+      "href": "/projects/proplytic-property-software/"
+    },
+    {
+      "slug": "wedding-website-portfolio",
+      "statusLabel": "Personal event website",
+      "href": "/request-a-quote/?service_interest=business-websites&source=wedding-portfolio"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "website-cost-south-africa",
+      "author": null,
+      "datePublished": "2026-07-21",
+      "dateUpdated": "2026-07-21",
+      "sources": 4,
+      "wordCountApprox": 506,
+      "supports": [
+        "business-websites"
+      ]
+    },
+    {
+      "slug": "choosing-a-website-development-company",
+      "author": null,
+      "datePublished": "2026-07-21",
+      "dateUpdated": "2026-07-21",
+      "sources": 0,
+      "wordCountApprox": 332,
+      "supports": [
+        "business-websites"
+      ]
+    },
+    {
+      "slug": "what-is-an-seo-first-website",
+      "author": null,
+      "datePublished": "2026-07-21",
+      "dateUpdated": "2026-07-21",
+      "sources": 0,
+      "wordCountApprox": 347,
+      "supports": [
+        "seo-website-development"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "damtech-website",
+      "status": "live",
+      "noindex": true,
+      "placeholder": false,
+      "publishPermission": true,
+      "indexable": false,
+      "hasScreenshots": true,
+      "verifiedResults": 0,
+      "hasTestimonial": false
+    },
+    {
+      "slug": "proplytic-property-software",
+      "status": "live",
+      "noindex": true,
+      "placeholder": false,
+      "publishPermission": true,
+      "indexable": false,
+      "hasScreenshots": true,
+      "verifiedResults": 0,
+      "hasTestimonial": false
+    },
+    {
+      "slug": "catalogue-rfq-website-template",
+      "status": "template",
+      "noindex": true,
+      "placeholder": true,
+      "publishPermission": false,
+      "indexable": false,
+      "hasScreenshots": false,
+      "verifiedResults": 0,
+      "hasTestimonial": false
+    },
+    {
+      "slug": "admin-quotation-platform-template",
+      "status": "template",
+      "noindex": true,
+      "placeholder": true,
+      "publishPermission": false,
+      "indexable": false,
+      "hasScreenshots": false,
+      "verifiedResults": 0,
+      "hasTestimonial": false
+    }
+  ],
+  "locations": [
+    {
+      "slug": "pretoria",
+      "city": "Pretoria",
+      "status": "live",
+      "placeholder": true
+    },
+    {
+      "slug": "johannesburg",
+      "city": "Johannesburg",
+      "status": "live",
+      "placeholder": true
+    },
+    {
+      "slug": "cape-town",
+      "city": "Cape Town",
+      "status": "planned",
+      "placeholder": true
+    }
+  ],
+  "solutions": [
+    {
+      "slug": "contractors",
+      "industry": "Contractors and trade businesses",
+      "projects": [
+        "damtech-website"
+      ]
+    },
+    {
+      "slug": "engineering-companies",
+      "industry": "Engineering and industrial services",
+      "projects": [
+        "admin-quotation-platform-template"
+      ]
+    },
+    {
+      "slug": "manufacturers-and-suppliers",
+      "industry": "Manufacturers, suppliers and distributors",
+      "projects": [
+        "catalogue-rfq-website-template"
+      ]
+    },
+    {
+      "slug": "property-businesses",
+      "industry": "Property businesses",
+      "projects": [
+        "proplytic-property-software"
+      ]
+    },
+    {
+      "slug": "professional-services",
+      "industry": "Professional services firms",
+      "projects": []
+    },
+    {
+      "slug": "small-businesses",
+      "industry": "Small businesses",
+      "projects": [
+        "damtech-website"
+      ]
+    }
+  ]
+}

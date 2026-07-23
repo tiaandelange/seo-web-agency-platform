@@ -1,0 +1,1270 @@
+{
+  "summary": {
+    "pages": 10,
+    "viewports": 5,
+    "checks": 50,
+    "non200": 0,
+    "withConsoleErrors": 20,
+    "withHydration": 0,
+    "withFailedRequests": 39,
+    "withBrokenImages": 5,
+    "withOverflow": 0,
+    "formChecks": [
+      {
+        "url": "https://www.koppiesystems.co.za/contact/",
+        "viewport": "1440x900",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 4,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/request-a-quote/",
+        "viewport": "1440x900",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 5,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/contact/",
+        "viewport": "1280x800",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 4,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/request-a-quote/",
+        "viewport": "1280x800",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 5,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/contact/",
+        "viewport": "768x1024",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 4,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/request-a-quote/",
+        "viewport": "768x1024",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 5,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/contact/",
+        "viewport": "390x844",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 4,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/request-a-quote/",
+        "viewport": "390x844",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 5,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/contact/",
+        "viewport": "360x800",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 4,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      },
+      {
+        "url": "https://www.koppiesystems.co.za/request-a-quote/",
+        "viewport": "360x800",
+        "formValidation": {
+          "attempted": true,
+          "nativeInvalid": 5,
+          "notes": [
+            "native_validation_blocked_empty_submit"
+          ]
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "url": "https://www.koppiesystems.co.za/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=1p-R_iEY6bj0jY31"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/business-websites/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/custom-web-applications/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/projects/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [
+        "https://www.koppiesystems.co.za/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fwestern-cape-dam-lining-reservoir-damtech.1jkmd7twhqawk.webp&w=1920&q=75"
+      ],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/website-packages/professional-business-website/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=6UU2YvxUJ7Uc7JBk"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/resources/website-cost-south-africa/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/areas-we-serve/pretoria/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=01R1yY5bZS12WJqU"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/contact/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 4,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/request-a-quote/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/advanced/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/about/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/legal/privacy-policy/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/faq/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/process/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/resources/?_rsc=8k6vkql5ktX3Dkf2"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 5,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/pricing/",
+      "viewport": "1440x900",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/business-websites/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/website-maintenance-and-support/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/_next/static/chunks/app/legal/%5Bslug%5D/page-716847a327126633.js",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/about/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/product-catalogue-websites/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/lead-generation-websites/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/legal/privacy-policy/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=yrzGVZEURCHTUGxG",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/advanced/?_rsc=yrzGVZEURCHTUGxG"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/business-websites/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=s7Ri9OHvxGXBbAk6"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/custom-web-applications/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=GYqNwvhQ-Vn6ejqc"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/projects/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [
+        "https://www.koppiesystems.co.za/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fwestern-cape-dam-lining-reservoir-damtech.1jkmd7twhqawk.webp&w=1920&q=75"
+      ],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/website-packages/professional-business-website/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=6UU2YvxUJ7Uc7JBk"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/resources/website-cost-south-africa/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/areas-we-serve/pretoria/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=01R1yY5bZS12WJqU",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=01R1yY5bZS12WJqU"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/contact/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 4,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/request-a-quote/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/compare/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/resources/website-cost-south-africa/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/_next/static/chunks/app/legal/%5Bslug%5D/page-716847a327126633.js",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=SXRdlnAVYub3YJQQ"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 5,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/pricing/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/faq/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/about/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/legal/privacy-policy/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/resources/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/process/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/?_rsc=yrzGVZEURCHTUGxG",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/advanced/?_rsc=yrzGVZEURCHTUGxG"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/business-websites/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/_next/static/chunks/app/services/%5Bslug%5D/page-ea6975c7bed1a5d1.js",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=1p-R_iEY6bj0jY31"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/custom-web-applications/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=s7Ri9OHvxGXBbAk6"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/projects/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=GYqNwvhQ-Vn6ejqc"
+      ],
+      "brokenImages": [
+        "https://www.koppiesystems.co.za/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fwestern-cape-dam-lining-reservoir-damtech.1jkmd7twhqawk.webp&w=828&q=75"
+      ],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/website-packages/professional-business-website/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=WkyfoPpB9nPHZqc8"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/resources/website-cost-south-africa/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=6UU2YvxUJ7Uc7JBk"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/areas-we-serve/pretoria/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=Ci181zZzuFPG85-7"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/contact/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=01R1yY5bZS12WJqU",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=01R1yY5bZS12WJqU"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 4,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/request-a-quote/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/advanced/?_rsc=8k6vkql5ktX3Dkf2",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/?_rsc=8k6vkql5ktX3Dkf2"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 5,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/pricing/",
+      "viewport": "768x1024",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/legal/privacy-policy/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/advanced/?_rsc=yrzGVZEURCHTUGxG",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/seo-audit/?_rsc=yrzGVZEURCHTUGxG"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=1p-R_iEY6bj0jY31"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/business-websites/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/_next/static/chunks/app/services/%5Bslug%5D/page-ea6975c7bed1a5d1.js",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=1p-R_iEY6bj0jY31"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/custom-web-applications/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=s7Ri9OHvxGXBbAk6"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/projects/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=GYqNwvhQ-Vn6ejqc"
+      ],
+      "brokenImages": [
+        "https://www.koppiesystems.co.za/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fwestern-cape-dam-lining-reservoir-damtech.1jkmd7twhqawk.webp&w=640&q=75"
+      ],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/website-packages/professional-business-website/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=WkyfoPpB9nPHZqc8"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/resources/website-cost-south-africa/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=6UU2YvxUJ7Uc7JBk"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/areas-we-serve/pretoria/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=Ci181zZzuFPG85-7"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/contact/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=01R1yY5bZS12WJqU",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=01R1yY5bZS12WJqU"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 4,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/request-a-quote/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=8k6vkql5ktX3Dkf2"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 5,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/pricing/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/legal/privacy-policy/?_rsc=SXRdlnAVYub3YJQQ"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/business-websites/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/_next/static/chunks/app/services/page-ea6975c7bed1a5d1.js",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=1p-R_iEY6bj0jY31",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=1p-R_iEY6bj0jY31"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/services/custom-web-applications/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=s7Ri9OHvxGXBbAk6",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?type=custom-system&service_interest=custom-web-applications&_rsc=GYqNwvhQ-Vn6ejqc"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/projects/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=GYqNwvhQ-Vn6ejqc",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=GYqNwvhQ-Vn6ejqc"
+      ],
+      "brokenImages": [
+        "https://www.koppiesystems.co.za/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fwestern-cape-dam-lining-reservoir-damtech.1jkmd7twhqawk.webp&w=640&q=75"
+      ],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/website-packages/professional-business-website/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=WkyfoPpB9nPHZqc8",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=WkyfoPpB9nPHZqc8"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/resources/website-cost-south-africa/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=6UU2YvxUJ7Uc7JBk",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=6UU2YvxUJ7Uc7JBk"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/areas-we-serve/pretoria/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/projects/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/custom-web-applications/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/ecommerce-websites/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/seo-website-development/?_rsc=Ci181zZzuFPG85-7",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/services/?_rsc=Ci181zZzuFPG85-7"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/contact/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=01R1yY5bZS12WJqU",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=01R1yY5bZS12WJqU"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 4,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/request-a-quote/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/request-a-quote/?_rsc=8k6vkql5ktX3Dkf2"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": {
+        "attempted": true,
+        "nativeInvalid": 5,
+        "notes": [
+          "native_validation_blocked_empty_submit"
+        ]
+      }
+    },
+    {
+      "url": "https://www.koppiesystems.co.za/pricing/",
+      "viewport": "360x800",
+      "status": 200,
+      "consoleErrors": [],
+      "hydrationHints": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/legal/privacy-policy/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/contact/?_rsc=SXRdlnAVYub3YJQQ",
+        "net::ERR_ABORTED https://www.koppiesystems.co.za/pricing/?_rsc=SXRdlnAVYub3YJQQ"
+      ],
+      "brokenImages": [],
+      "horizontalOverflow": false,
+      "overflowDetail": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "overflow": false
+      },
+      "navOk": true,
+      "formValidation": null
+    }
+  ]
+}

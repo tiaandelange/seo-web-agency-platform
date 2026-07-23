@@ -1,0 +1,49 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "http://localhost:3000/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Pricing"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "http://localhost:3000/pricing/",
+    "name": "Website Design Pricing",
+    "description": "Website design and development pricing in South Africa, published openly: indicative ranges per package, what moves price up or down, and support plan costs.",
+    "isPartOf": {
+      "@id": "http://localhost:3000/#website"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "http://localhost:3000/#organization",
+    "name": "Koppie Systems",
+    "url": "http://localhost:3000/",
+    "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
+    "email": "hello@koppiesystems.co.za",
+    "telephone": "+27614188807"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "http://localhost:3000/#website",
+    "url": "http://localhost:3000/",
+    "name": "Koppie Systems",
+    "publisher": {
+      "@id": "http://localhost:3000/#organization"
+    }
+  }
+]

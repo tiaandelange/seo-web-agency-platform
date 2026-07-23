@@ -1,0 +1,89 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "http://localhost:3000/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "http://localhost:3000/services/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Website Redesign Services"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "http://localhost:3000/services/website-redesign/",
+    "name": "Website Redesign Services South Africa",
+    "description": "Website redesign that protects what you have and fixes what you don’t: audit first, redirect map, rebuilt SEO architecture, measured before and after.",
+    "isPartOf": {
+      "@id": "http://localhost:3000/#website"
+    },
+    "dateModified": "2026-07-21"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website redesign services",
+    "description": "Website redesign that protects what you have and fixes what you don’t: audit first, redirect map, rebuilt SEO architecture, measured before and after.",
+    "url": "http://localhost:3000/services/website-redesign/",
+    "serviceType": "Website Redesign Services",
+    "provider": {
+      "@id": "http://localhost:3000/#organization"
+    },
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Pretoria"
+      },
+      {
+        "@type": "Place",
+        "name": "Centurion"
+      },
+      {
+        "@type": "Place",
+        "name": "Gauteng"
+      },
+      {
+        "@type": "Place",
+        "name": "South Africa"
+      },
+      {
+        "@type": "Place",
+        "name": "International"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "http://localhost:3000/#organization",
+    "name": "Koppie Systems",
+    "url": "http://localhost:3000/",
+    "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
+    "email": "hello@koppiesystems.co.za",
+    "telephone": "+27614188807"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "http://localhost:3000/#website",
+    "url": "http://localhost:3000/",
+    "name": "Koppie Systems",
+    "publisher": {
+      "@id": "http://localhost:3000/#organization"
+    }
+  }
+]

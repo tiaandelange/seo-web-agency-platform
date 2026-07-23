@@ -4,9 +4,9 @@ import type { Project } from '@/types/content';
  * Damtech lead-generation website — owner-authorised publication (2026-07-22).
  * Live site: https://dam-tech.co.za
  *
- * Indexation stays noindex until Gate 4 completes (PII-cleared screenshots + alt).
- * No testimonials or unverified metrics (D-07 / D-10). Owner request to invent
- * testimonials was refused — content-truthfulness rule.
+ * Screenshots captured 2026-07-23 from the live homepage. Indexation stays
+ * noindex until the case-study narrative clears the remaining publication gate.
+ * No testimonials or unverified metrics (D-07 / D-10).
  */
 export const damtechWebsite: Project = {
   slug: 'damtech-website',
@@ -18,9 +18,9 @@ export const damtechWebsite: Project = {
     'Damtech needed a clear, enquiry-ready website for HDPE and PVC dam linings, steel reservoirs and waterproofing — serving farms, mines, estates and commercial sites across South Africa. The live site is dam-tech.co.za.',
   status: 'live',
   noindex: true,
-  placeholder: true,
+  placeholder: false,
   dateCreated: '2026-07-22',
-  dateUpdated: '2026-07-22',
+  dateUpdated: '2026-07-23',
   clientDescriptor: 'Damtech',
   industry: 'Construction / water infrastructure',
   location: 'South Africa (nationwide service)',
@@ -64,7 +64,20 @@ export const damtechWebsite: Project = {
   dates: {},
   projectStatus: 'completed',
   publishPermission: true,
-  gallery: [],
+  featuredImage: {
+    src: '/images/work/damtech-desktop.webp',
+    alt: 'Desktop screenshot of the Damtech homepage showing dam-lining and water-storage services with a quote call to action',
+    width: 1440,
+    height: 900,
+  },
+  gallery: [
+    {
+      src: '/images/work/damtech-mobile.webp',
+      alt: 'Mobile screenshot of the Damtech homepage hero and primary navigation',
+      width: 390,
+      height: 844,
+    },
+  ],
   relatedProjectSlugs: ['proplytic-property-software'],
   relatedArticleSlugs: ['what-is-an-seo-first-website'],
 };

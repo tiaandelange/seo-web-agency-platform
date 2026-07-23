@@ -10,8 +10,9 @@ import { adminQuotationPlatformTemplate } from '@/content/projects/admin-quotati
  * effectiveNoindex): publishPermission: false ⇒ page is noindex regardless of
  * its own noindex field (D-07).
  *
- * Damtech + Proplytic: owner-authorised naming (2026-07-22) but remain noindex
- * until screenshots/alt clear Gate 4. Two structural templates remain.
+ * Damtech + Proplytic: owner-authorised naming (2026-07-22). Screenshots added
+ * 2026-07-23; case-study pages remain noindex until the remaining publication
+ * gate clears. Two structural templates remain.
  */
 export const projects: Project[] = [
   damtechWebsite,

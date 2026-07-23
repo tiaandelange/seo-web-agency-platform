@@ -49,6 +49,38 @@ describe('buildMetadata', () => {
     });
     expect(meta.title).toBe('Ecommerce Website Development South Africa');
   });
+
+  it('emits Open Graph image metadata with alt and dimensions when provided', () => {
+    const alt =
+      'Koppie Systems — SEO-first websites, ecommerce platforms and custom business systems in South Africa';
+    const meta = buildMetadata({
+      title: 'SEO-First Websites & Digital Systems',
+      description:
+        'Koppie Systems builds SEO-first websites, ecommerce platforms and practical digital systems for technical and service businesses across South Africa.',
+      path: '/',
+      ogDescription: alt,
+      socialImage: '/images/koppie-systems-website-development-hero.webp',
+      socialImageAlt: alt,
+      socialImageWidth: 2400,
+      socialImageHeight: 900,
+    });
+    const og = meta.openGraph as {
+      description?: string;
+      images?: Array<{ url: string; alt?: string; width?: number; height?: number }>;
+    };
+    expect(og.description).toBe(alt);
+    expect(og.images?.[0]).toEqual({
+      url: '/images/koppie-systems-website-development-hero.webp',
+      alt,
+      width: 2400,
+      height: 900,
+    });
+    expect(meta.twitter).toMatchObject({
+      card: 'summary_large_image',
+      description: alt,
+      images: ['/images/koppie-systems-website-development-hero.webp'],
+    });
+  });
 });
 
 describe('sitemap generation', () => {

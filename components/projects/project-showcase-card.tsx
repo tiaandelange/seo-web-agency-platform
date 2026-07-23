@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import type { ProjectCardData } from '@/data/projects-showcase';
-import { ProjectPreviewIsland } from './project-preview/project-preview-island';
+import { ProjectScreenshot } from './project-screenshot';
 
 function ProjectCardBody({ project }: { project: ProjectCardData }) {
   return (
     <div className="flex flex-1 flex-col p-6 sm:p-7">
       <div className="mb-4 flex items-center justify-between gap-3">
-        <span className="text-label inline-flex items-center rounded border border-line bg-surface px-2 py-1 text-muted">
+        <span className="text-label inline-flex items-center rounded border border-line bg-surface px-2 py-1 uppercase tracking-wide text-muted">
           {project.statusLabel}
         </span>
       </div>
@@ -64,13 +64,26 @@ function ProjectCardBody({ project }: { project: ProjectCardData }) {
 const cardShell =
   'project-showcase-card group relative isolate flex min-h-0 flex-col overflow-hidden rounded-card border border-line bg-canvas shadow-card transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-muted hover:shadow-elevated focus-within:border-muted';
 
+function ProjectCardMedia({ project, priority }: { project: ProjectCardData; priority?: boolean }) {
+  return (
+    <div className="relative border-b border-line bg-surface">
+      <ProjectScreenshot
+        desktopSrc={project.desktopSrc}
+        mobileSrc={project.mobileSrc}
+        alt={project.imageAlt}
+        focalPosition={project.focalPosition}
+        priority={priority}
+        variant="card"
+      />
+      <div className="project-indicator-line absolute bottom-0 left-0 z-10 h-0.5 w-0 bg-cta transition-[width] duration-500 group-hover:w-full group-focus-within:w-full" />
+    </div>
+  );
+}
+
 export function ProjectShowcaseCard({ project }: { project: ProjectCardData }) {
   return (
-    <article className={`${cardShell} lg:min-h-[620px]`}>
-      <div className="relative">
-        <ProjectPreviewIsland project={project} />
-        <div className="project-indicator-line absolute bottom-0 left-0 z-10 h-0.5 w-0 bg-cta transition-[width] duration-500 group-hover:w-full group-focus-within:w-full" />
-      </div>
+    <article className={cardShell}>
+      <ProjectCardMedia project={project} />
       <ProjectCardBody project={project} />
     </article>
   );
@@ -79,10 +92,7 @@ export function ProjectShowcaseCard({ project }: { project: ProjectCardData }) {
 export function FeaturedProjectCard({ project }: { project: ProjectCardData }) {
   return (
     <article className={cardShell}>
-      <div className="relative">
-        <ProjectPreviewIsland project={project} />
-        <div className="project-indicator-line absolute bottom-0 left-0 z-10 h-0.5 w-0 bg-cta transition-[width] duration-500 group-hover:w-full group-focus-within:w-full" />
-      </div>
+      <ProjectCardMedia project={project} priority />
       <ProjectCardBody project={project} />
     </article>
   );

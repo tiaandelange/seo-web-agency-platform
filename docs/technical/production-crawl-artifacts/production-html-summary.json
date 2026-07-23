@@ -1,0 +1,16 @@
+{
+  "total": 52,
+  "status200": 52,
+  "withErrors": 52,
+  "indexableTrue": 0,
+  "localhostCanonical": 52,
+  "wwwCanonical": 0,
+  "noindex": 0,
+  "errorCounts": {
+    "canonical_not_self": 52,
+    "canonical_host_wrong": 52,
+    "og_url_host_wrong": 52,
+    "localhost_in_html": 52,
+    "staging_banner": 1
+  }
+}

@@ -1,51 +1,83 @@
 'use client';
 
 /**
- * Mobile navigation disclosure — the site's only client component
+ * Mobile navigation disclosure — the site's only menu client component
  * (justification: expand/collapse state; see docs/technical/PERFORMANCE-BUDGET.md rule 1).
  * Links remain plain anchors; the toggle is a real <button> with aria-expanded.
  */
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { NavLink } from '@/data/navigation';
+
+function withTrailingSlash(path: string): string {
+  if (path === '/') return '/';
+  return path.endsWith('/') ? path : `${path}/`;
+}
 
 export function MobileNav({ links, cta }: { links: NavLink[]; cta: NavLink }) {
   const [open, setOpen] = useState(false);
+  const menuId = useId();
+  const panelRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+  const current = withTrailingSlash(pathname || '/');
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div className="mobile-nav lg:hidden">
       <button
         type="button"
         aria-expanded={open}
-        aria-controls="mobile-menu"
+        aria-controls={menuId}
+        aria-label={open ? 'Close menu' : 'Open menu'}
         onClick={() => setOpen((v) => !v)}
-        className="rounded-card border border-line px-3 py-2 text-sm font-medium text-ink"
+        className="mobile-nav-toggle"
       >
         {open ? 'Close' : 'Menu'}
       </button>
 
       {open && (
         <nav
-          id="mobile-menu"
+          id={menuId}
+          ref={panelRef}
           aria-label="Primary"
-          className="absolute inset-x-0 top-full z-50 border-b border-line bg-canvas px-4 pb-6 shadow-sm"
+          className="mobile-nav-panel"
         >
-          <ul className="flex flex-col gap-1 pt-2">
-            {links.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block rounded-card px-3 py-3 text-base font-medium text-ink hover:bg-surface"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li className="pt-2">
+          <ul className="mobile-nav-list">
+            {links.map((item) => {
+              const href = withTrailingSlash(item.href);
+              const active = current === href;
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="mobile-nav-link"
+                    aria-current={active ? 'page' : undefined}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="mobile-nav-cta-item">
               <Link
                 href={cta.href}
-            className="block rounded-card bg-cta px-4 py-3 text-center text-base font-semibold text-cta-contrast"
+                className="mobile-nav-cta"
                 onClick={() => setOpen(false)}
               >
                 {cta.label}

@@ -19,12 +19,15 @@ Last updated: 2026-07-22 (Resend template delivery on `integration/resend-form-d
 | SEO Audit entry product | `/seo-audit/` + intake + thank-you, eligibility, env checkout | ✅ Implemented 2026-07-22 |
 | SEO Audit two-tier system | Hub + `/seo-audit/advanced/` (R5,999), comparison, complexity gate | ✅ Implemented 2026-07-22 |
 | Resend hosted templates | Contact + proposal internal/confirmation; audit inventory | ✅ Code on branch; **env templates required before production** |
-| Official verification | CIPC, trademark, DNS cutover, logo file, screenshots, attorney review, payment provider | ⏳ Owner |
-| Public launch | Production domain, indexing, GBP, GSC | 🚫 Blocked |
+| Production crawl audit | Live www crawlability / canonicals / robots / Playwright | ✅ 2026-07-23 — **Production env misconfigured** (see `docs/technical/PRODUCTION-CRAWL-AUDIT.md`) |
+| Portfolio screenshots | Replace live previews with WebP screenshots | ✅ 2026-07-23 — `docs/technical/PORTFOLIO-SCREENSHOT-MIGRATION.md` |
+| Content / conversion audit | All indexable routes: proof, overlap, priorities | ✅ 2026-07-23 — `docs/strategy/CONTENT-AND-CONVERSION-AUDIT.md` (no bulk rewrite) |
+| Official verification | CIPC, trademark, DNS cutover, logo file, attorney review, payment provider | ⏳ Owner |
+| Public launch | Production domain env, indexing, GBP, GSC | 🚫 Blocked |
 
 ## Architecture preserved
 
-64 routes · 52 indexable · 12 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · authorised case studies remain noindex until Gate 4.
+64 routes · 52 indexable · 12 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic screenshots live on Work cards (2026-07-23); case studies remain noindex until remaining publication gate.
 
 ## Blockers (public launch)
 

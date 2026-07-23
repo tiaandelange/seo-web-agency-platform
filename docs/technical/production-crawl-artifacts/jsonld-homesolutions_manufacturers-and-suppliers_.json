@@ -1,0 +1,56 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "http://localhost:3000/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Solutions",
+        "item": "http://localhost:3000/solutions/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Websites for Manufacturers & Suppliers"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "http://localhost:3000/solutions/manufacturers-and-suppliers/",
+    "name": "Websites for Manufacturers & Suppliers",
+    "description": "Websites for manufacturers and suppliers: structured product catalogues, RFQ workflows and dealer information that turn product searches into quote requests.",
+    "isPartOf": {
+      "@id": "http://localhost:3000/#website"
+    },
+    "dateModified": "2026-07-21"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "http://localhost:3000/#organization",
+    "name": "Koppie Systems",
+    "url": "http://localhost:3000/",
+    "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
+    "email": "hello@koppiesystems.co.za",
+    "telephone": "+27614188807"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "http://localhost:3000/#website",
+    "url": "http://localhost:3000/",
+    "name": "Koppie Systems",
+    "publisher": {
+      "@id": "http://localhost:3000/#organization"
+    }
+  }
+]

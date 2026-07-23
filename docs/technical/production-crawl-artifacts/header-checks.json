@@ -1,0 +1,31 @@
+{
+  "https://koppiesystems.com/": {
+    "error": "Error: getaddrinfo ENOTFOUND koppiesystems.com"
+  },
+  "https://www.koppiesystems.com/": {
+    "error": "Error: getaddrinfo ENOTFOUND www.koppiesystems.com"
+  },
+  "https://www.koppiesystems.co.za/": {
+    "status": 200,
+    "headers": {
+      "accept-ranges": "bytes",
+      "access-control-allow-origin": "*",
+      "age": "666",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-disposition": "inline",
+      "content-length": "115976",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Thu, 23 Jul 2026 09:16:39 GMT",
+      "etag": "\"8a887571d16f1e65ad064a53de5063c1\"",
+      "server": "Vercel",
+      "strict-transport-security": "max-age=63072000",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-matched-path": "/",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "x-vercel-cache": "HIT",
+      "x-vercel-id": "cpt1::h69hq-1784798199933-2549fba1589f"
+    },
+    "location": ""
+  }
+}

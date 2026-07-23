@@ -11,7 +11,6 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "validate:seo": "tsx scripts/seo-validate.ts",
-    "preview:check-sources": "node scripts/check-project-preview-sources.mjs",
     "check": "npm run lint && npm run typecheck && npm run test && npm run validate:seo"
   },
   "dependencies": {

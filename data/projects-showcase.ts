@@ -1,5 +1,3 @@
-import type { ProjectPreviewId } from '@/data/project-preview-sources';
-
 export type ProjectCardData = {
   slug: string;
   shortTitle: string;
@@ -7,14 +5,19 @@ export type ProjectCardData = {
   category: string;
   industry: string;
   summary: string;
-  status: 'published' | 'authorised' | 'case-study-in-progress';
+  status: 'live' | 'selected' | 'personal' | 'limited';
+  /** Public-facing status chip — commercially suitable, truthful. */
   statusLabel: string;
   scope: string[];
   ctaLabel: string;
   href: string;
-  previewId: ProjectPreviewId;
   featured?: boolean;
   externalSiteUrl?: string;
+  desktopSrc: string;
+  mobileSrc: string;
+  imageAlt: string;
+  /** CSS object-position for desktop crop */
+  focalPosition?: string;
 };
 
 export const showcaseProjects: ProjectCardData[] = [
@@ -26,8 +29,8 @@ export const showcaseProjects: ProjectCardData[] = [
     industry: 'Construction / water infrastructure',
     summary:
       'A search-led digital platform structured around specialist water-storage services, enquiry capture and quotation workflows.',
-    status: 'case-study-in-progress',
-    statusLabel: 'Authorised · Case study in preparation',
+    status: 'live',
+    statusLabel: 'Live project',
     scope: [
       'SEO-led service architecture',
       'Quote and contact enquiry flows',
@@ -36,9 +39,13 @@ export const showcaseProjects: ProjectCardData[] = [
     ],
     ctaLabel: 'View Damtech project',
     href: '/projects/damtech-website/',
-    previewId: 'damtech',
     featured: true,
     externalSiteUrl: 'https://dam-tech.co.za/',
+    desktopSrc: '/images/work/damtech-desktop.webp',
+    mobileSrc: '/images/work/damtech-mobile.webp',
+    imageAlt:
+      'Desktop screenshot of the Damtech homepage showing dam-lining and water-storage services with a quote call to action',
+    focalPosition: 'center top',
   },
   {
     slug: 'proplytic-property-software',
@@ -48,8 +55,8 @@ export const showcaseProjects: ProjectCardData[] = [
     industry: 'Property / PropTech',
     summary:
       'A structured web application designed to organise property portfolio information inside a controlled operational interface.',
-    status: 'case-study-in-progress',
-    statusLabel: 'Authorised · Screenshots pending',
+    status: 'live',
+    statusLabel: 'Live project',
     scope: [
       'Custom application architecture',
       'Portfolio dashboard and property records',
@@ -58,8 +65,12 @@ export const showcaseProjects: ProjectCardData[] = [
     ],
     ctaLabel: 'View Proplytic project',
     href: '/projects/proplytic-property-software/',
-    previewId: 'proplytic',
     externalSiteUrl: 'https://proplytic.co.za/',
+    desktopSrc: '/images/work/proplytic-desktop.webp',
+    mobileSrc: '/images/work/proplytic-mobile.webp',
+    imageAlt:
+      'Desktop screenshot of the Proplytic marketing homepage with portfolio software positioning and product interface preview',
+    focalPosition: 'center top',
   },
   {
     slug: 'wedding-website-portfolio',
@@ -69,8 +80,8 @@ export const showcaseProjects: ProjectCardData[] = [
     industry: 'Events / hospitality',
     summary:
       'A responsive event website with ceremony information, guest guidance and a controlled RSVP flow — built as static-first frontend.',
-    status: 'case-study-in-progress',
-    statusLabel: 'Portfolio preview · publication pending',
+    status: 'personal',
+    statusLabel: 'Personal event website',
     scope: [
       'Responsive static-first layout',
       'Ceremony and reception information architecture',
@@ -79,9 +90,17 @@ export const showcaseProjects: ProjectCardData[] = [
     ],
     ctaLabel: 'Discuss an event website',
     href: '/request-a-quote/?service_interest=business-websites&source=wedding-portfolio',
-    previewId: 'wedding',
+    desktopSrc: '/images/work/wedding-desktop.webp',
+    mobileSrc: '/images/work/wedding-mobile.webp',
+    imageAlt:
+      'Desktop screenshot of a wedding information website hero with couple names, ceremony details and navigation',
+    focalPosition: 'center top',
   },
 ];
 
 export const featuredShowcaseProject = showcaseProjects.find((p) => p.featured)!;
 export const secondaryShowcaseProjects = showcaseProjects.filter((p) => !p.featured);
+
+export function getShowcaseBySlug(slug: string): ProjectCardData | undefined {
+  return showcaseProjects.find((p) => p.slug === slug);
+}

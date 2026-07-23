@@ -2,32 +2,26 @@ import Link from 'next/link';
 import { headerNav, headerCta } from '@/data/navigation';
 import { MobileNav } from '@/components/mobile-nav';
 import { BrandWordmark } from '@/components/brand-wordmark';
+import { HeaderNavLinks } from '@/components/header-nav-links';
 
 /**
  * Global header — plain crawlable anchors, no JS-dependent menus
- * (docs/architecture/NAVIGATION-MODEL.md). Desktop nav is server-rendered;
- * the mobile disclosure is the site's single client component.
+ * (docs/architecture/NAVIGATION-MODEL.md). Desktop nav is server-rendered
+ * except for aria-current (HeaderNavLinks). Mobile disclosure is the site's
+ * single menu client component.
+ *
+ * Homepage immersive treatment: CSS `body:has(.home-hero)` so internal pages
+ * keep the light header without a duplicated header component.
  */
 export function SiteHeader() {
   return (
-    <header className="relative border-b border-line bg-canvas">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5">
+    <header className="site-header relative border-b border-line bg-canvas">
+      <div className="site-header-inner koppie-container flex items-center justify-between gap-4 py-3.5">
         <BrandWordmark />
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
-          {headerNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="font-heading text-sm font-medium text-muted hover:text-ink"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            href={headerCta.href}
-            className="rounded-card bg-cta px-4 py-2.5 text-sm font-semibold text-cta-contrast hover:opacity-90"
-          >
+        <nav aria-label="Primary" className="site-header-nav hidden items-center lg:flex">
+          <HeaderNavLinks links={headerNav} />
+          <Link href={headerCta.href} className="site-header-cta">
             {headerCta.label}
           </Link>
         </nav>

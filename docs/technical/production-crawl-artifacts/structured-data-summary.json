@@ -1,0 +1,218 @@
+{
+  "home": {
+    "url": "https://www.koppiesystems.co.za/",
+    "status": 200,
+    "jsonLdBlocks": 4,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/#business",
+      "http://localhost:3000/",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "ProfessionalService",
+      "WebPage",
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "service": {
+    "url": "https://www.koppiesystems.co.za/services/business-websites/",
+    "status": 200,
+    "jsonLdBlocks": 5,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/",
+      "http://localhost:3000/services/",
+      "http://localhost:3000/services/business-websites/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/services/business-websites/",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "BreadcrumbList",
+      "WebPage",
+      "Service",
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "solution": {
+    "url": "https://www.koppiesystems.co.za/solutions/contractors/",
+    "status": 200,
+    "jsonLdBlocks": 4,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/",
+      "http://localhost:3000/solutions/",
+      "http://localhost:3000/solutions/contractors/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "BreadcrumbList",
+      "WebPage",
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "package": {
+    "url": "https://www.koppiesystems.co.za/packages/",
+    "status": 404,
+    "jsonLdBlocks": 2,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "project": {
+    "url": "https://www.koppiesystems.co.za/projects/",
+    "status": 200,
+    "jsonLdBlocks": 4,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/",
+      "http://localhost:3000/projects/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "BreadcrumbList",
+      "CollectionPage",
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "resource": {
+    "url": "https://www.koppiesystems.co.za/resources/",
+    "status": 200,
+    "jsonLdBlocks": 4,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/",
+      "http://localhost:3000/resources/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "BreadcrumbList",
+      "CollectionPage",
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "location": {
+    "url": "https://www.koppiesystems.co.za/areas-served/pretoria/",
+    "status": 404,
+    "jsonLdBlocks": 2,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "contact": {
+    "url": "https://www.koppiesystems.co.za/contact/",
+    "status": 200,
+    "jsonLdBlocks": 5,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/",
+      "http://localhost:3000/contact/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/#business",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "BreadcrumbList",
+      "ContactPage",
+      "ProfessionalService",
+      "Organization",
+      "WebSite"
+    ]
+  },
+  "resourceDetail": {
+    "url": "https://www.koppiesystems.co.za/resources/website-cost-guides/",
+    "status": 200,
+    "jsonLdBlocks": 4,
+    "validJson": true,
+    "absoluteUrlIssues": [
+      "http://localhost:3000/",
+      "http://localhost:3000/resources/",
+      "http://localhost:3000/resources/website-cost-guides/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/#organization",
+      "http://localhost:3000/",
+      "http://localhost:3000/#website",
+      "http://localhost:3000/",
+      "http://localhost:3000/#organization"
+    ],
+    "hasUndefinedLiteral": false,
+    "ratingClaims": false,
+    "types": [
+      "BreadcrumbList",
+      "CollectionPage",
+      "Organization",
+      "WebSite"
+    ]
+  }
+}

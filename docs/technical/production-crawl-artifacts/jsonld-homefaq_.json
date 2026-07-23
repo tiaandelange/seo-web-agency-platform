@@ -1,0 +1,152 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "http://localhost:3000/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "FAQ"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "http://localhost:3000/faq/",
+    "name": "Frequently Asked Questions",
+    "description": "Straight answers about website costs, project timelines, ownership, SEO expectations and support — the questions every buyer should ask.",
+    "isPartOf": {
+      "@id": "http://localhost:3000/#website"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "url": "http://localhost:3000/faq/",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a website cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our published indicative ranges: starter business websites R14,000–R25,000, professional lead-generation sites R28,000–R60,000, product catalogues R45,000–R90,000, ecommerce R70,000–R160,000, and custom systems from R80,000 with paid discovery first. Every project gets a fixed itemised quote after scoping — the ranges exist so you can budget before we talk. All figures are indicative and confirmed in your quote."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are your payment terms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically a deposit to schedule the project, a milestone payment at structure/draft approval, and the balance at launch — set out exactly in your quote. Support plans bill monthly. We do not launch sites that are not paid for, and we do not hold your domain hostage; ownership terms are written into every agreement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there hidden or ongoing costs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The unavoidable ongoing costs are your domain (roughly R100–R200 per year for a .co.za) and hosting, which for most business sites is modest. Support plans are optional and published. Anything project-specific — premium integrations, large content loads — appears itemised in the quote, never as a surprise afterwards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a website project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Starter sites typically take two to four weeks; professional lead-generation builds four to seven; catalogues and ecommerce five to ten depending on product data; custom systems run in stages after discovery. The honest variable in every timeline is content decisions — we structure the process so yours are few and focused."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do you need from me during the project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A scoping conversation, accurate service or product information, timely decisions at two or three review points, and any existing brand assets. Plan for a few focused hours across the project, front-loaded. We handle structure, build, SEO and coordination."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you write the content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We always structure it — page purpose, headings, what each section must say — because structure is where search performance lives. Full copywriting is available as an add-on; many clients draft within our structure and we edit. Product ranges are loaded from your spreadsheets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my website work on phones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — mobile is the primary design target, not an afterthought, because that is where most South African browsing happens. Layouts are responsive, tap targets are sized for thumbs, and performance budgets are set against mid-range phones on mobile data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you guarantee first-page Google rankings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, and you should walk away from anyone who does — Google’s results are not any provider’s to sell. What we deliver is a site built to the technical and content standards Google rewards, measurement in Search Console so progress is visible, and honest reporting of what the data shows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who owns the website, domain and content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You do — outright. The domain is registered in your name, the content is yours, and the code is handed over with documentation. If we ever part ways, you take everything with you. We consider anything less a structural red flag in this industry."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after launch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Launch includes Search Console setup, indexation submission and a handover walkthrough. From there, most clients take a support plan — hosting administration, updates, backups, monitoring and monthly change time — while some self-manage. Plans are month-to-month; support should be earned, not locked in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you take over an existing website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually, after a short paid assessment of the hosting, software state and risks we would inherit. The assessment produces a stabilisation list and an honest recommendation — sometimes “maintain it”, sometimes “this is a rebuild wearing a maintenance request”."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are you based and where do you work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are based in Pretoria and work with clients across South Africa. In-person meetings are standard around Pretoria and Centurion and arranged as needed in Johannesburg; everywhere else, delivery is fully remote with the same process and response targets."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "http://localhost:3000/#organization",
+    "name": "Koppie Systems",
+    "url": "http://localhost:3000/",
+    "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
+    "email": "hello@koppiesystems.co.za",
+    "telephone": "+27614188807"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "http://localhost:3000/#website",
+    "url": "http://localhost:3000/",
+    "name": "Koppie Systems",
+    "publisher": {
+      "@id": "http://localhost:3000/#organization"
+    }
+  }
+]

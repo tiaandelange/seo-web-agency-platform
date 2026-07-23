@@ -8,6 +8,7 @@ import { RelatedContent, type RelatedItem } from '@/components/related-content';
 import { PlaceholderNotice } from '@/components/placeholder-notice';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
+import { ProjectScreenshot } from '@/components/projects/project-screenshot';
 import { projectSchemaFor, webPageSchema } from '@/lib/schema';
 import {
   projects,
@@ -17,6 +18,7 @@ import {
   isProjectIndexable,
   isProjectCategoryIndexable,
 } from '@/data/projects';
+import { getShowcaseBySlug } from '@/data/projects-showcase';
 import { getService } from '@/data/services';
 import { getSolution } from '@/data/solutions';
 import { getArticle } from '@/data/articles';
@@ -112,6 +114,9 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
   const verifiedResults = project.results.filter((r) => r.verified);
   const relatedServices = project.serviceSlugs.map(getService).filter((s) => s !== undefined);
   const solution = project.solutionSlug ? getSolution(project.solutionSlug) : undefined;
+  const showcase = getShowcaseBySlug(project.slug);
+  const desktopShot = project.featuredImage;
+  const mobileShot = project.gallery[0];
 
   const related: RelatedItem[] = [
     ...relatedServices.map((s) => ({ title: s.heading, href: `/services/${s.slug}/`, kind: 'Service used' })),
@@ -137,7 +142,34 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
         </PlaceholderNotice>
       )}
 
-      <Section heading="Project summary" tone="surface">
+      {desktopShot && (
+        <Section heading="Interface evidence" tone="surface">
+          <div className="mx-auto max-w-5xl space-y-8">
+            <ProjectScreenshot
+              desktopSrc={desktopShot.src}
+              mobileSrc={mobileShot?.src ?? showcase?.mobileSrc}
+              alt={desktopShot.alt}
+              focalPosition={showcase?.focalPosition ?? 'center top'}
+              priority
+              variant="detail"
+              caption="Desktop homepage capture from the live project."
+            />
+            {mobileShot && (
+              <div className="mx-auto max-w-sm">
+                <ProjectScreenshot
+                  desktopSrc={mobileShot.src}
+                  alt={mobileShot.alt}
+                  focalPosition="center top"
+                  variant="detail"
+                  caption="Mobile viewport capture."
+                />
+              </div>
+            )}
+          </div>
+        </Section>
+      )}
+
+      <Section heading="Project summary" tone={desktopShot ? undefined : 'surface'}>
         <dl className="grid max-w-4xl gap-4 text-sm sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <dt className="font-semibold text-ink">Client</dt>

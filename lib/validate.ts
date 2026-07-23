@@ -8,6 +8,7 @@ import { locations } from '@/data/locations';
 import { legalDocs } from '@/data/legal';
 import { headerNav, headerCta, footerColumns, footerLegal } from '@/data/navigation';
 import { getAllRoutes } from '@/lib/routes';
+import { brand, isProductionSite, siteOrigin } from '@/config/brand';
 
 /**
  * SEO validation engine — shared by scripts/seo-validate.ts (CLI) and
@@ -268,6 +269,44 @@ export function validateProjects(report: ValidationReport): void {
   }
 }
 
+/**
+ * Prevent the verified production failure mode: custom domain live while
+ * NEXT_PUBLIC_SITE_URL / NEXT_PUBLIC_SITE_ENV still point at localhost/preview.
+ * Vercel injects VERCEL_ENV=production on Production deployments.
+ */
+export function validateDeploymentOrigin(report: ValidationReport): void {
+  const origin = siteOrigin();
+  const vercelEnv = (process.env.VERCEL_ENV || '').trim().toLowerCase();
+  const siteEnv = (process.env.NEXT_PUBLIC_SITE_ENV || '').trim().toLowerCase();
+  const expected = brand.productionOrigin;
+
+  if (isProductionSite() || siteEnv === 'production') {
+    if (origin !== expected) {
+      report.errors.push(
+        `[origin] NEXT_PUBLIC_SITE_ENV=production requires NEXT_PUBLIC_SITE_URL=${expected} (got ${origin})`,
+      );
+    }
+    if (/localhost|127\.0\.0\.1|vercel\.app/i.test(origin)) {
+      report.errors.push(
+        `[origin] production builds must not use localhost or preview hosts in NEXT_PUBLIC_SITE_URL (got ${origin})`,
+      );
+    }
+  }
+
+  if (vercelEnv === 'production') {
+    if (siteEnv !== 'production') {
+      report.errors.push(
+        `[origin] Vercel Production deployment requires NEXT_PUBLIC_SITE_ENV=production (got "${siteEnv || '(unset)'}")`,
+      );
+    }
+    if (origin !== expected) {
+      report.errors.push(
+        `[origin] Vercel Production deployment requires NEXT_PUBLIC_SITE_URL=${expected} (got ${origin})`,
+      );
+    }
+  }
+}
+
 export function runAllValidations(): ValidationReport {
   const report: ValidationReport = { errors: [], warnings: [] };
   validateSlugs(report);
@@ -277,5 +316,6 @@ export function runAllValidations(): ValidationReport {
   validateRoutes(report);
   validateReachability(report);
   validateProjects(report);
+  validateDeploymentOrigin(report);
   return report;
 }

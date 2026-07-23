@@ -9,6 +9,7 @@ Work top to bottom; every unchecked box blocks launch unless explicitly waived i
 - [ ] SSL active; `http://` → `https://` 301 verified (curl -I both)
 - [ ] Preferred host chosen; alternate host 301s to it (test all 4 scheme/host combos)
 - [ ] `NEXT_PUBLIC_SITE_ENV=production` set ONLY on the production deployment
+- [ ] **Blocking (2026-07-23 crawl):** live www currently serves `robots.txt` `Disallow: /` and sitemap/canonicals on `http://localhost:3000` — set Production env + redeploy before GSC. See `docs/technical/PRODUCTION-CRAWL-AUDIT.md`.
 
 ## Configuration truth
 
