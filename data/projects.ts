@@ -11,9 +11,8 @@ import { evaluateCaseStudyPublicationGate } from '@/lib/case-study-publication';
  * effectiveNoindex): publishPermission: false ⇒ page is noindex regardless of
  * its own noindex field (D-07).
  *
- * Damtech + Proplytic: owner-authorised naming (2026-07-22). Screenshots and
- * narratives completed 2026-07-23; search indexing still requires
- * ownerCaseStudyIndexApproval + noindex flip (publication gate).
+ * Damtech + Proplytic: owner-authorised naming (2026-07-22). Screenshots,
+ * narratives, and owner index approval completed 2026-07-23 (D-43).
  */
 export const projects: Project[] = [
   damtechWebsite,

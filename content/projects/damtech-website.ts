@@ -15,7 +15,7 @@ import type { Project } from '@/types/content';
  *   (materials/labour/travel/tanks), customers, suppliers, settings, audit
  *
  * Naming permission: owner-authorised 2026-07-22. Screenshots 2026-07-23.
- * Search indexing: held until ownerCaseStudyIndexApproval (publication gate).
+ * Search indexing: ownerCaseStudyIndexApproval granted 2026-07-23 (D-43).
  * No testimonials, rankings, traffic or revenue claims (D-07 / D-10).
  */
 export const damtechWebsite: Project = {
@@ -27,7 +27,7 @@ export const damtechWebsite: Project = {
   intro:
     'Damtech is a South African dam-lining and water-storage contractor. Koppie Systems built the public marketing site and the operational layer behind it: technical calculators, structured RFQ intake, and an admin quotation platform with PDF output. The live site is dam-tech.co.za.',
   status: 'live',
-  noindex: true,
+  noindex: false,
   placeholder: false,
   dateCreated: '2026-07-22',
   dateUpdated: '2026-07-23',
@@ -112,7 +112,7 @@ export const damtechWebsite: Project = {
   projectStatus: 'completed',
   publishPermission: true,
   caseStudyNarrativeComplete: true,
-  ownerCaseStudyIndexApproval: false,
+  ownerCaseStudyIndexApproval: true,
   featuredImage: {
     src: '/images/work/damtech-desktop.webp',
     alt: 'Desktop screenshot of the Damtech homepage showing dam-lining and water-storage services with a quote call to action',

@@ -21,7 +21,7 @@ Preview identity is on `main`. Private Vercel preview may proceed with `NEXT_PUB
 | 14 | GA4 measurement ID | Unset — see `docs/launch/ANALYTICS-PREPARATION.md` | No |
 | 15 | Search Console verification | Unset — not for preview | Yes at go-live |
 | 16 | Final logo SVG supplied and installed | **Blocked** — no file supplied; provisional wordmark active | Yes for public brand |
-| 17 | Case-study screenshots (PII-cleared) for Damtech + Proplytic | Permission granted; imagery open — pages stay **noindex** | Soft launch OK; credibility Yes |
+| 17 | Case-study screenshots + index approval for Damtech + Proplytic | **Complete** — indexed 2026-07-23 (D-43) | No |
 | 18 | Testimonials with written permission | **Refused to invent** — none published | No |
 | 19 | Final founder-biography approval | Draft with placeholder notice | Soft |
 | 20 | Attorney review of legal pages | Operational drafts live; not attorney-approved | Advisable / Yes for public comfort |

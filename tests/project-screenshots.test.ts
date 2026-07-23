@@ -51,7 +51,7 @@ describe('project showcase screenshots', () => {
       expect(project?.featuredImage?.alt.length).toBeGreaterThan(20);
       expect(project?.gallery[0]?.src).toMatch(/\/images\/work\//);
       expect(project?.placeholder).toBe(false);
-      expect(project?.noindex).toBe(true);
+      expect(project?.noindex).toBe(false);
     }
   });
 });

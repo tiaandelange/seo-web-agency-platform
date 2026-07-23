@@ -12,30 +12,29 @@ describe('case study publication gate', () => {
   const damtech = getProject('damtech-website')!;
   const proplytic = getProject('proplytic-property-software')!;
 
-  it('Damtech and Proplytic narratives are ready but not indexable yet', () => {
+  it('Damtech and Proplytic pass the publication gate and are indexable', () => {
     expect(damtech.caseStudyNarrativeComplete).toBe(true);
     expect(proplytic.caseStudyNarrativeComplete).toBe(true);
     expect(isCaseStudyNarrativeReady(damtech)).toBe(true);
     expect(isCaseStudyNarrativeReady(proplytic)).toBe(true);
-    expect(damtech.ownerCaseStudyIndexApproval).toBe(false);
-    expect(proplytic.ownerCaseStudyIndexApproval).toBe(false);
-    expect(isProjectIndexable(damtech)).toBe(false);
-    expect(isProjectIndexable(proplytic)).toBe(false);
+    expect(damtech.ownerCaseStudyIndexApproval).toBe(true);
+    expect(proplytic.ownerCaseStudyIndexApproval).toBe(true);
+    expect(damtech.noindex).toBe(false);
+    expect(proplytic.noindex).toBe(false);
+    expect(evaluateCaseStudyPublicationGate(damtech).ok).toBe(true);
+    expect(evaluateCaseStudyPublicationGate(proplytic).ok).toBe(true);
+    expect(isProjectIndexable(damtech)).toBe(true);
+    expect(isProjectIndexable(proplytic)).toBe(true);
   });
 
-  it('keeps real case studies out of the sitemap while noindex', () => {
+  it('includes real case studies in the sitemap', () => {
     const routes = getAllRoutes();
-    expect(routes.find((r) => r.path === '/projects/damtech-website/')?.index).toBe(false);
+    expect(routes.find((r) => r.path === '/projects/damtech-website/')?.index).toBe(true);
     expect(routes.find((r) => r.path === '/projects/proplytic-property-software/')?.index).toBe(
-      false,
+      true,
     );
-  });
-
-  it('requires owner index approval before the gate can pass', () => {
-    const gated = evaluateCaseStudyPublicationGate(damtech);
-    expect(gated.ok).toBe(false);
-    expect(gated.blockers.some((b) => b.includes('ownerCaseStudyIndexApproval'))).toBe(true);
-    expect(gated.blockers.some((b) => b.includes('noindex'))).toBe(true);
+    expect(routes.find((r) => r.path === '/projects/websites/')?.index).toBe(true);
+    expect(routes.find((r) => r.path === '/projects/admin-systems/')?.index).toBe(true);
   });
 
   it('does not use template classification for real projects', () => {
@@ -48,10 +47,12 @@ describe('case study publication gate', () => {
   it('ships required screenshots on disk', () => {
     for (const project of [damtech, proplytic]) {
       expect(project.featuredImage?.src).toBeTruthy();
-      expect(existsSync(join(process.cwd(), 'public', project.featuredImage!.src))).toBe(true);
+      expect(
+        existsSync(join(process.cwd(), 'public', project.featuredImage!.src.replace(/^\//, ''))),
+      ).toBe(true);
       expect(project.gallery.length).toBeGreaterThan(0);
       for (const image of project.gallery) {
-        expect(existsSync(join(process.cwd(), 'public', image.src))).toBe(true);
+        expect(existsSync(join(process.cwd(), 'public', image.src.replace(/^\//, '')))).toBe(true);
         expect(image.alt.trim().length).toBeGreaterThan(0);
       }
     }

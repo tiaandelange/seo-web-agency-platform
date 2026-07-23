@@ -50,13 +50,13 @@ Neither source repository was modified.
 
 | Project | Narrative ready | Owner index approval | `noindex` | Indexable |
 |---|---|---|---|---|
-| Damtech | Yes | **No** | true | **No** |
-| Proplytic | Yes | **No** | true | **No** |
+| Damtech | Yes | **Yes** (D-43) | false | **Yes** |
+| Proplytic | Yes | **Yes** (D-43) | false | **Yes** |
 
-Gate blockers until owner flips approval + `noindex: false`: `ownerCaseStudyIndexApproval false`, `noindex still true`.
+Publication gate passed for both; category pages `/projects/websites/` and `/projects/admin-systems/` are also indexable.
 
 ## Indexing decision
-Keep both case studies **noindex / out of sitemap** until the owner reviews the narratives and sets `ownerCaseStudyIndexApproval: true` and `noindex: false` in one commit (checklist Gate 5).
+Owner approved indexing 2026-07-23 (D-43). Route totals **66 / 57 indexable / 9 noindex**.
 
 ## Internal links
 - Damtech already linked from business websites, lead-gen, SEO, contractors; **added** to RFQ & quotation systems
@@ -66,14 +66,8 @@ Keep both case studies **noindex / out of sitemap** until the owner reviews the 
 
 | Check | Result |
 |---|---|
-| `npm run lint` | Pass (existing audit-script warnings only) |
-| `npm run typecheck` | Pass |
-| `npm run test` | Pass — 104 tests |
-| `npm run validate:seo` | Pass — 64 / 51 / 13 |
-| `npm run build` | Pass |
+| `npm run validate:seo` | Pass — 66 / 57 / 9 (after D-43) |
 
 ## Remaining owner approvals
-1. Read Damtech + Proplytic case-study pages on staging/production preview  
-2. Set `ownerCaseStudyIndexApproval: true` and `noindex: false` when ready for GSC  
-3. Optional: approve additional safe feature screenshots beyond marketing homepage  
-4. Optional: verified metrics later (never invent)
+1. Optional: approve additional safe feature screenshots beyond marketing homepage  
+2. Optional: verified metrics later (never invent)

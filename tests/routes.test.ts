@@ -20,27 +20,33 @@ describe('route registry', () => {
     }
   });
 
-  it('contains the expected launch architecture (53 indexable URLs after analytics service)', () => {
+  it('contains the expected launch architecture (57 indexable after case-study indexation)', () => {
     const indexable = routes.filter((r) => r.index);
-    expect(indexable.length).toBe(53);
+    expect(indexable.length).toBe(57);
     expect(routes.some((r) => r.path === '/website-packages/one-page-website/' && r.index)).toBe(
       true,
     );
     expect(
       routes.some((r) => r.path === '/services/analytics-and-conversion-tracking/' && r.index),
     ).toBe(true);
-    // Noindex: quote thank-you + 4 seo-audit utilities + 3 project categories + 2 drafts + 2 templates + Johannesburg.
+    expect(routes.some((r) => r.path === '/projects/damtech-website/' && r.index)).toBe(true);
+    expect(routes.some((r) => r.path === '/projects/proplytic-property-software/' && r.index)).toBe(
+      true,
+    );
+    expect(routes.some((r) => r.path === '/projects/websites/' && r.index)).toBe(true);
+    expect(routes.some((r) => r.path === '/projects/admin-systems/' && r.index)).toBe(true);
+    // Noindex: quote thank-you + 4 seo-audit utilities + ecommerce category + 2 templates + Johannesburg.
     const noindex = routes.filter((r) => !r.index).map((r) => r.path);
     expect(noindex).toContain('/request-a-quote/thank-you/');
     expect(noindex).toContain('/seo-audit/intake/');
     expect(noindex).toContain('/seo-audit/thank-you/');
     expect(noindex).toContain('/seo-audit/advanced/intake/');
     expect(noindex).toContain('/seo-audit/advanced/thank-you/');
-    expect(noindex).toContain('/projects/websites/');
+    expect(noindex).toContain('/projects/ecommerce/');
     expect(noindex).toContain('/areas-we-serve/johannesburg/');
     expect(routes.some((r) => r.path === '/seo-audit/' && r.index)).toBe(true);
     expect(routes.some((r) => r.path === '/seo-audit/advanced/' && r.index)).toBe(true);
-    expect(noindex.length).toBe(13);
+    expect(noindex.length).toBe(9);
   });
 
   it('resolves parent chains for every route', () => {

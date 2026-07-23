@@ -19,7 +19,7 @@ import type { Project } from '@/types/content';
  * Self-permission for founder product (2026-07-22). Screenshots from marketing
  * homepage only (2026-07-23) — no tenant PII. Sample UI figures on marketing
  * pages are product demos, not Koppie performance claims.
- * Search indexing held until ownerCaseStudyIndexApproval.
+ * Search indexing: ownerCaseStudyIndexApproval granted 2026-07-23 (D-43).
  */
 export const proplyticPropertySoftware: Project = {
   slug: 'proplytic-property-software',
@@ -30,7 +30,7 @@ export const proplyticPropertySoftware: Project = {
   intro:
     'Proplytic is a founder-built SaaS product for South African owner-managers and small portfolio investors. It is a web application — not a brochure site — connecting property records, rental admin, portfolio analytics and document exports in one authenticated workspace. The live product is proplytic.co.za.',
   status: 'live',
-  noindex: true,
+  noindex: false,
   placeholder: false,
   dateCreated: '2026-07-22',
   dateUpdated: '2026-07-23',
@@ -117,7 +117,7 @@ export const proplyticPropertySoftware: Project = {
   projectStatus: 'completed',
   publishPermission: true,
   caseStudyNarrativeComplete: true,
-  ownerCaseStudyIndexApproval: false,
+  ownerCaseStudyIndexApproval: true,
   featuredImage: {
     src: '/images/work/proplytic-desktop.webp',
     alt: 'Desktop screenshot of the Proplytic marketing homepage with portfolio software positioning and product interface preview',
