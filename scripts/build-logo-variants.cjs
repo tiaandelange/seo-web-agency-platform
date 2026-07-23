@@ -85,7 +85,7 @@ ${mark}
 
 const favicon = symbol.replace(
   /<!--[\s\S]*?-->/,
-  '<!-- App favicon / apple icon — Figma mark, field = theme ink #14242B. -->',
+  '<!-- App favicon / apple icon. Figma mark, field theme ink #14242B. -->',
 );
 
 fs.writeFileSync(path.join(brandDir, 'koppie-logo-horizontal.svg'), horizontal);
