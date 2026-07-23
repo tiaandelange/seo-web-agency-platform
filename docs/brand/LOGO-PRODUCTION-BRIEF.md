@@ -1,6 +1,6 @@
 # Logo production brief — Koppie Systems
 
-Status: **Owner-supplied circular mark installed** (`public/brand/koppie-systems-mark.png`) with stacked typographic “Koppie” / “Systems” in the header lockup (`brand.verification.logoFinal = true`). Full lockup-with-type PNG archived as `koppie-systems-logo-full-lockup.png`. SVG masters (full colour, mono light/dark) remain desirable.
+Status: **Figma SVG mark live** (`public/brand/koppie-logo-symbol.svg`, field = theme ink `#14242B`) with stacked HTML “Koppie” / “Systems” in the header. PNG lockups removed. Favicon/apple icon are SVG (`app/icon.svg`, `app/apple-icon.svg`).
 
 ## Concept (approved)
 

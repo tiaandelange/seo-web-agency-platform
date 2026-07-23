@@ -1,8 +1,20 @@
 # Brand masters — Koppie Systems
 
-Active web assets:
+## Live (production UI)
 
-- `koppie-systems-mark.png` — owner-supplied circular mark (icon only; header + favicon)
-- `koppie-systems-logo-full-lockup.png` — archived full lockup with baked-in type (reference only)
+- **`koppie-logo-symbol.svg`** — Figma circular mark (field = theme ink `#14242B`)
+- Wordmark — HTML beside the mark in `components/brand-wordmark.tsx`
+- **`app/icon.svg`** / **`app/apple-icon.svg`** — same mark (synced by build script)
+- **`favicon.svg`** — copy under `public/brand/` for static review
 
-Header renders the mark beside stacked typographic “Koppie” / “Systems”. See `docs/brand/ASSET-REGISTER.md`.
+No PNG logo assets ship with the site.
+
+## Export / review lockups
+
+`node scripts/build-logo-variants.cjs` regenerates:
+
+| File | Role |
+|---|---|
+| `koppie-logo-horizontal.svg` | Mark + text (decks/print only) |
+| `koppie-logo-white.svg` / `koppie-logo-dark.svg` | Mono exports |
+| `logo-review.html` | Assembly sheet (`noindex`) |
