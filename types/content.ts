@@ -170,6 +170,19 @@ export interface Project extends BaseContent {
   gallery: ImageRef[];
   relatedProjectSlugs: string[];
   relatedArticleSlugs: string[];
+  /** Public marketing or product URL when publishable. */
+  liveUrl?: string;
+  /** Honest constraints and decisions — not marketing gloss. */
+  constraints?: string[];
+  /** Plain-language current status for the case-study page. */
+  currentStatusNarrative?: string;
+  /** Narrative + screenshots complete for publication review. */
+  caseStudyNarrativeComplete?: boolean;
+  /**
+   * Separate from naming permission: owner must approve search indexing
+   * after reviewing the finished narrative (Prompt 5 / D-07).
+   */
+  ownerCaseStudyIndexApproval?: boolean;
 }
 
 export interface ArticleSection {

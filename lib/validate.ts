@@ -273,6 +273,17 @@ export function validateProjects(report: ValidationReport): void {
     if (!p.classification || !p.publicLabel || !p.evidenceLevel) {
       report.errors.push(`[project] ${p.slug} missing classification/publicLabel/evidenceLevel`);
     }
+    if (
+      (p.slug === 'damtech-website' || p.slug === 'proplytic-property-software') &&
+      !p.caseStudyNarrativeComplete
+    ) {
+      report.warnings.push(`[project] ${p.slug} narrative incomplete for case-study publication review`);
+    }
+    if (p.caseStudyNarrativeComplete && p.ownerCaseStudyIndexApproval && p.noindex) {
+      report.warnings.push(
+        `[project] ${p.slug} is narrative-complete with index approval but still noindex — flip noindex when ready to publish to search`,
+      );
+    }
     for (const r of p.results) {
       if (!r.verified) {
         report.warnings.push(`[project] ${p.slug} has an unverified result "${r.metric}" — it will never render; remove or verify`);

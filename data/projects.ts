@@ -3,6 +3,7 @@ import { damtechWebsite } from '@/content/projects/damtech-website';
 import { proplyticPropertySoftware } from '@/content/projects/proplytic-property-software';
 import { catalogueRfqWebsiteTemplate } from '@/content/projects/catalogue-rfq-website-template';
 import { adminQuotationPlatformTemplate } from '@/content/projects/admin-quotation-platform-template';
+import { evaluateCaseStudyPublicationGate } from '@/lib/case-study-publication';
 
 /**
  * Project registry. Individual case studies live in content/projects/ (one file
@@ -10,9 +11,9 @@ import { adminQuotationPlatformTemplate } from '@/content/projects/admin-quotati
  * effectiveNoindex): publishPermission: false ⇒ page is noindex regardless of
  * its own noindex field (D-07).
  *
- * Damtech + Proplytic: owner-authorised naming (2026-07-22). Screenshots added
- * 2026-07-23; case-study pages remain noindex until the remaining publication
- * gate clears. Two structural templates remain.
+ * Damtech + Proplytic: owner-authorised naming (2026-07-22). Screenshots and
+ * narratives completed 2026-07-23; search indexing still requires
+ * ownerCaseStudyIndexApproval + noindex flip (publication gate).
  */
 export const projects: Project[] = [
   damtechWebsite,
@@ -21,7 +22,12 @@ export const projects: Project[] = [
   adminQuotationPlatformTemplate,
 ];
 
-export const projectCategories: { slug: ProjectCategory; title: string; heading: string; description: string }[] = [
+export const projectCategories: {
+  slug: ProjectCategory;
+  title: string;
+  heading: string;
+  description: string;
+}[] = [
   {
     slug: 'websites',
     title: 'Website Projects',
@@ -50,9 +56,17 @@ export function getProjectsByCategory(category: ProjectCategory): Project[] {
   return projects.filter((p) => p.categories.includes(category));
 }
 
-/** True indexability: permission + explicit flag (D-07). */
+/**
+ * True indexability: naming permission + explicit flags + publication gate
+ * (D-07 / Prompt 5). Templates never index.
+ */
 export function isProjectIndexable(p: Project): boolean {
-  return p.publishPermission && !p.noindex && !p.placeholder && p.status !== 'template';
+  if (!p.publishPermission) return false;
+  if (p.noindex) return false;
+  if (p.placeholder) return false;
+  if (p.status === 'template' || p.classification === 'template') return false;
+  if (!p.ownerCaseStudyIndexApproval) return false;
+  return evaluateCaseStudyPublicationGate(p).ok;
 }
 
 /** A category page is indexable only when it lists ≥1 real (indexable) project. */

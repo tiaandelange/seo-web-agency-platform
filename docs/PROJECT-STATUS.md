@@ -27,7 +27,7 @@ Last updated: 2026-07-22 (Resend template delivery on `integration/resend-form-d
 
 ## Architecture preserved
 
-64 routes · 51 indexable · 13 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic screenshots live on Work cards (2026-07-23); case studies remain noindex until remaining publication gate · Trust P0 authorship + project labels (2026-07-23).
+64 routes · 51 indexable · 13 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic screenshots + completed case-study narratives (2026-07-23); case studies remain noindex until owner index approval · Trust P0 authorship + project labels (2026-07-23).
 
 ## Blockers (public launch)
 

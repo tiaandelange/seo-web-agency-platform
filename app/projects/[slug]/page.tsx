@@ -22,6 +22,8 @@ import { getShowcaseBySlug } from '@/data/projects-showcase';
 import { getService } from '@/data/services';
 import { getSolution } from '@/data/solutions';
 import { getArticle } from '@/data/articles';
+import { relatedProjectItems } from '@/lib/project-proof';
+import { isCaseStudyNarrativeReady } from '@/lib/case-study-publication';
 import type { ProjectCategory } from '@/types/content';
 import { CardGrid, ProjectCard } from '@/components/cards';
 
@@ -121,15 +123,15 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
   const related: RelatedItem[] = [
     ...relatedServices.map((s) => ({ title: s.heading, href: `/services/${s.slug}/`, kind: 'Service used' })),
     ...(solution ? [{ title: solution.heading, href: `/solutions/${solution.slug}/`, kind: 'Industry' }] : []),
-    ...project.relatedProjectSlugs
-      .map(getProject)
-      .filter((p) => p !== undefined)
-      .map((p) => ({ title: p.heading, href: `/projects/${p.slug}/`, kind: 'Project' })),
+    ...relatedProjectItems(project.relatedProjectSlugs),
     ...project.relatedArticleSlugs
       .map(getArticle)
       .filter((a) => a !== undefined)
       .map((a) => ({ title: a.heading, href: `/resources/${a.slug}/`, kind: 'Guide' })),
   ];
+
+  const narrativeReady = isCaseStudyNarrativeReady(project);
+  const statusLabel = showcase?.statusLabel ?? project.publicLabel;
 
   return (
     <>
@@ -139,6 +141,13 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
         <PlaceholderNotice>
           This is an example case-study structure, not a real project. It is excluded from search
           engines and exists to show how completed work will be documented.
+        </PlaceholderNotice>
+      )}
+      {project.status !== 'template' && project.noindex && (
+        <PlaceholderNotice>
+          This case study is published for visitors on this site but remains noindex until the
+          owner clears the final indexing gate. Naming permission is already granted; search
+          indexing is a separate approval.
         </PlaceholderNotice>
       )}
 
@@ -169,10 +178,10 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
         </Section>
       )}
 
-      <Section heading="Project summary" tone={desktopShot ? undefined : 'surface'}>
+      <Section heading="Project overview" tone={desktopShot ? undefined : 'surface'}>
         <dl className="grid max-w-4xl gap-4 text-sm sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <dt className="font-semibold text-ink">Client</dt>
+            <dt className="font-semibold text-ink">Client / product</dt>
             <dd className="mt-1 text-muted">{project.clientDescriptor}</dd>
           </div>
           <div>
@@ -190,17 +199,36 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
             </div>
           )}
           <div>
+            <dt className="font-semibold text-ink">Public label</dt>
+            <dd className="mt-1 text-muted">{statusLabel}</dd>
+          </div>
+          <div>
             <dt className="font-semibold text-ink">Technology</dt>
             <dd className="mt-1 text-muted">{project.stack.join(', ')}</dd>
           </div>
           <div>
-            <dt className="font-semibold text-ink">Status</dt>
+            <dt className="font-semibold text-ink">Delivery status</dt>
             <dd className="mt-1 text-muted">{project.projectStatus}</dd>
           </div>
+          {project.liveUrl && (
+            <div>
+              <dt className="font-semibold text-ink">Live URL</dt>
+              <dd className="mt-1">
+                <a
+                  href={project.liveUrl}
+                  className="text-link underline"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {project.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                </a>
+              </dd>
+            </div>
+          )}
         </dl>
       </Section>
 
-      <Section heading="The business problem">
+      <Section heading="Business context">
         <p className="max-w-3xl leading-relaxed text-muted">{project.businessProblem}</p>
       </Section>
 
@@ -208,11 +236,11 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
         <BulletList items={project.objectives} />
       </Section>
 
-      <Section heading="Scope">
+      <Section heading="Project scope">
         <BulletList items={project.scope} />
       </Section>
 
-      <Section heading="The solution" tone="surface">
+      <Section heading="Solution architecture" tone="surface">
         <p className="max-w-3xl leading-relaxed text-muted">{project.solutionSummary}</p>
       </Section>
 
@@ -225,8 +253,25 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
       </Section>
 
       {project.seoWork.length > 0 && (
-        <Section heading="SEO work performed">
+        <Section heading="SEO and information architecture">
           <BulletList items={project.seoWork} />
+        </Section>
+      )}
+
+      {project.constraints && project.constraints.length > 0 && (
+        <Section heading="Constraints and decisions" tone="surface">
+          <BulletList items={project.constraints} />
+        </Section>
+      )}
+
+      {project.currentStatusNarrative && (
+        <Section heading="Current status">
+          <p className="max-w-3xl leading-relaxed text-muted">{project.currentStatusNarrative}</p>
+          {!narrativeReady && (
+            <p className="mt-3 max-w-3xl text-sm text-muted">
+              Narrative checklist still incomplete for publication review.
+            </p>
+          )}
         </Section>
       )}
 
@@ -257,11 +302,11 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
 
       {related.length > 0 && (
         <Section tone="surface">
-          <RelatedContent heading="Services and related pages" items={related.slice(0, 6)} />
+          <RelatedContent heading="Related services and work" items={related.slice(0, 6)} />
         </Section>
       )}
 
-      <CtaQuote heading="Have a similar project in mind?" />
+      <CtaQuote heading="Have a similar website or system in mind?" />
       <JsonLd data={projectSchemaFor(project)} />
     </>
   );

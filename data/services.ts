@@ -408,7 +408,7 @@ export const services: Service[] = [
     relatedServiceSlugs: ['product-catalogue-websites', 'admin-panel-development', 'custom-web-applications'],
     relatedPackageSlugs: ['custom-web-system'],
     relatedSolutionSlugs: ['manufacturers-and-suppliers', 'engineering-companies'],
-    relatedProjectSlugs: [],
+    relatedProjectSlugs: ['damtech-website'],
     relatedArticleSlugs: [],
     primaryKeywordCluster: 'quotation system development',
     ctaType: 'consultation',
