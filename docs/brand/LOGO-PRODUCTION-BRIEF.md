@@ -1,6 +1,6 @@
 # Logo production brief — Koppie Systems
 
-Status: **Owner-supplied circular lockup installed** (`public/brand/koppie-systems-logo.png`, `brand.verification.logoFinal = true`). SVG masters (full colour, mono light/dark) remain desirable for print and crisp multi-size derivatives.
+Status: **Owner-supplied circular mark installed** (`public/brand/koppie-systems-mark.png`) with stacked typographic “Koppie” / “Systems” in the header lockup (`brand.verification.logoFinal = true`). Full lockup-with-type PNG archived as `koppie-systems-logo-full-lockup.png`. SVG masters (full colour, mono light/dark) remain desirable.
 
 ## Concept (approved)
 
