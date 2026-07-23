@@ -1,4 +1,5 @@
-/* Fonts: next/font via preview-fonts.ts — do not @import Google Fonts here. */
+/* Wedding preview — scoped from Wedding_site/styles.css (commit 359ad704).
+   Header + hero only. Desktop/mobile switched via [data-preview-mode]. */
 
 .weddingPreviewRoot,
 .weddingPreviewRoot *,
@@ -7,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.weddingPreviewRoot :where(h1, h2, h3, h4, h5, h6, p, ul, ol, nav, a, button) {
+.weddingPreviewRoot :where(h1, h2, h3, h4, h5, h6, p, ul, ol, nav, a, button, span) {
   font-family: inherit;
   color: inherit;
   line-height: inherit;
@@ -15,81 +16,142 @@
 }
 
 .weddingPreviewRoot {
-  width: 1440px;
-  isolation: isolate;
-  --serif: var(--font-preview-fraunces), "Fraunces", ui-serif, "Times New Roman", serif;
-  --sans: var(--font-preview-inter), "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --script: var(--font-preview-allura), "Allura", ui-serif, "Times New Roman", serif;
-  --bg: #fbf7f1;
-  --ink: #2a2623;
-  --muted: rgba(42, 38, 35, 0.72);
+  --preview-background: #fbf7f1;
+  --preview-text: #2a2623;
+  --preview-muted: rgba(42, 38, 35, 0.72);
+  --preview-accent: #8e6e5a;
+  --preview-font-display: var(--font-preview-fraunces), ui-serif, 'Times New Roman', serif;
+  --preview-font-body: var(--font-preview-inter), ui-sans-serif, system-ui, sans-serif;
+  --preview-font-script: var(--font-preview-allura), 'Allura', ui-serif, 'Times New Roman', serif;
+
+  --serif: var(--preview-font-display);
+  --sans: var(--preview-font-body);
+  --script: var(--preview-font-script);
+  --fs-body: 16px;
+  --fs-subtext: 12.5px;
+  --fs-h1: clamp(80px, 9.6vw, 140px);
+  --fs-button: 15px;
+  --fw-button: 600;
+  --bg: var(--preview-background);
+  --ink: var(--preview-text);
+  --muted: var(--preview-muted);
+  --container: 1120px;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease2: cubic-bezier(0.16, 1, 0.3, 1);
-  --container: 1120px;
   --ring: 0 0 0 1px rgba(54, 45, 38, 0.13), 0 0 0 6px rgba(179, 110, 76, 0.08);
-  font-family: var(--sans);
-  color: var(--ink);
-  background: var(--bg);
+
+  width: 100%;
+  isolation: isolate;
+  contain: layout paint style;
   position: relative;
   min-height: 100%;
   overflow: hidden;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #14100e;
+}
+
+.weddingPreviewRoot .container {
+  width: min(var(--container), calc(100% - 44px));
+  margin-inline: auto;
 }
 
 .weddingPreviewRoot .site-header {
   position: absolute;
   inset: 0 0 auto 0;
   z-index: 50;
+  pointer-events: none;
 }
 
 .weddingPreviewRoot .nav {
-  width: min(var(--container), calc(100% - 24px));
-  margin: 16px auto 0;
-  padding: 10px 12px;
-  border-radius: 999px;
+  pointer-events: none;
+  width: 100%;
+  margin: 0;
+  padding: 10px 34px;
+  border-radius: 0;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
+  min-height: 60px;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-}
-
-.weddingPreviewRoot .nav.is-scrolled {
-  background: rgba(251, 247, 241, 0.8);
-  border-color: rgba(54, 45, 38, 0.12);
-  box-shadow: 0 14px 40px rgba(20, 16, 12, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .weddingPreviewRoot .brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
+  padding: 6px 8px;
+  border-radius: 999px;
 }
 
 .weddingPreviewRoot .brand__monogram {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   border-radius: 999px;
-  border: 1px solid rgba(54, 45, 38, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.22);
-  font-size: 16px;
-  color: rgba(42, 38, 35, 0.75);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .weddingPreviewRoot .brand__text {
   font-family: var(--serif);
-  color: rgba(42, 38, 35, 0.92);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 15.5px;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.weddingPreviewRoot .nav__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.weddingPreviewRoot .nav__toggle-lines {
+  display: block;
+  width: 18px;
+  height: 12px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.weddingPreviewRoot .nav__toggle-lines::before,
+.weddingPreviewRoot .nav__toggle-lines::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.8px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 2px;
+}
+
+.weddingPreviewRoot .nav__toggle-lines::before {
+  top: 2px;
+}
+
+.weddingPreviewRoot .nav__toggle-lines::after {
+  top: 9px;
 }
 
 .weddingPreviewRoot .nav__menu {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
+  justify-content: center;
+  gap: 0;
+}
+
+.weddingPreviewRoot .nav__menu-header {
+  display: none;
 }
 
 .weddingPreviewRoot .nav__links {
@@ -100,65 +162,110 @@
   list-style: none;
 }
 
-.weddingPreviewRoot .nav__link,
-.weddingPreviewRoot .nav__cta,
-.weddingPreviewRoot .btn {
+.weddingPreviewRoot .nav__link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-}
-
-.weddingPreviewRoot .nav__link {
-  padding: 10px 14px;
+  padding: 10px 12px;
   border-radius: 999px;
-  color: rgba(42, 38, 35, 0.82);
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .weddingPreviewRoot .nav__meta {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding-left: 8px;
-  border-left: 1px solid rgba(54, 45, 38, 0.1);
+  gap: 12px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.weddingPreviewRoot .nav__meta--bar {
+  display: none;
 }
 
 .weddingPreviewRoot .nav__date {
-  font-size: 12px;
-  color: rgba(42, 38, 35, 0.66);
+  font-size: var(--fs-subtext);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
 }
 
 .weddingPreviewRoot .nav__cta {
-  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
   padding: 0 14px;
   border-radius: 999px;
-  border: 1px solid rgba(54, 45, 38, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.22);
-  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: var(--fs-button);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .weddingPreviewRoot .hero {
   position: relative;
-  min-height: 900px;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
   display: grid;
   place-items: center;
   isolation: isolate;
+  overflow: hidden;
   padding: 140px 0 90px;
 }
 
 .weddingPreviewRoot .hero__media {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(20, 16, 12, 0.32) 0%, rgba(20, 16, 12, 0.2) 40%, rgba(20, 16, 12, 0.34) 100%),
-    url("/project-previews/wedding/hero.jpg");
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.06);
   z-index: -3;
+}
+
+.weddingPreviewRoot .hero__deck {
+  position: absolute;
+  inset: 0;
+}
+
+.weddingPreviewRoot .hero__deck--mobile {
+  display: none;
+}
+
+.weddingPreviewRoot .hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.weddingPreviewRoot .hero__slide.is-active {
+  opacity: 1;
+}
+
+.weddingPreviewRoot .hero__deck--desktop .hero__slide:nth-child(1) {
+  background:
+    linear-gradient(180deg, rgba(22, 14, 14, 0.3) 0%, rgba(20, 16, 12, 0.2) 40%, rgba(20, 16, 12, 0.34) 100%),
+    url('/project-previews/wedding/hero-1.webp');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.weddingPreviewRoot .hero__deck--mobile .hero__slide:nth-child(1) {
+  background-color: #14100e;
+  background-image:
+    linear-gradient(180deg, rgba(22, 14, 14, 0.3) 0%, rgba(20, 16, 12, 0.2) 40%, rgba(20, 16, 12, 0.34) 100%),
+    url('/project-previews/wedding/mobile-hero-1.webp');
+  background-size: 100% 100%, contain;
+  background-position: center, center center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .weddingPreviewRoot .hero__overlay {
@@ -168,155 +275,121 @@
   z-index: -2;
 }
 
-.weddingPreviewRoot .container {
-  width: min(var(--container), calc(100% - 44px));
-  margin-inline: auto;
-}
-
 .weddingPreviewRoot .hero__content {
   position: relative;
   text-align: center;
   color: rgba(255, 255, 255, 0.96);
-}
-
-.weddingPreviewRoot .hero__kicker {
-  display: inline-flex;
-  margin-bottom: 18px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.weddingPreviewRoot .hero__kicker-line {
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  padding-bottom: 86px;
 }
 
 .weddingPreviewRoot .hero__title {
   margin: 0;
-  font-family: var(--serif);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: clamp(48px, 7.6vw, 96px);
-  line-height: 0.96;
+  font-family: var(--script);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: var(--fs-h1);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.96);
 }
 
-.weddingPreviewRoot .hero__subtitle {
-  margin: 16px auto 0;
-  max-width: 640px;
-  font-size: 15.5px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.weddingPreviewRoot .hero__actions {
-  margin-top: 30px;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.weddingPreviewRoot .btn {
-  border-radius: 999px;
-  padding: 12px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.weddingPreviewRoot .btn--primary {
-  background: rgba(255, 255, 255, 0.92);
-  color: rgba(20, 16, 12, 0.88);
-}
-
-.weddingPreviewRoot .btn--ghost {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.weddingPreviewRoot .hero__flourish {
-  position: absolute;
-  left: 50%;
-  top: calc(50% + 120px);
-  transform: translateX(-50%);
-  opacity: 0.9;
-}
-
-.weddingPreviewRoot .flourish {
-  width: min(520px, 92vw);
-  height: auto;
-}
-
-.weddingPreviewRoot .hero__scrollhint {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: grid;
-  gap: 8px;
-  justify-items: center;
-}
-
-.weddingPreviewRoot .scrollhint__line {
-  width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.55);
-  animation: weddingScrollLine 2.6s var(--ease) infinite;
-}
-
-.weddingPreviewRoot .scrollhint__text {
-  font-size: 11px;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.weddingPreviewRoot .reveal-on-load {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 800ms var(--ease2), transform 800ms var(--ease2);
-  transition-delay: var(--d, 0ms);
-}
-
-.weddingPreviewRoot .reveal-split .split__inner {
+.weddingPreviewRoot .reveal-split {
   display: inline-block;
-  transform: translateY(115%);
-  transition: transform 980ms var(--ease2);
+  position: relative;
 }
 
-.weddingPreviewRoot.is-loaded .reveal-on-load,
-.weddingPreviewRoot.is-preview-complete .reveal-on-load {
-  opacity: 1;
-  transform: translateY(0);
+.weddingPreviewRoot .hero__datebar {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 40px));
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: var(--fs-subtext);
+  z-index: 2;
 }
 
-.weddingPreviewRoot.is-loaded .reveal-split .split__inner,
-.weddingPreviewRoot.is-preview-complete .reveal-split .split__inner {
-  transform: translateY(0);
+.weddingPreviewRoot .hero__datepart {
+  white-space: nowrap;
 }
 
-@keyframes weddingScrollLine {
-  0% {
-    transform: translateY(0);
-    opacity: 0.35;
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(14px);
-    opacity: 0.35;
-  }
+.weddingPreviewRoot .hero__curl {
+  width: 64px;
+  height: 12px;
+  flex: 0 0 auto;
+}
+
+/* Mobile composition — driven by preview frame mode, not browser viewport */
+[data-preview-mode='mobile'] .weddingPreviewRoot {
+  --fs-h1: clamp(64px, 18vw, 96px);
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .nav {
+  grid-template-columns: auto 1fr auto;
+  padding: 10px 14px;
+  min-height: 56px;
+  gap: 10px;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .nav__menu,
+[data-preview-mode='mobile'] .weddingPreviewRoot .nav__meta--menu {
+  display: none;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .nav__toggle {
+  display: block;
+  justify-self: end;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .nav__meta--bar {
+  display: flex;
+  border-left: 0;
+  padding-left: 0;
+  justify-self: end;
+  gap: 8px;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .nav__date {
+  display: none;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .hero {
+  aspect-ratio: 1080 / 1619;
+  padding: 110px 0 72px;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .hero__deck--desktop {
+  display: none;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .hero__deck--mobile {
+  display: block;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .hero__content {
+  padding-bottom: 72px;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .hero__datebar {
+  gap: 8px;
+  bottom: 20px;
+  letter-spacing: 0.12em;
+}
+
+[data-preview-mode='mobile'] .weddingPreviewRoot .hero__curl {
+  width: 36px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .weddingPreviewRoot .scrollhint__line,
-  .weddingPreviewRoot .reveal-on-load,
-  .weddingPreviewRoot .reveal-split .split__inner {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
+  .weddingPreviewRoot * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
   }
 }

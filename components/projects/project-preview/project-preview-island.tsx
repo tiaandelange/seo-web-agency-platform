@@ -2,13 +2,16 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { ProjectCardData } from '@/data/projects-showcase';
+import { previewDesktopSize } from './preview-config';
 import { ProjectPreview } from './project-preview';
 import { ProjectPreviewErrorBoundary } from './project-preview-error-boundary';
 
-function PreviewSkeleton({ featured }: { featured?: boolean }) {
+function PreviewSkeleton({ previewId }: { previewId: ProjectCardData['previewId'] }) {
+  const desktop = previewDesktopSize(previewId);
   return (
     <div
-      className={`bg-slate-100 ${featured ? 'h-[32rem] sm:h-[36rem]' : 'h-[20rem] sm:h-[22rem] lg:h-[24rem]'}`}
+      className="w-full bg-slate-100"
+      style={{ aspectRatio: `${desktop.width} / ${desktop.height}` }}
       aria-hidden
     />
   );
@@ -40,7 +43,7 @@ export function ProjectPreviewIsland({ project }: { project: ProjectCardData }) 
         {shouldLoad ? (
           <ProjectPreview previewId={project.previewId} featured={project.featured} />
         ) : (
-          <PreviewSkeleton featured={project.featured} />
+          <PreviewSkeleton previewId={project.previewId} />
         )}
       </ProjectPreviewErrorBoundary>
     </div>

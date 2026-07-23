@@ -15,12 +15,13 @@
   margin: 0;
 }
 
-/* Desktop preview canvas — force source composition regardless of browser viewport */
+/* Fill the fixed reference canvas (width set by ProjectPreviewViewport). */
 .damtechPreviewRoot {
   isolation: isolate;
   position: relative;
-  width: 1440px;
+  width: 100%;
   min-height: 100%;
+  contain: layout paint style;
   --font-inter: var(--font-preview-inter), 'Inter', sans-serif;
   --font-main: var(--font-preview-inter), 'Inter', sans-serif;
   font-family: var(--font-preview-inter), 'Inter', sans-serif;
@@ -33,36 +34,60 @@
   position: absolute !important;
 }
 
-.damtechPreviewRoot .site-header__nav {
+/* Desktop composition — forced regardless of browser viewport media queries */
+[data-preview-mode='desktop'] .damtechPreviewRoot .site-header__nav {
   display: flex !important;
 }
 
-.damtechPreviewRoot .site-header__actions > div.relative {
+[data-preview-mode='desktop'] .damtechPreviewRoot .site-header__nav.hidden {
+  display: flex !important;
+}
+
+[data-preview-mode='desktop'] .damtechPreviewRoot .site-header__actions > div.relative {
   display: none !important;
 }
 
-.damtechPreviewRoot .site-header__dropdown-panel {
+.damtechPreviewRoot .site-header__dropdown-panel,
+.damtechPreviewRoot .site-header__dropdown-panel--open {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
-.damtechPreviewRoot .site-header__dropdown-panel--open {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-.damtechPreviewRoot .home-hero {
+[data-preview-mode='desktop'] .damtechPreviewRoot .home-hero {
   min-height: 720px !important;
 }
 
-.damtechPreviewRoot .home-hero__inner {
+[data-preview-mode='desktop'] .damtechPreviewRoot .home-hero__inner {
   min-height: 720px !important;
 }
 
 .damtechPreviewRoot .home-hero__title {
   font-family: var(--font-main) !important;
   color: var(--color-white) !important;
+}
+
+/* Mobile composition inside 390px reference canvas */
+[data-preview-mode='mobile'] .damtechPreviewRoot .site-header__nav {
+  display: none !important;
+}
+
+[data-preview-mode='mobile'] .damtechPreviewRoot .home-hero {
+  min-height: 640px !important;
+}
+
+[data-preview-mode='mobile'] .damtechPreviewRoot .home-hero__inner {
+  min-height: 640px !important;
+  padding-top: 5.5rem !important;
+}
+
+[data-preview-mode='mobile'] .damtechPreviewRoot .home-hero__actions {
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+[data-preview-mode='mobile'] .damtechPreviewRoot .home-hero__trust {
+  display: none !important;
 }
 
 /* Tailwind utilities present in extracted SSR markup */
@@ -141,8 +166,4 @@
 
 .damtechPreviewRoot .hidden {
   display: none;
-}
-
-.damtechPreviewRoot .site-header__nav.hidden {
-  display: flex !important;
 }

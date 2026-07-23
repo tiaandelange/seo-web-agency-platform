@@ -5,7 +5,7 @@ import { DAMTECH_HEADER_HTML, DAMTECH_HERO_HTML } from './damtech-source-markup'
 
 /**
  * Authentic Damtech homepage first fold — header and hero markup extracted from
- * https://www.dam-tech.co.za/ SSR output (2026-07-22). Styles in damtech-preview.css.
+ * local Damtech-Website SSR (commit a96ab2ea). Styles in damtech-preview.css.
  */
 export function DamtechHomepageFrame({
   rootRef,
