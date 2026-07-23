@@ -1,7 +1,7 @@
 # Conversion proof upgrade (Prompt 6)
 
 **Date:** 23 July 2026  
-**Commit:** pending at write time — see git history for `feat(conversion): homepage proof and service conversion upgrade`  
+**Commit:** `5629d3e`  
 **Checks:** `npm run check` + `npm run build` passed (110 tests; 64 / 51 / 13 routes; homepage first-load JS 114 kB)
 
 ## Objective
