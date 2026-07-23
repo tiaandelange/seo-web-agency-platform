@@ -2,7 +2,8 @@
 
 ## Live (production UI)
 
-- **`koppie-logo-symbol.svg`** — Figma circular mark (field = theme ink `#14242B`)
+- **`koppie-logo-symbol-nobg.svg`** — live header mark (transparent, no circular field)
+- **`koppie-logo-symbol.svg`** — Figma circular mark (field = theme ink `#14242B`; favicon/apple)
 - Wordmark — HTML beside the mark in `components/brand-wordmark.tsx`
 - **`app/icon.svg`** / **`app/apple-icon.svg`** — same mark (synced by build script)
 - **`favicon.svg`** — copy under `public/brand/` for static review

@@ -2,6 +2,9 @@ import type { ComponentProps } from 'react';
 import Image from 'next/image';
 import { brand } from '@/config/brand';
 
+const wordmarkLine =
+  'block font-heading text-[0.65rem] font-semibold uppercase tracking-[0.16em] leading-none';
+
 type KoppieLogoProps = {
   variant?: 'full' | 'symbol';
   /** When false, omit accessible name (parent Link should label). */
@@ -29,14 +32,14 @@ export function KoppieLogo({
 
   const mark = (
     <Image
-      src="/brand/koppie-logo-symbol.svg"
+      src="/brand/koppie-logo-symbol-nobg.svg"
       alt={titled && variant === 'symbol' ? title : ''}
-      width={compact ? 32 : 40}
-      height={compact ? 32 : 40}
+      width={compact ? 32 : 36}
+      height={compact ? 32 : 36}
       className={
         variant === 'symbol'
-          ? `h-8 w-8 shrink-0 sm:h-10 sm:w-10 ${className ?? ''}`
-          : 'h-8 w-8 shrink-0 sm:h-10 sm:w-10'
+          ? `block h-8 w-8 shrink-0 self-center sm:h-9 sm:w-9 ${className ?? ''}`
+          : 'block h-8 w-8 shrink-0 self-center sm:h-9 sm:w-9'
       }
       unoptimized
       aria-hidden={variant === 'full' || !titled}
@@ -54,18 +57,12 @@ export function KoppieLogo({
       aria-label={titled ? title : undefined}
     >
       {mark}
-      <span className={`leading-none ${nameColor}`}>
-        <span
-          data-brand-name
-          className="block font-heading text-base font-bold tracking-tight sm:text-lg"
-        >
-          {brand.shortName}
+      <span className="flex flex-col justify-center gap-1">
+        <span data-brand-name className={`${wordmarkLine} ${nameColor}`}>
+          {brand.shortName.toUpperCase()}
         </span>
         {!compact && (
-          <span
-            data-brand-systems
-            className={`mt-0.5 block font-heading text-[0.65rem] font-semibold uppercase tracking-[0.16em] ${systemsColor}`}
-          >
+          <span data-brand-systems className={`${wordmarkLine} ${systemsColor}`}>
             Systems
           </span>
         )}

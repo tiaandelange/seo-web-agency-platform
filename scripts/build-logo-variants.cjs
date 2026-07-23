@@ -88,11 +88,52 @@ const favicon = symbol.replace(
   '<!-- App favicon / apple icon. Figma mark, field theme ink #14242B. -->',
 );
 
+function buildNoBgSymbol(source) {
+  const cutouts = [];
+  let art = source
+    .replace(/<circle\b[^>]*\/?>\s*/i, '')
+    .replace(/<!--[\s\S]*?-->\s*/, '')
+    .replace(/<path d="([^"]+)" fill="#14242B"\s*\/>/g, (_, d) => {
+      cutouts.push(d);
+      return '';
+    })
+    .replace(/ks-mark-paint/g, 'ks-nobg-paint');
+
+  const defsMatch = art.match(/<defs>[\s\S]*?<\/defs>/);
+  const defs = defsMatch ? defsMatch[0] : '';
+  art = art.replace(/<defs>[\s\S]*?<\/defs>\s*/, '');
+
+  const inner = art
+    .replace(/^<svg[^>]*>/i, '')
+    .replace(/<\/svg>\s*$/i, '')
+    .replace(/<title>[\s\S]*?<\/title>\s*/i, '')
+    .trim();
+
+  const maskPaths = cutouts.map((d) => `    <path d="${d}" fill="#000"/>`).join('\n');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" fill="none" role="img" aria-label="Koppie Systems">
+  <title>Koppie Systems</title>
+  <!-- Transparent mark: circular field removed; former navy cutouts are holes. -->
+  <defs>
+    <mask id="ks-nobg-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="400">
+      <rect width="400" height="400" fill="#fff"/>
+${maskPaths}
+    </mask>
+${defs.replace(/^<defs>/, '').replace(/<\/defs>$/, '')}
+  </defs>
+  <g mask="url(#ks-nobg-mask)">
+${inner}
+  </g>
+</svg>
+`;
+}
+
 fs.writeFileSync(path.join(brandDir, 'koppie-logo-horizontal.svg'), horizontal);
 fs.writeFileSync(path.join(brandDir, 'koppie-logo-white.svg'), monoHorizontal('white'));
 fs.writeFileSync(path.join(brandDir, 'koppie-logo-dark.svg'), monoHorizontal('dark'));
+fs.writeFileSync(path.join(brandDir, 'koppie-logo-symbol-nobg.svg'), buildNoBgSymbol(symbol));
 fs.writeFileSync(path.join(brandDir, 'favicon.svg'), favicon);
 fs.writeFileSync(path.join(appDir, 'icon.svg'), favicon);
 fs.writeFileSync(path.join(appDir, 'apple-icon.svg'), favicon);
 
-console.log('Wrote horizontal, white, dark, favicon, app/icon.svg, app/apple-icon.svg');
+console.log('Wrote horizontal, white, dark, nobg, favicon, app/icon.svg, app/apple-icon.svg');

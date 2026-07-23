@@ -2,7 +2,8 @@
 
 | Asset | Status | Path | Notes |
 |---|---|---|---|
-| Primary circular mark (SVG) | **Active (live)** | `public/brand/koppie-logo-symbol.svg` | Figma master; field `#14242B` = `--color-ink` |
+| Primary mark without circular field (SVG) | **Active (live)** | `public/brand/koppie-logo-symbol-nobg.svg` | Transparent; used in header lockup |
+| Circular mark (SVG) | **Available** | `public/brand/koppie-logo-symbol.svg` | Figma master with field `#14242B`; favicon/apple still use this |
 | Header brand lockup | **Active (live)** | `components/brand-wordmark.tsx` | SVG mark + HTML “Koppie” / “Systems” |
 | Favicon / apple icon | **Active (live)** | `app/icon.svg`, `app/apple-icon.svg` | Synced from symbol via `scripts/build-logo-variants.cjs` |
 | Export lockups | **Optional** | `public/brand/koppie-logo-horizontal.svg` etc. | Not used in site chrome |

@@ -1,6 +1,6 @@
 # Logo production brief — Koppie Systems
 
-Status: **Figma SVG mark live** (`public/brand/koppie-logo-symbol.svg`, field = theme ink `#14242B`) with stacked HTML “Koppie” / “Systems” in the header. PNG lockups removed. Favicon/apple icon are SVG (`app/icon.svg`, `app/apple-icon.svg`).
+Status: **Figma SVG mark live** (`public/brand/koppie-logo-symbol-nobg.svg`, no circular field) with stacked HTML “KOPPIE” / “SYSTEMS” in the header. Circled master retained at `koppie-logo-symbol.svg` for favicon/apple. PNG lockups removed.
 
 ## Concept (approved)
 
