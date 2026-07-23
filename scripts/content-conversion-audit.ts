@@ -214,20 +214,23 @@ for (const c of comparisons) {
 }
 
 for (const l of locations) {
-  const wc = words(l.heading, l.intro, l.body?.flatMap?.((s: { heading?: string; paragraphs: string[] }) => [s.heading || '', ...s.paragraphs]) || []);
-  // locations may have different shape
   rows.push({
     url: `/areas-we-serve/${l.slug}/`,
     pageType: 'location',
     primaryIntent: intentFor('location', l.title),
     targetAudience: `${l.city}, ${l.province}`,
     h1: l.heading,
-    wordCount: words(l.heading, l.intro, ...(l as any).focusIndustries || [], ...(l as any).localNotes || []),
+    wordCount: words(
+      l.heading,
+      l.intro,
+      ...l.consolidatedAreas,
+      ...l.localFaqs.flatMap((f) => [f.question, f.answer]),
+    ),
     primaryCta: 'Contact / quote',
-    relatedProject: ((l as any).relatedProjectSlugs || []).join('; ') || '—',
-    relatedService: ((l as any).serviceSlugs || []).join('; ') || '—',
+    relatedProject: l.projectSlugs.join('; ') || '—',
+    relatedService: l.serviceSlugs.join('; ') || '—',
     authorByline: '—',
-    indexingStatus: l.noindex ? 'noindex' : (l.status === 'live' ? 'indexable' : l.status),
+    indexingStatus: l.noindex ? 'noindex' : l.status === 'live' ? 'indexable' : l.status,
     similarityRisk: 'TBD',
     recommendedAction: 'Expand',
     notes: `placeholder=${!!l.placeholder}; status=${l.status}`,
