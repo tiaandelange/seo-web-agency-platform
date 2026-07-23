@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { Section } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
+import { Container } from '@/components/layout/container';
 import { CardGrid, ArticleCard } from '@/components/cards';
 import { RelatedContent, type RelatedItem } from '@/components/related-content';
 import { CtaQuote } from '@/components/cta-quote';
@@ -72,14 +74,31 @@ export default async function ResourceOrArticlePage({ params }: { params: Promis
     return (
       <>
         <Breadcrumbs path={path} />
-        <PageHeader heading={category.heading} intro={category.intro} />
-        <Section>
+        <PageHero
+          variant="editorial"
+          motif
+          eyebrow="Resources"
+          title={category.heading}
+          description={category.intro}
+          aside={
+            <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+              <p className="text-label text-cta">Guides</p>
+              <p className="mt-2 text-sm text-muted">
+                {items.length} article{items.length === 1 ? '' : 's'} in this category
+              </p>
+            </div>
+          }
+        />
+        <Section tone="surface">
           <CardGrid>
             {items.map((a) => (
               <ArticleCard key={a.slug} article={a} />
             ))}
           </CardGrid>
         </Section>
+        <InkBand motif>
+          <p className="max-w-2xl text-lg leading-relaxed text-sandstone">{category.intro}</p>
+        </InkBand>
         <CtaQuote />
         <JsonLd
           data={webPageSchema({
@@ -112,60 +131,83 @@ export default async function ResourceOrArticlePage({ params }: { params: Promis
   return (
     <>
       <Breadcrumbs path={path} />
-      <PageHeader heading={article.heading} intro={article.intro} />
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="Guide"
+        title={article.heading}
+        description={article.intro}
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Reading</p>
+            <p className="mt-2 text-sm text-muted">Long-form practical guidance for South African buyers.</p>
+          </div>
+        }
+      />
 
-      <div className="mx-auto max-w-6xl px-4">
-        <ArticleAuthor
-          author={author}
-          datePublished={article.dateCreated}
-          dateUpdated={article.dateUpdated}
-        />
-      </div>
+      <section className="border-b border-line bg-surface">
+        <Container className="py-8">
+          <ArticleAuthor
+            author={author}
+            datePublished={article.dateCreated}
+            dateUpdated={article.dateUpdated}
+          />
+        </Container>
+      </section>
 
-      <article className="mx-auto max-w-6xl px-4">
-        {article.body.map((section, i) => (
-          <section key={i} className="py-5">
-            {section.heading && (
-              <h2 className="text-section-title-article mb-4 text-ink">{section.heading}</h2>
-            )}
-            {section.paragraphs.map((paragraph, j) => (
-              <p key={j} className="mb-4 max-w-3xl leading-relaxed text-muted">
-                {paragraph}
-              </p>
+      <article className="border-b border-line">
+        <Container className="py-10 md:py-14">
+          <div className="measure-narrow">
+            {article.body.map((section, i) => (
+              <section key={i} className="py-5">
+                {section.heading && (
+                  <h2 className="text-section-title-article mb-4 text-ink">{section.heading}</h2>
+                )}
+                {section.paragraphs.map((paragraph, j) => (
+                  <p key={j} className="mb-4 leading-relaxed text-muted">
+                    {paragraph}
+                  </p>
+                ))}
+              </section>
             ))}
-          </section>
-        ))}
 
-        {article.sources && article.sources.length > 0 && (
-          <section className="py-5">
-            <h2 className="text-section-title-article mb-4 text-ink">Sources</h2>
-            <ul className="max-w-3xl list-disc space-y-2 pl-5 text-muted marker:text-accent">
-              {article.sources.map((source) => (
-                <li key={source.url}>
-                  <a href={source.url} rel="nofollow noopener" className="text-accent underline">
-                    {source.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3 max-w-3xl text-sm text-muted">
-              Figures accessed {new Date(article.dateUpdated).toLocaleDateString('en-ZA', { year: 'numeric', month: 'long' })}; market prices change — treat ranges as directional.
-            </p>
-          </section>
-        )}
-
-        {supportedServices.length > 0 && (
-          <section className="py-5">
-            <p className="max-w-3xl rounded-card border border-line bg-surface p-5 leading-relaxed text-muted">
-              What to do next: if this guide matched your situation, the practical next step is our{' '}
-              <Link href={`/services/${supportedServices[0].slug}/`} className="text-accent underline">
-                {supportedServices[0].heading.toLowerCase()}
-              </Link>{' '}
-              service — or skip straight to a tailored estimate via the quote form below.
-            </p>
-          </section>
-        )}
+            {article.sources && article.sources.length > 0 && (
+              <section className="py-5">
+                <h2 className="text-section-title-article mb-4 text-ink">Sources</h2>
+                <ul className="list-disc space-y-2 pl-5 text-muted marker:text-accent">
+                  {article.sources.map((source) => (
+                    <li key={source.url}>
+                      <a href={source.url} rel="nofollow noopener" className="text-accent underline">
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm text-muted">
+                  Figures accessed{' '}
+                  {new Date(article.dateUpdated).toLocaleDateString('en-ZA', {
+                    year: 'numeric',
+                    month: 'long',
+                  })}
+                  ; market prices change — treat ranges as directional.
+                </p>
+              </section>
+            )}
+          </div>
+        </Container>
       </article>
+
+      {supportedServices.length > 0 && (
+        <InkBand motif>
+          <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
+            What to do next: if this guide matched your situation, the practical next step is our{' '}
+            <Link href={`/services/${supportedServices[0].slug}/`} className="text-cta underline">
+              {supportedServices[0].heading.toLowerCase()}
+            </Link>{' '}
+            service — or skip straight to a tailored estimate via the quote form below.
+          </p>
+        </InkBand>
+      )}
 
       {related.length > 0 && (
         <Section tone="surface">

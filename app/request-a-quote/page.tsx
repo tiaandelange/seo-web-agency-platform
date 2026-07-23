@@ -4,12 +4,13 @@ import { brand } from '@/config/brand';
 import { buildMetadata } from '@/lib/seo';
 import { formatPhoneDisplay } from '@/lib/phone';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { QuoteForm } from '@/components/quote-form';
 import { JsonLd } from '@/components/json-ld';
 import { buildIndustrialEngineMessage } from '@/lib/industrial-engine/quote-prefill';
 import { webPageSchema } from '@/lib/schema';
 import { Container } from '@/components/layout/container';
+import { InkBand } from '@/components/layout/ink-band';
 import { ProposalExpectations } from '@/components/contact/proposal-expectations';
 
 const PATH = '/request-a-quote/';
@@ -100,10 +101,26 @@ export default async function RequestQuotePage({
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader
-        heading="Request a website proposal"
-        intro="Tell us what you need — rough details are completely fine. We will respond within one business day with any initial questions or a link to arrange a short scoping call. Once the requirements are clear, we will send an itemised proposal with the recommended scope, price and next steps."
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="Proposal"
+        title="Request a website proposal"
+        description="Tell us what you need — rough details are completely fine. We will respond within one business day with any initial questions or a link to arrange a short scoping call. Once the requirements are clear, we will send an itemised proposal with the recommended scope, price and next steps."
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Response</p>
+            <p className="mt-2 text-sm text-muted">{brand.hours}</p>
+          </div>
+        }
       />
+
+      <InkBand motif>
+        <p className="max-w-2xl text-lg leading-relaxed text-sandstone">
+          No-obligation proposal. Direct communication with the person scoping the work. Your
+          information is used only to handle your enquiry.
+        </p>
+      </InkBand>
 
       {error && (
         <Container className="pb-2">
@@ -118,7 +135,7 @@ export default async function RequestQuotePage({
         </Container>
       )}
 
-      <section className="proposal-form-section border-b border-line pb-14 pt-6 md:pb-16 md:pt-8 lg:pb-20 lg:pt-12">
+      <section className="proposal-form-section border-b border-line bg-surface pb-14 pt-6 md:pb-16 md:pt-8 lg:pb-20 lg:pt-12">
         <Container>
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-8">

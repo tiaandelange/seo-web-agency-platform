@@ -3,9 +3,12 @@ import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { getBreadcrumbs } from '@/lib/routes';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { Section, BulletList } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
+import { CardGrid, InfoCard } from '@/components/cards';
 import { FaqList } from '@/components/faq-list';
+import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { breadcrumbSchema, seoAuditServiceSchema, webPageSchema } from '@/lib/schema';
 import { SeoAuditComparison, SeoAuditTierCta } from '@/components/seo-audit-cta';
@@ -51,9 +54,24 @@ export default async function SeoAuditHubPage({
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader heading={SEO_AUDIT_HUB.heading} intro={SEO_AUDIT_HUB.supportingStatement} />
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="SEO audit"
+        title={SEO_AUDIT_HUB.heading}
+        description={SEO_AUDIT_HUB.supportingStatement}
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Two packs</p>
+            <p className="mt-2 text-sm text-muted">
+              Priority Fix Pack R{seoAuditTierPriceZar('priority-fix').toLocaleString('en-ZA')} ·
+              Advanced R{seoAuditTierPriceZar('advanced').toLocaleString('en-ZA')}
+            </p>
+          </div>
+        }
+      />
 
-      <Section>
+      <Section tone="surface">
         <p className="max-w-3xl text-lg leading-relaxed text-muted">
           An SEO audit is a structured review of how search engines crawl, understand and rank your
           website — and whether visitors can convert once they arrive. Koppie Systems offers two
@@ -132,14 +150,30 @@ export default async function SeoAuditHubPage({
 
       <Section heading="Priority Fix Pack — detail" tone="surface">
         <p className="mb-2 font-medium text-ink">Who it is for</p>
-        <BulletList items={seoAuditWhoFor} />
-        <p className="mt-6 mb-2 font-medium text-ink">Implementation included</p>
-        <BulletList items={seoAuditImplementationIncludes} />
-        <p className="mt-6 mb-2 font-medium text-ink">Not included</p>
-        <BulletList items={seoAuditExclusions.slice(0, 8)} />
-        <p className="mt-6 mb-2 font-medium text-ink">Deliverables</p>
-        <BulletList items={seoAuditDeliverables} />
-        <p className="mt-6 mb-2 font-medium text-ink">Process</p>
+        <CardGrid>
+          {seoAuditWhoFor.map((item, i) => (
+            <InfoCard key={item} label={String(i + 1).padStart(2, '0')} description={item} />
+          ))}
+        </CardGrid>
+        <p className="mt-8 mb-2 font-medium text-ink">Implementation included</p>
+        <CardGrid>
+          {seoAuditImplementationIncludes.map((item, i) => (
+            <InfoCard key={item} label={String(i + 1).padStart(2, '0')} description={item} />
+          ))}
+        </CardGrid>
+        <p className="mt-8 mb-2 font-medium text-ink">Not included</p>
+        <CardGrid>
+          {seoAuditExclusions.slice(0, 8).map((item, i) => (
+            <InfoCard key={item} label={String(i + 1).padStart(2, '0')} description={item} />
+          ))}
+        </CardGrid>
+        <p className="mt-8 mb-2 font-medium text-ink">Deliverables</p>
+        <CardGrid>
+          {seoAuditDeliverables.map((item, i) => (
+            <InfoCard key={item} label={String(i + 1).padStart(2, '0')} description={item} />
+          ))}
+        </CardGrid>
+        <p className="mt-8 mb-2 font-medium text-ink">Process</p>
         <ol className="max-w-3xl list-decimal space-y-3 pl-5 text-muted">
           {seoAuditProcess.map((step) => (
             <li key={step.title}>
@@ -150,19 +184,23 @@ export default async function SeoAuditHubPage({
         </ol>
       </Section>
 
-      <Section heading="No ranking guarantee">
-        <p className="max-w-3xl leading-relaxed text-muted">
+      <InkBand heading="No ranking guarantee" motif>
+        <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
           Neither pack guarantees rankings, traffic or enquiries. Visibility depends on competition,
           content, authority, website condition and work after delivery.
         </p>
-      </Section>
+      </InkBand>
 
       <Section heading="Product terms" tone="surface">
-        <BulletList items={seoAuditTerms} />
+        <CardGrid>
+          {seoAuditTerms.map((item, i) => (
+            <InfoCard key={item} label={String(i + 1).padStart(2, '0')} description={item} />
+          ))}
+        </CardGrid>
       </Section>
 
       <Section heading="Common questions">
-        <FaqList items={seoAuditFaqs} />
+        <FaqList items={seoAuditFaqs} variant="cards" />
         <p className="mt-6 text-sm text-muted">
           Related:{' '}
           <Link href="/services/seo-website-development/" className="text-link underline">
@@ -179,6 +217,13 @@ export default async function SeoAuditHubPage({
           .
         </p>
       </Section>
+
+      <CtaQuote
+        heading="Ready for a fixed-price SEO audit?"
+        body="Check eligibility above, or request a custom audit if your site is above the published pack limits."
+        ctaLabel="Check eligibility"
+        ctaHref={`${PATH}#eligibility`}
+      />
 
       <JsonLd
         data={[

@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
-import { Section, BulletList } from '@/components/section';
+import { PageHero } from '@/components/layout/page-hero';
+import { Section } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
+import { CardGrid, InfoCard } from '@/components/cards';
 import { FaqList } from '@/components/faq-list';
 import { PlaceholderNotice } from '@/components/placeholder-notice';
 import { CtaQuote } from '@/components/cta-quote';
@@ -37,27 +39,44 @@ const PRICING_FAQS = [
   },
 ];
 
+const PRICE_DRIVERS = [
+  'Up: more pages with unique content, copywriting help, large product ranges, integrations, B2B pricing rules, custom functionality.',
+  'Down: fewer pages done properly, content you supply in our structure, phased delivery (site now, systems later), reusing clean existing assets.',
+  'Never a factor: hidden hosting mark-ups, surprise licence fees, or hostage pricing at handover — you own everything, always.',
+];
+
 export default function PricingPage() {
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader
-        heading="Website design and development pricing"
-        intro="Published openly because price-hiding wastes everyone's time. Ranges below are indicative; every project receives a fixed, itemised quote after one scoping conversation, and the quote is the binding number."
+      <PageHero
+        variant="inverse"
+        motif
+        eyebrow="Pricing"
+        title="Website design and development pricing"
+        description="Published openly because price-hiding wastes everyone's time. Ranges below are indicative; every project receives a fixed, itemised quote after one scoping conversation, and the quote is the binding number."
+        aside={
+          <div className="rounded-card border border-white/15 bg-ink/40 p-5 shadow-card">
+            <p className="text-label text-cta">Binding number</p>
+            <p className="mt-2 text-sm leading-relaxed text-sandstone">
+              Fixed, itemised quote after one scoping conversation.
+            </p>
+          </div>
+        }
       />
       <PlaceholderNotice>
         All figures on this page are indicative working ranges pending final confirmation — except
         the fixed SEO Audit entry product, which is a published once-off price.
       </PlaceholderNotice>
 
-      <Section heading="Fixed-price SEO audits">
+      <Section heading="Fixed-price SEO audits" tone="surface">
         <p className="mb-6 max-w-3xl text-sm text-muted">
           Distinct from website packages, monthly SEO support and maintenance — once-off diagnostics
           with capped implementation.
         </p>
         <div className="grid max-w-4xl gap-6 sm:grid-cols-2">
           <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
-            <h3 className="text-lg font-semibold text-ink">
+            <h3 className="text-card-title text-ink">
               <Link href="/seo-audit/" className="hover:underline">
                 SEO Audit &amp; Priority Fix Pack
               </Link>
@@ -74,7 +93,7 @@ export default function PricingPage() {
             </p>
           </article>
           <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
-            <h3 className="text-lg font-semibold text-ink">
+            <h3 className="text-card-title text-ink">
               <Link href="/seo-audit/advanced/" className="hover:underline">
                 Advanced SEO Audit &amp; Implementation Roadmap
               </Link>
@@ -103,8 +122,8 @@ export default function PricingPage() {
         </p>
       </Section>
 
-      <Section heading="Project pricing" tone="surface">
-        <div className="overflow-x-auto">
+      <Section heading="Project pricing">
+        <div className="overflow-x-auto rounded-card border border-line bg-canvas p-4 shadow-card sm:p-6">
           <table className="w-full max-w-4xl border-collapse text-sm">
             <thead>
               <tr className="border-b-2 border-line text-left">
@@ -155,28 +174,31 @@ export default function PricingPage() {
       </Section>
 
       <Section heading="What moves the price up or down" tone="surface">
-        <BulletList
-          items={[
-            'Up: more pages with unique content, copywriting help, large product ranges, integrations, B2B pricing rules, custom functionality.',
-            'Down: fewer pages done properly, content you supply in our structure, phased delivery (site now, systems later), reusing clean existing assets.',
-            'Never a factor: hidden hosting mark-ups, surprise licence fees, or hostage pricing at handover — you own everything, always.',
-          ]}
-        />
+        <CardGrid>
+          {PRICE_DRIVERS.map((item, i) => (
+            <InfoCard
+              key={item}
+              label={String(i + 1).padStart(2, '0')}
+              description={item}
+              headingAs="h3"
+            />
+          ))}
+        </CardGrid>
       </Section>
 
-      <Section heading="Wondering what the wider market charges?">
-        <p className="max-w-3xl leading-relaxed text-muted">
+      <InkBand heading="Wondering what the wider market charges?" motif>
+        <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
           Our guide to{' '}
-          <Link href="/resources/website-cost-south-africa/" className="text-link underline">
+          <Link href="/resources/website-cost-south-africa/" className="text-cta underline">
             website costs in South Africa
           </Link>{' '}
           covers the full market honestly — from R2,000 templates to R160,000 builds — with dated
           sources, so you can sanity-check any quote, including ours.
         </p>
-      </Section>
+      </InkBand>
 
       <Section heading="Pricing questions" tone="surface">
-        <FaqList items={PRICING_FAQS} />
+        <FaqList items={PRICING_FAQS} variant="cards" />
       </Section>
 
       <CtaQuote

@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { getBreadcrumbs } from '@/lib/routes';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { Section, BulletList } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
 import { FaqList } from '@/components/faq-list';
+import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { breadcrumbSchema, seoAuditServiceSchema, webPageSchema } from '@/lib/schema';
 import { SeoAuditTierCta } from '@/components/seo-audit-cta';
@@ -54,9 +56,24 @@ export default async function AdvancedSeoAuditPage({
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader heading={product.heading} intro={product.supportingStatement} />
+      <PageHero
+        variant="inverse"
+        motif
+        eyebrow="Advanced SEO audit"
+        title={product.heading}
+        description={product.supportingStatement}
+        aside={
+          <div className="rounded-card border border-white/15 bg-ink/40 p-5 shadow-card">
+            <p className="text-label text-cta">Once-off</p>
+            <p className="mt-2 text-xl font-semibold text-accent-contrast">
+              {seoAuditTierPriceLabel('advanced')}
+            </p>
+            <p className="mt-1 text-sm text-sandstone">No monthly retainer</p>
+          </div>
+        }
+      />
 
-      <Section>
+      <Section tone="surface">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
           Advanced technical &amp; content SEO audit
         </p>
@@ -201,22 +218,22 @@ export default async function AdvancedSeoAuditPage({
         </p>
       </Section>
 
-      <Section heading="Compare with the Priority Fix Pack">
-        <p className="max-w-3xl leading-relaxed text-muted">
+      <Section heading="Common questions" tone="surface">
+        <FaqList items={advancedFaqs} variant="cards" />
+      </Section>
+
+      <InkBand heading="Compare with the Priority Fix Pack" motif>
+        <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
           Small brochure sites (≤10 pages) usually belong on the{' '}
-          <Link href={SEO_AUDIT_HUB_PATH} className="text-link underline">
+          <Link href={SEO_AUDIT_HUB_PATH} className="text-cta underline">
             SEO Audit &amp; Priority Fix Pack
           </Link>{' '}
           at R1,999. Use this advanced page when architecture, ecommerce, catalogues or scale demand
           a deeper roadmap.
         </p>
-      </Section>
+      </InkBand>
 
-      <Section heading="Common questions" tone="surface">
-        <FaqList items={advancedFaqs} />
-      </Section>
-
-      <Section heading="Related services">
+      <Section heading="Related services" tone="surface">
         <p className="max-w-3xl text-sm leading-relaxed text-muted">
           <Link href="/services/seo-website-development/" className="text-link underline">
             SEO website development
@@ -245,6 +262,13 @@ export default async function AdvancedSeoAuditPage({
           <SeoAuditTierCta id="advanced" />
         </Section>
       )}
+
+      <CtaQuote
+        heading="Need a deeper SEO roadmap?"
+        body="Check eligibility on this page, or request a custom audit if you are above the published limits."
+        ctaLabel="Check eligibility"
+        ctaHref={`${PATH}#eligibility`}
+      />
 
       <JsonLd
         data={[

@@ -2,13 +2,15 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { Section } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
 import { CardGrid, LinkCard } from '@/components/cards';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
 import { getLiveLocations, isLocationIndexable } from '@/data/locations';
+import { brand } from '@/config/brand';
 
 const PATH = '/areas-we-serve/';
 const TITLE = 'Areas We Serve';
@@ -25,11 +27,21 @@ export default function AreasPage() {
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader
-        heading="Areas we serve"
-        intro="We are based in Pretoria and work with businesses throughout South Africa — websites and systems deliver well remotely. Indexable location pages exist only where we can state genuine local operating context without inventing offices."
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="Service areas"
+        title="Areas we serve"
+        description="We are based in Pretoria and work with businesses throughout South Africa — websites and systems deliver well remotely. Indexable location pages exist only where we can state genuine local operating context without inventing offices."
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Base</p>
+            <p className="mt-2 text-sm font-semibold text-ink">{brand.baseCity}</p>
+            <p className="mt-2 text-sm text-muted">Serving {brand.country} nationwide</p>
+          </div>
+        }
       />
-      <Section>
+      <Section tone="surface">
         <CardGrid>
           {primary.map((location) => (
             <LinkCard
@@ -41,7 +53,7 @@ export default function AreasPage() {
           ))}
         </CardGrid>
         {secondary.length > 0 && (
-          <div className="mt-10 max-w-3xl">
+          <div className="mt-10 max-w-3xl rounded-card border border-line bg-canvas p-6 shadow-card">
             <h2 className="text-section-title text-ink">Also served (not a local office)</h2>
             <p className="mt-2 leading-relaxed text-muted">
               These pages remain available for visitors but are not promoted as established local
@@ -58,11 +70,15 @@ export default function AreasPage() {
             </ul>
           </div>
         )}
-        <p className="mt-8 max-w-3xl leading-relaxed text-muted">
+      </Section>
+
+      <InkBand motif>
+        <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
           Elsewhere in South Africa? Everything except in-person meetings works identically — same
           process, same response targets, same ownership terms.
         </p>
-      </Section>
+      </InkBand>
+
       <CtaQuote />
       <JsonLd data={webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION, pageType: 'CollectionPage' })} />
     </>
