@@ -54,7 +54,7 @@ export interface BrandConfig {
   name: string;
   /** Short name for compact contexts. */
   shortName: string;
-  /** Proposed registered legal name — not claimed as registered until verification.registration. */
+  /** Registered legal entity; trading name is `name` (Koppie Systems). */
   legalName: string;
   /** Company registration number when verified. Empty = not claimed. */
   registrationNumber: string;
@@ -112,7 +112,7 @@ export interface BrandConfig {
 export const brand: BrandConfig = {
   name: 'Koppie Systems',
   shortName: 'Koppie',
-  legalName: 'Koppie Systems (Pty) Ltd', // Proposed — registration number not yet verified
+  legalName: 'Morgen Solutions (Pty) Ltd', // Confirmed registered legal name; Koppie Systems trades under it
   registrationNumber: '',
   vat: {
     registered: false,
@@ -145,10 +145,10 @@ export const brand: BrandConfig = {
   hours: 'Messages may be submitted at any time. We normally respond within one business day.',
   locale: 'en_ZA',
   verification: {
-    registration: false,
+    registration: true,
     trademark: false,
-    // Owner named the primary domain; DNS/host connection for production is still a launch gate.
-    domain: false,
+    // DNS cutover to https://www.koppiesystems.co.za verified live (2026-07-23).
+    domain: true,
     // Public hello@ address published for contact; confirm mailbox monitoring before production indexing.
     emailLive: true,
     // Owner-supplied circular lockup installed 2026-07-23 (PNG; SVG masters still desirable).

@@ -28,15 +28,15 @@ export const legalDocs: LegalDoc[] = [
     status: 'live',
     placeholder: false,
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-22',
-    effectiveDate: '2026-07-22',
+    dateUpdated: '2026-07-23',
+    effectiveDate: '2026-07-23',
     sections: [
       {
         heading: 'Who we are',
         paragraphs: [
-          `${brand.name} (proposed legal name ${brand.legalName}) is a Pretoria-based website-development and digital-systems studio. Company registration number will be published when CIPC registration is confirmed. ${vatStatusLabel()}.`,
+          `${brand.name} is a trading name of ${brand.legalName}, a Pretoria-based website-development and digital-systems studio. ${vatStatusLabel()}.`,
           `We are based in ${brand.baseCity} and work with businesses throughout South Africa and on selected international engagements. We do not publish a street address. ${contactLine}.`,
-          'Until a dedicated POPIA Information Officer is appointed and published, privacy requests may be sent through the website contact form or the telephone number above.',
+          'Privacy and POPIA requests may be sent through the website contact form or the telephone number above.',
         ],
       },
       {
