@@ -4,18 +4,19 @@
  * Mobile navigation disclosure — the site's only menu client component
  * (justification: expand/collapse state; see docs/technical/PERFORMANCE-BUDGET.md rule 1).
  * Links remain plain anchors; the toggle is a real <button> with aria-expanded.
+ * Nested Services children are always in the panel DOM when open.
  */
 import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import type { NavLink } from '@/data/navigation';
+import type { NavItem, NavLink } from '@/data/navigation';
 
 function withTrailingSlash(path: string): string {
   if (path === '/') return '/';
   return path.endsWith('/') ? path : `${path}/`;
 }
 
-export function MobileNav({ links, cta }: { links: NavLink[]; cta: NavLink }) {
+export function MobileNav({ links, cta }: { links: NavItem[]; cta: NavLink }) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
   const panelRef = useRef<HTMLElement>(null);
@@ -71,6 +72,26 @@ export function MobileNav({ links, cta }: { links: NavLink[]; cta: NavLink }) {
                   >
                     {item.label}
                   </Link>
+                  {item.children && item.children.length > 0 && (
+                    <ul className="mobile-nav-sublist">
+                      {item.children.map((child) => {
+                        const childHref = withTrailingSlash(child.href);
+                        const childActive = current === childHref;
+                        return (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="mobile-nav-sublink"
+                              aria-current={childActive ? 'page' : undefined}
+                              onClick={() => setOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </li>
               );
             })}

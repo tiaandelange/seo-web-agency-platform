@@ -11,6 +11,7 @@ import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { serviceSchema, webPageSchema } from '@/lib/schema';
 import { getPackage } from '@/data/packages';
+import { getService } from '@/data/services';
 import { getSolution } from '@/data/solutions';
 import { getArticle } from '@/data/articles';
 import { relatedProjectItems } from '@/lib/project-proof';
@@ -27,8 +28,13 @@ import { CommerceModelMatrix } from '@/components/services/commerce-model-matrix
 export function GenericServiceView({ service }: { service: Service }) {
   const path = `/services/${service.slug}/`;
   const proof = getServiceProof(service.slug);
+  const isAnalyticsSetup = service.slug === 'analytics-and-conversion-tracking';
 
   const related: RelatedItem[] = [
+    ...service.relatedServiceSlugs
+      .map(getService)
+      .filter((s) => s !== undefined)
+      .map((s) => ({ title: s.heading, href: `/services/${s.slug}/`, kind: 'Service' })),
     ...service.relatedSolutionSlugs
       .map(getSolution)
       .filter((s) => s !== undefined)
@@ -121,30 +127,49 @@ export function GenericServiceView({ service }: { service: Service }) {
         </CardGrid>
       </Section>
 
-      <InkBand heading="Pricing and packages" motif>
-        <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
-          {relatedPackages.length > 0 ? (
-            <>
-              This service is available as{' '}
-              {relatedPackages.map((pkg, i) => (
-                <span key={pkg.slug}>
-                  {i > 0 && ' and '}
-                  <Link href={`/website-packages/${pkg.slug}/`} className="text-cta underline">
-                    {pkg.heading}
-                  </Link>
-                </span>
-              ))}
-              {', '}with indicative ranges published openly on our{' '}
-            </>
-          ) : (
-            <>Indicative ranges for this service are published openly on our </>
-          )}
-          <Link href="/pricing/" className="text-cta underline">
-            pricing page
-          </Link>
-          . Every project gets a fixed, itemised quote after one scoping conversation.
-        </p>
-      </InkBand>
+      {isAnalyticsSetup ? (
+        <InkBand heading="Once-off setup — R2,950" motif>
+          <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
+            Fixed-price conversion tracking setup for existing sites: GA4, Google Tag Manager,
+            conversion events for calls, WhatsApp and forms, Consent Mode v2 for POPIA, Search
+            Console verification and a Looker Studio dashboard. Included in every new Koppie build;
+            available once-off when we did not build the site.
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/request-a-quote/?type=analytics-setup"
+              className="inline-flex min-h-11 items-center rounded-card bg-cta px-5 text-sm font-semibold text-cta-contrast hover:opacity-90"
+            >
+              Request analytics setup
+            </Link>
+          </p>
+        </InkBand>
+      ) : (
+        <InkBand heading="Pricing and packages" motif>
+          <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
+            {relatedPackages.length > 0 ? (
+              <>
+                This service is available as{' '}
+                {relatedPackages.map((pkg, i) => (
+                  <span key={pkg.slug}>
+                    {i > 0 && ' and '}
+                    <Link href={`/website-packages/${pkg.slug}/`} className="text-cta underline">
+                      {pkg.heading}
+                    </Link>
+                  </span>
+                ))}
+                {', '}with indicative ranges published openly on our{' '}
+              </>
+            ) : (
+              <>Indicative ranges for this service are published openly on our </>
+            )}
+            <Link href="/pricing/" className="text-cta underline">
+              pricing page
+            </Link>
+            . Every project gets a fixed, itemised quote after one scoping conversation.
+          </p>
+        </InkBand>
+      )}
 
       {service.faqs.length > 0 && (
         <Section heading="Frequently asked questions" tone="surface">
@@ -169,22 +194,38 @@ export function GenericServiceView({ service }: { service: Service }) {
             <Link href="/seo-audit/" className="text-link underline">
               SEO Audit &amp; Priority Fix Pack
             </Link>{' '}
-            (R1,999). Larger, ecommerce or catalogue sites: the{' '}
+            (R2,950). Larger, ecommerce or catalogue sites: the{' '}
             <Link href="/seo-audit/advanced/" className="text-link underline">
               Advanced SEO Audit
             </Link>{' '}
-            (R5,999) with architecture review and a 90-day roadmap.
+            (R8,500) with architecture review and a 90-day roadmap.
           </p>
         </Section>
       )}
 
       <CtaQuote
         heading={
-          service.ctaType === 'consultation'
-            ? 'Talk it through with the person who would build it'
-            : 'Get a straight quote for this work'
+          isAnalyticsSetup
+            ? 'Ready to measure the enquiries that matter?'
+            : service.ctaType === 'consultation'
+              ? 'Talk it through with the person who would build it'
+              : 'Get a straight quote for this work'
         }
-        ctaLabel={service.ctaType === 'consultation' ? 'Book a consultation' : 'Request a quote'}
+        body={
+          isAnalyticsSetup
+            ? 'Once-off R2,950 for GA4, Tag Manager and conversion tracking — POPIA-aware, with a Looker Studio dashboard and full handover.'
+            : undefined
+        }
+        ctaLabel={
+          isAnalyticsSetup
+            ? 'Request analytics setup'
+            : service.ctaType === 'consultation'
+              ? 'Book a consultation'
+              : 'Request a quote'
+        }
+        ctaHref={
+          isAnalyticsSetup ? '/request-a-quote/?type=analytics-setup' : '/request-a-quote/'
+        }
       />
       <JsonLd
         data={[

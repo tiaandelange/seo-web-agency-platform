@@ -10,11 +10,28 @@ export interface NavLink {
   href: string;
 }
 
-export const headerNav: NavLink[] = [
-  { label: 'Websites', href: '/services/' },
-  { label: 'Ecommerce', href: '/services/ecommerce-websites/' },
-  { label: 'Portals & Systems', href: '/services/custom-web-applications/' },
-  { label: 'SEO', href: '/services/seo-website-development/' },
+/** Header item — optional `children` render as a CSS dropdown (crawlable anchors). */
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: NavLink[];
+}
+
+export const headerNav: NavItem[] = [
+  {
+    label: 'Services',
+    href: '/services/',
+    children: [
+      { label: 'Ecommerce', href: '/services/ecommerce-websites/' },
+      { label: 'Portals & Systems', href: '/services/custom-web-applications/' },
+      { label: 'SEO', href: '/services/seo-website-development/' },
+      {
+        label: 'Analytics & Conversion Tracking',
+        href: '/services/analytics-and-conversion-tracking/',
+      },
+    ],
+  },
+  { label: 'Industries', href: '/solutions/' },
   { label: 'Work', href: '/projects/' },
   { label: 'Pricing', href: '/pricing/' },
   { label: 'Contact', href: '/contact/' },
@@ -37,6 +54,10 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Ecommerce websites', href: '/services/ecommerce-websites/' },
       { label: 'Portals & custom systems', href: '/services/custom-web-applications/' },
       { label: 'Maintenance & support', href: '/services/website-maintenance-and-support/' },
+      {
+        label: 'Analytics & conversion tracking',
+        href: '/services/analytics-and-conversion-tracking/',
+      },
       { label: 'All services', href: '/services/' },
     ],
   },
@@ -59,6 +80,18 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Comparisons', href: '/compare/' },
       { label: 'Areas we serve', href: '/areas-we-serve/' },
       { label: 'Request a proposal', href: '/request-a-quote/' },
+    ],
+  },
+  {
+    heading: 'Industries',
+    links: [
+      { label: 'Contractors & trade', href: '/solutions/contractors/' },
+      { label: 'Engineering & industrial', href: '/solutions/engineering-companies/' },
+      { label: 'Manufacturers & suppliers', href: '/solutions/manufacturers-and-suppliers/' },
+      { label: 'Property businesses', href: '/solutions/property-businesses/' },
+      { label: 'Professional services', href: '/solutions/professional-services/' },
+      { label: 'Small businesses', href: '/solutions/small-businesses/' },
+      { label: 'All industries', href: '/solutions/' },
     ],
   },
 ];

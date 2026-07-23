@@ -192,7 +192,7 @@ export function validateReachability(report: ValidationReport): void {
 
   // Global navigation (rendered on every page → edges from every route).
   const navTargets = [
-    ...headerNav.map((l) => l.href),
+    ...headerNav.flatMap((l) => [l.href, ...(l.children?.map((c) => c.href) ?? [])]),
     headerCta.href,
     ...footerColumns.flatMap((c) => c.links.map((l) => l.href)),
     ...footerLegal.map((l) => l.href),

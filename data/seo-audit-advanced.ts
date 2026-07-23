@@ -210,7 +210,7 @@ export const advancedProcess = [
 
 export const advancedFaqs: Faq[] = [
   {
-    question: 'How is this different from the R1,999 Priority Fix Pack?',
+    question: 'How is this different from the R2,950 Priority Fix Pack?',
     answer:
       'The Priority Fix Pack is for small sites (≤10 pages) with a focused crawl and 30-day plan. The Advanced Audit covers up to 250 crawlable URLs, deeper architecture/content/competitor work, ecommerce/catalogue review where relevant, and a 90-day roadmap.',
     group: 'process',

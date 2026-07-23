@@ -5,10 +5,10 @@ import { BrandWordmark } from '@/components/brand-wordmark';
 import { HeaderNavLinks } from '@/components/header-nav-links';
 
 /**
- * Global header — plain crawlable anchors, no JS-dependent menus
- * (docs/architecture/NAVIGATION-MODEL.md). Desktop nav is server-rendered
- * except for aria-current (HeaderNavLinks). Mobile disclosure is the site's
- * single menu client component.
+ * Global header — plain crawlable anchors; Services submenu is CSS-only
+ * (hover / :focus-within) so child links stay in the server HTML
+ * (docs/architecture/NAVIGATION-MODEL.md). Desktop aria-current is client-side
+ * (HeaderNavLinks). Mobile disclosure is the site's single menu client component.
  *
  * Homepage immersive treatment: CSS `body:has(.home-hero)` so internal pages
  * keep the light header without a duplicated header component.

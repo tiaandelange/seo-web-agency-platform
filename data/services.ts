@@ -1,7 +1,7 @@
 import type { Service } from '@/types/content';
 
 /**
- * The 11 services. One page per commercial search intent —
+ * The 12 services. One page per commercial search intent —
  * see docs/seo/KEYWORD-TO-PAGE-MAP.csv before adding entries.
  */
 export const services: Service[] = [
@@ -577,13 +577,90 @@ export const services: Service[] = [
         group: 'support',
       },
     ],
-    relatedServiceSlugs: ['lead-generation-websites', 'website-redesign', 'business-websites'],
+    relatedServiceSlugs: [
+      'lead-generation-websites',
+      'website-redesign',
+      'business-websites',
+      'analytics-and-conversion-tracking',
+    ],
     relatedPackageSlugs: ['professional-business-website'],
     relatedSolutionSlugs: ['contractors', 'small-businesses'],
     relatedProjectSlugs: ['damtech-website'],
     relatedArticleSlugs: ['what-is-an-seo-first-website'],
     primaryKeywordCluster: 'seo website design south africa',
     ctaType: 'consultation',
+  },
+  {
+    slug: 'analytics-and-conversion-tracking',
+    category: 'website',
+    title: 'Analytics & Conversion Tracking Setup',
+    seoTitle: 'Conversion Tracking & GA4 Analytics Setup South Africa',
+    metaDescription:
+      'GA4, Google Tag Manager and conversion tracking set up properly and POPIA-compliant so you measure calls, WhatsApp and forms. Once-off R2,950. South Africa.',
+    heading: 'Analytics & conversion tracking setup',
+    intro:
+      'Measurement done to a senior standard: not merely installing GA4, but tracking the enquiries that matter — calls, WhatsApp and form submissions — with Consent Mode v2 configured for POPIA so the numbers can be trusted. Available as a once-off setup (R2,950) for sites we did not build, and included in every Koppie website build.',
+    summary: 'Once-off R2,950: GA4, Tag Manager and conversion events set up properly for POPIA.',
+    status: 'live',
+    dateCreated: '2026-07-23',
+    dateUpdated: '2026-07-23',
+    problems: [
+      'Universal Analytics is gone and you still have no working GA4 property.',
+      'Tracking is installed but only counts pageviews — not calls, WhatsApp or form enquiries.',
+      'You cannot tell which channel actually drives the enquiries that matter.',
+      'A consent banner is blocking data collection, or you are unsure whether tracking is POPIA-compliant.',
+      'Someone “installed analytics” years ago and never configured events, goals or a dashboard.',
+    ],
+    deliverables: [
+      'GA4 property configured with a clean event taxonomy',
+      'Google Tag Manager container installed and documented',
+      'Conversion events for calls, WhatsApp, form submissions and key page views',
+      'Enhanced Conversions where appropriate',
+      'Consent Mode v2 implemented for POPIA-compliant, banner-aware data',
+      'Google Search Console linked and verified',
+      'A Looker Studio (Google Data Studio) dashboard for the metrics that matter',
+      'Testing and data-integrity QA before handover',
+      'Full handover — you own the accounts, tags and configuration',
+    ],
+    exclusions: [
+      'Ongoing reporting and optimisation (available on a support plan — see website maintenance)',
+      'Paid-ads management and media buying',
+      'BigQuery warehousing and custom data pipelines',
+      'Historical Universal Analytics data recovery',
+    ],
+    faqs: [
+      {
+        question: 'Do I still need GA4 in 2026?',
+        answer:
+          'Yes, if you want trustworthy measurement. Universal Analytics stopped processing data in 2023; GA4 is Google’s current analytics platform. Without it — correctly configured with conversion events — you cannot reliably see which channels drive calls, WhatsApp clicks or form enquiries.',
+        group: 'technical',
+      },
+      {
+        question: 'Is this POPIA compliant?',
+        answer:
+          'We implement Consent Mode v2 so tags respect your consent banner: analytics and ads tags wait for a lawful basis before collecting personal data where required. POPIA compliance also depends on your privacy notice and banner implementation; we configure the measurement layer to work with them rather than bypass them.',
+        group: 'technical',
+      },
+      {
+        question: 'How is this different from SEO?',
+        answer:
+          'SEO is about being found for the searches that matter. Analytics and conversion tracking measure what happens after people arrive — which pages and channels produce enquiries. They complement each other: SEO website development builds the architecture; this service makes the outcomes measurable.',
+        group: 'process',
+      },
+      {
+        question: 'Can you set this up on a site you did not build?',
+        answer:
+          'Yes. The once-off R2,950 setup is designed for existing sites — including those built elsewhere — provided we can access the site or Tag Manager and create or use your Google accounts. Every new Koppie build includes this measurement setup as part of the project.',
+        group: 'process',
+      },
+    ],
+    relatedServiceSlugs: ['seo-website-development', 'website-maintenance-and-support'],
+    relatedPackageSlugs: ['professional-business-website'],
+    relatedSolutionSlugs: ['small-businesses', 'professional-services'],
+    relatedProjectSlugs: [],
+    relatedArticleSlugs: [],
+    primaryKeywordCluster: 'conversion tracking setup south africa',
+    ctaType: 'quote',
   },
   {
     slug: 'website-maintenance-and-support',
@@ -613,6 +690,7 @@ export const services: Service[] = [
       'Uptime and form monitoring with proactive fixes',
       'Monthly change time for content and small improvements',
       'Search Console review and plain-language monthly reporting (plan-dependent)',
+      'Optional Measurement & Reporting add-on (from R950/mo): monthly conversion reporting, Looker Studio dashboard upkeep and a plain-English insight readout',
       'Priority response targets on business and ecommerce plans',
       'Quarterly improvement recommendations from real usage data',
     ],
@@ -634,8 +712,19 @@ export const services: Service[] = [
           'Usually yes, after a short paid assessment that checks hosting access, software state, backups and the risks we would be inheriting. The assessment produces a stabilisation list; from there the site joins a normal plan.',
         group: 'process',
       },
+      {
+        question: 'Can you report on my results each month?',
+        answer:
+          'Yes — via the optional Measurement & Reporting add-on (from R950/mo), stackable on any support plan. It builds on the once-off Analytics & Conversion Tracking Setup: we keep GA4 and Consent Mode v2 configuration healthy, maintain the Looker Studio dashboard, and turn the numbers into a plain-English monthly readout you can act on. Month-to-month, no lock-in.',
+        group: 'support',
+      },
     ],
-    relatedServiceSlugs: ['business-websites', 'ecommerce-websites', 'website-redesign'],
+    relatedServiceSlugs: [
+      'business-websites',
+      'ecommerce-websites',
+      'website-redesign',
+      'analytics-and-conversion-tracking',
+    ],
     relatedPackageSlugs: [],
     relatedSolutionSlugs: ['small-businesses'],
     relatedProjectSlugs: [],

@@ -20,9 +20,15 @@ describe('route registry', () => {
     }
   });
 
-  it('contains the expected launch architecture (51 indexable URLs after Trust P0)', () => {
+  it('contains the expected launch architecture (53 indexable URLs after analytics service)', () => {
     const indexable = routes.filter((r) => r.index);
-    expect(indexable.length).toBe(51);
+    expect(indexable.length).toBe(53);
+    expect(routes.some((r) => r.path === '/website-packages/one-page-website/' && r.index)).toBe(
+      true,
+    );
+    expect(
+      routes.some((r) => r.path === '/services/analytics-and-conversion-tracking/' && r.index),
+    ).toBe(true);
     // Noindex: quote thank-you + 4 seo-audit utilities + 3 project categories + 2 drafts + 2 templates + Johannesburg.
     const noindex = routes.filter((r) => !r.index).map((r) => r.path);
     expect(noindex).toContain('/request-a-quote/thank-you/');

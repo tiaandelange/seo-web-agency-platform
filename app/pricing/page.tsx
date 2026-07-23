@@ -7,7 +7,6 @@ import { Section } from '@/components/section';
 import { InkBand } from '@/components/layout/ink-band';
 import { CardGrid, InfoCard } from '@/components/cards';
 import { FaqList } from '@/components/faq-list';
-import { PlaceholderNotice } from '@/components/placeholder-notice';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
@@ -64,24 +63,20 @@ export default function PricingPage() {
           </div>
         }
       />
-      <PlaceholderNotice>
-        All figures on this page are indicative working ranges pending final confirmation — except
-        the fixed SEO Audit entry product, which is a published once-off price.
-      </PlaceholderNotice>
 
-      <Section heading="Fixed-price SEO audits" tone="surface">
+      <Section heading="Fixed-price once-off services" tone="surface">
         <p className="mb-6 max-w-3xl text-sm text-muted">
           Distinct from website packages, monthly SEO support and maintenance — once-off diagnostics
-          with capped implementation.
+          and measurement setup with capped scope.
         </p>
-        <div className="grid max-w-4xl gap-6 sm:grid-cols-2">
+        <div className="grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
             <h3 className="text-card-title text-ink">
               <Link href="/seo-audit/" className="hover:underline">
                 SEO Audit &amp; Priority Fix Pack
               </Link>
             </h3>
-            <p className="mt-2 text-base font-medium text-ink">R1,999 once-off</p>
+            <p className="mt-2 text-base font-medium text-ink">R2,950 once-off</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Up to 10 pages · five fixes or 90 minutes · 30-day plan · five business days after
               access. Not for ecommerce/multilingual sites.
@@ -98,7 +93,7 @@ export default function PricingPage() {
                 Advanced SEO Audit &amp; Implementation Roadmap
               </Link>
             </h3>
-            <p className="mt-2 text-base font-medium text-ink">R5,999 once-off</p>
+            <p className="mt-2 text-base font-medium text-ink">R8,500 once-off</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Up to 250 crawlable URLs · architecture/content/competitors · eight fixes or two hours
               · 90-day roadmap · 7–10 business days after access.
@@ -109,6 +104,26 @@ export default function PricingPage() {
                 className="text-sm font-semibold text-link underline"
               >
                 Check eligibility
+              </Link>
+            </p>
+          </article>
+          <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
+            <h3 className="text-card-title text-ink">
+              <Link href="/services/analytics-and-conversion-tracking/" className="hover:underline">
+                Analytics &amp; Conversion Tracking Setup
+              </Link>
+            </h3>
+            <p className="mt-2 text-base font-medium text-ink">R2,950 once-off</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              GA4 + Tag Manager + conversion events · POPIA / Consent Mode v2 · Looker Studio
+              dashboard · for sites we did not build.
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/request-a-quote/?type=analytics-setup"
+                className="text-sm font-semibold text-link underline"
+              >
+                Request analytics setup
               </Link>
             </p>
           </article>
@@ -169,7 +184,13 @@ export default function PricingPage() {
           <Link href="/services/website-maintenance-and-support/" className="text-link underline">
             maintenance and support page
           </Link>
-          . VAT treatment is stated on quotes once registration status is confirmed — ranges here are VAT-neutral.
+          .{' '}
+          <Link href="/services/analytics-and-conversion-tracking/" className="text-link underline">
+            Measurement &amp; Reporting
+          </Link>{' '}
+          add-on: from R950/mo (monthly conversion reporting + dashboard), stackable on any
+          support plan. VAT treatment is stated on quotes once registration status is confirmed —
+          ranges here are VAT-neutral.
         </p>
       </Section>
 

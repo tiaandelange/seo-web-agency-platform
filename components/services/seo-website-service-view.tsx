@@ -8,6 +8,7 @@ import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { serviceSchema, webPageSchema } from '@/lib/schema';
 import { getPackage } from '@/data/packages';
+import { getService } from '@/data/services';
 import { getSolution } from '@/data/solutions';
 import { relatedProjectItems } from '@/lib/project-proof';
 import { getArticle } from '@/data/articles';
@@ -25,6 +26,10 @@ export function SeoWebsiteServiceView({ service }: { service: Service }) {
   const path = `/services/${service.slug}/`;
 
   const related: RelatedItem[] = [
+    ...service.relatedServiceSlugs
+      .map(getService)
+      .filter((s) => s !== undefined)
+      .map((s) => ({ title: s.heading, href: `/services/${s.slug}/`, kind: 'Service' })),
     ...service.relatedSolutionSlugs
       .map(getSolution)
       .filter((s) => s !== undefined)

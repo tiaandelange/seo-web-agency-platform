@@ -18,6 +18,23 @@ export type PackageClarity = {
 };
 
 export const PACKAGE_CLARITY: Record<string, PackageClarity> = {
+  'one-page-website': {
+    suitableCustomer:
+      'Single-service trades, campaign landing pages, or new ventures that need one strong page fast.',
+    includedPages: 'One long-form page with sectioned anchors — deliberately a single indexed URL.',
+    contentResponsibility:
+      'You supply the offer facts, photos and approvals; we structure the page and provide writing guidance. Full copywriting is an add-on.',
+    forms: 'Enquiry form plus click-to-call and WhatsApp actions.',
+    seoScope:
+      'Keyword mapping for the one core offer, unique metadata, schema, sitemap and Search Console setup.',
+    revisions: 'Two rounds of structured revisions at draft and pre-launch review points.',
+    hosting: 'Hosting is chosen and billed separately — we recommend and configure; you own the account.',
+    support: 'Launch handover included; ongoing care via a maintenance plan if you want it.',
+    deliveryRange: '1–2 weeks from content kickoff.',
+    exclusionsSummary:
+      'Multiple indexed pages, blogs, catalogues, ecommerce, brand identity and ongoing SEO campaigns.',
+    priceDrivers: 'Copy help needed, asset readiness, and any light extras beyond the single page.',
+  },
   'starter-business-website': {
     suitableCustomer: 'New or small businesses that need a credible, findable first site.',
     includedPages: 'Up to 6 pages (home, about, up to 3 services, contact).',

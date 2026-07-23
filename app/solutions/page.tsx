@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { Section } from '@/components/section';
 import { CardGrid, SolutionCard } from '@/components/cards';
 import { CtaQuote } from '@/components/cta-quote';
@@ -20,11 +21,25 @@ export default function SolutionsPage() {
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader
-        heading="Industry solutions"
-        intro="Generic websites produce generic results. These pages describe how we build for specific kinds of businesses — the search behaviour of their buyers, the proof their industry expects, and the systems their operations grow into."
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="Industry solutions"
+        title="Industry solutions"
+        description="Generic websites produce generic results. These pages describe how we build for specific kinds of businesses — the search behaviour of their buyers, the proof their industry expects, and the systems their operations grow into."
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Also browse</p>
+            <p className="mt-2 text-sm font-semibold text-ink">
+              <Link href="/services/" className="text-link underline">
+                Services
+              </Link>
+            </p>
+            <p className="mt-2 text-sm text-muted">Capability pages by website type and system.</p>
+          </div>
+        }
       />
-      <Section>
+      <Section heading="Industries we build for" tone="surface">
         <CardGrid>
           {solutions.map((solution) => (
             <SolutionCard key={solution.slug} solution={solution} />

@@ -25,16 +25,16 @@ describe('SEO Audit two-tier config', () => {
     expect(products).toHaveLength(2);
     expect(getSeoAuditProduct('priority-fix').route).toBe('/seo-audit/');
     expect(getSeoAuditProduct('advanced').route).toBe('/seo-audit/advanced/');
-    expect(seoAuditTierPriceZar('priority-fix')).toBe(1999);
-    expect(seoAuditTierPriceZar('advanced')).toBe(5999);
-    expect(seoAuditTierPriceLabel('priority-fix')).toBe('R1,999 once-off');
-    expect(seoAuditTierPriceLabel('advanced')).toBe('R5,999 once-off');
+    expect(seoAuditTierPriceZar('priority-fix')).toBe(2950);
+    expect(seoAuditTierPriceZar('advanced')).toBe(8500);
+    expect(seoAuditTierPriceLabel('priority-fix')).toBe('R2,950 once-off');
+    expect(seoAuditTierPriceLabel('advanced')).toBe('R8,500 once-off');
   });
 
   it('keeps comparison rows aligned for both tiers', () => {
     expect(SEO_AUDIT_COMPARISON_ROWS.length).toBeGreaterThanOrEqual(10);
-    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.basic).toContain('1,999');
-    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.advanced).toContain('5,999');
+    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.basic).toContain('2,950');
+    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.advanced).toContain('8,500');
   });
 
   it('uses Request CTAs when checkout URLs are unset', () => {

@@ -10,7 +10,8 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /services/rfq-and-quotation-systems/,RFQ & Quotation System Development,service,live-skeleton,index,self,yes,none,/services/,1,quotation system development
 /services/customer-and-supplier-portals/,Customer & Supplier Portal Development,service,live-skeleton,index,self,yes,none,/services/,1,customer portal development
 /services/website-redesign/,Website Redesign Services,service,live-skeleton,index,self,yes,none,/services/,1,website redesign south africa
-/services/seo-website-development/,SEO Website Development,service,live-skeleton,index,self,yes,none,/services/,1,seo website design south africa
+/services/seo-website-development/,SEO Website Development,service,live-skeleton,index,self,yes,header,/services/,1,seo website design south africa
+/services/analytics-and-conversion-tracking/,Analytics & Conversion Tracking Setup,service,live-skeleton,index,self,yes,header+footer,/services/,1,conversion tracking setup south africa
 /services/website-maintenance-and-support/,Website Maintenance & Support,service,live-skeleton,index,self,yes,footer,/services/,1,website maintenance south africa
 /solutions/,Industry Solutions,hub,live-skeleton,index,self,yes,header,/,1,websites by industry
 /solutions/contractors/,Websites for Contractors,solution,live-skeleton,index,self,yes,none,/solutions/,1,websites for contractors
@@ -20,6 +21,7 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /solutions/professional-services/,Websites for Professional Services Firms,solution,live-skeleton,index,self,yes,none,/solutions/,1,website for professional services
 /solutions/small-businesses/,Websites for Small Businesses,solution,live-skeleton,index,self,yes,none,/solutions/,1,small business website south africa
 /website-packages/,Website Packages & Pricing,hub,live-skeleton,index,self,yes,header+footer,/,1,business website packages south africa
+/website-packages/one-page-website/,One-Page Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,one page website
 /website-packages/starter-business-website/,Starter Business Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,starter website package
 /website-packages/professional-business-website/,Professional Business Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,professional website package
 /website-packages/product-catalogue-website/,Product Catalogue Website Package,package,live-skeleton,index,self,yes,none,/website-packages/,1,product catalogue website package

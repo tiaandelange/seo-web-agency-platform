@@ -218,11 +218,11 @@ export function EcommerceServiceView({ service }: { service: Service }) {
           <Link href="/seo-audit/advanced/" className="text-link underline">
             Advanced SEO Audit
           </Link>{' '}
-          (R5,999) with architecture review and a 90-day roadmap. Smaller sites: the{' '}
+          (R8,500) with architecture review and a 90-day roadmap. Smaller sites: the{' '}
           <Link href="/seo-audit/" className="text-link underline">
             SEO Audit &amp; Priority Fix Pack
           </Link>{' '}
-          (R1,999).
+          (R2,950).
         </p>
       </Section>
 

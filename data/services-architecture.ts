@@ -136,6 +136,14 @@ export const CAPABILITY_SERVICES: CapabilityServiceLink[] = [
     outputKind: 'search-snippet',
   },
   {
+    slug: 'analytics-and-conversion-tracking',
+    title: 'Analytics & conversion tracking',
+    summary: 'GA4, Tag Manager and enquiry events configured for trusted measurement.',
+    tier: 'acquire',
+    flow: ['GA4 property', 'Tag Manager', 'Conversion events', 'Dashboard'],
+    outputKind: 'enquiry-record',
+  },
+  {
     slug: 'ecommerce-websites',
     title: 'Ecommerce websites',
     summary: 'Stores with SA payments and product pages built to rank.',

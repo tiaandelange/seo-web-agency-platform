@@ -2,11 +2,68 @@ import type { PackageOffer } from '@/types/content';
 
 /**
  * Productised packages — transactional intent pages.
- * ALL priceRange values are indicative placeholders (D-11); the UI must render
- * the word “indicative” wherever a range appears. Owner confirmation: input #6.
+ * priceRange values are published indicative ranges (D-11): the UI must render
+ * the word “indicative” wherever a range appears. The fixed, itemised quote after
+ * scoping is the binding number.
  */
 export const packages: PackageOffer[] = [
   {
+    slug: 'one-page-website',
+    serviceSlug: 'lead-generation-websites',
+    title: 'One-Page Website Package',
+    metaDescription:
+      'One-page website package: focused landing page for one offer, SEO-structured, yours to own. Indicative R6,500–R12,000. Fixed quote after scoping.',
+    heading: 'One-page website package',
+    intro:
+      'A deliberately single-page website for one clear offer — a campaign landing page, a single-service trade or contractor site, or a credible first presence. One long-form page with sectioned anchors, structured for search and owned by you — not a cut-down multi-page site. When you need more pages later, it upgrades cleanly into the Starter or Professional builds on the same architecture.',
+    status: 'live',
+    dateCreated: '2026-07-23',
+    dateUpdated: '2026-07-23',
+    placeholder: false,
+    idealFor: [
+      'A single-service contractor or trade that needs one strong page, not a full brochure site',
+      'A campaign or PPC landing page that must convert and still be properly structured',
+      'A new venture that needs one credible, findable page live quickly',
+    ],
+    inclusions: [
+      'One long-form page with clear sectioned anchors (not multiple indexed URLs)',
+      'Keyword mapping for the one core offer before build',
+      'Mobile-first responsive build with fast load times',
+      'Unique title, meta description and schema markup',
+      'Enquiry form plus click-to-call and WhatsApp actions',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
+      'Google Search Console setup',
+      'XML sitemap and robots configuration',
+      'Launch checklist walkthrough and handover documentation',
+      'You own the domain, content and code — no lock-in',
+    ],
+    exclusions: [
+      'Multiple indexed pages (about, services, areas) — see the Starter package',
+      'Blog, resources or content hubs',
+      'Product catalogues or ecommerce — see the larger packages',
+      'Logo design and brand identity (can be briefed separately)',
+      'Copywriting beyond structural guidance (add-on)',
+      'Ongoing SEO campaigns',
+    ],
+    priceRange: { min: 6500, max: 12000, currency: 'ZAR', indicative: true },
+    timeline: '1–2 weeks from content kickoff',
+    faqs: [
+      {
+        question: 'Will one page rank in Google?',
+        answer:
+          'A single well-structured page can rank for a focused, long-tail intent — for example one service in one area. It will not compete for broad head terms the way a multi-page site can. We set expectations honestly at scoping so the page matches a realistic search goal.',
+        group: 'technical',
+      },
+      {
+        question: 'Can I grow it into a full site later?',
+        answer:
+          'Yes. The one-pager is built on the same architecture as the Starter and Professional packages, so adding pages, areas or a quoting flow later is an extension — not a rebuild from scratch.',
+        group: 'process',
+      },
+    ],
+    primaryKeywordCluster: 'one page website',
+  },
+    {
     slug: 'starter-business-website',
     serviceSlug: 'business-websites',
     title: 'Starter Business Website Package',
@@ -18,7 +75,7 @@ export const packages: PackageOffer[] = [
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
-    placeholder: true,
+    placeholder: false,
     idealFor: [
       'A new business that needs a credible presence customers can find',
       'A trade or service owner replacing a DIY builder site that never ranked',
@@ -30,7 +87,8 @@ export const packages: PackageOffer[] = [
       'Mobile-first responsive build with fast load times',
       'Unique titles, meta descriptions and schema markup',
       'Contact form, click-to-call and WhatsApp actions',
-      'Google Search Console and analytics setup',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
+      'Google Search Console setup',
       'XML sitemap and robots configuration',
       'Launch checklist walkthrough and handover documentation',
       'You own the domain, content and code — no lock-in',
@@ -71,7 +129,7 @@ export const packages: PackageOffer[] = [
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
-    placeholder: true,
+    placeholder: false,
     idealFor: [
       'A contractor or service business whose growth depends on steady enquiries',
       'An established SME whose current site looks fine but produces nothing',
@@ -82,7 +140,7 @@ export const packages: PackageOffer[] = [
       'Dedicated, conversion-structured page per service line',
       'Area targeting for regions you genuinely serve',
       'Quote-request flow with spam protection and consent handling',
-      'Conversion tracking: calls, WhatsApp, forms, key page views',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
       'Case-study structure ready for your completed projects',
       'Full metadata, schema, sitemap and indexation controls',
       'Search Console onboarding with a 90-day indexation window',
@@ -123,7 +181,7 @@ export const packages: PackageOffer[] = [
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
-    placeholder: true,
+    placeholder: false,
     idealFor: [
       'A manufacturer or distributor whose range lives in PDF price lists',
       'A supplier losing product searches to marketplaces and rivals',
@@ -138,6 +196,7 @@ export const packages: PackageOffer[] = [
       'Crawl-safe filtering and product search',
       'Admin workflow for prices, products and range changes',
       'Core business pages (home, about, contact) in the same architecture',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
       'Metadata, schema, sitemap, Search Console — the full SEO baseline',
     ],
     exclusions: [
@@ -175,7 +234,7 @@ export const packages: PackageOffer[] = [
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
-    placeholder: true,
+    placeholder: false,
     idealFor: [
       'A retailer outgrowing a template-platform store that ranks for nothing',
       'A B2B seller adding fixed-price online ordering to a catalogue',
@@ -186,7 +245,7 @@ export const packages: PackageOffer[] = [
       'Cart and checkout tuned for mobile completion',
       'SA payment gateway integration chosen at scoping (PayFast/Yoco/Peach)',
       'Delivery options, order emails and status flow',
-      'Ecommerce analytics events and conversion tracking',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
       'Order management suited to your fulfilment process',
       'Performance budget enforced: fast mobile loads',
       'Full SEO baseline: schema, sitemap, Search Console onboarding',
@@ -226,7 +285,7 @@ export const packages: PackageOffer[] = [
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
-    placeholder: true,
+    placeholder: false,
     idealFor: [
       'A business run on spreadsheets that have started costing real money',
       'A quote-driven company ready to systematise intake and follow-up',
@@ -237,6 +296,7 @@ export const packages: PackageOffer[] = [
       'Staged build with working software reviewed every cycle',
       'Accounts, roles and permissions mirroring your organisation',
       'Reporting and exports for your actual management numbers',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
       'Deployment, documentation and full code ownership',
       'Application support plan with response targets after go-live',
     ],

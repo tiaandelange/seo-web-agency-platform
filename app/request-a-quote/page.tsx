@@ -86,6 +86,7 @@ export default async function RequestQuotePage({
     'seo-website': 'seo-website-development',
     ecommerce: 'ecommerce-websites',
     'custom-seo-audit': 'seo-audit-advanced',
+    'analytics-setup': 'analytics-and-conversion-tracking',
   };
   const serviceAliases: Record<string, string> = {
     'business-websites': 'seo-website-development',

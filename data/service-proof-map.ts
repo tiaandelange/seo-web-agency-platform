@@ -69,6 +69,17 @@ export const SERVICE_PROOF_MAP: ServiceProofEntry[] = [
     ],
   },
   {
+    serviceSlug: 'analytics-and-conversion-tracking',
+    note: 'Measurement setup is operational configuration, not a portfolio screenshot. No fabricated conversion-rate claims.',
+    items: [
+      {
+        kind: 'none',
+        relevance:
+          'Proof is the method: GA4 event taxonomy, Consent Mode v2, and a Looker Studio dashboard you own after handover — ask for a walkthrough on the scoping call.',
+      },
+    ],
+  },
+  {
     serviceSlug: 'product-catalogue-websites',
     note: 'Catalogue-plus-quote is a different commercial model from checkout ecommerce. No public client catalogue case study yet — choose the model matrix and RFQ system proof instead.',
     items: [

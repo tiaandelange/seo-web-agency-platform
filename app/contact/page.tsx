@@ -53,22 +53,6 @@ export default async function ContactPage({
         </Container>
       )}
 
-      <section className="border-b border-line py-8 md:py-10">
-        <Container>
-          <div className="grid gap-5 lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-6">
-              <ContactReachCard />
-            </div>
-            <div className="lg:col-span-6">
-              <ContactGuidanceCard />
-            </div>
-          </div>
-          <div className="mt-5">
-            <ProposalExpectations variant="contact" />
-          </div>
-        </Container>
-      </section>
-
       <section className="border-b border-line bg-surface py-10 md:py-12">
         <Container>
           <h2 className="text-section-title text-ink">Send a message</h2>
@@ -85,6 +69,22 @@ export default async function ContactPage({
             <div className="lg:col-span-5">
               <ContactRoutePanel />
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-line py-8 md:py-10">
+        <Container>
+          <div className="grid gap-5 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-6">
+              <ContactReachCard />
+            </div>
+            <div className="lg:col-span-6">
+              <ContactGuidanceCard />
+            </div>
+          </div>
+          <div className="mt-5">
+            <ProposalExpectations variant="contact" />
           </div>
         </Container>
       </section>

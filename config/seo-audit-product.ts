@@ -52,7 +52,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
     name: 'SEO Audit & Priority Fix Pack',
     shortName: 'Priority Fix Pack',
     sku: 'seo-audit-priority-fix',
-    defaultPriceZar: 1999,
+    defaultPriceZar: 2950,
     currency: 'ZAR',
     route: '/seo-audit/',
     intakePath: '/seo-audit/intake/',
@@ -70,7 +70,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
       'A focused SEO audit for small South African business websites, including a prioritised action plan and implementation of selected high-impact fixes.',
     seoTitle: 'SEO Audit South Africa – Priority Fixes Included',
     metaDescription:
-      'Compare once-off SEO audits for South African websites: R1,999 priority fixes for small sites, or R5,999 advanced technical and content audits.',
+      'Compare once-off SEO audits for South African websites: R2,950 priority fixes for small sites, or R8,500 advanced technical and content audits.',
     heading: 'SEO Audits with Priority Fixes — Clear Scope, Once-Off Price',
     supportingStatement:
       'Choose a focused audit for a small business website, or a comprehensive technical and content audit for larger, ecommerce and catalogue sites — without a monthly retainer.',
@@ -93,7 +93,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
     name: 'Advanced SEO Audit & Implementation Roadmap',
     shortName: 'Advanced SEO Audit',
     sku: 'seo-audit-advanced',
-    defaultPriceZar: 5999,
+    defaultPriceZar: 8500,
     currency: 'ZAR',
     route: '/seo-audit/advanced/',
     intakePath: '/seo-audit/advanced/intake/',
@@ -111,7 +111,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
       'Find the structural, technical and content problems affecting a larger website, understand what should be fixed first, and receive a prioritised 90-day implementation roadmap.',
     seoTitle: 'Advanced SEO Audit South Africa',
     metaDescription:
-      'Comprehensive technical, content and website-architecture SEO audit for larger websites. Includes priority fixes and a 90-day roadmap for R5,999.',
+      'Comprehensive technical, content and website-architecture SEO audit for larger websites. Includes priority fixes and a 90-day roadmap for R8,500.',
     heading: 'Advanced SEO Audit for Larger and More Complex Websites',
     supportingStatement:
       'Get a detailed assessment of your website’s technical foundation, indexation, architecture, content and organic-search opportunities, followed by a prioritised 90-day implementation roadmap.',
@@ -143,7 +143,7 @@ export const SEO_AUDIT_PROJECT_PRICING = {
   hubPath: SEO_AUDIT_HUB_PATH,
   priceRange: {
     min: SEO_AUDIT_PRODUCTS['priority-fix'].defaultPriceZar,
-    max: 9999,
+    max: 15000,
   },
   timeline: '5–10 business days after payment, eligibility and access (by tier)',
 } as const;
@@ -242,7 +242,7 @@ export function seoAuditTierPrimaryCtaExternal(id: SeoAuditProductId): boolean {
 
 /** Comparison rows for the hub (mobile-friendly cards use the same source). */
 export const SEO_AUDIT_COMPARISON_ROWS: { feature: string; basic: string; advanced: string }[] = [
-  { feature: 'Price', basic: 'R1,999 once-off', advanced: 'R5,999 once-off' },
+  { feature: 'Price', basic: 'R2,950 once-off', advanced: 'R8,500 once-off' },
   { feature: 'Recommended website size', basic: 'Up to 10 pages', advanced: 'Up to 250 crawlable URLs' },
   { feature: 'Manual page review', basic: 'Up to 10 pages', advanced: 'Up to 25 priority pages' },
   { feature: 'Technical crawl', basic: 'Focused', advanced: 'Comprehensive' },
