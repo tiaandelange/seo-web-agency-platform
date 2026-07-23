@@ -45,7 +45,7 @@ export function ProcessSteps({ steps = PROCESS_STEPS }: { steps?: ProcessStep[] 
       {steps.map((step, i) => (
         <li key={step.name} className="rounded-card border border-line bg-canvas p-5">
           <p className="text-sm font-semibold uppercase tracking-wide text-accent">Step {i + 1}</p>
-          <h3 className="mt-1 text-base font-semibold text-ink">{step.name}</h3>
+          <h2 className="mt-1 text-card-title text-ink">{step.name}</h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">{step.summary}</p>
         </li>
       ))}

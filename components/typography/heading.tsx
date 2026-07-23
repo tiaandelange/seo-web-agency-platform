@@ -5,6 +5,7 @@ export type HeadingVariant =
   | 'editorialDisplay'
   | 'pageTitle'
   | 'sectionTitle'
+  | 'sectionTitleArticle'
   | 'subsectionTitle'
   | 'cardTitle';
 
@@ -13,6 +14,7 @@ const variantClass: Record<HeadingVariant, string> = {
   editorialDisplay: 'text-display-editorial',
   pageTitle: 'text-page-title',
   sectionTitle: 'text-section-title',
+  sectionTitleArticle: 'text-section-title-article',
   subsectionTitle: 'text-subsection-title',
   cardTitle: 'text-card-title',
 };

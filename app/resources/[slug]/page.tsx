@@ -126,7 +126,7 @@ export default async function ResourceOrArticlePage({ params }: { params: Promis
         {article.body.map((section, i) => (
           <section key={i} className="py-5">
             {section.heading && (
-              <h2 className="mb-4 text-2xl font-bold tracking-tight text-ink">{section.heading}</h2>
+              <h2 className="text-section-title-article mb-4 text-ink">{section.heading}</h2>
             )}
             {section.paragraphs.map((paragraph, j) => (
               <p key={j} className="mb-4 max-w-3xl leading-relaxed text-muted">
@@ -138,7 +138,7 @@ export default async function ResourceOrArticlePage({ params }: { params: Promis
 
         {article.sources && article.sources.length > 0 && (
           <section className="py-5">
-            <h2 className="mb-4 text-2xl font-bold tracking-tight text-ink">Sources</h2>
+            <h2 className="text-section-title-article mb-4 text-ink">Sources</h2>
             <ul className="max-w-3xl list-disc space-y-2 pl-5 text-muted marker:text-accent">
               {article.sources.map((source) => (
                 <li key={source.url}>

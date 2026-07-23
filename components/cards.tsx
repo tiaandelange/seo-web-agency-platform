@@ -4,6 +4,9 @@ import type { Article, Comparison, PackageOffer, Project, Service, Solution } fr
 /**
  * Card components for hub pages and related-content blocks.
  * All cards are single-link (whole-card titles link; no nested anchors).
+ *
+ * Listing card titles are <h2> with text-card-title so hub pages never skip
+ * H1 → H3 (AUDIT-STRUCTURE-THEME.md S1 / .cursorrules).
  */
 
 function CardShell({ children }: { children: React.ReactNode }) {
@@ -14,14 +17,20 @@ function CardShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+function CardTitle({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <h2 className="text-card-title text-ink">
+      <Link href={href} className="hover:underline">
+        {children}
+      </Link>
+    </h2>
+  );
+}
+
 export function ServiceCard({ service }: { service: Service }) {
   return (
     <CardShell>
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={`/services/${service.slug}/`} className="hover:underline">
-          {service.heading}
-        </Link>
-      </h3>
+      <CardTitle href={`/services/${service.slug}/`}>{service.heading}</CardTitle>
       <p className="mt-2 text-sm leading-relaxed text-muted">{service.summary}</p>
     </CardShell>
   );
@@ -30,11 +39,7 @@ export function ServiceCard({ service }: { service: Service }) {
 export function SolutionCard({ solution }: { solution: Solution }) {
   return (
     <CardShell>
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={`/solutions/${solution.slug}/`} className="hover:underline">
-          {solution.heading}
-        </Link>
-      </h3>
+      <CardTitle href={`/solutions/${solution.slug}/`}>{solution.heading}</CardTitle>
       <p className="mt-2 text-sm leading-relaxed text-muted">{solution.industry}</p>
     </CardShell>
   );
@@ -43,11 +48,7 @@ export function SolutionCard({ solution }: { solution: Solution }) {
 export function PackageCard({ pkg }: { pkg: PackageOffer }) {
   return (
     <CardShell>
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={`/website-packages/${pkg.slug}/`} className="hover:underline">
-          {pkg.heading}
-        </Link>
-      </h3>
+      <CardTitle href={`/website-packages/${pkg.slug}/`}>{pkg.heading}</CardTitle>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{pkg.intro}</p>
       <p className="mt-3 text-sm font-medium text-ink">
         {pkg.priceRange
@@ -71,11 +72,7 @@ export function ProjectCard({ project }: { project: Project }) {
           Case study
         </p>
       )}
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={`/projects/${project.slug}/`} className="hover:underline">
-          {project.heading}
-        </Link>
-      </h3>
+      <CardTitle href={`/projects/${project.slug}/`}>{project.heading}</CardTitle>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         {project.projectType} · {project.industry}
       </p>
@@ -86,11 +83,7 @@ export function ProjectCard({ project }: { project: Project }) {
 export function ArticleCard({ article }: { article: Article }) {
   return (
     <CardShell>
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={`/resources/${article.slug}/`} className="hover:underline">
-          {article.heading}
-        </Link>
-      </h3>
+      <CardTitle href={`/resources/${article.slug}/`}>{article.heading}</CardTitle>
       <p className="mt-2 text-sm leading-relaxed text-muted">{article.metaDescription}</p>
     </CardShell>
   );
@@ -99,11 +92,7 @@ export function ArticleCard({ article }: { article: Article }) {
 export function ComparisonCard({ comparison }: { comparison: Comparison }) {
   return (
     <CardShell>
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={`/compare/${comparison.slug}/`} className="hover:underline">
-          {comparison.heading}
-        </Link>
-      </h3>
+      <CardTitle href={`/compare/${comparison.slug}/`}>{comparison.heading}</CardTitle>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         {comparison.optionA} vs {comparison.optionB} — an honest comparison.
       </p>
@@ -114,11 +103,7 @@ export function ComparisonCard({ comparison }: { comparison: Comparison }) {
 export function LinkCard({ title, description, href }: { title: string; description: string; href: string }) {
   return (
     <CardShell>
-      <h3 className="text-base font-semibold text-ink">
-        <Link href={href} className="hover:underline">
-          {title}
-        </Link>
-      </h3>
+      <CardTitle href={href}>{title}</CardTitle>
       <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
     </CardShell>
   );

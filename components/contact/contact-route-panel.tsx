@@ -84,7 +84,7 @@ export function ContactRoutePanel() {
         </ul>
 
         <div className="mt-6 border-t border-line pt-5">
-          <h3 className="text-label text-muted">What happens next</h3>
+          <p className="text-label text-muted">What happens next</p>
           <ol className="contact-process mt-4">
             {[
               'Message received.',

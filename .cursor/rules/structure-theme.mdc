@@ -1,0 +1,20 @@
+---
+description: Structure and theme discipline from the live design-system audit
+globs: app/**,components/**
+alwaysApply: false
+---
+
+# Structure & theme (complements root `.cursorrules`)
+
+Source of truth: `app/globals.css` `@theme` and `config/brand.ts`. Full rules: repo-root `.cursorrules`. Audit: `AUDIT-STRUCTURE-THEME.md`.
+
+When fixing a page, change **component classes and token usage only**. Never alter routes, metadata, section order, or heading hierarchy to achieve a visual result.
+
+## Musts
+
+- Colours: `@theme` tokens only — no raw hex in pages/components. Dark bands: `.band-ink` / `bg-ink`.
+- Type roles: `text-page-title`, `text-display-editorial` (hero H1 site-wide), `text-section-title`, `text-section-title-article` (legal/resources), `text-card-title` (H3), `text-label` on `<p>`/`<span>` never on heading tags.
+- Heading outline: H1 → H2 → H3, no skips. Listing cards use `<h2 class="text-card-title">` via `components/cards.tsx`.
+- Width: `.koppie-container` / `-wide` / `-narrow` / `-form` — no ad-hoc `max-w-*` on page shells.
+- Buttons: CTA copper + white secondary; radius only `--radius-control` or `--radius-card`.
+- Prefer classes over `style=` attributes.

@@ -32,7 +32,7 @@ export function IllustrativeWorkflow({
                 )}
               </div>
               <div className="illustrative-workflow__body">
-                <h3 className="text-base font-semibold text-ink">{step.title}</h3>
+                <h3 className="text-card-title text-ink">{step.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted">{step.detail}</p>
               </div>
             </li>

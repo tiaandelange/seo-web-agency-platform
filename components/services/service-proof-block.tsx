@@ -30,7 +30,7 @@ export function ServiceProofBlock({ serviceSlug }: { serviceSlug: string }) {
             return (
               <li key={item.href} className="border border-dashed border-line bg-canvas p-5">
                 <p className="text-label text-cta">Illustrative workflow demo</p>
-                <h3 className="mt-2 text-base font-semibold text-ink">
+                <h3 className="text-card-title mt-2 text-ink">
                   <Link href={item.href} className="text-link hover:underline">
                     {item.label}
                   </Link>
@@ -59,7 +59,7 @@ export function ServiceProofBlock({ serviceSlug }: { serviceSlug: string }) {
               )}
               <div className="p-5">
                 <p className="text-label text-muted">{relatedItemKindForProject(project)}</p>
-                <h3 className="mt-1 text-base font-semibold text-ink">
+                <h3 className="text-card-title mt-1 text-ink">
                   <Link href={`/projects/${item.slug}/`} className="text-link hover:underline">
                     {project.heading}
                   </Link>

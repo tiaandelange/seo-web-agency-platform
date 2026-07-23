@@ -48,13 +48,17 @@
   --width-content: 72rem;
   --width-content-wide: 77.5rem; /* 1240px — interactive / preview grids only */
   --width-content-narrow: 47.5rem; /* ~760px readable measure */
+  --width-form: var(--width-content-narrow); /* contact / proposal form column */
   --gutter-content: 1rem;
 
   /* Type roles — homepage is source of truth */
   --text-display-marketing: clamp(2.25rem, 4vw, 3.25rem);
+  /* Single hero display role site-wide (S4) — max 56px */
   --text-display-editorial: clamp(2rem, 5vw, 3.5rem);
   --text-page-title: clamp(1.875rem, 3.2vw, 2.5rem);
   --text-section-title: clamp(1.75rem, 3.5vw, 2.5rem);
+  /* Long-form / legal article H2 (V3) — deliberate reduced scale */
+  --text-section-title-article: clamp(1.25rem, 2vw, 1.5rem);
   --text-subsection-title: clamp(1.25rem, 2.5vw, 1.75rem);
   --text-card-title: 1.125rem;
   --text-lead: 1.125rem;
@@ -194,6 +198,13 @@ h6 {
   width: 100%;
 }
 
+/* Form column — same measure as narrow content; no ad-hoc max-width in pages */
+.koppie-container-form {
+  margin-inline: 0;
+  max-width: var(--width-form);
+  width: 100%;
+}
+
 /* Readable measure for long copy (service body, intros). */
 .measure-narrow {
   max-width: var(--width-content-narrow);
@@ -228,6 +239,14 @@ h6 {
   font-size: var(--text-section-title);
   font-weight: 700;
   letter-spacing: var(--tracking-display);
+}
+
+.text-section-title-article {
+  font-family: var(--font-heading);
+  font-size: var(--text-section-title-article);
+  font-weight: 700;
+  letter-spacing: var(--tracking-subsection);
+  line-height: var(--leading-heading);
 }
 
 .text-subsection-title {
@@ -634,9 +653,9 @@ h6 {
 .home-hero-title {
   margin-top: 1.25rem;
   max-width: min(100%, 47.5rem);
-  font-size: clamp(2.75rem, 4.1vw, 3.75rem);
-  line-height: 1.02;
-  letter-spacing: var(--tracking-heading);
+  /* Size comes from .text-display-editorial token — do not override (S4) */
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
   color: var(--color-accent-contrast);
   text-wrap: wrap;
 }
@@ -850,7 +869,6 @@ h6 {
 
   .home-hero-title {
     max-width: min(100%, 42rem);
-    font-size: clamp(2.5rem, 4.2vw, 3.5rem);
   }
 
   .home-hero-secondary {
@@ -900,8 +918,6 @@ h6 {
 
   .home-hero-title {
     max-width: none;
-    font-size: clamp(2.15rem, 9vw, 2.75rem);
-    line-height: 1.05;
   }
 
   .home-hero-secondary {
@@ -2089,8 +2105,8 @@ body:has(.home-hero) .mobile-nav-link[aria-current='page'] {
 
 .contact-form-card {
   border-top: 3px solid var(--color-cta);
-  max-width: 46.875rem; /* 750px — within 720–760 form card guidance */
-  border-radius: 0.875rem; /* 14px — form-specific, within 12–16px guidance */
+  max-width: var(--width-form);
+  border-radius: var(--radius-card);
 }
 
 .contact-process-step:not(:last-child)::before {

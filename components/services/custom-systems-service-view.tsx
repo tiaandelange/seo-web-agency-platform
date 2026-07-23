@@ -98,7 +98,7 @@ export function CustomSystemsServiceView({ service }: { service: Service }) {
             <BrokenToFixedMap />
           </div>
           <section className="measure-narrow mt-12" aria-labelledby="current-process-problems">
-            <h3 id="current-process-problems" className="text-subsection-title text-ink">
+            <h3 id="current-process-problems" className="text-card-title text-ink">
               Common symptoms
             </h3>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-muted marker:text-link">

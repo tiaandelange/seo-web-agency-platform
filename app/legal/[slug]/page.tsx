@@ -52,7 +52,7 @@ export default async function LegalPage({ params }: { params: Promise<Params> })
         {doc.sections.map((section, i) => (
           <section key={i} className="py-4">
             {section.heading && (
-              <h2 className="mb-3 text-xl font-bold tracking-tight text-ink">{section.heading}</h2>
+              <h2 className="text-section-title-article mb-3 text-ink">{section.heading}</h2>
             )}
             {section.paragraphs.map((paragraph, j) => (
               <p key={j} className="mb-3 max-w-3xl leading-relaxed text-muted">

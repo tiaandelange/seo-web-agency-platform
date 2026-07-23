@@ -1,0 +1,67 @@
+{
+  "target": "https://www.koppiesystems.co.za",
+  "date": "2026-07-23",
+  "method": "live-browser crawl of sitemap.xml (51 routes); getComputedStyle per page; diffed against app/globals.css @theme; colour findings re-verified with format/alpha-aware parser",
+  "routesAudited": 51,
+  "headline": "Highly token-disciplined site. No rogue fonts, no rogue colours, no off-system buttons. Real issues limited to heading-hierarchy and type-role, plus minor layout drift.",
+  "baseline": {
+    "fonts": { "body": "Inter", "headings": "Manrope", "mono": "IBM Plex Mono", "rogueFonts": "none" },
+    "palette": {
+      "--color-cta": "#b85c24", "--color-ink": "#14242b", "--color-graphite": "#2c3338",
+      "--color-muted": "#4a5560", "--color-accent": "#1e6f6d", "--color-surface": "#f6f7f4",
+      "--color-sandstone": "#e8dfc9", "--color-notice": "#fff8e6", "--color-input": "#fbfcfa",
+      "--color-canvas": "#ffffff", "rogueHex": "none confirmed"
+    },
+    "container": { "default": "1152px", "wide": "1240px", "narrow": "760px", "renderedDefaultPages": 49 },
+    "typeScale": { "h1_page": "40px", "h1_heroDisplay": "56px", "h2_section": "40px", "h3_card": "16px", "label": "11px" },
+    "landmarksInteriorTemplate": "header:2, nav:3, main:1, footer:1",
+    "buttons": {
+      "primary": { "bg": "#b85c24", "text": "#ffffff", "weight": 600, "radii": ["4px --radius-control", "10px --radius-card"], "status": "on-system" },
+      "secondary": { "bg": "#ffffff", "text": "#14242b", "weight": 500, "radius": "10px" },
+      "note": "0px-radius copper element is the .skip-link (intended)"
+    }
+  },
+  "structuralDeviations": {
+    "S1_headingSkip_H1toH3_listingPages": {
+      "severity": "primary",
+      "pages": ["/areas-we-serve/", "/compare/", "/process/", "/resources/seo-guides/", "/resources/website-cost-guides/", "/solutions/", "/website-packages/"],
+      "verifiedOn": ["/website-packages/ (H1->H3x6->H2x2)", "/solutions/ (H1->H3x6->H2)"],
+      "fix": "promote listing/card titles to <h2>, or add section <h2> above card grids (shared component)"
+    },
+    "S2_landmarkCountDrift": {
+      "severity": "low/confirm",
+      "/": "1/2/1/1 (no breadcrumb, hero not in <header>)",
+      "/services/": "2/4/1/1 (one extra <nav>)",
+      "interiorBaseline": "2/3/1/1 (49 pages)"
+    },
+    "S3_containerWidthDrift": { "severity": "low", "/contact/": "512px form container, off container-token scale (narrowest token 760px)" },
+    "S4_heroH1SizeInconsistency": { "severity": "minor", "/": "60px", "/projects/": "56px", "others": "40px" }
+  },
+  "visualThemeAnomalies": {
+    "V1_labelSizedHeading": { "severity": "real", "/contact/": "<h3> 'What happens next' rendered at 11px (--text-label)", "verified": true },
+    "V2_inconsistentH3Scale_servicePages": {
+      "severity": "real",
+      "pages": ["/services/ecommerce-websites/", "/services/custom-web-applications/", "/services/seo-website-development/"],
+      "detail": "one 28px <h3> mixed with 16px card-title <h3>s", "verified": true
+    },
+    "V3_reducedHeadingScale_confirmIntent": {
+      "severity": "confirm",
+      "legalH2_20px": ["/legal/privacy-policy/", "/legal/terms-of-service/", "/legal/cookie-policy/"],
+      "resourcesH2_24px": ["/resources/choosing-a-website-development-company/", "/resources/website-cost-south-africa/", "/resources/what-is-an-seo-first-website/"],
+      "recommendation": "likely intentional article template; formalise as --text-section-title-article"
+    },
+    "V4_inlineStyles": { "severity": "minor", "/projects/": 7 }
+  },
+  "withdrawnFalsePositives": {
+    "note": "First automated colour pass mis-parsed transparent rgba, color(srgb) floats and oklab tokens as pure black. Re-verified with alpha/format-aware parser: none real.",
+    "rogueBlacks": "withdrawn (transparent / color(srgb) light grey / bg-ink token)",
+    "blackButtons": "withdrawn (skip-link + oklab token artifacts)",
+    "buttonRadiusDrift": "withdrawn (4px & 10px both sanctioned; 0px is the intended skip-link)"
+  },
+  "clean": {
+    "fonts": "only Inter/Manrope/IBM Plex Mono site-wide",
+    "palette": "all rendered colour resolves to @theme tokens; dark bands use --color-ink",
+    "buttons": "two roles, two sanctioned radii",
+    "wrapperContract": "every page has exactly one <main>, one <footer>, one <h1>"
+  }
+}

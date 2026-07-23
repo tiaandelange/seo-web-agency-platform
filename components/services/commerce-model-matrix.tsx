@@ -24,7 +24,7 @@ export function CommerceModelMatrix() {
           {COMMERCE_MODELS.map((model) => (
             <article key={model.id} className="commerce-matrix__card">
               <header className="commerce-matrix__header">
-                <h3 className="text-base font-semibold text-ink">{model.name}</h3>
+                <h3 className="text-card-title text-ink">{model.name}</h3>
                 <p className="text-label mt-1 text-cta">{model.scope} scope</p>
               </header>
               <dl className="commerce-matrix__dl">

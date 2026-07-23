@@ -19,7 +19,7 @@ function CtaArrow() {
 
 export function HomeHero() {
   return (
-    <section className="home-hero band-ink relative overflow-hidden">
+    <header className="home-hero band-ink relative overflow-hidden">
       <div className="home-hero-bg" aria-hidden="true">
         <div className="home-hero-base" />
         <div className="home-hero-atmosphere" />
@@ -49,7 +49,7 @@ export function HomeHero() {
         <div className="home-hero-grid-layout">
           <div className="home-hero-primary">
             <p className="home-eyebrow home-hero-eyebrow">SEO-first websites &amp; digital systems</p>
-            <h1 className="text-display-marketing home-hero-title">
+            <h1 className="text-display-editorial home-hero-title">
               Websites and systems built to generate enquiries
             </h1>
             <p className="home-hero-lead text-lead">
@@ -83,6 +83,6 @@ export function HomeHero() {
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 }

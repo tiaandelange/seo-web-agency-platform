@@ -40,7 +40,7 @@ export function SeoAuditSimulation() {
               className={`seo-issue-panel seo-issue-panel-${issue.id} border border-line bg-canvas p-5`}
             >
               <p className="text-label text-muted">Illustrative workflow demo — sample findings</p>
-              <h3 className="text-subsection-title mt-2 text-ink">{issue.label}</h3>
+              <h3 className="text-card-title mt-2 text-ink">{issue.label}</h3>
               <dl className="mt-4 space-y-3 text-sm">
                 <div>
                   <dt className="font-mono text-[0.65rem] uppercase tracking-widest text-cta">

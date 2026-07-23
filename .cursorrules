@@ -1,0 +1,80 @@
+# Koppie Systems — Structure & Theme Rules (.cursorrules)
+# Source of truth: app/globals.css (@theme) and config/brand.ts
+# Purpose: keep automated page fixes on-system. Complements .cursor/rules/*.mdc.
+# Derived from a live audit of all 51 routes (see AUDIT-STRUCTURE-THEME.md).
+# NOTE: the audit found fonts, palette and buttons already clean/on-token.
+# These rules mainly lock in that discipline and fix the heading/type-role issues.
+
+## Golden rule
+When fixing a page, change component classes and token usage ONLY. Never alter
+routes, metadata, section order, or heading hierarchy to achieve a VISUAL result.
+Visual identity changes happen by editing @theme token values in app/globals.css,
+never by hardcoding values in pages/components.
+
+## Colour — tokens only, no raw hex
+- Use ONLY these @theme tokens; never write a raw hex in a page or component:
+    --color-cta #b85c24        /* primary CTA only */
+    --color-ink #14242b        /* dark bands (.band-ink / bg-ink), headings */
+    --color-graphite #2c3338   /* body text */
+    --color-muted #4a5560      /* secondary text */
+    --color-accent/--color-link #1e6f6d  /* links, secondary */
+    --color-surface #f6f7f4    /* section background */
+    --color-sandstone #e8dfc9
+    --color-notice #fff8e6
+    --color-input #fbfcfa
+    --color-canvas #ffffff
+- Dark sections MUST use `.band-ink` / `bg-ink` (var(--color-ink)) — never a raw black.
+- New colours require a token AND must pass contrast floors (body >=4.5:1, UI/large >=3:1).
+
+## Typography — three families, role-based scale
+- Fonts limited to: Inter (--font-sans, body/UI), Manrope (--font-heading, all
+  headings), IBM Plex Mono (--font-mono, technical labels). No other family.
+- Heading elements use type-role tokens; never set arbitrary px sizes:
+    H1 page title    -> --text-page-title       (40px max)
+    H1 hero display  -> --text-display-editorial (56px) /* pick ONE hero size site-wide */
+    H2 section title -> --text-section-title     (40px)
+    H2 article/long-form -> add & use --text-section-title-article (do NOT inline 20/24px)
+    H3 card title    -> --text-card-title        (18px)
+    label/eyebrow    -> --text-label (11px) on a <p>/<span>, NEVER on a heading tag
+- A heading element must never render at label scale (fix the /contact/ 11px <h3>).
+- Service-page H3s must share one scale (no lone 28px <h3> among 16px card titles).
+
+## Heading hierarchy — never skip a level  (primary audit fix)
+- Order must be H1 -> H2 -> H3, no skips. Listing/index pages must NOT go H1 -> H3.
+- Card/listing grid titles are <h2> (or add a section <h2> above the grid so cards
+  can be <h3>). Applies to: website-packages, solutions, compare, areas-we-serve,
+  process, resources/seo-guides, resources/website-cost-guides.
+- Exactly one <h1> per page (currently correct — keep it).
+
+## Landmarks & wrappers — uniform template
+- Every page: exactly one <main id="main"> and one <footer>. Never remove them.
+- Interior template: site <header> + hero <header> + breadcrumb <nav> + primary <nav>
+  + footer <nav>. Wrap any extra navigation so it does not add stray <nav> landmarks
+  (see the extra <nav> on /services/). Wrap the home hero in <header> for parity.
+
+## Layout width — container tokens only
+- Page content width MUST come from a container class:
+    .koppie-container        -> --width-content        (1152px) default
+    .koppie-container-wide   -> --width-content-wide    (1240px) interactive/preview only
+    .koppie-container-narrow -> --width-content-narrow  (760px)  long-form / forms
+- Do NOT use ad-hoc max-w-* on page shells (fix the /contact/ 512px form: use
+  .koppie-container-narrow, or add a dedicated --width-form token first).
+
+## Buttons — two roles, two radii  (already compliant — keep it)
+- Primary CTA: background var(--color-cta), text #fff, weight 600.
+- Secondary: background #fff, text var(--color-ink), weight 500.
+- Border-radius ONLY var(--radius-control) (4px, rounded-sm) or var(--radius-card)
+  (10px, rounded-card). The 0px-radius copper element is the .skip-link — leave it.
+- Never introduce a black button fill; use a token.
+
+## Inline styles
+- Avoid the `style` attribute in pages/components (see /projects/ cleanup); use
+  token-backed utility classes so the design system stays authoritative.
+
+## Priority fix list (from the audit)
+1. S1  Heading skip on 7 listing pages -> promote card titles to <h2> (shared component).
+2. V1  /contact/ 11px <h3> -> use text-label on a non-heading element.
+3. V2  Service-page lone 28px <h3> -> unify H3 scale.
+4. S3  /contact/ 512px form -> .koppie-container-narrow or --width-form token.
+5. V3  Legal/resources reduced H2 -> formalise --text-section-title-article (confirm intent).
+6. S4  Home 60px vs /projects/ 56px hero H1 -> single display role.

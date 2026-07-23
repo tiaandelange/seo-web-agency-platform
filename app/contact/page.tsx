@@ -78,7 +78,7 @@ export default async function ContactPage({
 
           <div className="mt-6 grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-8">
             <div className="lg:col-span-7">
-              <div className="contact-form-card measure-narrow rounded-card border border-line bg-canvas p-5 shadow-card sm:p-8">
+              <div className="contact-form-card koppie-container-form rounded-card border border-line bg-canvas p-5 shadow-card sm:p-8">
                 <ContactForm />
               </div>
             </div>

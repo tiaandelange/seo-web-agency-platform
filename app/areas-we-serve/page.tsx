@@ -42,7 +42,7 @@ export default function AreasPage() {
         </CardGrid>
         {secondary.length > 0 && (
           <div className="mt-10 max-w-3xl">
-            <h2 className="text-lg font-semibold text-ink">Also served (not a local office)</h2>
+            <h2 className="text-section-title text-ink">Also served (not a local office)</h2>
             <p className="mt-2 leading-relaxed text-muted">
               These pages remain available for visitors but are not promoted as established local
               offices and are currently excluded from the sitemap.

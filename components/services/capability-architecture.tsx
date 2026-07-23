@@ -101,7 +101,8 @@ export function CapabilityArchitecture() {
           </div>
 
           {/* Fallback crawlable list — always in HTML */}
-          <nav className="mt-12 border-t border-line pt-8" aria-label="All services">
+          {/* Non-landmark list — avoids an extra <nav> on /services/ (S2) */}
+          <div className="mt-12 border-t border-line pt-8">
             <p className="text-label text-muted">All services</p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {CAPABILITY_TIERS.flatMap((tier) =>
@@ -117,7 +118,7 @@ export function CapabilityArchitecture() {
                 )),
               )}
             </ul>
-          </nav>
+          </div>
         </div>
       </Container>
     </section>

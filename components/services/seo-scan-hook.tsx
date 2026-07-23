@@ -72,7 +72,7 @@ export function SeoScanHook() {
                 <p className="text-label text-muted">
                   Illustrative workflow demo — not a live crawl
                 </p>
-                <h3 className="text-subsection-title mt-2 text-ink">{stage.label}</h3>
+                <h3 className="text-card-title mt-2 text-ink">{stage.label}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink">{stage.finding}</p>
                 <p className="mt-2 text-sm text-muted">{stage.note}</p>
               </article>

@@ -98,7 +98,7 @@ export function EcommerceServiceView({ service }: { service: Service }) {
             <CommerceFrictionJourney />
           </div>
           <section className="measure-narrow mt-12" aria-labelledby="ecom-symptoms">
-            <h3 id="ecom-symptoms" className="text-subsection-title text-ink">
+            <h3 id="ecom-symptoms" className="text-card-title text-ink">
               Common symptoms
             </h3>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-muted marker:text-link">
@@ -153,7 +153,7 @@ export function EcommerceServiceView({ service }: { service: Service }) {
                 <p className="text-label text-cta">
                   {layer.index} / {layer.heading}
                 </p>
-                <h3 className="text-subsection-title mt-1 text-ink">{layer.heading}</h3>
+                <h3 className="text-card-title mt-1 text-ink">{layer.heading}</h3>
                 <ul className="mt-3 list-disc space-y-2 pl-5 text-muted marker:text-link">
                   {layer.items.map((item) => (
                     <li key={item} className="leading-relaxed">
