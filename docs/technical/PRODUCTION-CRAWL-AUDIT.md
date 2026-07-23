@@ -320,8 +320,8 @@ npm run lint
 
 ---
 
-Live fix was applied and re-verified in **Ops P0 re-verification** above. Historical failure mode (localhost sitemap / `Disallow: /`) is closed on the current Production alias.
+## Bottom line
 
-## Bottom line (historical — morning audit)
+**Ops P0 is cleared** on the current Production alias (`hwvfl6wkm`): robots allow public crawl, and all 52 sitemap/canonical URLs use `https://www.koppiesystems.co.za/`.
 
-DNS and redirects for `koppiesystems.co.za` are fine. The public site is **not** yet a correctly configured production SEO surface: crawl is disallowed, and every canonical/sitemap/schema URL points at localhost. Fix Vercel Production env, redeploy, re-crawl, then use Search Console live URL tests as the indexing source of truth.
+Morning audit (pre-cutover) found localhost sitemap + `Disallow: /`. That failure mode is closed. Next owner action: Search Console sitemap submit + URL Inspection. Then Trust P0.
