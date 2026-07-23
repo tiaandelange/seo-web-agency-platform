@@ -53,8 +53,9 @@ export function HomeHero() {
               Websites and systems built to generate enquiries
             </h1>
             <p className="home-hero-lead text-lead">
-              {brand.name} develops high-performance websites, portals and workflow tools for
-              technical, industrial and service businesses throughout South Africa.
+              {brand.name} builds the public website and the operational layer behind it — forms,
+              portals, dashboards and quoting workflows — for technical, industrial and service
+              businesses throughout South Africa.
             </p>
             <div className="home-hero-actions">
               <Link href="/request-a-quote/" className="home-hero-cta-primary">

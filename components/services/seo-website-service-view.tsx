@@ -19,6 +19,7 @@ import { SeoScanHook } from '@/components/services/seo-scan-hook';
 import { SeoAuditSimulation } from '@/components/services/seo-audit-simulation';
 import { SeoMethodTimeline } from '@/components/services/seo-method-timeline';
 import { SEO_DELIVERABLE_LAYERS } from '@/data/seo-service-proof';
+import { ServiceProofBlock } from '@/components/services/service-proof-block';
 
 export function SeoWebsiteServiceView({ service }: { service: Service }) {
   const path = `/services/${service.slug}/`;
@@ -112,6 +113,8 @@ export function SeoWebsiteServiceView({ service }: { service: Service }) {
           </section>
         </Container>
       </section>
+
+      <ServiceProofBlock serviceSlug={service.slug} />
 
       <section className="border-b border-line bg-surface" aria-labelledby="seo-method">
         <Container className="py-14 md:py-20">

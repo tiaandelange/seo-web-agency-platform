@@ -17,6 +17,8 @@ import { Lead } from '@/components/typography/lead';
 import { EcommerceHeroDemo } from '@/components/services/ecommerce-hero-demo';
 import { CommerceFrictionJourney } from '@/components/services/commerce-friction-journey';
 import { EcommerceReadinessHook } from '@/components/services/ecommerce-readiness-hook';
+import { CommerceModelMatrix } from '@/components/services/commerce-model-matrix';
+import { ServiceProofBlock } from '@/components/services/service-proof-block';
 import { COMMERCE_LAYERS } from '@/data/ecommerce-service-proof';
 
 export function EcommerceServiceView({ service }: { service: Service }) {
@@ -128,6 +130,10 @@ export function EcommerceServiceView({ service }: { service: Service }) {
           </div>
         </Container>
       </section>
+
+      <CommerceModelMatrix />
+
+      <ServiceProofBlock serviceSlug={service.slug} />
 
       <section className="border-b border-line" aria-labelledby="commerce-layers">
         <Container className="py-14 md:py-20">

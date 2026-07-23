@@ -22,12 +22,15 @@ Last updated: 2026-07-22 (Resend template delivery on `integration/resend-form-d
 | Production crawl audit | Live www crawlability / canonicals / robots / Playwright | ✅ 2026-07-23 — **Production env misconfigured** (see `docs/technical/PRODUCTION-CRAWL-AUDIT.md`) |
 | Portfolio screenshots | Replace live previews with WebP screenshots | ✅ 2026-07-23 — `docs/technical/PORTFOLIO-SCREENSHOT-MIGRATION.md` |
 | Content / conversion audit | All indexable routes: proof, overlap, priorities | ✅ 2026-07-23 — `docs/strategy/CONTENT-AND-CONVERSION-AUDIT.md` (no bulk rewrite) |
+| Trust / authorship (Prompt 4) | Project labels, authors, About, Jozi noindex | ✅ 2026-07-23 — `docs/strategy/TRUST-AUTHORSHIP-IMPLEMENTATION.md` |
+| Case studies (Prompt 5) | Damtech + Proplytic narratives + publication gate | ✅ 2026-07-23 — `docs/strategy/CASE-STUDY-COMPLETION.md` (noindex pending owner) |
+| Conversion proof (Prompt 6) | Homepage proof, service proof map, workflows, matrix, packages, contact | ✅ 2026-07-23 — `docs/strategy/CONVERSION-PROOF-UPGRADE.md` |
 | Official verification | CIPC, trademark, DNS cutover, logo file, attorney review, payment provider | ⏳ Owner |
 | Public launch | Production domain env, indexing, GBP, GSC | 🚫 Blocked |
 
 ## Architecture preserved
 
-64 routes · 51 indexable · 13 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic screenshots + completed case-study narratives (2026-07-23); case studies remain noindex until owner index approval · Trust P0 authorship + project labels (2026-07-23).
+64 routes · 51 indexable · 13 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic screenshots + completed case-study narratives (2026-07-23); case studies remain noindex until owner index approval · Trust P0 authorship + project labels (2026-07-23) · Homepage/service conversion proof upgrade (2026-07-23).
 
 ## Blockers (public launch)
 

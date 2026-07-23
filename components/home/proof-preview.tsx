@@ -8,7 +8,7 @@ export function ProofPreview() {
       eyebrow="Proof · Architecture sample"
       heading="This site is the first case study"
       headingLevel="functional"
-      intro="No invented client counts. What you can inspect today: the keyword-to-page map, server-rendered structure and measurement wiring behind every commercial page."
+      intro="No invented client counts. What you can inspect today: the keyword-to-page map, server-rendered structure and measurement wiring behind every commercial page — alongside the selected work above."
     >
       <div className="mt-8 grid gap-6 border border-line bg-canvas p-6 md:grid-cols-2 md:p-8">
         <div>

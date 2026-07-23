@@ -179,7 +179,7 @@ export const services: Service[] = [
     relatedServiceSlugs: ['rfq-and-quotation-systems', 'ecommerce-websites', 'website-maintenance-and-support'],
     relatedPackageSlugs: ['product-catalogue-website'],
     relatedSolutionSlugs: ['manufacturers-and-suppliers', 'engineering-companies'],
-    relatedProjectSlugs: [],
+    relatedProjectSlugs: ['damtech-website'],
     relatedArticleSlugs: ['website-cost-south-africa'],
     primaryKeywordCluster: 'product catalogue website south africa',
     ctaType: 'quote',

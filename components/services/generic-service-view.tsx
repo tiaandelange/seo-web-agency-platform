@@ -12,13 +12,19 @@ import { getPackage } from '@/data/packages';
 import { getSolution } from '@/data/solutions';
 import { getArticle } from '@/data/articles';
 import { relatedProjectItems } from '@/lib/project-proof';
+import { getServiceProof } from '@/data/service-proof-map';
+import { ServiceProofBlock } from '@/components/services/service-proof-block';
+import { IllustrativeWorkflow } from '@/components/services/illustrative-workflow';
+import { CommerceModelMatrix } from '@/components/services/commerce-model-matrix';
 
 /**
  * Shared service template — behaviour preserved from the former inline page.
  * Dedicated proof layouts branch before this view (D-32).
+ * Prompt 6: optional proof block, workflow demos and commerce matrix from the map.
  */
 export function GenericServiceView({ service }: { service: Service }) {
   const path = `/services/${service.slug}/`;
+  const proof = getServiceProof(service.slug);
 
   const related: RelatedItem[] = [
     ...service.relatedSolutionSlugs
@@ -49,6 +55,12 @@ export function GenericServiceView({ service }: { service: Service }) {
       <Section heading="Problems this solves" measure="narrow">
         <BulletList items={service.problems} />
       </Section>
+
+      <ServiceProofBlock serviceSlug={service.slug} />
+
+      {proof?.workflowId && <IllustrativeWorkflow workflowId={proof.workflowId} />}
+
+      {proof?.showCommerceMatrix && <CommerceModelMatrix />}
 
       <Section heading="What's included" tone="surface" measure="narrow">
         <BulletList items={service.deliverables} />

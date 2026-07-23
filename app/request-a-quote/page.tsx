@@ -10,6 +10,7 @@ import { JsonLd } from '@/components/json-ld';
 import { buildIndustrialEngineMessage } from '@/lib/industrial-engine/quote-prefill';
 import { webPageSchema } from '@/lib/schema';
 import { Container } from '@/components/layout/container';
+import { ProposalExpectations } from '@/components/contact/proposal-expectations';
 
 const PATH = '/request-a-quote/';
 const TITLE = 'Request a Website Proposal';
@@ -132,7 +133,8 @@ export default async function RequestQuotePage({
               </div>
             </div>
 
-            <aside className="lg:col-span-4">
+            <aside className="lg:col-span-4 space-y-6">
+              <ProposalExpectations variant="quote" />
               <div className="proposal-aside proposal-aside-sticky rounded-card border border-line bg-canvas p-6 lg:p-8">
                 <div className="proposal-aside-grid pointer-events-none absolute inset-0" aria-hidden="true" />
                 <div className="relative">

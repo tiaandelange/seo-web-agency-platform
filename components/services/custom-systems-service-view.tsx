@@ -18,6 +18,7 @@ import { ArchitectureStrip } from '@/components/systems/architecture-strip';
 import { CustomSystemsHeroDemo } from '@/components/services/custom-systems-hero-demo';
 import { WorkflowBuilder } from '@/components/services/workflow-builder';
 import { DeliverableLayers } from '@/components/services/deliverable-layers';
+import { ServiceProofBlock } from '@/components/services/service-proof-block';
 import { Lead } from '@/components/typography/lead';
 
 export function CustomSystemsServiceView({ service }: { service: Service }) {
@@ -110,6 +111,8 @@ export function CustomSystemsServiceView({ service }: { service: Service }) {
           </section>
         </Container>
       </section>
+
+      <ServiceProofBlock serviceSlug={service.slug} />
 
       <section
         id="map-workflow"

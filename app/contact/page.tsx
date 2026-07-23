@@ -12,6 +12,7 @@ import {
   ContactReachCard,
 } from '@/components/contact/contact-info-cards';
 import { ContactRoutePanel } from '@/components/contact/contact-route-panel';
+import { ProposalExpectations } from '@/components/contact/proposal-expectations';
 
 const PATH = '/contact/';
 const TITLE = 'Contact Koppie Systems | Pretoria & South Africa';
@@ -61,6 +62,9 @@ export default async function ContactPage({
             <div className="lg:col-span-6">
               <ContactGuidanceCard />
             </div>
+          </div>
+          <div className="mt-5">
+            <ProposalExpectations variant="contact" />
           </div>
         </Container>
       </section>

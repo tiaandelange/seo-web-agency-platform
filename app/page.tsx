@@ -9,7 +9,9 @@ import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { faqs } from '@/data/faqs';
 import { HomeHero } from '@/components/home/home-hero';
+import { HomeProofStrip } from '@/components/home/home-proof-strip';
 import { EnquirySystemAnchor } from '@/components/home/enquiry-system-anchor';
+import { CapabilityPaths } from '@/components/home/capability-paths';
 import { ServiceArchitecture } from '@/components/home/service-architecture';
 import { WorkflowExploded } from '@/components/home/workflow-exploded';
 import { MethodologySpine } from '@/components/home/methodology-spine';
@@ -46,7 +48,9 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <HomeProofStrip />
       <EnquirySystemAnchor />
+      <CapabilityPaths />
       <ServiceArchitecture />
       <EditorialBreak />
       <WorkflowExploded />
