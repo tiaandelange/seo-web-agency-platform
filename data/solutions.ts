@@ -69,7 +69,7 @@ export const solutions: Solution[] = [
       'RFQ-ready contact flows for enquiries that start as scopes, not chit-chat — extendable into a full quotation system.',
     ],
     recommendedServiceSlugs: ['business-websites', 'rfq-and-quotation-systems', 'customer-and-supplier-portals'],
-    relatedProjectSlugs: ['admin-quotation-platform-template'],
+    relatedProjectSlugs: [],
     faqs: [
       {
         question: 'Our work is niche — is there even search demand?',
@@ -110,7 +110,7 @@ export const solutions: Solution[] = [
       'Ecommerce added only where fixed-price online payment genuinely fits the range.',
     ],
     recommendedServiceSlugs: ['product-catalogue-websites', 'rfq-and-quotation-systems', 'ecommerce-websites'],
-    relatedProjectSlugs: ['catalogue-rfq-website-template'],
+    relatedProjectSlugs: [],
     faqs: [
       {
         question: 'Our prices are negotiated — must we publish them?',

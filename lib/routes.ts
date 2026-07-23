@@ -9,7 +9,7 @@ import {
 } from '@/data/projects';
 import { articles, getLiveResourceCategories } from '@/data/articles';
 import { comparisons } from '@/data/comparisons';
-import { getLiveLocations } from '@/data/locations';
+import { getLiveLocations, isLocationIndexable } from '@/data/locations';
 import { legalDocs } from '@/data/legal';
 
 /**
@@ -118,7 +118,7 @@ export function getAllRoutes(): RouteEntry[] {
     entry('/areas-we-serve/', 'Areas We Serve', '/', 'hub'),
     ...getLiveLocations().map((l) =>
       entry(`/areas-we-serve/${l.slug}/`, l.title, '/areas-we-serve/', 'location', {
-        index: !l.noindex,
+        index: isLocationIndexable(l),
         lastModified: l.dateUpdated,
       })
     ),

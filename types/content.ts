@@ -128,12 +128,27 @@ export interface Testimonial {
   permissionConfirmed: boolean;
 }
 
+/** Trust taxonomy — controls public labels, related-link wording and client language. */
+export type ProjectClassification =
+  | 'client-project'
+  | 'internal-product'
+  | 'personal-project'
+  | 'illustrative-demo'
+  | 'template';
+
+export type ProjectEvidenceLevel = 'complete' | 'limited' | 'illustrative' | 'none';
+
 export interface Project extends BaseContent {
   /** Real name only with written permission; otherwise anonymised descriptor. */
   clientDescriptor: string;
   industry: string;
   location?: string;
   projectType: string;
+  /** Central trust classification — never invent “client” language for templates/demos. */
+  classification: ProjectClassification;
+  /** Customer-facing status chip / related-link kind source. */
+  publicLabel: string;
+  evidenceLevel: ProjectEvidenceLevel;
   categories: ProjectCategory[];
   serviceSlugs: string[];
   solutionSlug?: string;
@@ -174,7 +189,8 @@ export interface Article extends BaseContent {
   relatedArticleSlugs: string[];
   body: ArticleSection[];
   sources?: SourceRef[];
-  author?: string;
+  /** Author slug from `data/authors.ts` — required for live articles. */
+  authorSlug: string;
 }
 
 export interface ComparisonCriterion {
@@ -211,6 +227,23 @@ export interface TeamMember {
   role: string;
   bio: string;
   placeholder?: boolean;
+}
+
+/** Central author record for articles and About. */
+export interface Author {
+  slug: string;
+  name: string;
+  role: string;
+  shortBio: string;
+  longBio?: string;
+  /** Path under /public — omit when no approved image exists. */
+  image?: ImageRef;
+  expertise: string[];
+  /** Only real public profiles. */
+  sameAs?: string[];
+  /** Must be true to render on live pages. */
+  approved: boolean;
+  schemaType: 'Person';
 }
 
 export interface RedirectRule {

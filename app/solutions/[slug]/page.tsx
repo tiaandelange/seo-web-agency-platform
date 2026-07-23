@@ -12,7 +12,7 @@ import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
 import { solutions, getSolution } from '@/data/solutions';
 import { getService } from '@/data/services';
-import { getProject } from '@/data/projects';
+import { relatedProjectItems } from '@/lib/project-proof';
 
 interface Params {
   slug: string;
@@ -46,10 +46,9 @@ export default async function SolutionPage({ params }: { params: Promise<Params>
   const recommendedServices = solution.recommendedServiceSlugs
     .map(getService)
     .filter((s) => s !== undefined);
-  const related: RelatedItem[] = solution.relatedProjectSlugs
-    .map(getProject)
-    .filter((p) => p !== undefined)
-    .map((p) => ({ title: p.heading, href: `/projects/${p.slug}/`, kind: 'Project' }));
+  const related: RelatedItem[] = relatedProjectItems(solution.relatedProjectSlugs, {
+    fallbackToWork: true,
+  });
 
   return (
     <>

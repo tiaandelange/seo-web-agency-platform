@@ -4,6 +4,10 @@ import type { LocationArea } from '@/types/content';
  * Location pages — genuinely served areas only (rule 11, D-08).
  * cape-town is planned and not generated until real service evidence exists.
  * Each page's copy is written individually; no city-swapped boilerplate.
+ *
+ * Indexation gate (Trust P0): live + not noindex + not placeholder + meaningful
+ * local substance. Pretoria clears the gate as the operating base. Johannesburg
+ * remains reachable but noindex until stronger non-office local proof exists.
  */
 export const locations: LocationArea[] = [
   {
@@ -15,11 +19,11 @@ export const locations: LocationArea[] = [
       'Pretoria-based website design and development: SEO-first business websites, catalogues and custom systems — in-person meetings across Pretoria and Centurion.',
     heading: 'Website design and development in Pretoria',
     intro:
-      'We are based in Pretoria, which makes this the one page on this site where “local” means exactly that: scoping sessions over coffee in Menlyn or Centurion, on-site content walkthroughs at your premises, and a developer in the same time zone as your deadlines.',
+      'Koppie Systems is based in Pretoria. This is the one page on the site where “local” means operating from the same city: scoping sessions in Menlyn or Centurion, on-site content walkthroughs when a catalogue or system needs them, and a developer in the same time zone as your deadlines. We build SEO-first websites and practical digital systems for technical, industrial and service businesses across Gauteng and South Africa.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
-    placeholder: true,
+    dateUpdated: '2026-07-23',
+    placeholder: false,
     serviceSlugs: [
       'business-websites',
       'lead-generation-websites',
@@ -42,24 +46,30 @@ export const locations: LocationArea[] = [
         answer:
           'Yes. Centurion, Midstream and the greater Pretoria area are all served from here — this page covers them deliberately rather than pretending each suburb needs its own page.',
       },
+      {
+        question: 'Is there a public office address?',
+        answer:
+          'No public street address is published. Work happens through scheduled meetings, remote collaboration and on-site visits by arrangement — not a walk-in showroom.',
+      },
     ],
-    projectSlugs: [],
+    projectSlugs: ['damtech-website', 'proplytic-property-software'],
     primaryKeywordCluster: 'website design pretoria',
   },
   {
     slug: 'johannesburg',
     city: 'Johannesburg',
     province: 'Gauteng',
-    title: 'Website Design & Development in Johannesburg',
+    title: 'Website Design & Development for Johannesburg Businesses',
     metaDescription:
-      'Website design and development for Johannesburg businesses: SEO-first builds, catalogues and systems delivered remotely with on-site meetings by arrangement.',
-    heading: 'Website design and development in Johannesburg',
+      'Website design for Johannesburg businesses from Pretoria: SEO-first sites and systems, remote delivery, on-site by arrangement — no Johannesburg office.',
+    heading: 'Website design and development for Johannesburg businesses',
     intro:
-      'Johannesburg businesses work with us the way most of our clients do: efficiently and mostly remotely, with on-site meetings across Joburg, Sandton and Midrand arranged where a project genuinely benefits — typically kickoff and catalogue or systems walkthroughs. Being N1-close in Pretoria means “on-site” is an hour away, not a flight.',
+      'Koppie Systems does not operate a Johannesburg office. We serve Johannesburg businesses from our Pretoria base across Gauteng: mostly remote collaboration, with on-site meetings in Joburg, Sandton or Midrand when a kickoff or systems walkthrough genuinely helps. Being N1-close means “on-site” is a drive, not a flight — without implying a local branch that does not exist.',
     status: 'live',
+    noindex: true,
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
-    placeholder: true,
+    dateUpdated: '2026-07-23',
+    placeholder: false,
     serviceSlugs: [
       'business-websites',
       'lead-generation-websites',
@@ -73,14 +83,19 @@ export const locations: LocationArea[] = [
     consolidatedAreas: ['Sandton', 'Midrand', 'Randburg', 'Roodepoort', 'East Rand'],
     localFaqs: [
       {
+        question: 'Do you have an office in Johannesburg?',
+        answer:
+          'No. Koppie Systems is Pretoria-based. Johannesburg clients are served remotely from Gauteng, with in-person meetings arranged when they add clear value.',
+      },
+      {
         question: 'Can you meet on-site in Johannesburg?',
         answer:
-          'Yes, by arrangement — most Johannesburg projects include an in-person kickoff or site walkthrough where it adds real value, with the rest of the project running remotely. For quoting-system and catalogue projects, seeing your actual workflow at your premises is usually worth the trip.',
+          'Yes, by arrangement — most Johannesburg projects can include an in-person kickoff or site walkthrough where it helps, with the rest of the project running remotely.',
       },
       {
         question: 'Does remote delivery slow anything down?',
         answer:
-          'No — the build process is structured around documented decisions and scheduled reviews rather than meeting volume. Johannesburg clients get the same response targets as Pretoria clients; the M1 is only involved when a whiteboard genuinely beats a video call.',
+          'No — the build process is structured around documented decisions and scheduled reviews rather than meeting volume. Johannesburg clients get the same response targets as Pretoria clients.',
       },
     ],
     projectSlugs: [],
@@ -113,4 +128,18 @@ export function getLocation(slug: string): LocationArea | undefined {
 
 export function getLiveLocations(): LocationArea[] {
   return locations.filter((l) => l.status === 'live');
+}
+
+/**
+ * Location indexability gate: live, not noindex, not placeholder, and enough
+ * local substance (unique FAQs + consolidated areas + services).
+ */
+export function isLocationIndexable(location: LocationArea): boolean {
+  if (location.status !== 'live') return false;
+  if (location.noindex) return false;
+  if (location.placeholder) return false;
+  if (location.serviceSlugs.length === 0) return false;
+  if (location.localFaqs.length < 2) return false;
+  if (location.consolidatedAreas.length === 0) return false;
+  return true;
 }

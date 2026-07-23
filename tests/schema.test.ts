@@ -62,12 +62,18 @@ describe('structured data builders', () => {
     expect(schema).not.toHaveProperty('offers');
   });
 
-  it('builds Article schema with dates and mainEntityOfPage', () => {
+  it('builds Article schema with Person author matching the approved byline', () => {
     const schema = articleSchemaFor(articles[0]);
     expect(schema['@type']).toBe('Article');
     expect(schema.datePublished).toBeTruthy();
     expect(schema.dateModified).toBeTruthy();
     expect(String(schema.mainEntityOfPage)).toMatch(ABSOLUTE);
+    expect(schema.author).toEqual(
+      expect.objectContaining({
+        '@type': 'Person',
+        name: 'Tiaan de Lange',
+      }),
+    );
   });
 
   it('mirrors visible Q&A pairs in FAQPage schema', () => {

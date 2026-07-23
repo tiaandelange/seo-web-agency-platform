@@ -56,7 +56,7 @@ export const showcaseProjects: ProjectCardData[] = [
     summary:
       'A structured web application designed to organise property portfolio information inside a controlled operational interface.',
     status: 'live',
-    statusLabel: 'Live project',
+    statusLabel: 'Internal product',
     scope: [
       'Custom application architecture',
       'Portfolio dashboard and property records',

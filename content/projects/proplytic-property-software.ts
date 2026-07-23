@@ -27,6 +27,9 @@ export const proplyticPropertySoftware: Project = {
   industry: 'Property / PropTech',
   location: 'South Africa',
   projectType: 'Custom web application',
+  classification: 'internal-product',
+  publicLabel: 'Internal product',
+  evidenceLevel: 'limited',
   categories: ['admin-systems'],
   serviceSlugs: [
     'custom-web-applications',

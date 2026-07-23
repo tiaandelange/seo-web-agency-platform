@@ -5,7 +5,7 @@ alwaysApply: true
 
 # SEO architecture preservation
 
-- 64 routes = 52 indexable + 12 noindex. `lib/routes.ts` is the single source of truth for routes, indexation flags, sitemap and robots. Never bypass it.
+- 64 routes = 51 indexable + 13 noindex. `lib/routes.ts` is the single source of truth for routes, indexation flags, sitemap and robots. Never bypass it.
 - No URL additions/renames/removals without: a documented SEO reason in `docs/DECISION-LOG.md`, an update to `docs/architecture/URL-REGISTER.csv`, and (for moves) a redirect in `data/redirects.ts` + `docs/seo/REDIRECT-REGISTER.csv` with internal links re-pointed in the same commit.
 - Metadata only via `buildMetadata()` (`lib/seo.ts`): unique title + description, self-canonical with trailing slash, robots from the route registry.
 - JSON-LD only via builders in `lib/schema.ts`; no fabricated ratings, reviews, offers or prices (D-10).

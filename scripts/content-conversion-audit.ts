@@ -185,10 +185,10 @@ for (const a of articles.filter((x) => x.status === 'live')) {
     primaryCta: 'Related services / proposal',
     relatedProject: '—',
     relatedService: (a.supportsServiceSlugs || []).join('; ') || '—',
-    authorByline: a.author || 'MISSING',
+    authorByline: a.authorSlug || 'MISSING',
     indexingStatus: a.noindex ? 'noindex' : 'indexable',
     similarityRisk: 'TBD',
-    recommendedAction: a.author ? 'Expand' : 'Expand',
+    recommendedAction: a.authorSlug ? 'Expand' : 'Expand',
     notes: `category=${a.category}; updated=${a.dateUpdated}; sources=${a.sources?.length || 0}; sections=${a.body.length}`,
   });
 }
@@ -325,7 +325,7 @@ writeFileSync('docs/strategy/_content-audit-raw.json', JSON.stringify({
   showcase: showcaseProjects.map((p) => ({ slug: p.slug, statusLabel: p.statusLabel, href: p.href })),
   articles: articles.filter(a=>a.status==='live').map(a => ({
     slug: a.slug,
-    author: a.author || null,
+    author: a.authorSlug || null,
     datePublished: a.dateCreated,
     dateUpdated: a.dateUpdated,
     sources: a.sources?.length || 0,

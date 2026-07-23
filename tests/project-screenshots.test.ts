@@ -26,7 +26,7 @@ describe('project showcase screenshots', () => {
     }
     expect(showcaseProjects.map((p) => p.statusLabel)).toEqual([
       'Live project',
-      'Live project',
+      'Internal product',
       'Personal event website',
     ]);
   });

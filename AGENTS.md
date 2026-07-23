@@ -4,7 +4,7 @@ Binding rules for any AI agent or contributor working in this repository. Detail
 
 ## 1. SEO architecture is frozen
 
-- 64 routes = 52 indexable + 12 noindex. Do not add, remove or rename URLs without a documented SEO reason recorded in `docs/DECISION-LOG.md` and mirrored in `docs/architecture/URL-REGISTER.csv`.
+- 64 routes = 51 indexable + 13 noindex. Do not add, remove or rename URLs without a documented SEO reason recorded in `docs/DECISION-LOG.md` and mirrored in `docs/architecture/URL-REGISTER.csv`.
 - All routing, indexation flags, sitemap and robots output derive from `lib/routes.ts` (single source of truth, D-15). Never hand-edit sitemap/robots logic per page.
 - Canonicals: trailing-slash, self-referencing, built by `buildMetadata()` in `lib/seo.ts` only. Standards: `docs/seo/METADATA-STANDARDS.md`.
 - Indexation rules: `docs/architecture/INDEXATION-RULES.md`. Never flip noindex→index without the gate conditions being met (e.g. project publication permission).

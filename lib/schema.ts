@@ -1,5 +1,6 @@
 import { brand, siteOrigin, publicEmail } from '@/config/brand';
 import { absoluteUrl } from '@/lib/seo';
+import { getApprovedAuthor } from '@/data/authors';
 import type { Article, Comparison, Faq, LocationArea, Project, Service } from '@/types/content';
 import type { Crumb } from '@/lib/routes';
 
@@ -130,7 +131,17 @@ export function articleSchema(input: {
   description: string;
   datePublished: string;
   dateModified: string;
+  authorName?: string;
+  authorUrl?: string;
 }): SchemaObject {
+  const author = input.authorName
+    ? {
+        '@type': 'Person',
+        name: input.authorName,
+        ...(input.authorUrl ? { url: input.authorUrl } : {}),
+      }
+    : { '@id': organizationId() };
+
   return {
     '@context': CONTEXT,
     '@type': 'Article',
@@ -139,18 +150,21 @@ export function articleSchema(input: {
     datePublished: input.datePublished,
     dateModified: input.dateModified,
     mainEntityOfPage: absoluteUrl(input.path),
-    author: { '@id': organizationId() },
+    author,
     publisher: { '@id': organizationId() },
   };
 }
 
 export function articleSchemaFor(article: Article): SchemaObject {
+  const author = getApprovedAuthor(article.authorSlug);
   return articleSchema({
     path: `/resources/${article.slug}/`,
     headline: article.heading,
     description: article.metaDescription,
     datePublished: article.dateCreated,
     dateModified: article.dateUpdated,
+    authorName: author?.name,
+    authorUrl: author ? absoluteUrl('/about/') : undefined,
   });
 }
 

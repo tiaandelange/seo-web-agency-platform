@@ -73,6 +73,7 @@ export const articles: Article[] = [
     dateUpdated: '2026-07-21',
     supportsServiceSlugs: ['business-websites'],
     relatedArticleSlugs: ['choosing-a-website-development-company', 'what-is-an-seo-first-website'],
+    authorSlug: 'tiaan-de-lange',
     body: [
       {
         heading: 'The short answer: 2026 market ranges',
@@ -123,6 +124,7 @@ export const articles: Article[] = [
     dateUpdated: '2026-07-21',
     supportsServiceSlugs: ['business-websites'],
     relatedArticleSlugs: ['website-cost-south-africa', 'what-is-an-seo-first-website'],
+    authorSlug: 'tiaan-de-lange',
     body: [
       {
         heading: 'Ask about method, not portfolios',
@@ -161,6 +163,7 @@ export const articles: Article[] = [
     dateUpdated: '2026-07-21',
     supportsServiceSlugs: ['seo-website-development'],
     relatedArticleSlugs: ['website-cost-south-africa', 'choosing-a-website-development-company'],
+    authorSlug: 'tiaan-de-lange',
     body: [
       {
         heading: 'The order of operations is the whole idea',

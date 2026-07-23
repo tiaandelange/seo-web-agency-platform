@@ -18,6 +18,8 @@ import {
   getResourceCategory,
 } from '@/data/articles';
 import { getService } from '@/data/services';
+import { getApprovedAuthor } from '@/data/authors';
+import { ArticleAuthor } from '@/components/article-author';
 
 /**
  * Shared namespace under /resources/: live category listings and articles.
@@ -94,6 +96,9 @@ export default async function ResourceOrArticlePage({ params }: { params: Promis
   const article = getArticle(slug);
   if (!article || article.status !== 'live') notFound();
 
+  const author = getApprovedAuthor(article.authorSlug);
+  if (!author) notFound();
+
   const path = `/resources/${article.slug}/`;
   const supportedServices = article.supportsServiceSlugs.map(getService).filter((s) => s !== undefined);
   const related: RelatedItem[] = [
@@ -107,7 +112,15 @@ export default async function ResourceOrArticlePage({ params }: { params: Promis
   return (
     <>
       <Breadcrumbs path={path} />
-      <PageHeader heading={article.heading} intro={article.intro} updated={article.dateUpdated} />
+      <PageHeader heading={article.heading} intro={article.intro} />
+
+      <div className="mx-auto max-w-6xl px-4">
+        <ArticleAuthor
+          author={author}
+          datePublished={article.dateCreated}
+          dateUpdated={article.dateUpdated}
+        />
+      </div>
 
       <article className="mx-auto max-w-6xl px-4">
         {article.body.map((section, i) => (

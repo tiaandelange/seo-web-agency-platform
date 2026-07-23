@@ -9,10 +9,11 @@ import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { locationServiceSchema, webPageSchema } from '@/lib/schema';
-import { getLiveLocations, getLocation } from '@/data/locations';
+import { getLiveLocations, getLocation, isLocationIndexable } from '@/data/locations';
 import { getService } from '@/data/services';
-import { getProject } from '@/data/projects';
-import { RelatedContent, type RelatedItem } from '@/components/related-content';
+import { relatedProjectItems } from '@/lib/project-proof';
+import { RelatedContent } from '@/components/related-content';
+import { PlaceholderNotice } from '@/components/placeholder-notice';
 
 interface Params {
   slug: string;
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     seoTitle: location.seoTitle,
     description: location.metaDescription,
     path: `/areas-we-serve/${location.slug}/`,
-    index: !location.noindex,
+    index: isLocationIndexable(location),
   });
 }
 
@@ -44,15 +45,23 @@ export default async function LocationPage({ params }: { params: Promise<Params>
 
   const path = `/areas-we-serve/${location.slug}/`;
   const localServices = location.serviceSlugs.map(getService).filter((s) => s !== undefined);
-  const localProjects: RelatedItem[] = location.projectSlugs
-    .map(getProject)
-    .filter((p) => p !== undefined)
-    .map((p) => ({ title: p.heading, href: `/projects/${p.slug}/`, kind: 'Local project' }));
+  const localProjects = relatedProjectItems(location.projectSlugs);
+  const indexable = isLocationIndexable(location);
 
   return (
     <>
       <Breadcrumbs path={path} />
       <PageHeader heading={location.heading} intro={location.intro} updated={location.dateUpdated} />
+
+      {!indexable && (
+        <Section measure="narrow">
+          <PlaceholderNotice>
+            This location page is retained for visitors but is temporarily excluded from search
+            indexing until stronger local proof is available. Koppie Systems does not claim a{' '}
+            {location.city} office.
+          </PlaceholderNotice>
+        </Section>
+      )}
 
       <Section heading={`Services available in ${location.city}`}>
         <ul className="grid max-w-4xl gap-3 sm:grid-cols-2">
@@ -77,7 +86,14 @@ export default async function LocationPage({ params }: { params: Promise<Params>
 
       {localProjects.length > 0 && (
         <Section>
-          <RelatedContent heading={`Projects in and around ${location.city}`} items={localProjects} />
+          <RelatedContent
+            heading={
+              location.slug === 'pretoria'
+                ? 'Selected work from our Pretoria-based studio'
+                : `Selected work relevant to ${location.city} buyers`
+            }
+            items={localProjects}
+          />
         </Section>
       )}
 
@@ -87,7 +103,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         </Section>
       )}
 
-      <CtaQuote heading={`Start a project in ${location.city}`} />
+      <CtaQuote heading={`Start a project serving ${location.city}`} />
       <JsonLd
         data={[
           webPageSchema({

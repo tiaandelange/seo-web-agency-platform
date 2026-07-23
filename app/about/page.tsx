@@ -6,11 +6,11 @@ import { Breadcrumbs } from '@/components/breadcrumbs';
 import { PageHeader } from '@/components/page-header';
 import { Section } from '@/components/section';
 import { TrustSignals } from '@/components/trust-signals';
-import { PlaceholderNotice } from '@/components/placeholder-notice';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
-import { founderExtendedBio, team } from '@/data/team';
+import { founderExtendedBio } from '@/data/team';
+import { getApprovedAuthor } from '@/data/authors';
 
 const PATH = '/about/';
 const TITLE = 'About Us';
@@ -20,6 +20,11 @@ const DESCRIPTION =
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
 export default function AboutPage() {
+  const founder = getApprovedAuthor('tiaan-de-lange');
+  if (!founder) {
+    throw new Error('About page requires an approved founder author (tiaan-de-lange).');
+  }
+
   return (
     <>
       <Breadcrumbs path={PATH} />
@@ -44,26 +49,33 @@ export default function AboutPage() {
         <TrustSignals />
       </Section>
 
-      <Section heading="Who does the work">
-        {team.map((member) => (
-          <div key={member.name} className="max-w-3xl">
-            {member.placeholder && (
-              <PlaceholderNotice>
-                Founder biography is drafted for preview and awaits final owner approval before
-                public launch. ECSA registration category is not published until verified wording
-                is supplied.
-              </PlaceholderNotice>
-            )}
-            <h3 className="text-lg font-semibold text-ink">
-              {member.name} — {member.role}
-            </h3>
-            <p className="mt-2 leading-relaxed text-muted">{member.bio}</p>
+      <Section heading="Who runs the work">
+        <div className="max-w-3xl">
+          <h3 className="text-lg font-semibold text-ink">
+            {founder.name} — {founder.role}
+          </h3>
+          <p className="mt-2 leading-relaxed text-muted">{founder.shortBio}</p>
+          {founderExtendedBio && (
             <p className="mt-4 leading-relaxed text-muted">{founderExtendedBio}</p>
-          </div>
-        ))}
+          )}
+          <p className="mt-4 leading-relaxed text-muted">
+            Projects are approached as engineering problems: requirements first, information and
+            process architecture next, then implementation with validation. ECSA registration
+            category is not claimed on this site until verified wording is approved.
+          </p>
+        </div>
       </Section>
 
-      <Section heading="What to look at next" tone="surface">
+      <Section heading="South African service context" tone="surface">
+        <p className="max-w-3xl leading-relaxed text-muted">
+          {brand.name} operates from {brand.baseCity}, {brand.province}, and works with clients
+          across {brand.serviceAreas.filter((a) => a !== brand.baseCity).join(', ')}. There is no
+          published walk-in office address. Collaboration is scheduled meetings, remote delivery
+          and on-site visits where they add value.
+        </p>
+      </Section>
+
+      <Section heading="What to look at next">
         <p className="max-w-3xl leading-relaxed text-muted">
           The most useful pages for judging us: the{' '}
           <Link href="/process/" className="text-link underline">
@@ -77,8 +89,8 @@ export default function AboutPage() {
           <Link href="/projects/" className="text-link underline">
             work
           </Link>{' '}
-          (where real case studies publish as work completes with permission — honestly labelled
-          until then).
+          (live and internal projects with truthful labels — case studies stay noindex until
+          narratives clear the publication gate).
         </p>
       </Section>
 

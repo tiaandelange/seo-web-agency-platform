@@ -4,7 +4,8 @@ import { packages } from '@/data/packages';
 import { projects, projectCategories, isProjectIndexable } from '@/data/projects';
 import { articles, resourceCategories } from '@/data/articles';
 import { comparisons } from '@/data/comparisons';
-import { locations } from '@/data/locations';
+import { locations, isLocationIndexable } from '@/data/locations';
+import { getApprovedAuthor } from '@/data/authors';
 import { legalDocs } from '@/data/legal';
 import { headerNav, headerCta, footerColumns, footerLegal } from '@/data/navigation';
 import { getAllRoutes } from '@/lib/routes';
@@ -255,6 +256,23 @@ export function validateProjects(report: ValidationReport): void {
     if (p.status === 'template' && !p.placeholder) {
       report.errors.push(`[project] template ${p.slug} must carry placeholder: true`);
     }
+    if (p.classification === 'template') {
+      if (p.status !== 'template' || p.projectStatus !== 'template') {
+        report.errors.push(`[project] ${p.slug} classification=template requires status/projectStatus template`);
+      }
+      if (!/template/i.test(p.publicLabel)) {
+        report.errors.push(`[project] ${p.slug} template must use a template publicLabel (got "${p.publicLabel}")`);
+      }
+      if (isProjectIndexable(p)) {
+        report.errors.push(`[project] ${p.slug} template must not be indexable`);
+      }
+    }
+    if (p.classification === 'client-project' && /template|illustrative|example/i.test(p.publicLabel)) {
+      report.errors.push(`[project] ${p.slug} client-project cannot use illustrative/template publicLabel`);
+    }
+    if (!p.classification || !p.publicLabel || !p.evidenceLevel) {
+      report.errors.push(`[project] ${p.slug} missing classification/publicLabel/evidenceLevel`);
+    }
     for (const r of p.results) {
       if (!r.verified) {
         report.warnings.push(`[project] ${p.slug} has an unverified result "${r.metric}" — it will never render; remove or verify`);
@@ -265,6 +283,35 @@ export function validateProjects(report: ValidationReport): void {
       if (!img.alt || img.alt.trim().length === 0) {
         report.errors.push(`[image] project ${p.slug} image "${img.src}" missing alt text`);
       }
+    }
+  }
+}
+
+export function validateAuthorship(report: ValidationReport): void {
+  for (const a of articles) {
+    if (a.status !== 'live') continue;
+    if (!a.authorSlug) {
+      report.errors.push(`[article] ${a.slug} missing authorSlug`);
+      continue;
+    }
+    const author = getApprovedAuthor(a.authorSlug);
+    if (!author) {
+      report.errors.push(
+        `[article] ${a.slug} author "${a.authorSlug}" is missing or unapproved — live articles require an approved author`,
+      );
+    }
+  }
+}
+
+export function validateLocations(report: ValidationReport): void {
+  for (const location of locations) {
+    if (location.status !== 'live') continue;
+    const routeIndexable = isLocationIndexable(location);
+    if (location.slug === 'johannesburg' && routeIndexable) {
+      report.errors.push('[location] johannesburg must not be indexable without a configured Johannesburg office');
+    }
+    if (location.placeholder && routeIndexable) {
+      report.errors.push(`[location] ${location.slug} placeholder pages cannot be indexable`);
     }
   }
 }
@@ -316,6 +363,8 @@ export function runAllValidations(): ValidationReport {
   validateRoutes(report);
   validateReachability(report);
   validateProjects(report);
+  validateAuthorship(report);
+  validateLocations(report);
   validateDeploymentOrigin(report);
   return report;
 }

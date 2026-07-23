@@ -152,7 +152,9 @@ export const brand: BrandConfig = {
     // Public hello@ address published for contact; confirm mailbox monitoring before production indexing.
     emailLive: true,
     logoFinal: false,
-    founderBioApproved: false,
+    // Trust P0 (2026-07-23): owner directed publication of factual founder bio
+    // without ECSA registration claims (ECSA wording still withheld).
+    founderBioApproved: true,
   },
 };
 

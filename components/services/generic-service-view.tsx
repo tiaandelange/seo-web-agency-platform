@@ -10,8 +10,8 @@ import { JsonLd } from '@/components/json-ld';
 import { serviceSchema, webPageSchema } from '@/lib/schema';
 import { getPackage } from '@/data/packages';
 import { getSolution } from '@/data/solutions';
-import { getProject } from '@/data/projects';
 import { getArticle } from '@/data/articles';
+import { relatedProjectItems } from '@/lib/project-proof';
 
 /**
  * Shared service template — behaviour preserved from the former inline page.
@@ -25,10 +25,7 @@ export function GenericServiceView({ service }: { service: Service }) {
       .map(getSolution)
       .filter((s) => s !== undefined)
       .map((s) => ({ title: s.heading, href: `/solutions/${s.slug}/`, kind: 'Industry' })),
-    ...service.relatedProjectSlugs
-      .map(getProject)
-      .filter((p) => p !== undefined)
-      .map((p) => ({ title: p.heading, href: `/projects/${p.slug}/`, kind: 'Project' })),
+    ...relatedProjectItems(service.relatedProjectSlugs),
     ...service.relatedArticleSlugs
       .map(getArticle)
       .filter((a) => a !== undefined)
