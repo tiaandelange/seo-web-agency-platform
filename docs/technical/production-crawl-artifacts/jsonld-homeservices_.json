@@ -7,7 +7,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "http://localhost:3000/"
+        "item": "https://www.koppiesystems.co.za/"
       },
       {
         "@type": "ListItem",
@@ -19,11 +19,11 @@
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "url": "http://localhost:3000/services/",
+    "url": "https://www.koppiesystems.co.za/services/",
     "name": "Websites, Ecommerce and Business Systems",
     "description": "Koppie Systems builds connected websites, ecommerce and operational systems for South African businesses: acquire customers, run operations, and scale with support.",
     "isPartOf": {
-      "@id": "http://localhost:3000/#website"
+      "@id": "https://www.koppiesystems.co.za/#website"
     }
   },
   {
@@ -34,76 +34,76 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Business website design",
-        "url": "http://localhost:3000/services/business-websites/"
+        "url": "https://www.koppiesystems.co.za/services/business-websites/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Lead generation website design",
-        "url": "http://localhost:3000/services/lead-generation-websites/"
+        "url": "https://www.koppiesystems.co.za/services/lead-generation-websites/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Product catalogue website development",
-        "url": "http://localhost:3000/services/product-catalogue-websites/"
+        "url": "https://www.koppiesystems.co.za/services/product-catalogue-websites/"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Ecommerce website development",
-        "url": "http://localhost:3000/services/ecommerce-websites/"
+        "url": "https://www.koppiesystems.co.za/services/ecommerce-websites/"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "Custom web application development",
-        "url": "http://localhost:3000/services/custom-web-applications/"
+        "url": "https://www.koppiesystems.co.za/services/custom-web-applications/"
       },
       {
         "@type": "ListItem",
         "position": 6,
         "name": "Admin panel development",
-        "url": "http://localhost:3000/services/admin-panel-development/"
+        "url": "https://www.koppiesystems.co.za/services/admin-panel-development/"
       },
       {
         "@type": "ListItem",
         "position": 7,
         "name": "RFQ and quotation system development",
-        "url": "http://localhost:3000/services/rfq-and-quotation-systems/"
+        "url": "https://www.koppiesystems.co.za/services/rfq-and-quotation-systems/"
       },
       {
         "@type": "ListItem",
         "position": 8,
         "name": "Customer and supplier portal development",
-        "url": "http://localhost:3000/services/customer-and-supplier-portals/"
+        "url": "https://www.koppiesystems.co.za/services/customer-and-supplier-portals/"
       },
       {
         "@type": "ListItem",
         "position": 9,
         "name": "Website redesign services",
-        "url": "http://localhost:3000/services/website-redesign/"
+        "url": "https://www.koppiesystems.co.za/services/website-redesign/"
       },
       {
         "@type": "ListItem",
         "position": 10,
         "name": "SEO website development",
-        "url": "http://localhost:3000/services/seo-website-development/"
+        "url": "https://www.koppiesystems.co.za/services/seo-website-development/"
       },
       {
         "@type": "ListItem",
         "position": 11,
         "name": "Website maintenance and support",
-        "url": "http://localhost:3000/services/website-maintenance-and-support/"
+        "url": "https://www.koppiesystems.co.za/services/website-maintenance-and-support/"
       }
     ]
   },
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "http://localhost:3000/#organization",
+    "@id": "https://www.koppiesystems.co.za/#organization",
     "name": "Koppie Systems",
-    "url": "http://localhost:3000/",
+    "url": "https://www.koppiesystems.co.za/",
     "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
     "email": "hello@koppiesystems.co.za",
     "telephone": "+27614188807"
@@ -111,11 +111,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "http://localhost:3000/#website",
-    "url": "http://localhost:3000/",
+    "@id": "https://www.koppiesystems.co.za/#website",
+    "url": "https://www.koppiesystems.co.za/",
     "name": "Koppie Systems",
     "publisher": {
-      "@id": "http://localhost:3000/#organization"
+      "@id": "https://www.koppiesystems.co.za/#organization"
     }
   }
 ]

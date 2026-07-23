@@ -7,13 +7,13 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "http://localhost:3000/"
+        "item": "https://www.koppiesystems.co.za/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Areas We Serve",
-        "item": "http://localhost:3000/areas-we-serve/"
+        "item": "https://www.koppiesystems.co.za/areas-we-serve/"
       },
       {
         "@type": "ListItem",
@@ -25,20 +25,20 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "http://localhost:3000/areas-we-serve/johannesburg/",
+    "url": "https://www.koppiesystems.co.za/areas-we-serve/johannesburg/",
     "name": "Website Design & Development in Johannesburg",
     "description": "Website design and development for Johannesburg businesses: SEO-first builds, catalogues and systems delivered remotely with on-site meetings by arrangement.",
     "isPartOf": {
-      "@id": "http://localhost:3000/#website"
+      "@id": "https://www.koppiesystems.co.za/#website"
     },
     "dateModified": "2026-07-21"
   },
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "http://localhost:3000/#business",
+    "@id": "https://www.koppiesystems.co.za/#business",
     "name": "Koppie Systems",
-    "url": "http://localhost:3000/",
+    "url": "https://www.koppiesystems.co.za/",
     "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
     "areaServed": [
       {
@@ -72,9 +72,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "http://localhost:3000/#organization",
+    "@id": "https://www.koppiesystems.co.za/#organization",
     "name": "Koppie Systems",
-    "url": "http://localhost:3000/",
+    "url": "https://www.koppiesystems.co.za/",
     "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
     "email": "hello@koppiesystems.co.za",
     "telephone": "+27614188807"
@@ -82,11 +82,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "http://localhost:3000/#website",
-    "url": "http://localhost:3000/",
+    "@id": "https://www.koppiesystems.co.za/#website",
+    "url": "https://www.koppiesystems.co.za/",
     "name": "Koppie Systems",
     "publisher": {
-      "@id": "http://localhost:3000/#organization"
+      "@id": "https://www.koppiesystems.co.za/#organization"
     }
   }
 ]

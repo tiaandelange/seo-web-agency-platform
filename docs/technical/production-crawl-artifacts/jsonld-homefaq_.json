@@ -7,7 +7,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "http://localhost:3000/"
+        "item": "https://www.koppiesystems.co.za/"
       },
       {
         "@type": "ListItem",
@@ -19,17 +19,17 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "http://localhost:3000/faq/",
+    "url": "https://www.koppiesystems.co.za/faq/",
     "name": "Frequently Asked Questions",
     "description": "Straight answers about website costs, project timelines, ownership, SEO expectations and support — the questions every buyer should ask.",
     "isPartOf": {
-      "@id": "http://localhost:3000/#website"
+      "@id": "https://www.koppiesystems.co.za/#website"
     }
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "url": "http://localhost:3000/faq/",
+    "url": "https://www.koppiesystems.co.za/faq/",
     "mainEntity": [
       {
         "@type": "Question",
@@ -132,9 +132,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "http://localhost:3000/#organization",
+    "@id": "https://www.koppiesystems.co.za/#organization",
     "name": "Koppie Systems",
-    "url": "http://localhost:3000/",
+    "url": "https://www.koppiesystems.co.za/",
     "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
     "email": "hello@koppiesystems.co.za",
     "telephone": "+27614188807"
@@ -142,11 +142,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "http://localhost:3000/#website",
-    "url": "http://localhost:3000/",
+    "@id": "https://www.koppiesystems.co.za/#website",
+    "url": "https://www.koppiesystems.co.za/",
     "name": "Koppie Systems",
     "publisher": {
-      "@id": "http://localhost:3000/#organization"
+      "@id": "https://www.koppiesystems.co.za/#organization"
     }
   }
 ]

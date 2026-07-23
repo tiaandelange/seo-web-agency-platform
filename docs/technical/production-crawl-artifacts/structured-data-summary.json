@@ -4,17 +4,7 @@
     "status": 200,
     "jsonLdBlocks": 4,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/#business",
-      "http://localhost:3000/",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -29,19 +19,7 @@
     "status": 200,
     "jsonLdBlocks": 5,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/",
-      "http://localhost:3000/services/",
-      "http://localhost:3000/services/business-websites/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/services/business-websites/",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -57,17 +35,7 @@
     "status": 200,
     "jsonLdBlocks": 4,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/",
-      "http://localhost:3000/solutions/",
-      "http://localhost:3000/solutions/contractors/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -82,13 +50,7 @@
     "status": 404,
     "jsonLdBlocks": 2,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -101,16 +63,7 @@
     "status": 200,
     "jsonLdBlocks": 4,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/",
-      "http://localhost:3000/projects/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -125,16 +78,7 @@
     "status": 200,
     "jsonLdBlocks": 4,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/",
-      "http://localhost:3000/resources/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -149,13 +93,7 @@
     "status": 404,
     "jsonLdBlocks": 2,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -168,18 +106,7 @@
     "status": 200,
     "jsonLdBlocks": 5,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/",
-      "http://localhost:3000/contact/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/#business",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [
@@ -195,17 +122,7 @@
     "status": 200,
     "jsonLdBlocks": 4,
     "validJson": true,
-    "absoluteUrlIssues": [
-      "http://localhost:3000/",
-      "http://localhost:3000/resources/",
-      "http://localhost:3000/resources/website-cost-guides/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/#organization",
-      "http://localhost:3000/",
-      "http://localhost:3000/#website",
-      "http://localhost:3000/",
-      "http://localhost:3000/#organization"
-    ],
+    "absoluteUrlIssues": [],
     "hasUndefinedLiteral": false,
     "ratingClaims": false,
     "types": [

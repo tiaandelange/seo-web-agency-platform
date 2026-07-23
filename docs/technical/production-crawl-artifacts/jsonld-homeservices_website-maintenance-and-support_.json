@@ -7,13 +7,13 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "http://localhost:3000/"
+        "item": "https://www.koppiesystems.co.za/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "http://localhost:3000/services/"
+        "item": "https://www.koppiesystems.co.za/services/"
       },
       {
         "@type": "ListItem",
@@ -25,11 +25,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "http://localhost:3000/services/website-maintenance-and-support/",
+    "url": "https://www.koppiesystems.co.za/services/website-maintenance-and-support/",
     "name": "Website Maintenance & Support South Africa",
     "description": "Website maintenance plans for South African businesses: hosting admin, updates, backups, monitoring and monthly change time — from basic care to ecommerce SLAs.",
     "isPartOf": {
-      "@id": "http://localhost:3000/#website"
+      "@id": "https://www.koppiesystems.co.za/#website"
     },
     "dateModified": "2026-07-21"
   },
@@ -38,10 +38,10 @@
     "@type": "Service",
     "name": "Website maintenance and support",
     "description": "Website maintenance plans for South African businesses: hosting admin, updates, backups, monitoring and monthly change time — from basic care to ecommerce SLAs.",
-    "url": "http://localhost:3000/services/website-maintenance-and-support/",
+    "url": "https://www.koppiesystems.co.za/services/website-maintenance-and-support/",
     "serviceType": "Website Maintenance & Support",
     "provider": {
-      "@id": "http://localhost:3000/#organization"
+      "@id": "https://www.koppiesystems.co.za/#organization"
     },
     "areaServed": [
       {
@@ -69,9 +69,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "http://localhost:3000/#organization",
+    "@id": "https://www.koppiesystems.co.za/#organization",
     "name": "Koppie Systems",
-    "url": "http://localhost:3000/",
+    "url": "https://www.koppiesystems.co.za/",
     "description": "Koppie Systems is a Pretoria-based website-development and digital-systems company building SEO-first websites, ecommerce platforms, portals and custom business tools for clients throughout South Africa and selected international engagements.",
     "email": "hello@koppiesystems.co.za",
     "telephone": "+27614188807"
@@ -79,11 +79,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "http://localhost:3000/#website",
-    "url": "http://localhost:3000/",
+    "@id": "https://www.koppiesystems.co.za/#website",
+    "url": "https://www.koppiesystems.co.za/",
     "name": "Koppie Systems",
     "publisher": {
-      "@id": "http://localhost:3000/#organization"
+      "@id": "https://www.koppiesystems.co.za/#organization"
     }
   }
 ]

@@ -285,6 +285,43 @@ npm run lint
 
 ---
 
-## Bottom line
+## Ops P0 re-verification (23 July 2026, post-cutover)
+
+**Production deployment:** `seo-web-agency-platform-hwvfl6wkm` (redeploy of `e1ee8a5`) aliased to `https://www.koppiesystems.co.za`  
+**Vercel env (split, not shared):**
+
+| Variable | Production | Preview |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_ENV` | `production` | `preview` |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.koppiesystems.co.za` | `https://seo-web-agency-platform.vercel.app` |
+
+**Important ops note:** These two variables must never share a single Preview+Production value. Updating a shared entry overwrote Production with Preview values and briefly re-blocked crawling (`Disallow: /`, `*.vercel.app` sitemap). Fixed by removing the shared entries and re-adding environment-specific ones, then redeploying Production.
+
+### Pass table
+
+| Check | Required | Result |
+|---|---|---|
+| `robots.txt` | Public pages allowed | **Pass** — `Allow: /`, `Disallow: /api/`, sitemap = www |
+| Sitemap URLs | All `https://www.koppiesystems.co.za/` | **Pass** — 52/52 |
+| Canonicals | 52/52 self-canonical | **Pass** — 52/52 |
+| Open Graph URLs | Production www | **Pass** (sampled hubs + full HTML audit host checks) |
+| JSON-LD URLs | Production www | **Pass** — no localhost / vercel.app in home LD; structured-data samples clean |
+| Localhost references | 0 | **Pass** — 0 |
+| Sitemap redirects | 0 | **Pass** — 0 |
+| Sitemap non-200 URLs | 0 | **Pass** — 0 |
+| Production build guard | Passes | **Pass** — `tests/deployment-origin.test.ts` + `validate:seo` |
+| Noindex pages in sitemap | 0 | **Pass** — 12 non-sitemap routes; 0 leaked |
+
+**Non-blocking:** HTML audit flagged `staging_banner` on `/services/seo-website-development/` — heuristic false positive (copy mentions “staging”/related terms); page robots = `index, follow`, canonical/OG on www.
+
+**Cleared for:** Google Search Console sitemap submit + URL Inspection on homepage, core services, Work (`/projects/`), Pricing, and one resource page.
+
+**Do not start Trust P0 until GSC submission is done by the owner** (manual Search Console step).
+
+---
+
+Live fix was applied and re-verified in **Ops P0 re-verification** above. Historical failure mode (localhost sitemap / `Disallow: /`) is closed on the current Production alias.
+
+## Bottom line (historical — morning audit)
 
 DNS and redirects for `koppiesystems.co.za` are fine. The public site is **not** yet a correctly configured production SEO surface: crawl is disallowed, and every canonical/sitemap/schema URL points at localhost. Fix Vercel Production env, redeploy, re-crawl, then use Search Console live URL tests as the indexing source of truth.
