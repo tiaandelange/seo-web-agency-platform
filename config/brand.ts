@@ -151,7 +151,8 @@ export const brand: BrandConfig = {
     domain: false,
     // Public hello@ address published for contact; confirm mailbox monitoring before production indexing.
     emailLive: true,
-    logoFinal: false,
+    // Owner-supplied circular lockup installed 2026-07-23 (PNG; SVG masters still desirable).
+    logoFinal: true,
     // Trust P0 (2026-07-23): owner directed publication of factual founder bio
     // without ECSA registration claims (ECSA wording still withheld).
     founderBioApproved: true,

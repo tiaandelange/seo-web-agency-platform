@@ -18,6 +18,6 @@ Decisions only the owner can make. Nothing on this list blocks local development
 | 12 | Lead-delivery — **Resend hosted templates for contact/proposal**; set published template IDs + From/To/Reply-To on host; live-test to approved inbox | `.env` + `lib/email/*` + `lib/lead-delivery.ts` | Yes until live-tested |
 | 12b | Future Resend templates for SEO-audit order/intake/payment (do not reuse contact/proposal) | Resend dashboard + env | Yes before paid-audit email automation |
 | 13 | Social profiles to create/link (LinkedIn recommended first) | `config/brand.ts` → `social`, Organization schema `sameAs` | No |
-| 14 | Final brand — preview identity live; **final logo SVG not supplied** | `docs/brand/ASSET-REGISTER.md` | Yes for public brand |
+| 14 | Final brand — preview identity live; **circular lockup PNG installed** (SVG masters still open) | `docs/brand/ASSET-REGISTER.md` | Prefer SVG masters for production polish |
 | 15 | Sign-off on positioning — **approved and applied**. Founder bio **approved for public About/articles** (Trust P0, 2026-07-23) without ECSA claims. Confirm ECSA wording separately if/when verified. | Business docs + `data/authors.ts` / `data/team.ts` | Soft |
 | 16 | Trademark screening for the chosen name (attorney or CIPC/TMView search) | Name shortlist | Advisable before spend |

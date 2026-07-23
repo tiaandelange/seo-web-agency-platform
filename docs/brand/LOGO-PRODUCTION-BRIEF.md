@@ -1,6 +1,6 @@
 # Logo production brief — Koppie Systems
 
-Status: **No final owner-approved logo asset exists.** The site currently uses a temporary typographic wordmark (`components/brand-wordmark.tsx`) and a **provisional** geometric K for private preview only. Neither is trademark-cleared. `brand.verification.logoFinal` remains `false`.
+Status: **Owner-supplied circular lockup installed** (`public/brand/koppie-systems-logo.png`, `brand.verification.logoFinal = true`). SVG masters (full colour, mono light/dark) remain desirable for print and crisp multi-size derivatives.
 
 ## Concept (approved)
 
