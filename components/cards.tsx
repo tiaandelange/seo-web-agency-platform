@@ -109,6 +109,32 @@ export function LinkCard({ title, description, href }: { title: string; descript
   );
 }
 
+/** Elevated non-link card for FAQ / feature points (visual upgrade only). */
+export function InfoCard({
+  title,
+  description,
+  label,
+  headingAs = 'h3',
+}: {
+  title?: string;
+  description: string;
+  label?: string;
+  headingAs?: 'h2' | 'h3';
+}) {
+  const TitleTag = headingAs;
+  return (
+    <div className="flex h-full flex-col rounded-card border border-line bg-canvas p-5 shadow-card">
+      {label && <p className="text-label text-cta">{label}</p>}
+      {title && (
+        <TitleTag className={`text-card-title text-ink ${label ? 'mt-2' : ''}`.trim()}>{title}</TitleTag>
+      )}
+      <p className={`text-sm leading-relaxed text-muted ${title || label ? 'mt-2' : ''}`.trim()}>
+        {description}
+      </p>
+    </div>
+  );
+}
+
 export function CardGrid({ children }: { children: React.ReactNode }) {
   return <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{children}</div>;
 }

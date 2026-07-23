@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
+import { PageHero } from '@/components/layout/page-hero';
 import { Section } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
 import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
@@ -28,20 +29,40 @@ export default function FaqPage() {
   return (
     <>
       <Breadcrumbs path={PATH} />
-      <PageHeader
-        heading="Frequently asked questions"
-        intro="The questions buyers actually ask, answered the way we answer them in scoping calls — including the ones other providers dodge."
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="FAQ"
+        title="Frequently asked questions"
+        description="The questions buyers actually ask, answered the way we answer them in scoping calls — including the ones other providers dodge."
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Topics</p>
+            <ul className="mt-3 space-y-2 text-sm text-muted">
+              {GROUPS.map((group) => (
+                <li key={group.key}>{group.heading}</li>
+              ))}
+            </ul>
+          </div>
+        }
       />
 
       {GROUPS.map((group, i) => {
         const items = faqs.filter((f) => f.group === group.key);
         if (items.length === 0) return null;
         return (
-          <Section key={group.key} heading={group.heading} tone={i % 2 === 1 ? 'surface' : 'plain'}>
-            <FaqList items={items} />
+          <Section key={group.key} heading={group.heading} tone={i % 2 === 0 ? 'surface' : 'plain'}>
+            <FaqList items={items} variant="cards" />
           </Section>
         );
       })}
+
+      <InkBand motif>
+        <p className="max-w-2xl text-lg leading-relaxed text-sandstone">
+          The questions buyers actually ask, answered the way we answer them in scoping calls —
+          including the ones other providers dodge.
+        </p>
+      </InkBand>
 
       <CtaQuote heading="Question not covered?" body="Ask it directly — unanswered questions are exactly what the contact form is for, and good ones end up on this page." />
       {/* FAQPage schema is used ONLY here (D-09) — no rich-result expectation. */}

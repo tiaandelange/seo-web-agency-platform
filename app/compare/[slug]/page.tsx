@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { PageHeader } from '@/components/page-header';
-import { Section, BulletList } from '@/components/section';
+import { PageHero } from '@/components/layout/page-hero';
+import { Section } from '@/components/section';
+import { InkBand } from '@/components/layout/ink-band';
+import { CardGrid, InfoCard } from '@/components/cards';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { comparisonSchemaFor } from '@/lib/schema';
@@ -47,10 +49,33 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
   return (
     <>
       <Breadcrumbs path={path} />
-      <PageHeader heading={comparison.heading} intro={comparison.intro} updated={comparison.dateUpdated} />
+      <PageHero
+        variant="editorial"
+        motif
+        eyebrow="Comparison"
+        title={comparison.heading}
+        description={comparison.intro}
+        meta={
+          <p className="text-sm text-muted">
+            Updated{' '}
+            {new Date(comparison.dateUpdated).toLocaleDateString('en-ZA', {
+              year: 'numeric',
+              month: 'long',
+            })}
+          </p>
+        }
+        aside={
+          <div className="rounded-card border border-line bg-surface p-5 shadow-card">
+            <p className="text-label text-cta">Options</p>
+            <p className="mt-3 text-sm font-semibold text-ink">{comparison.optionA}</p>
+            <p className="mt-1 text-label text-muted">versus</p>
+            <p className="mt-1 text-sm font-semibold text-ink">{comparison.optionB}</p>
+          </div>
+        }
+      />
 
-      <Section heading="Side by side">
-        <div className="overflow-x-auto">
+      <Section heading="Side by side" tone="surface">
+        <div className="overflow-x-auto rounded-card border border-line bg-canvas p-4 shadow-card sm:p-6">
           <table className="w-full max-w-4xl border-collapse text-sm">
             <thead>
               <tr className="border-b-2 border-line text-left">
@@ -80,30 +105,48 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
         </div>
       </Section>
 
-      <Section heading={`When ${comparison.optionA.toLowerCase()} is the right choice`} tone="surface">
-        <BulletList items={comparison.whenA} />
+      <Section heading={`When ${comparison.optionA.toLowerCase()} is the right choice`}>
+        <CardGrid>
+          {comparison.whenA.map((item, i) => (
+            <InfoCard
+              key={item}
+              label={String(i + 1).padStart(2, '0')}
+              description={item}
+              headingAs="h3"
+            />
+          ))}
+        </CardGrid>
       </Section>
 
-      <Section heading={`When ${comparison.optionB.toLowerCase()} is the right choice`}>
-        <BulletList items={comparison.whenB} />
+      <Section heading={`When ${comparison.optionB.toLowerCase()} is the right choice`} tone="surface">
+        <CardGrid>
+          {comparison.whenB.map((item, i) => (
+            <InfoCard
+              key={item}
+              label={String(i + 1).padStart(2, '0')}
+              description={item}
+              headingAs="h3"
+            />
+          ))}
+        </CardGrid>
       </Section>
 
-      <Section heading="Our verdict" tone="surface">
-        <p className="max-w-3xl leading-relaxed text-muted">{comparison.verdict}</p>
+      <InkBand heading="Our verdict" motif>
+        <p className="max-w-3xl text-lg leading-relaxed text-sandstone">{comparison.verdict}</p>
         {supportedServices.length > 0 && (
-          <p className="mt-4 max-w-3xl leading-relaxed text-muted">
+          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-sandstone/90">
             Relevant service:{' '}
             {supportedServices.map((s, i) => (
               <span key={s.slug}>
                 {i > 0 && ' · '}
-                <Link href={`/services/${s.slug}/`} className="text-accent underline">
+                <Link href={`/services/${s.slug}/`} className="text-cta underline">
                   {s.heading}
                 </Link>
               </span>
             ))}
           </p>
         )}
-      </Section>
+      </InkBand>
 
       <CtaQuote heading="Apply this to your situation" ctaLabel="Book a consultation" />
       <JsonLd data={comparisonSchemaFor(comparison)} />

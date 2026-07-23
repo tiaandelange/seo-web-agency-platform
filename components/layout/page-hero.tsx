@@ -31,6 +31,7 @@ export function PageHero({
   variant = 'standard',
   aside,
   meta,
+  motif = false,
 }: {
   eyebrow?: string;
   title: string;
@@ -38,14 +39,22 @@ export function PageHero({
   variant?: PageHeroVariant;
   aside?: ReactNode;
   meta?: ReactNode;
+  /** Apply the site-wide .contour-grid texture behind the hero. */
+  motif?: boolean;
 }) {
   const titleColor = variant === 'inverse' ? 'text-accent-contrast' : '';
   const leadColor = variant === 'inverse' ? 'text-sandstone' : '';
 
   return (
-    <header className={variantShell[variant]}>
+    <header className={`${variantShell[variant]} relative overflow-hidden`}>
+      {motif && (
+        <div
+          className="contour-grid pointer-events-none absolute inset-0 opacity-70"
+          aria-hidden="true"
+        />
+      )}
       <Container
-        className={`grid grid-cols-1 gap-10 ${paddingClass[variant]} ${
+        className={`relative grid grid-cols-1 gap-10 ${paddingClass[variant]} ${
           aside ? 'lg:grid-cols-12' : ''
         }`}
       >
