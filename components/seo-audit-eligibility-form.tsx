@@ -1,10 +1,8 @@
 'use client';
 
 import { useActionState, useMemo } from 'react';
-import {
-  assessSeoAuditEligibility,
-  initialEligibilityActionState,
-} from '@/lib/seo-audit-actions';
+import { assessSeoAuditEligibility } from '@/lib/seo-audit-actions';
+import { initialEligibilityActionState } from '@/lib/form-action-state';
 import { useEligibilitySuccessTracking } from '@/components/analytics/use-success-tracking';
 
 const inputClass =

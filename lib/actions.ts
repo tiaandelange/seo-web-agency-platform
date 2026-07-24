@@ -3,11 +3,14 @@
 import { deliverLead } from '@/lib/lead-delivery';
 import { normalizeWebsiteUrl } from '@/lib/website-url';
 import type { LeadFormId } from '@/lib/analytics-types';
+import type { LeadActionState } from '@/lib/form-action-state';
 
 /**
  * Lead-form server action — docs/technical/FORM-ARCHITECTURE.md.
  * Returns structured state so the client can fire generate_lead only after
  * confirmed delivery, then navigate to the thank-you page.
+ *
+ * This file must only export async functions (Next.js "use server" rule).
  */
 
 const MAX_LEN = 5000;
@@ -16,18 +19,6 @@ function clean(value: FormDataEntryValue | null, max = 500): string {
   if (typeof value !== 'string') return '';
   return value.trim().slice(0, max);
 }
-
-export type LeadActionState =
-  | { status: 'idle' }
-  | { status: 'error'; error: 'validation' | 'delivery' }
-  | {
-      status: 'success';
-      track: boolean;
-      formId: LeadFormId;
-      redirectTo: string;
-    };
-
-export const initialLeadActionState: LeadActionState = { status: 'idle' };
 
 export async function submitLead(
   _prev: LeadActionState,

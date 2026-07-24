@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useActionState, useMemo } from 'react';
-import { initialLeadActionState, submitLead } from '@/lib/actions';
+import { submitLead } from '@/lib/actions';
+import { initialLeadActionState } from '@/lib/form-action-state';
 import { useLeadSuccessTracking } from '@/components/analytics/use-success-tracking';
 import {
   PROPOSAL_BUDGET_BANDS,

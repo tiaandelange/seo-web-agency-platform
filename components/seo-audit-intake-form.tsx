@@ -2,10 +2,8 @@
 
 import Link from 'next/link';
 import { useActionState, useMemo } from 'react';
-import {
-  initialSeoAuditIntakeActionState,
-  submitSeoAuditIntake,
-} from '@/lib/seo-audit-actions';
+import { submitSeoAuditIntake } from '@/lib/seo-audit-actions';
+import { initialSeoAuditIntakeActionState } from '@/lib/form-action-state';
 import { useLeadSuccessTracking } from '@/components/analytics/use-success-tracking';
 import type { SeoAuditProductId } from '@/config/seo-audit-product';
 import {

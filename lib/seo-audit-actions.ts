@@ -1,7 +1,11 @@
 'use server';
 
 import { deliverLead } from '@/lib/lead-delivery';
-import type { AuditRoute, LeadFormId } from '@/lib/analytics-types';
+import type { LeadFormId } from '@/lib/analytics-types';
+import type {
+  EligibilityActionState,
+  SeoAuditIntakeActionState,
+} from '@/lib/form-action-state';
 import type { SeoAuditProductId } from '@/config/seo-audit-product';
 import {
   SEO_AUDIT_CUSTOM_QUOTE_PATH,
@@ -9,6 +13,11 @@ import {
   isSeoAuditTierActive,
   seoAuditTierPriceZar,
 } from '@/config/seo-audit-product';
+
+/**
+ * SEO-audit server actions. This file must only export async functions
+ * (Next.js "use server" rule). Idle state constants live in form-action-state.ts.
+ */
 
 const MAX_LEN = 5000;
 
@@ -30,18 +39,6 @@ function spamGate(formData: FormData): 'spam' | 'ok' {
   }
   return 'ok';
 }
-
-export type EligibilityActionState =
-  | { status: 'idle' }
-  | { status: 'error' }
-  | {
-      status: 'success';
-      track: boolean;
-      auditRoute: AuditRoute;
-      redirectTo: string;
-    };
-
-export const initialEligibilityActionState: EligibilityActionState = { status: 'idle' };
 
 /**
  * Hub / advanced eligibility — routes to basic intake, advanced intake, or custom quote.
@@ -146,18 +143,6 @@ export async function assessSeoAuditEligibility(
     redirectTo: `${getSeoAuditProduct('priority-fix').intakePath}?eligible=1`,
   };
 }
-
-export type SeoAuditIntakeActionState =
-  | { status: 'idle' }
-  | { status: 'error'; error: 'validation' | 'delivery' | 'inactive' }
-  | {
-      status: 'success';
-      track: boolean;
-      formId: LeadFormId;
-      redirectTo: string;
-    };
-
-export const initialSeoAuditIntakeActionState: SeoAuditIntakeActionState = { status: 'idle' };
 
 export async function submitSeoAuditIntake(
   _prev: SeoAuditIntakeActionState,
