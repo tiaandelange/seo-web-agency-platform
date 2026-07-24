@@ -867,12 +867,36 @@ h6 {
     padding-block: 4rem 7.5rem;
   }
 
+  .home-hero-primary {
+    text-align: center;
+  }
+
   .home-hero-title {
     max-width: min(100%, 42rem);
+    margin-inline: auto;
+  }
+
+  .home-hero-lead {
+    margin-inline: auto;
+  }
+
+  .home-hero-actions {
+    justify-content: center;
   }
 
   .home-hero-secondary {
     transform: none;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .home-hero-rule {
+    margin-inline: auto;
+  }
+
+  .home-hero-secondary-title,
+  .home-hero-secondary-body {
+    margin-inline: auto;
   }
 
   .home-hero-particles {
@@ -898,14 +922,16 @@ h6 {
 /* Mobile */
 @media (max-width: 767px) {
   .home-hero {
-    --hero-glow-strength: 0.88;
+    --hero-glow-strength: 0.72;
     --hero-grid-size: 42px;
-    --hero-grid-opacity: 0.16;
+    --hero-grid-opacity: 0.12;
     --hero-linework-opacity: 0;
-    --hero-mountain-height: 34%;
-    --hero-mountain-opacity: 0.52;
+    --hero-mountain-height: 58%;
+    --hero-mountain-opacity: 0.92;
     --hero-min-height: 0;
-    padding-block: 3.25rem 6.5rem;
+    /* Equal gap: CTAs → rotator, and rotator → enquiry */
+    --hero-mobile-stack-gap: 2.75rem;
+    padding-block: 3.25rem 0;
   }
 
   .home-hero-linework,
@@ -916,26 +942,151 @@ h6 {
     display: none;
   }
 
-  .home-hero-title {
+  .home-hero-content {
+    padding-inline: 1.25rem;
     max-width: none;
   }
 
-  .home-hero-secondary {
+  /* Full-width grid; primary + rotator both centered */
+  .home-hero-grid-layout {
+    width: 100%;
     max-width: none;
+    margin-inline: 0;
+    transform: none;
+    row-gap: var(--hero-mobile-stack-gap);
+  }
+
+  .home-hero-primary {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    transform: none;
+    text-align: center;
+  }
+
+  .home-hero-title,
+  .home-hero-lead {
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .home-hero-actions {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    justify-content: center;
+  }
+
+  /*
+   * Centered rotator on a full-bleed navy band.
+   * Bottom padding = visible gap (2.75rem) + overlap (3.5rem) so navy
+   * continues under the enquiry card while rotator→card spacing stays even.
+   */
+  .home-hero-secondary {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: min(22.5rem, 100%);
+    margin-inline: auto;
+    padding: 0 0.25rem calc(2.75rem + 3.5rem);
+    text-align: center;
     transform: none;
   }
 
+  /* Soft fade into navy — no hard horizontal cut under the CTAs */
+  .home-hero-secondary::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: calc(-1 * var(--hero-mobile-stack-gap));
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      color-mix(in srgb, var(--color-ink) 35%, transparent) 22%,
+      color-mix(in srgb, var(--color-ink) 78%, transparent) 48%,
+      var(--color-ink) 72%,
+      var(--color-ink) 100%
+    );
+  }
+
+  .home-hero-rule {
+    margin-inline: auto;
+  }
+
+  .home-hero-secondary-title,
+  .home-hero-secondary-body {
+    margin-inline: auto;
+  }
+
+  .home-hero-secondary-body {
+    max-width: 21.5rem;
+  }
+
+  /* Mountain beside primary copy; bottom soft-fades into the navy band */
+  .home-hero-mountains {
+    inset: -6% -4% auto auto;
+    width: 72%;
+    height: 78%;
+    -webkit-mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        black 28%,
+        black 100%
+      ),
+      linear-gradient(
+        to bottom,
+        black 0%,
+        black 42%,
+        rgba(0, 0, 0, 0.55) 62%,
+        transparent 100%
+      );
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        black 28%,
+        black 100%
+      ),
+      linear-gradient(
+        to bottom,
+        black 0%,
+        black 42%,
+        rgba(0, 0, 0, 0.55) 62%,
+        transparent 100%
+      );
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
   .home-hero-mountain-image {
-    filter: brightness(0.26) contrast(1.14) saturate(0.55);
-    opacity: 0.6;
+    object-fit: cover;
+    /* Shift focal point up beside the lede / primary copy */
+    object-position: 68% 28%;
+    filter: brightness(0.55) contrast(1.08) saturate(0.85);
+    opacity: 0.95;
+  }
+
+  .home-hero-mountain-tone {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-ink) 88%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink) 42%, transparent) 42%,
+      transparent 78%
+    );
+    mix-blend-mode: normal;
   }
 
   .home-hero-glow {
     background:
       radial-gradient(
-        circle at 84% 50%,
-        rgba(255, 190, 110, 0.4) 0%,
-        rgba(225, 101, 31, 0.18) 24%,
+        circle at 84% 28%,
+        rgba(255, 190, 110, 0.28) 0%,
+        rgba(225, 101, 31, 0.12) 24%,
         transparent 54%
       );
   }
@@ -943,16 +1094,28 @@ h6 {
   .home-hero-vignette {
     background:
       linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--color-ink) 72%, transparent) 0%,
-        color-mix(in srgb, var(--color-ink) 38%, transparent) 28%,
-        transparent 48%
+        90deg,
+        color-mix(in srgb, var(--color-ink) 96%, transparent) 0%,
+        color-mix(in srgb, var(--color-ink) 88%, transparent) 35%,
+        color-mix(in srgb, var(--color-ink) 48%, transparent) 64%,
+        color-mix(in srgb, var(--color-ink) 12%, transparent) 100%
       ),
       linear-gradient(
         to bottom,
-        transparent 40%,
-        color-mix(in srgb, var(--color-ink) 55%, transparent) 100%
+        transparent 0%,
+        transparent 38%,
+        color-mix(in srgb, var(--color-ink) 28%, transparent) 55%,
+        color-mix(in srgb, var(--color-ink) 72%, transparent) 72%,
+        var(--color-ink) 92%,
+        var(--color-ink) 100%
       );
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 349px) {
+  .home-hero-secondary {
+    max-width: none;
   }
 }
 
@@ -1249,9 +1412,39 @@ body:has(.home-hero) .mobile-nav-link[aria-current='page'] {
   color: var(--color-accent-contrast);
 }
 
+/* Immersive homepage: dark panel — sublinks must not keep light-theme muted/ink colours */
+body:has(.home-hero) .mobile-nav-sublist {
+  border-left-color: color-mix(in srgb, var(--color-sandstone) 28%, transparent);
+}
+
+body:has(.home-hero) .mobile-nav-sublink,
+body:has(.home-hero) .mobile-nav-sublink:visited {
+  color: color-mix(in srgb, var(--color-sandstone) 86%, white);
+}
+
+body:has(.home-hero) .mobile-nav-sublink:hover,
+body:has(.home-hero) .mobile-nav-sublink:active,
+body:has(.home-hero) .mobile-nav-sublink:focus-visible,
+body:has(.home-hero) .mobile-nav-sublink[aria-current='page'] {
+  background: color-mix(in srgb, var(--color-graphite) 70%, var(--color-ink));
+  color: var(--color-accent-contrast);
+}
+
+body:has(.home-hero) .mobile-nav-sublink:focus-visible {
+  outline: 3px solid var(--color-link);
+  outline-offset: 2px;
+}
+
 /* Enquiry overlap — responsive negative margin without covering hero CTAs */
 .home-enquiry {
   margin-top: -3.5rem;
+}
+
+@media (max-width: 767px) {
+  /* Pull into the extended navy band; rotator→card gap stays --hero-mobile-stack-gap */
+  .home-enquiry {
+    margin-top: calc(-1 * 3.5rem);
+  }
 }
 
 @media (min-width: 768px) {
@@ -1849,6 +2042,43 @@ body:has(.home-hero) .mobile-nav-link[aria-current='page'] {
 }
 
 /* Portfolio screenshot frames — consistent 16:9 crop, no live site reconstruction */
+/*
+ * Proof strip — mobile-only horizontal swipe track (≤639px).
+ * Tablet/desktop keep the Tailwind grid (sm:2 / lg:3).
+ */
+@media (max-width: 639px) {
+  .home-proof-strip {
+    display: flex;
+    grid-template-columns: none;
+    gap: 1rem;
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .home-proof-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-proof-strip__slide {
+    flex: 0 0 min(88%, 22rem);
+    scroll-snap-align: center;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-proof-strip {
+    scroll-behavior: auto;
+  }
+}
+
 .project-screenshot {
   margin: 0;
 }
@@ -1891,6 +2121,19 @@ body:has(.home-hero) .mobile-nav-link[aria-current='page'] {
 
 .project-screenshot__image--mobile {
   display: block;
+}
+
+/* Mobile proof shots are portrait — do not crop them into the desktop 16:9 frame */
+@media (max-width: 639px) {
+  .project-screenshot__frame {
+    aspect-ratio: 3 / 4;
+    background: color-mix(in srgb, var(--color-ink) 94%, transparent);
+  }
+
+  .project-screenshot__image--mobile {
+    object-fit: cover;
+    object-position: center top;
+  }
 }
 
 @media (min-width: 640px) {

@@ -1,9 +1,15 @@
 import Image from 'next/image';
 
-/** Shared 16:9 frame for portfolio cards and case-study heroes. */
+/** Shared 16:9 frame for portfolio cards and case-study heroes (desktop). */
 export const PROJECT_SHOT_ASPECT = {
   width: 1440,
   height: 810,
+} as const;
+
+/** Portrait phone proof shots shown below the sm breakpoint. */
+export const PROJECT_SHOT_MOBILE_ASPECT = {
+  width: 780,
+  height: 1040,
 } as const;
 
 export type ProjectScreenshotProps = {
@@ -61,8 +67,8 @@ export function ProjectScreenshot({
             <Image
               src={mobileSrc}
               alt={alt}
-              width={390}
-              height={844}
+              width={PROJECT_SHOT_MOBILE_ASPECT.width}
+              height={PROJECT_SHOT_MOBILE_ASPECT.height}
               priority={priority}
               loading={priority ? undefined : 'lazy'}
               sizes="100vw"

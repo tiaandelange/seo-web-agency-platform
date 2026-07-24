@@ -6,7 +6,7 @@ import {
   showcaseProjects,
   secondaryShowcaseProjects,
 } from '@/data/projects-showcase';
-import { PROJECT_SHOT_ASPECT } from '@/components/projects/project-screenshot';
+import { PROJECT_SHOT_ASPECT, PROJECT_SHOT_MOBILE_ASPECT } from '@/components/projects/project-screenshot';
 import { getProject } from '@/data/projects';
 
 const root = path.resolve(__dirname, '..');
@@ -42,6 +42,10 @@ describe('project showcase screenshots', () => {
 
   it('keeps a consistent 16:9 screenshot frame', () => {
     expect(PROJECT_SHOT_ASPECT.width / PROJECT_SHOT_ASPECT.height).toBeCloseTo(16 / 9, 5);
+  });
+
+  it('keeps a portrait mobile proof frame', () => {
+    expect(PROJECT_SHOT_MOBILE_ASPECT.width / PROJECT_SHOT_MOBILE_ASPECT.height).toBeCloseTo(3 / 4, 2);
   });
 
   it('attaches screenshot evidence on Damtech and Proplytic case studies', () => {

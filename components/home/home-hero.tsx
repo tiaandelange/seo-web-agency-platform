@@ -1,13 +1,19 @@
-import Image from 'next/image';
+import { getImageProps } from 'next/image';
 import Link from 'next/link';
 import { brand } from '@/config/brand';
 import { HomeHeroRotator } from '@/components/home/home-hero-rotator';
 
-/** Decorative mountain silhouette — dimensions match the WebP asset (prevents CLS). */
-const HERO_MOUNTAIN = {
+/** Decorative mountain layers — desktop landscape + mobile portrait (max-width 767px). */
+const HERO_MOUNTAIN_DESKTOP = {
   src: '/images/koppie-systems-website-development-hero.webp',
   width: 2400,
   height: 900,
+} as const;
+
+const HERO_MOUNTAIN_MOBILE = {
+  src: '/images/hero-mobile.webp',
+  width: 1080,
+  height: 1920,
 } as const;
 
 function CtaArrow() {
@@ -15,6 +21,37 @@ function CtaArrow() {
     <span className="home-hero-cta-arrow" aria-hidden="true">
       →
     </span>
+  );
+}
+
+function HeroMountainImage() {
+  const common = {
+    alt: '',
+    sizes: '100vw',
+  } as const;
+
+  const {
+    props: { srcSet: mobileSrcSet },
+  } = getImageProps({
+    ...common,
+    ...HERO_MOUNTAIN_MOBILE,
+    priority: true,
+  });
+
+  const {
+    props: { srcSet: desktopSrcSet, ...desktopRest },
+  } = getImageProps({
+    ...common,
+    ...HERO_MOUNTAIN_DESKTOP,
+    priority: true,
+  });
+
+  return (
+    <picture>
+      <source media="(max-width: 767px)" srcSet={mobileSrcSet} sizes="100vw" />
+      <source media="(min-width: 768px)" srcSet={desktopSrcSet} sizes="100vw" />
+      <img {...desktopRest} alt="" className="home-hero-mountain-image" />
+    </picture>
   );
 }
 
@@ -31,15 +68,7 @@ export function HomeHero() {
         <div className="home-hero-linework" />
         <div className="home-hero-particles" />
         <div className="home-hero-mountains">
-          <Image
-            src={HERO_MOUNTAIN.src}
-            alt=""
-            width={HERO_MOUNTAIN.width}
-            height={HERO_MOUNTAIN.height}
-            priority
-            sizes="100vw"
-            className="home-hero-mountain-image"
-          />
+          <HeroMountainImage />
           <div className="home-hero-mountain-tone" />
           <div className="home-hero-mountain-rim" />
         </div>
@@ -51,7 +80,8 @@ export function HomeHero() {
           <div className="home-hero-primary">
             <p className="home-eyebrow home-hero-eyebrow">SEO-first websites &amp; digital systems</p>
             <h1 className="text-display-editorial home-hero-title">
-              Websites and systems built to generate enquiries
+              Websites and systems built to generate{' '}
+              <span className="text-cta">enquiries</span>
             </h1>
             <p className="home-hero-lead text-lead">
               {brand.name} is an SEO-first website design and development company in South Africa. We
