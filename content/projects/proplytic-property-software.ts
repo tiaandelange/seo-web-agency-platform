@@ -23,7 +23,7 @@ import type { Project } from '@/types/content';
  */
 export const proplyticPropertySoftware: Project = {
   slug: 'proplytic-property-software',
-  title: 'Proplytic — Property Portfolio Software for Owner-Managers',
+  title: 'Proplytic Property Portfolio Software',
   metaDescription:
     'Proplytic case study: South African property portfolio software for owner-managers — dashboards, tenants, leases, invoices, statements and PDF reports.',
   heading: 'Proplytic: property portfolio software',

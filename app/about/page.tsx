@@ -13,7 +13,7 @@ import { founderExtendedBio } from '@/data/team';
 import { getApprovedAuthor } from '@/data/authors';
 
 const PATH = '/about/';
-const TITLE = 'About Us';
+const TITLE = 'Pretoria Website & Systems Studio';
 const DESCRIPTION =
   'About Koppie Systems — a Pretoria-based studio building SEO-first websites and practical digital systems for technical, industrial and service businesses.';
 

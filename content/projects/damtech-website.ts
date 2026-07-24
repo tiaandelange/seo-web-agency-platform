@@ -20,7 +20,7 @@ import type { Project } from '@/types/content';
  */
 export const damtechWebsite: Project = {
   slug: 'damtech-website',
-  title: 'Damtech Website — Dam Lining, Water Storage & Quotation System',
+  title: 'Damtech Website & Quotation System',
   metaDescription:
     'Damtech case study: South African dam-lining website with service architecture, calculators, RFQ intake and admin quotation workflows by Koppie Systems.',
   heading: 'Damtech: dam lining website and quotation system',

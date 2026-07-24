@@ -41,6 +41,28 @@ export default function AreasPage() {
           </div>
         }
       />
+      <Section heading="How we treat location pages">
+        <div className="max-w-prose space-y-4 leading-relaxed text-muted">
+          <p>
+            We are based in {brand.baseCity} and deliver websites and systems for businesses across
+            South Africa. Remote delivery covers research, design, development, testing and review;
+            in-person meetings are arranged when they add value, not as a requirement for every
+            project.
+          </p>
+          <p>
+            Indexable area pages exist only where we can describe genuine operating context —
+            cities and corridors we actually serve — without inventing branch offices. Secondary
+            area pages may remain on the site for visitors while staying out of the sitemap until
+            that evidence standard is met.
+          </p>
+          <p>
+            If you are outside Pretoria or Gauteng, the commercial process is the same: structured
+            discovery, a written scope, indicative ranges published on pricing pages, and a fixed
+            quote after scoping. Use the Pretoria page for local detail, or request a proposal from
+            anywhere in the country.
+          </p>
+        </div>
+      </Section>
       <Section tone="surface">
         <CardGrid>
           {primary.map((location) => (

@@ -246,7 +246,7 @@ export const services: Service[] = [
     slug: 'custom-web-applications',
     category: 'system',
     title: 'Custom Web Application Development',
-    seoTitle: 'Custom Web Application Development South Africa',
+    seoTitle: 'Custom Web Apps South Africa',
     metaDescription:
       'Custom web applications for South African businesses whose processes no off-the-shelf product fits: scoped honestly, built on a modern stack, owned by you.',
     heading: 'Custom web application development',
@@ -594,7 +594,7 @@ export const services: Service[] = [
     slug: 'analytics-and-conversion-tracking',
     category: 'website',
     title: 'Analytics & Conversion Tracking Setup',
-    seoTitle: 'Conversion Tracking & GA4 Analytics Setup South Africa',
+    seoTitle: 'GA4 & Conversion Tracking South Africa',
     metaDescription:
       'GA4, Google Tag Manager and conversion tracking set up properly and POPIA-compliant so you measure calls, WhatsApp and forms. Once-off R2,950. South Africa.',
     heading: 'Analytics & conversion tracking setup',

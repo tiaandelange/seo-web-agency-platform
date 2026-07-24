@@ -28,6 +28,28 @@ export default function ResourcesPage() {
         intro="Everything here exists to answer a question buyers actually ask — with dated figures, named sources and no lead-bait fluff. If a guide helps you buy well from someone else, it has done its job."
       />
 
+      <Section heading="How to use this library">
+        <div className="max-w-prose space-y-4 leading-relaxed text-muted">
+          <p>
+            Start with the question you are actually trying to answer. Cost guides help you budget
+            and compare quotes without guessing. SEO guides explain what changes visibility for a
+            South African business site — and what usually wastes money. Comparison pages belong
+            under Compare when you are choosing between approaches rather than learning a topic.
+          </p>
+          <p>
+            Every live guide is written to be useful even if you never hire us: sources are named
+            where we rely on market research, pricing language stays indicative until a quote is
+            issued, and we avoid fabricated case statistics. When a topic is still planned, the
+            category stays empty rather than padded with thin pages.
+          </p>
+          <p>
+            If your situation is specific — catalogue versus ecommerce, redesign versus rebuild, or
+            whether an SEO audit is enough — use the related service or package links inside each
+            guide, or bring the question to a scoping conversation for a straight answer.
+          </p>
+        </div>
+      </Section>
+
       <Section heading="Browse by topic">
         <CardGrid>
           {categories.map((category) => (

@@ -68,7 +68,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
       'Find the SEO problems holding your website back and get the most important quick fixes implemented.',
     shortDescription:
       'A focused SEO audit for small South African business websites, including a prioritised action plan and implementation of selected high-impact fixes.',
-    seoTitle: 'SEO Audit South Africa – Priority Fixes Included',
+    seoTitle: 'SEO Audit South Africa',
     metaDescription:
       'Compare once-off SEO audits for South African websites: R2,950 priority fixes for small sites, or R8,500 advanced technical and content audits.',
     heading: 'SEO Audits with Priority Fixes — Clear Scope, Once-Off Price',

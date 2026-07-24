@@ -6,9 +6,9 @@ import { brand, siteOrigin } from '@/config/brand';
  * Every page builds its Metadata through buildMetadata() so titles, canonicals,
  * robots and Open Graph stay consistent and validator-checkable.
  *
- * Site-wide social images come from App Router file conventions:
- * `app/opengraph-image.jpg` and `app/twitter-image.jpg`. Pass `socialImage`
- * only when a page needs a different card (file-based tags still apply as fallback).
+ * Always emit DEFAULT_SOCIAL_IMAGE in openGraph/twitter so child-page metadata
+ * does not shallow-replace away App Router file-convention images
+ * (`app/opengraph-image.jpg`). Override per page via socialImage.
  */
 
 /** Documented default social card (file convention). Use for per-page overrides. */
@@ -83,16 +83,23 @@ export function buildMetadata(meta: PageMeta): Metadata {
   const ogDescription = meta.ogDescription ?? meta.description;
   const index = meta.index !== false;
 
-  const ogImages = meta.socialImage
-    ? [
-        {
-          url: meta.socialImage,
-          ...(meta.socialImageAlt ? { alt: meta.socialImageAlt } : {}),
-          ...(meta.socialImageWidth ? { width: meta.socialImageWidth } : {}),
-          ...(meta.socialImageHeight ? { height: meta.socialImageHeight } : {}),
-        },
-      ]
-    : undefined;
+  const hasCustomImage = Boolean(meta.socialImage);
+  const socialImageUrl = meta.socialImage ?? DEFAULT_SOCIAL_IMAGE.url;
+  const socialImageAlt =
+    meta.socialImageAlt ?? (hasCustomImage ? undefined : DEFAULT_SOCIAL_IMAGE.alt);
+  const socialImageWidth =
+    meta.socialImageWidth ?? (hasCustomImage ? undefined : DEFAULT_SOCIAL_IMAGE.width);
+  const socialImageHeight =
+    meta.socialImageHeight ?? (hasCustomImage ? undefined : DEFAULT_SOCIAL_IMAGE.height);
+
+  const ogImages = [
+    {
+      url: socialImageUrl,
+      ...(socialImageAlt ? { alt: socialImageAlt } : {}),
+      ...(socialImageWidth ? { width: socialImageWidth } : {}),
+      ...(socialImageHeight ? { height: socialImageHeight } : {}),
+    },
+  ];
 
   const ogBase = {
     title: ogTitle,
@@ -100,7 +107,7 @@ export function buildMetadata(meta: PageMeta): Metadata {
     url: canonical,
     siteName: brand.name,
     locale: brand.locale,
-    ...(ogImages ? { images: ogImages } : {}),
+    images: ogImages,
   };
 
   const openGraph: Metadata['openGraph'] =
@@ -122,7 +129,7 @@ export function buildMetadata(meta: PageMeta): Metadata {
       card: 'summary_large_image',
       title: ogTitle,
       description: ogDescription,
-      ...(meta.socialImage ? { images: [meta.socialImage] } : {}),
+      images: [socialImageUrl],
     },
   };
 }

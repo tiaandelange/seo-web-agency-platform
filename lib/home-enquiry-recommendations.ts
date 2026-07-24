@@ -1,89 +1,145 @@
 /**
  * Honest system-shape recommendations for the homepage enquiry anchor.
- * Describes scope — never public pricing or fabricated outcomes.
+ * Describes scope and published indicative ranges — never fabricated outcomes.
+ * Ranges mirror data/packages.ts and config/seo-audit-product.ts (D-11).
  */
 
 export type EnquiryInputs = {
   businessType: string;
   primaryNeed: string;
-  projectValue: string;
   websiteStatus: string;
 };
 
 export type EnquiryRecommendation = {
   headline: string;
   items: string[];
+  /** Human-readable indicative project cost for the selected system shape. */
+  projectValueLabel: string;
   serviceSlug: string;
+  /** Prefill value for /request-a-quote/ budget_band (must match PROPOSAL_BUDGET_BANDS). */
   budgetHint: string;
   messageSeed: string;
 };
 
-export function buildEnquiryRecommendation(inputs: EnquiryInputs): EnquiryRecommendation {
-  const { businessType, primaryNeed, projectValue, websiteStatus } = inputs;
+type SystemShape = {
+  headline: string;
+  items: string[];
+  serviceSlug: string;
+  projectValueLabel: string;
+  budgetHint: string;
+};
 
-  const items: string[] = [];
-  let serviceSlug = 'lead-generation-websites';
-  let headline = 'Lead-generation website system';
+function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
+  const { businessType, primaryNeed, websiteStatus } = inputs;
+
+  if (primaryNeed === 'seo-audit') {
+    return {
+      serviceSlug: 'seo-audit-basic',
+      headline: 'SEO audit with priority fixes',
+      projectValueLabel: 'R2,950 – R8,500 (fixed packs)',
+      budgetHint: 'R5,000–R10,000',
+      items: [
+        'Technical and on-page review of the live site (crawl + priority pages)',
+        'Prioritised fix list ranked by commercial impact',
+        'Choice of Priority Fix Pack (R2,950) or Advanced audit (R8,500)',
+        'Written findings you can action in-house or hand to a developer',
+      ],
+    };
+  }
 
   if (primaryNeed === 'catalogue' || businessType === 'manufacturer') {
-    serviceSlug = 'product-catalogue-websites';
-    headline = 'Catalogue & RFQ system';
-    items.push('Structured product catalogue with category SEO');
-    items.push('RFQ basket and qualification workflow');
-    items.push('Admin product and enquiry list');
-  } else if (primaryNeed === 'ecommerce') {
-    serviceSlug = 'ecommerce-websites';
-    headline = 'Ecommerce website system';
-    items.push('Category and product pages built for search');
-    items.push('Checkout with SA payment gateway');
-    items.push('Order notifications and basic admin');
-  } else if (primaryNeed === 'portal' || primaryNeed === 'systems') {
-    serviceSlug = 'rfq-and-quotation-systems';
-    headline = 'Enquiry-to-quote workflow';
-    items.push('Public website with qualification forms');
-    items.push('RFQ inbox and quotation builder');
-    items.push('Status tracking and client approval step');
-  } else if (websiteStatus === 'none' || websiteStatus === 'diy') {
-    serviceSlug = 'lead-generation-websites';
-    headline = 'Lead-generation website system';
-    items.push('SEO-mapped service and location pages');
-    items.push('Enquiry forms with conversion tracking');
-    items.push('Search Console and analytics baseline');
-  } else {
-    serviceSlug = 'website-redesign';
-    headline = 'Redesign with search architecture';
-    items.push('Audit of current structure and indexation');
-    items.push('Rebuilt page map aligned to search demand');
-    items.push('Conversion and enquiry pathway refresh');
+    return {
+      serviceSlug: 'product-catalogue-websites',
+      headline: 'Catalogue & RFQ system',
+      projectValueLabel: 'R45,000 – R90,000 (indicative)',
+      budgetHint: 'R40,000–R75,000',
+      items: [
+        'Searchable product catalogue with category and product SEO pages',
+        'RFQ basket so buyers request quotes on selected items',
+        'Admin workflow to manage products, prices and inbound enquiries',
+        'Handover with tracking and Search Console baseline',
+      ],
+    };
   }
 
-  if (projectValue === 'over-120k' || primaryNeed === 'portal') {
-    items.push('Scoped admin or portal module (discovery required)');
-  } else if (projectValue !== 'under-30k') {
-    items.push('Optional ongoing maintenance plan');
+  if (primaryNeed === 'ecommerce') {
+    return {
+      serviceSlug: 'ecommerce-websites',
+      headline: 'Ecommerce website system',
+      projectValueLabel: 'R70,000 – R160,000 (indicative)',
+      budgetHint: 'R75,000+',
+      items: [
+        'Category and product pages structured for search and conversion',
+        'Cart and checkout with a South African payment gateway',
+        'Order notifications plus a practical product/order admin',
+        'Analytics events for purchase and key funnel steps',
+      ],
+    };
   }
 
-  const budgetMap: Record<string, string> = {
-    'under-30k': 'Under R15,000',
-    '30-60k': 'R30,000 – R60,000',
-    '60-120k': 'R60,000 – R120,000',
-    'over-120k': 'Over R120,000',
-    unsure: '',
+  if (primaryNeed === 'portal' || primaryNeed === 'systems') {
+    return {
+      serviceSlug: 'rfq-and-quotation-systems',
+      headline: 'Enquiry-to-quote workflow',
+      projectValueLabel: 'From R80,000 (indicative; discovery first)',
+      budgetHint: 'R75,000+',
+      items: [
+        'Public website with qualification forms that feed a structured RFQ',
+        'Admin inbox, quotation builder and status tracking',
+        'Client-facing approval step so quotes do not stall in email',
+        'Paid discovery produces the written specification before build',
+      ],
+    };
+  }
+
+  if (websiteStatus === 'none' || websiteStatus === 'diy') {
+    return {
+      serviceSlug: 'lead-generation-websites',
+      headline: 'Lead-generation website system',
+      projectValueLabel: 'R14,000 – R60,000 (indicative)',
+      budgetHint: 'R20,000–R40,000',
+      items: [
+        'SEO-mapped service and location pages matched to how buyers search',
+        'Enquiry forms with call and WhatsApp conversion tracking',
+        'Search Console and analytics baseline from day one',
+        'You own the domain, content and code — no lock-in',
+      ],
+    };
+  }
+
+  // Established / redesign path
+  return {
+    serviceSlug: 'website-redesign',
+    headline: 'Redesign with search architecture',
+    projectValueLabel: 'R28,000 – R60,000 (indicative)',
+    budgetHint: 'R40,000–R75,000',
+    items: [
+      'Audit of current structure, indexation and enquiry pathways',
+      'Rebuilt page map aligned to real search demand',
+      'Conversion and form pathways refreshed for qualified enquiries',
+      'Redirect and launch plan so existing rankings are not discarded',
+    ],
   };
+}
+
+export function buildEnquiryRecommendation(inputs: EnquiryInputs): EnquiryRecommendation {
+  const shape = resolveSystemShape(inputs);
 
   const messageSeed = [
     'Enquiry via homepage system preview.',
-    `Business type: ${businessType}.`,
-    `Primary need: ${primaryNeed}.`,
-    `Website status: ${websiteStatus}.`,
-    `Recommended shape: ${headline}.`,
+    `Business type: ${inputs.businessType}.`,
+    `Primary need: ${inputs.primaryNeed}.`,
+    `Website status: ${inputs.websiteStatus}.`,
+    `Recommended shape: ${shape.headline}.`,
+    `Indicative project cost: ${shape.projectValueLabel}.`,
   ].join(' ');
 
   return {
-    headline,
-    items,
-    serviceSlug,
-    budgetHint: budgetMap[projectValue] ?? '',
+    headline: shape.headline,
+    items: shape.items,
+    projectValueLabel: shape.projectValueLabel,
+    serviceSlug: shape.serviceSlug,
+    budgetHint: shape.budgetHint,
     messageSeed,
   };
 }

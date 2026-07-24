@@ -39,6 +39,29 @@ export default function SolutionsPage() {
           </div>
         }
       />
+      <Section heading="How these pages are organised">
+        <div className="max-w-prose space-y-4 leading-relaxed text-muted">
+          <p>
+            Industry pages sit beside our service catalogue on purpose. Services describe what we
+            build — lead-generation sites, catalogues, ecommerce, portals and custom workflows.
+            Solutions describe who that work is for and how buyers in that trade actually search,
+            evaluate and buy. A contractor winning municipal tenders does not need the same page map
+            as a manufacturer publishing a technical range, or a property business collecting
+            qualified rental enquiries.
+          </p>
+          <p>
+            Each solution page covers the commercial problem, the search behaviour we design for,
+            the website or system shape that usually fits, and the proof an industry buyer expects to
+            see before contacting you. Where a productised package is the right entry point, we
+            point to it. Where custom discovery is required, we say so plainly.
+          </p>
+          <p>
+            We only publish industries we can speak about with operating context — not a directory
+            of every SIC code. If your sector is adjacent to one listed here, start with the closest
+            match or tell us what you do on the proposal form and we will map the fit.
+          </p>
+        </div>
+      </Section>
       <Section heading="Industries we build for" tone="surface">
         <CardGrid>
           {solutions.map((solution) => (

@@ -7,7 +7,7 @@ export function ProjectsHero() {
       variant="editorial"
       eyebrow="Selected work / 03"
       title="Websites and systems built around real operations."
-      description="Selected lead-generation platforms and custom systems developed for technical, industrial and service businesses."
+      description="Selected lead-generation platforms and custom systems developed for technical, industrial and service businesses. This section shows authorised work only — published when the client grants permission and imagery clears review."
       meta={
         <p className="projects-trust-note max-w-xl">
           Projects are published only with client permission. Scope and results are never fabricated.

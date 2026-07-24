@@ -6,7 +6,7 @@ export const comparisons: Comparison[] = [
     slug: 'custom-website-vs-template',
     optionA: 'Custom-built website',
     optionB: 'Template or website builder',
-    title: 'Custom Website vs Template: Which Should You Choose?',
+    title: 'Custom Website vs Template',
     metaDescription:
       'Custom website vs template or builder: an honest comparison of cost, speed, SEO ceiling and ownership — and the situations where each is the right call.',
     heading: 'Custom website vs template: which should you choose?',
@@ -83,7 +83,7 @@ export const comparisons: Comparison[] = [
     slug: 'website-vs-web-application',
     optionA: 'Website',
     optionB: 'Web application',
-    title: 'Website vs Web Application: What Does Your Business Need?',
+    title: 'Website vs Web Application',
     metaDescription:
       'Website vs web application explained for business owners: what each is for, what each costs, and the telltale signs your business has outgrown “just a website”.',
     heading: 'Website vs web application: what does your business need?',

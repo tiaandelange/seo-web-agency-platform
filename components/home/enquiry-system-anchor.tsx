@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Client component justification: live recommendation preview from four inputs
+ * Client component justification: live recommendation preview from three inputs
  * without a full page reload; CTA deep-links to quote form with context prefilled.
  * ~3 KB gzipped — within homepage JS budget.
  */
@@ -23,7 +23,6 @@ const FLOW = [
 export function EnquirySystemAnchor() {
   const [businessType, setBusinessType] = useState('contractor');
   const [primaryNeed, setPrimaryNeed] = useState('lead-gen');
-  const [projectValue, setProjectValue] = useState('30-60k');
   const [websiteStatus, setWebsiteStatus] = useState('outdated');
 
   const recommendation = useMemo(
@@ -31,10 +30,9 @@ export function EnquirySystemAnchor() {
       buildEnquiryRecommendation({
         businessType,
         primaryNeed,
-        projectValue,
         websiteStatus,
       }),
-    [businessType, primaryNeed, projectValue, websiteStatus],
+    [businessType, primaryNeed, websiteStatus],
   );
 
   const quoteHref = enquiryQuoteHref(recommendation);
@@ -80,8 +78,8 @@ export function EnquirySystemAnchor() {
                 See the system your business actually needs
               </p>
               <p className="home-enquiry-form-lead">
-                Select your context — we suggest a system shape, not a public price. Your answers
-                carry through to the proposal form.
+                Select your context — we suggest a system shape and an indicative project range.
+                Your answers carry through to the proposal form.
               </p>
 
               <div className="home-enquiry-fields">
@@ -110,22 +108,21 @@ export function EnquirySystemAnchor() {
                     <option value="ecommerce">Ecommerce</option>
                     <option value="portal">Portal / quotation system</option>
                     <option value="systems">Custom workflow</option>
+                    <option value="seo-audit">SEO audit</option>
                   </select>
                 </label>
-                <label className="home-enquiry-field">
-                  <span className="home-enquiry-label">Typical project value</span>
-                  <select
-                    value={projectValue}
-                    onChange={(e) => setProjectValue(e.target.value)}
-                    className="home-select"
+                <div className="home-enquiry-field">
+                  <span className="home-enquiry-label" id="enquiry-project-value-label">
+                    Typical project cost
+                  </span>
+                  <p
+                    className="home-enquiry-value"
+                    aria-labelledby="enquiry-project-value-label"
+                    aria-live="polite"
                   >
-                    <option value="under-30k">Under R30,000</option>
-                    <option value="30-60k">R30,000 – R60,000</option>
-                    <option value="60-120k">R60,000 – R120,000</option>
-                    <option value="over-120k">Over R120,000</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
-                </label>
+                    {recommendation.projectValueLabel}
+                  </p>
+                </div>
                 <label className="home-enquiry-field">
                   <span className="home-enquiry-label">Current website</span>
                   <select

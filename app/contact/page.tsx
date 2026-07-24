@@ -15,7 +15,7 @@ import { ContactRoutePanel } from '@/components/contact/contact-route-panel';
 import { ProposalExpectations } from '@/components/contact/proposal-expectations';
 
 const PATH = '/contact/';
-const TITLE = 'Contact Koppie Systems | Pretoria & South Africa';
+const TITLE = 'Contact Pretoria & South Africa';
 const DESCRIPTION =
   'Contact Koppie Systems about website development, ecommerce, SEO or digital business systems. Based in Pretoria and serving clients across South Africa.';
 

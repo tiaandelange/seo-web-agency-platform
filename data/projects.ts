@@ -31,7 +31,8 @@ export const projectCategories: {
     slug: 'websites',
     title: 'Website Projects',
     heading: 'Website projects',
-    description: 'Business, lead-generation and catalogue website builds.',
+    description:
+      'Business, lead-generation and catalogue website builds for technical and service companies. These case studies focus on how search architecture, service pages and enquiry pathways were designed around real buyer behaviour — not template brochureware. Each published study states the problem, the page map and systems delivered, and what was deliberately left out. Projects appear here only with client permission and cleared screenshots; template or draft work stays noindex until that gate is met. If you need a similar site, start with the matching service or package page, then use a case study to see how the method looks in practice for an industrial or service operator.',
   },
   {
     slug: 'ecommerce',
@@ -43,7 +44,8 @@ export const projectCategories: {
     slug: 'admin-systems',
     title: 'Admin & System Projects',
     heading: 'Admin and system projects',
-    description: 'Admin panels, quotation platforms, portals and custom applications.',
+    description:
+      'Admin panels, quotation platforms, portals and custom applications that sit behind a marketing site or replace email-and-spreadsheet operations. Studies in this category emphasise intake, status tracking, quoting and handover — the work buyers never see but that determines whether an enquiry becomes a closed job. We publish architecture and delivery notes, not invented throughput metrics. Permissioned projects only; templates remain gated until real evidence and imagery are approved. For a similar scope, pair this category with our RFQ, portal or custom application services and ask for a discovery-led quote.',
   },
 ];
 

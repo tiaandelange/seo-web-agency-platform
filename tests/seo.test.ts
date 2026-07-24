@@ -50,7 +50,7 @@ describe('buildMetadata', () => {
     expect(meta.title).toBe('Ecommerce Website Development South Africa');
   });
 
-  it('leaves Open Graph images to the App Router file convention when none is provided', () => {
+  it('emits the site-wide default Open Graph image when none is provided', () => {
     const meta = buildMetadata({
       title: 'Test Page',
       description: 'A test description for metadata building checks.',
@@ -59,11 +59,16 @@ describe('buildMetadata', () => {
     const og = meta.openGraph as {
       images?: Array<{ url: string; alt?: string; width?: number; height?: number }>;
     };
-    expect(og.images).toBeUndefined();
+    expect(og.images?.[0]).toEqual({
+      url: DEFAULT_SOCIAL_IMAGE.url,
+      alt: DEFAULT_SOCIAL_IMAGE.alt,
+      width: DEFAULT_SOCIAL_IMAGE.width,
+      height: DEFAULT_SOCIAL_IMAGE.height,
+    });
     expect(meta.twitter).toMatchObject({
       card: 'summary_large_image',
+      images: [DEFAULT_SOCIAL_IMAGE.url],
     });
-    expect(meta.twitter).not.toHaveProperty('images');
   });
 
   it('emits Open Graph image metadata with alt and dimensions when provided', () => {

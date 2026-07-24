@@ -13,7 +13,7 @@ import { CapabilityArchitecture } from '@/components/services/capability-archite
 const PATH = '/services/';
 const TITLE = 'Websites, Ecommerce and Business Systems';
 const DESCRIPTION =
-  'Koppie Systems builds connected websites, ecommerce and operational systems for South African businesses: acquire customers, run operations, and scale with support.';
+  'Websites, ecommerce and operational systems for South African businesses — acquire customers, run operations and scale with structured support.';
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

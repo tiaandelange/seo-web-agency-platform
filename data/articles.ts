@@ -13,7 +13,7 @@ export const resourceCategories: ResourceCategoryInfo[] = [
       'Honest guides to website costs and buying decisions in South Africa: what things cost, why prices differ, and how to choose a provider without regret.',
     heading: 'Website cost guides',
     intro:
-      'What websites really cost in South Africa, what moves the price, and how to buy well. Written with published figures and dated sources — the guides we wish every buyer read before requesting quotes.',
+      'What websites really cost in South Africa, what moves the price, and how to buy well. Written with published figures and dated sources — the guides we wish every buyer read before requesting quotes. Use these pages to separate template pricing from custom builds, understand why two quotes for “a website” can differ by an order of magnitude, and decide which package or service conversation is worth your time. We keep figures labelled indicative where they are ranges, and we do not invent “average agency” statistics without a citation. When you are ready to move from research to a scoped number, the pricing and package pages sit one click away — the quote after discovery remains the binding figure.',
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
@@ -21,12 +21,12 @@ export const resourceCategories: ResourceCategoryInfo[] = [
   {
     slug: 'seo-guides',
     category: 'seo-guides',
-    title: 'SEO Guides',
+    title: 'SEO Guides for SA Businesses',
     metaDescription:
       'Plain-language SEO guides for South African business owners: how search visibility actually works, what to invest in, and what to ignore.',
     heading: 'SEO guides',
     intro:
-      'Search engine optimisation explained for business owners, not marketers: what Google rewards, what it ignores, and where your money and effort actually move the needle.',
+      'Search engine optimisation explained for business owners, not marketers: what Google rewards, what it ignores, and where your money and effort actually move the needle. These guides cover SEO-first website structure, common myths, and how to judge whether you need content, technical fixes, or a proper rebuild. We avoid ranking guarantees and fabricated traffic claims — visibility work is evidence-led and often slow. Pair a guide with our SEO audit products when you want a once-off diagnosis, or with SEO website development when the site itself is the constraint. New articles publish when they meet the same sourcing standard as the rest of this library.',
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
@@ -62,7 +62,7 @@ export const articles: Article[] = [
     slug: 'website-cost-south-africa',
     category: 'website-cost-guides',
     title: 'How Much Does a Website Cost in South Africa?',
-    seoTitle: 'How Much Does a Website Cost in South Africa? (2026)',
+    seoTitle: 'Website Cost in South Africa (2026)',
     metaDescription:
       'Website costs in South Africa in 2026: real market ranges from R2,000 templates to R160,000+ ecommerce builds, what moves the price, and how to budget sensibly.',
     heading: 'How much does a website cost in South Africa?',
@@ -113,7 +113,7 @@ export const articles: Article[] = [
   {
     slug: 'choosing-a-website-development-company',
     category: 'website-cost-guides',
-    title: 'How to Choose a Website Development Company in South Africa',
+    title: 'How to Choose a Website Developer in SA',
     metaDescription:
       'How to choose a website development company in South Africa: the questions that expose method, the red flags that predict regret, and a simple shortlist test.',
     heading: 'How to choose a website development company in South Africa',
