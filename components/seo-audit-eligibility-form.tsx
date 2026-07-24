@@ -1,20 +1,42 @@
-import { assessSeoAuditEligibility } from '@/lib/seo-audit-actions';
+'use client';
+
+import { useActionState, useMemo } from 'react';
+import {
+  assessSeoAuditEligibility,
+  initialEligibilityActionState,
+} from '@/lib/seo-audit-actions';
+import { useEligibilitySuccessTracking } from '@/components/analytics/use-success-tracking';
 
 const inputClass =
   'w-full rounded-card border border-line bg-canvas px-3 py-2.5 text-ink';
 
 /**
  * Hub eligibility — routes to Priority Fix, Advanced, or custom proposal.
- * Server-rendered; no client JS required.
+ * seo_audit_eligibility_complete fires only after a confirmed routing decision.
  */
 export function SeoAuditEligibilityForm({
   defaultTier = 'auto',
 }: {
   defaultTier?: 'auto' | 'priority-fix' | 'advanced';
 }) {
+  const [state, formAction, pending] = useActionState(
+    assessSeoAuditEligibility,
+    initialEligibilityActionState,
+  );
+  useEligibilitySuccessTracking(state);
+  const renderedAt = useMemo(() => new Date().toISOString(), []);
+
+  if (state.status === 'success') {
+    return (
+      <p className="max-w-2xl rounded-card border border-line bg-surface p-4 text-ink" role="status">
+        Eligibility checked. Taking you to the next step…
+      </p>
+    );
+  }
+
   return (
-    <form action={assessSeoAuditEligibility} className="max-w-2xl space-y-5">
-      <input type="hidden" name="rendered_at" value={new Date().toISOString()} />
+    <form action={formAction} className="max-w-2xl space-y-5">
+      <input type="hidden" name="rendered_at" value={renderedAt} />
       <input type="hidden" name="requested_tier" value={defaultTier} />
       <div className="hidden" aria-hidden="true">
         <label htmlFor="company_website_eligibility">Leave this field empty</label>
@@ -26,6 +48,12 @@ export function SeoAuditEligibilityForm({
           autoComplete="off"
         />
       </div>
+
+      {state.status === 'error' && (
+        <p role="alert" className="rounded-card border border-error/40 bg-notice p-4 text-sm text-ink">
+          Please answer every eligibility question, then try again.
+        </p>
+      )}
 
       <div>
         <label htmlFor="site_size" className="mb-1 block text-sm font-medium text-ink">
@@ -114,9 +142,10 @@ export function SeoAuditEligibilityForm({
 
       <button
         type="submit"
-        className="rounded-card bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90"
+        disabled={pending}
+        className="rounded-card bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90 disabled:opacity-60"
       >
-        Check eligibility
+        {pending ? 'Checking…' : 'Check eligibility'}
       </button>
       <p className="text-sm text-muted">
         We route you to the Priority Fix Pack, the Advanced Audit, or a custom proposal — we do not

@@ -1,18 +1,13 @@
 'use server';
 
-import { redirect } from 'next/navigation';
 import { deliverLead } from '@/lib/lead-delivery';
 import { normalizeWebsiteUrl } from '@/lib/website-url';
+import type { LeadFormId } from '@/lib/analytics-types';
 
 /**
  * Lead-form server action — docs/technical/FORM-ARCHITECTURE.md.
- * - Honeypot check (silent discard: bots see success).
- * - Minimum-time trap (silent discard).
- * - Server-side validation regardless of client behaviour.
- * - Delivery via lib/lead-delivery.ts (webhook | resend templates | log).
- * - Contact/proposal: hosted Resend templates (internal first; confirmation second).
- * - Delivery failure → error redirect (never a false thank-you).
- * - Never exposes secrets to the client; never sends email from client code.
+ * Returns structured state so the client can fire generate_lead only after
+ * confirmed delivery, then navigate to the thank-you page.
  */
 
 const MAX_LEN = 5000;
@@ -22,8 +17,22 @@ function clean(value: FormDataEntryValue | null, max = 500): string {
   return value.trim().slice(0, max);
 }
 
-export async function submitLead(formData: FormData): Promise<void> {
-  // Honeypot: real users never see or fill this field.
+export type LeadActionState =
+  | { status: 'idle' }
+  | { status: 'error'; error: 'validation' | 'delivery' }
+  | {
+      status: 'success';
+      track: boolean;
+      formId: LeadFormId;
+      redirectTo: string;
+    };
+
+export const initialLeadActionState: LeadActionState = { status: 'idle' };
+
+export async function submitLead(
+  _prev: LeadActionState,
+  formData: FormData,
+): Promise<LeadActionState> {
   const honeypot = clean(formData.get('company_website'));
   const name = clean(formData.get('name'));
   const email = clean(formData.get('email'));
@@ -37,21 +46,19 @@ export async function submitLead(formData: FormData): Promise<void> {
   const consent = formData.get('consent') === 'on';
   const formType = clean(formData.get('form_type'), 50) || 'quote';
 
-  const returnPath = formType === 'contact' ? '/contact/' : '/request-a-quote/';
+  const formId: LeadFormId = formType === 'contact' ? 'contact' : 'request_quote';
+  const thankYou = '/request-a-quote/thank-you/';
 
   if (honeypot) {
-    // Silent discard — pretend success so bots learn nothing.
-    redirect('/request-a-quote/thank-you/');
+    // Silent discard — pretend success so bots learn nothing. Do not track.
+    return { status: 'success', track: false, formId, redirectTo: thankYou };
   }
 
-  // Minimum-elapsed-time trap (D-12): humans take longer than a few seconds
-  // between page render and submit. Skipped when the field is missing or
-  // unparseable so no legitimate visitor can ever be falsely rejected.
   const renderedAt = clean(formData.get('rendered_at'), 50);
   if (renderedAt) {
     const renderedMs = Date.parse(renderedAt);
     if (!Number.isNaN(renderedMs) && Date.now() - renderedMs < 3000) {
-      redirect('/request-a-quote/thank-you/');
+      return { status: 'success', track: false, formId, redirectTo: thankYou };
     }
   }
 
@@ -67,7 +74,7 @@ export async function submitLead(formData: FormData): Promise<void> {
     website.ok;
 
   if (!valid) {
-    redirect(`${returnPath}?error=validation`);
+    return { status: 'error', error: 'validation' };
   }
 
   const lead = {
@@ -95,7 +102,7 @@ export async function submitLead(formData: FormData): Promise<void> {
       formType: lead.formType,
       submittedAt: lead.submittedAt,
     });
-    redirect(`${returnPath}?error=delivery`);
+    return { status: 'error', error: 'delivery' };
   }
 
   console.log('[lead] delivery ok', {
@@ -105,5 +112,5 @@ export async function submitLead(formData: FormData): Promise<void> {
     submittedAt: lead.submittedAt,
   });
 
-  redirect('/request-a-quote/thank-you/');
+  return { status: 'success', track: true, formId, redirectTo: thankYou };
 }

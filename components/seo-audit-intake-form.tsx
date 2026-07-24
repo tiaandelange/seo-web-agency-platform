@@ -1,5 +1,12 @@
+'use client';
+
 import Link from 'next/link';
-import { submitSeoAuditIntake } from '@/lib/seo-audit-actions';
+import { useActionState, useMemo } from 'react';
+import {
+  initialSeoAuditIntakeActionState,
+  submitSeoAuditIntake,
+} from '@/lib/seo-audit-actions';
+import { useLeadSuccessTracking } from '@/components/analytics/use-success-tracking';
 import type { SeoAuditProductId } from '@/config/seo-audit-product';
 import {
   getSeoAuditProduct,
@@ -20,10 +27,24 @@ export function SeoAuditIntakeForm({
   const product = getSeoAuditProduct(tier);
   const isAdvanced = tier === 'advanced';
   const checkoutReady = isSeoAuditTierCheckoutConfigured(tier);
+  const [state, formAction, pending] = useActionState(
+    submitSeoAuditIntake,
+    initialSeoAuditIntakeActionState,
+  );
+  useLeadSuccessTracking(state);
+  const renderedAt = useMemo(() => new Date().toISOString(), []);
+
+  if (state.status === 'success') {
+    return (
+      <p className="max-w-2xl rounded-card border border-line bg-surface p-4 text-ink" role="status">
+        Intake received. Taking you to the confirmation page…
+      </p>
+    );
+  }
 
   return (
-    <form action={submitSeoAuditIntake} className="max-w-2xl space-y-5">
-      <input type="hidden" name="rendered_at" value={new Date().toISOString()} />
+    <form action={formAction} className="max-w-2xl space-y-5">
+      <input type="hidden" name="rendered_at" value={renderedAt} />
       <input type="hidden" name="product_tier" value={tier} />
       <div className="hidden" aria-hidden="true">
         <label htmlFor={`company_website_intake_${tier}`}>Leave this field empty</label>
@@ -35,6 +56,16 @@ export function SeoAuditIntakeForm({
           autoComplete="off"
         />
       </div>
+
+      {state.status === 'error' && (
+        <p role="alert" className="rounded-card border border-error/40 bg-notice p-4 text-sm text-ink">
+          {state.error === 'inactive'
+            ? 'This product is temporarily unavailable. Please request a custom proposal instead.'
+            : state.error === 'delivery'
+              ? 'We could not send your intake right now. Please try again shortly.'
+              : 'We could not complete that submission. Check the required fields and try again.'}
+        </p>
+      )}
 
       <p className="rounded-card border border-line bg-surface px-4 py-3 text-sm text-muted">
         Pack: {product.name} — {seoAuditTierPriceLabel(tier)}. Do not enter passwords, card numbers
@@ -261,9 +292,10 @@ export function SeoAuditIntakeForm({
 
       <button
         type="submit"
-        className="rounded-card bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90"
+        disabled={pending}
+        className="rounded-card bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90 disabled:opacity-60"
       >
-        Submit {product.shortName} intake
+        {pending ? 'Submitting…' : `Submit ${product.shortName} intake`}
       </button>
     </form>
   );

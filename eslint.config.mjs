@@ -22,6 +22,7 @@ const eslintConfig = [
       // One-off production crawl audit helpers (CommonJS; not part of the app runtime).
       'scripts/production-*.cjs',
       'scripts/capture-work-screenshots.cjs',
+      'scripts/build-logo-variants.cjs',
     ],
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),

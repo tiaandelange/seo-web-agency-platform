@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
-import { submitLead } from '@/lib/actions';
+import { useActionState, useMemo } from 'react';
+import { initialLeadActionState, submitLead } from '@/lib/actions';
+import { useLeadSuccessTracking } from '@/components/analytics/use-success-tracking';
 import {
   PROPOSAL_BUDGET_BANDS,
   PROPOSAL_SERVICE_OPTIONS,
@@ -7,9 +11,10 @@ import {
 } from '@/data/proposal-form';
 
 /**
- * Proposal / contact form — server-rendered, works without JavaScript.
+ * Proposal / contact form — progressive enhancement via useActionState.
  * Spam: honeypot + render timestamp. Consent: explicit POPIA acknowledgement.
- * Architecture: docs/technical/FORM-ARCHITECTURE.md.
+ * generate_lead fires only after confirmed delivery (never on click / validation fail).
+ * 'use client' justified: success tracking + thank-you navigation after server confirmation.
  */
 
 const inputClass =
@@ -28,21 +33,33 @@ export function QuoteForm({
   };
 }) {
   const isQuote = formType === 'quote';
+  const [state, formAction, pending] = useActionState(submitLead, initialLeadActionState);
+  useLeadSuccessTracking(state);
+
+  const renderedAt = useMemo(() => new Date().toISOString(), []);
+
   const knownService =
     defaults?.serviceInterest &&
     PROPOSAL_SERVICE_OPTIONS.some((o) => o.value === defaults.serviceInterest)
       ? defaults.serviceInterest
       : '';
 
+  if (state.status === 'success') {
+    return (
+      <p className="rounded-card border border-line bg-surface p-4 text-ink" role="status">
+        Message received. Taking you to the confirmation page…
+      </p>
+    );
+  }
+
   return (
     <form
-      action={submitLead}
+      action={formAction}
       className={`proposal-form space-y-5 ${isQuote ? 'proposal-form--quote' : ''}`}
       noValidate={false}
     >
       <input type="hidden" name="form_type" value={formType} />
-      <input type="hidden" name="rendered_at" value={new Date().toISOString()} />
-      {/* Honeypot — hidden from humans, irresistible to bots. */}
+      <input type="hidden" name="rendered_at" value={renderedAt} />
       <div className="hidden" aria-hidden="true">
         <label htmlFor={`company_website_${formType}`}>Leave this field empty</label>
         <input
@@ -53,6 +70,17 @@ export function QuoteForm({
           autoComplete="off"
         />
       </div>
+
+      {state.status === 'error' && (
+        <p
+          role="alert"
+          className="rounded-card border border-error/40 bg-notice p-4 text-sm text-ink"
+        >
+          {state.error === 'delivery'
+            ? 'We could not send your enquiry right now. Please try again shortly, or contact us by phone, WhatsApp or email.'
+            : 'We could not complete that submission. Please check the required fields and try again.'}
+        </p>
+      )}
 
       {isQuote && (
         <h2 className="text-subsection-title text-ink">Tell us about your project</h2>
@@ -170,7 +198,7 @@ export function QuoteForm({
                 className="proposal-audit-notice proposal-audit-notice--advanced mt-3 hidden rounded-card border border-notice-border bg-notice p-3 text-sm text-ink"
                 role="status"
               >
-                This service has a fixed price of R8,500 for eligible websites.{" "}
+                This service has a fixed price of R8,500 for eligible websites.{' '}
                 <Link href="/seo-audit/advanced/" className="font-semibold text-link underline">
                   View the advanced audit
                 </Link>
@@ -239,9 +267,7 @@ export function QuoteForm({
           defaultValue={defaults?.message ?? ''}
           aria-describedby={`message_hint_${formType}`}
           placeholder={
-            isQuote
-              ? 'Brief context is enough — a formal brief is not required.'
-              : undefined
+            isQuote ? 'Brief context is enough — a formal brief is not required.' : undefined
           }
         />
       </div>
@@ -266,9 +292,10 @@ export function QuoteForm({
 
       <button
         type="submit"
-        className="inline-flex min-h-11 items-center rounded-sm bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90"
+        disabled={pending}
+        className="inline-flex min-h-11 items-center rounded-sm bg-cta px-6 py-3 font-semibold text-cta-contrast hover:opacity-90 disabled:opacity-60"
       >
-        {isQuote ? 'Send project details' : 'Send message'}
+        {pending ? 'Sending…' : isQuote ? 'Send project details' : 'Send message'}
       </button>
       <p className="text-sm text-muted">
         {isQuote

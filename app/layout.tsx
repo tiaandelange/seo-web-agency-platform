@@ -5,6 +5,7 @@ import { brand, siteOrigin } from '@/config/brand';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { JsonLd } from '@/components/json-ld';
+import { AnalyticsProvider } from '@/components/analytics/analytics-provider';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 
 /**
@@ -44,16 +45,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? '';
+
   return (
     <html lang="en-ZA" className={`${manrope.variable} ${inter.variable} ${plexMono.variable}`}>
       <body className={inter.className}>
-        <a href="#main" className="skip-link">
-          Skip to main content
-        </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <AnalyticsProvider measurementId={gaMeasurementId}>
+          <a href="#main" className="skip-link">
+            Skip to main content
+          </a>
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+          <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        </AnalyticsProvider>
       </body>
     </html>
   );

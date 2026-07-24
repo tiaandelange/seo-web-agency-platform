@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { brand, publicEmail } from '@/config/brand';
 import { footerColumns, footerLegal } from '@/data/navigation';
+import { CookieSettingsButton } from '@/components/analytics/cookie-settings-button';
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -77,7 +78,7 @@ export function SiteFooter() {
               </span>
             )}
           </p>
-          <ul className="flex flex-wrap gap-4">
+          <ul className="flex flex-wrap items-center gap-4">
             {footerLegal.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:text-accent-contrast">
@@ -85,6 +86,9 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
+            <li>
+              <CookieSettingsButton />
+            </li>
           </ul>
         </div>
       </div>

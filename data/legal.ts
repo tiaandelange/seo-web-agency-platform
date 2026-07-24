@@ -28,8 +28,8 @@ export const legalDocs: LegalDoc[] = [
     status: 'live',
     placeholder: false,
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-23',
-    effectiveDate: '2026-07-23',
+    dateUpdated: '2026-07-24',
+    effectiveDate: '2026-07-24',
     sections: [
       {
         heading: 'Who we are',
@@ -43,7 +43,7 @@ export const legalDocs: LegalDoc[] = [
         heading: 'What we collect and why',
         paragraphs: [
           'Enquiry and quote forms collect: name, email address, phone number (optional), company (optional), service interest, budget band, timeline and your message. We use this solely to respond to your enquiry, prepare quotations and (where relevant) follow up on project discussions. We do not collect more than the enquiry needs.',
-          'No analytics or marketing cookies are set on this website today. If Google Analytics 4 or similar tools are enabled later, this policy and the cookie policy will be updated before activation, and a consent mechanism will be described.',
+          'Optional Google Analytics 4 (GA4) may load only after you accept analytics cookies. GA4 helps us understand which pages are used and which lead to enquiries. We do not send form field values, names, email addresses, phone numbers or message text to Google Analytics. You can change your choice at any time via Cookie settings in the website footer.',
         ],
       },
       {
@@ -137,32 +137,36 @@ export const legalDocs: LegalDoc[] = [
     slug: 'cookie-policy',
     title: 'Cookie Policy',
     metaDescription:
-      'What cookies the Koppie Systems website uses. Currently: no analytics or marketing cookies — only what is strictly necessary for the site to function.',
+      'What cookies the Koppie Systems website uses: strictly necessary storage plus optional Google Analytics 4 cookies only after you consent.',
     heading: 'Cookie policy',
     intro:
-      'This website currently sets no analytics or marketing cookies. This page explains what that means and what will change if analytics is introduced.',
+      'This page explains which cookies and similar storage this website may use, and how you control optional analytics.',
     status: 'live',
     placeholder: false,
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-22',
-    effectiveDate: '2026-07-22',
+    dateUpdated: '2026-07-24',
+    effectiveDate: '2026-07-24',
     sections: [
       {
-        heading: 'Current cookie use',
+        heading: 'Strictly necessary',
         paragraphs: [
-          'No analytics, advertising or tracking cookies are set by this website today. Strictly necessary technical storage may be used by the hosting platform (Vercel) to serve the site securely.',
+          'Hosting and security systems (for example Vercel) may use strictly necessary technical storage so the site can be served securely. These are not used for advertising.',
+          'Your analytics preference is stored in your browser’s local storage under the key koppie_analytics_consent so we remember Accept or Reject across visits.',
         ],
       },
       {
-        heading: 'If analytics is introduced',
+        heading: 'Optional analytics (Google Analytics 4)',
         paragraphs: [
-          'Before enabling Google Analytics 4 or similar tools, we will update this policy with the cookies set, their lifetimes and purposes, update the privacy policy, and implement the consent approach described in our internal analytics documentation.',
+          'If you accept analytics cookies, and a GA4 measurement ID is configured for this environment, we load Google Analytics 4 via the official Next.js GoogleAnalytics component. Typical first-party cookies include _ga and _ga_* used to distinguish visitors and sessions.',
+          'Analytics helps us understand page usage, engagement and which pages lead to enquiries. We do not send form contents, names, emails, phone numbers, WhatsApp numbers or message text to Google Analytics.',
+          'GA4 does not load, and those cookies are not set, until you choose Accept analytics. Rejecting non-essential keeps analytics unloaded.',
         ],
       },
       {
         heading: 'Managing cookies',
         paragraphs: [
-          'You can control and delete cookies through your browser settings. Because we do not set optional cookies today, no separate cookie banner is shown.',
+          'Use Cookie settings in the website footer to reopen the preference dialog at any time. If you change from Accept to Reject, we clear accessible _ga / _ga_* cookies for this site and reload the page so the analytics script is removed.',
+          'You can also control and delete cookies through your browser settings.',
         ],
       },
     ],

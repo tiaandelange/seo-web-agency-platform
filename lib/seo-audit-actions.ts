@@ -1,11 +1,10 @@
 'use server';
 
-import { redirect } from 'next/navigation';
 import { deliverLead } from '@/lib/lead-delivery';
+import type { AuditRoute, LeadFormId } from '@/lib/analytics-types';
 import type { SeoAuditProductId } from '@/config/seo-audit-product';
 import {
   SEO_AUDIT_CUSTOM_QUOTE_PATH,
-  SEO_AUDIT_HUB_PATH,
   getSeoAuditProduct,
   isSeoAuditTierActive,
   seoAuditTierPriceZar,
@@ -18,30 +17,54 @@ function clean(value: FormDataEntryValue | null, max = 500): string {
   return value.trim().slice(0, max);
 }
 
-function spamGate(formData: FormData, thankYouPath: string): void {
+function spamGate(formData: FormData): 'spam' | 'ok' {
   const honeypot = clean(formData.get('company_website'));
-  if (honeypot) redirect(thankYouPath);
+  if (honeypot) return 'spam';
 
   const renderedAt = clean(formData.get('rendered_at'), 50);
   if (renderedAt) {
     const renderedMs = Date.parse(renderedAt);
     if (!Number.isNaN(renderedMs) && Date.now() - renderedMs < 3000) {
-      redirect(thankYouPath);
+      return 'spam';
     }
   }
+  return 'ok';
 }
+
+export type EligibilityActionState =
+  | { status: 'idle' }
+  | { status: 'error' }
+  | {
+      status: 'success';
+      track: boolean;
+      auditRoute: AuditRoute;
+      redirectTo: string;
+    };
+
+export const initialEligibilityActionState: EligibilityActionState = { status: 'idle' };
 
 /**
  * Hub / advanced eligibility — routes to basic intake, advanced intake, or custom quote.
  */
-export async function assessSeoAuditEligibility(formData: FormData): Promise<void> {
+export async function assessSeoAuditEligibility(
+  _prev: EligibilityActionState,
+  formData: FormData,
+): Promise<EligibilityActionState> {
   const requested = clean(formData.get('requested_tier'), 30) || 'auto';
-  const thankYou =
+  const spamThankYou =
     requested === 'advanced'
       ? getSeoAuditProduct('advanced').thankYouPath
       : getSeoAuditProduct('priority-fix').thankYouPath;
 
-  spamGate(formData, thankYou);
+  if (spamGate(formData) === 'spam') {
+    // Silent discard — do not fire eligibility analytics.
+    return {
+      status: 'success',
+      track: false,
+      auditRoute: 'other',
+      redirectTo: spamThankYou,
+    };
+  }
 
   const siteSize = clean(formData.get('site_size'), 50);
   const complexSite = clean(formData.get('complex_site'), 40);
@@ -50,9 +73,7 @@ export async function assessSeoAuditEligibility(formData: FormData): Promise<voi
   const wantsRewrite = clean(formData.get('wants_rewrite'), 20);
 
   if (!siteSize || !complexSite || !canProvideAccess || !compromised || !wantsRewrite) {
-    const returnPath =
-      requested === 'advanced' ? getSeoAuditProduct('advanced').route : SEO_AUDIT_HUB_PATH;
-    redirect(`${returnPath}?error=eligibility#eligibility`);
+    return { status: 'error' };
   }
 
   const needsCustom =
@@ -63,10 +84,14 @@ export async function assessSeoAuditEligibility(formData: FormData): Promise<voi
     wantsRewrite === 'yes';
 
   if (needsCustom) {
-    redirect(`${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=complexity-gate`);
+    return {
+      status: 'success',
+      track: true,
+      auditRoute: 'custom_proposal',
+      redirectTo: `${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=complexity-gate`,
+    };
   }
 
-  // Ecommerce/catalogue or 11–250 URLs → advanced (if active)
   const needsAdvanced =
     siteSize === '11_to_250' ||
     complexSite === 'ecommerce_or_catalogue' ||
@@ -74,35 +99,87 @@ export async function assessSeoAuditEligibility(formData: FormData): Promise<voi
 
   if (needsAdvanced) {
     if (!isSeoAuditTierActive('advanced')) {
-      redirect(`${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=advanced-inactive`);
+      return {
+        status: 'success',
+        track: true,
+        auditRoute: 'custom_proposal',
+        redirectTo: `${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=advanced-inactive`,
+      };
     }
-    // Small ecommerce still advanced; tiny brochure stays basic unless requested advanced
     if (siteSize === 'up_to_10' && complexSite === 'no' && requested !== 'advanced') {
       if (!isSeoAuditTierActive('priority-fix')) {
-        redirect(`${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=basic-inactive`);
+        return {
+          status: 'success',
+          track: true,
+          auditRoute: 'custom_proposal',
+          redirectTo: `${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=basic-inactive`,
+        };
       }
-      redirect(`${getSeoAuditProduct('priority-fix').intakePath}?eligible=1`);
+      return {
+        status: 'success',
+        track: true,
+        auditRoute: 'priority_fix_pack',
+        redirectTo: `${getSeoAuditProduct('priority-fix').intakePath}?eligible=1`,
+      };
     }
-    redirect(`${getSeoAuditProduct('advanced').intakePath}?eligible=1`);
+    return {
+      status: 'success',
+      track: true,
+      auditRoute: 'advanced_audit',
+      redirectTo: `${getSeoAuditProduct('advanced').intakePath}?eligible=1`,
+    };
   }
 
-  // Default: Priority Fix Pack
   if (!isSeoAuditTierActive('priority-fix')) {
-    redirect(`${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=basic-inactive`);
+    return {
+      status: 'success',
+      track: true,
+      auditRoute: 'custom_proposal',
+      redirectTo: `${SEO_AUDIT_CUSTOM_QUOTE_PATH}&reason=basic-inactive`,
+    };
   }
-  redirect(`${getSeoAuditProduct('priority-fix').intakePath}?eligible=1`);
+
+  return {
+    status: 'success',
+    track: true,
+    auditRoute: 'priority_fix_pack',
+    redirectTo: `${getSeoAuditProduct('priority-fix').intakePath}?eligible=1`,
+  };
 }
 
-export async function submitSeoAuditIntake(formData: FormData): Promise<void> {
+export type SeoAuditIntakeActionState =
+  | { status: 'idle' }
+  | { status: 'error'; error: 'validation' | 'delivery' | 'inactive' }
+  | {
+      status: 'success';
+      track: boolean;
+      formId: LeadFormId;
+      redirectTo: string;
+    };
+
+export const initialSeoAuditIntakeActionState: SeoAuditIntakeActionState = { status: 'idle' };
+
+export async function submitSeoAuditIntake(
+  _prev: SeoAuditIntakeActionState,
+  formData: FormData,
+): Promise<SeoAuditIntakeActionState> {
   const tierRaw = clean(formData.get('product_tier'), 30);
   const tier: SeoAuditProductId = tierRaw === 'advanced' ? 'advanced' : 'priority-fix';
   const product = getSeoAuditProduct(tier);
+  const formId: LeadFormId = 'seo_audit_intake';
 
   if (!isSeoAuditTierActive(tier)) {
-    redirect(`${product.intakePath}?error=inactive`);
+    return { status: 'error', error: 'inactive' };
   }
 
-  spamGate(formData, product.thankYouPath);
+  if (spamGate(formData) === 'spam') {
+    return {
+      status: 'success',
+      track: false,
+      formId,
+      redirectTo: product.thankYouPath,
+    };
+  }
 
   const name = clean(formData.get('name'));
   const email = clean(formData.get('email'));
@@ -142,7 +219,7 @@ export async function submitSeoAuditIntake(formData: FormData): Promise<void> {
     gscOk;
 
   if (!valid) {
-    redirect(`${product.intakePath}?error=1`);
+    return { status: 'error', error: 'validation' };
   }
 
   const price = seoAuditTierPriceZar(tier);
@@ -191,7 +268,7 @@ export async function submitSeoAuditIntake(formData: FormData): Promise<void> {
       reason: result.reason,
       tier,
     });
-    redirect(`${product.intakePath}?error=1`);
+    return { status: 'error', error: 'delivery' };
   }
 
   console.log('[seo-audit-intake] delivery ok', {
@@ -200,5 +277,10 @@ export async function submitSeoAuditIntake(formData: FormData): Promise<void> {
     tier,
   });
 
-  redirect(product.thankYouPath);
+  return {
+    status: 'success',
+    track: true,
+    formId,
+    redirectTo: product.thankYouPath,
+  };
 }
