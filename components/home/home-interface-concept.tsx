@@ -23,7 +23,7 @@ export function HomeInterfaceConcept() {
           width={HOMEPAGE_THUMBNAIL.width}
           height={HOMEPAGE_THUMBNAIL.height}
           sizes="(max-width: 768px) 100vw, 1152px"
-          className="h-auto w-full"
+          className="h-auto w-full rounded-card"
           priority={false}
         />
         <figcaption className="mt-3 text-sm text-muted">{HOMEPAGE_THUMBNAIL.caption}</figcaption>

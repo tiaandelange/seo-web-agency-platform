@@ -51,14 +51,11 @@ async function main() {
     .resize(1200, 675, { fit: 'cover', position: 'centre' })
     .toBuffer();
 
-  // Opaque cover over the laptop screen UI — invented KPI figures must not remain readable.
+  // Footer label only — do not cover the laptop UI with a white callout card.
+  // Section eyebrow/intro/figcaption already mark the concept as illustrative.
   const labelOverlay = Buffer.from(
     [
       '<svg width="1200" height="675" xmlns="http://www.w3.org/2000/svg">',
-      '<rect x="390" y="110" width="520" height="320" rx="10" fill="#eef2f6"/>',
-      '<text x="650" y="245" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#4a5560">Illustrative interface concept</text>',
-      '<text x="650" y="277" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7280">Sample UI — not live business metrics</text>',
-      '<text x="650" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9aa3ad">Dashboard preview only</text>',
       '<rect x="40" y="620" width="1120" height="36" rx="4" fill="rgba(7,24,32,0.88)"/>',
       '<text x="600" y="643" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#f5efe6">Illustrative interface concept — not live metrics</text>',
       '</svg>',

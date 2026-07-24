@@ -612,7 +612,8 @@ h6 {
 
 @media (min-width: 1024px) {
   .home-hero-grid-layout {
-    grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr);
+    /* +2px secondary min — prevents Howzit title glyph clip on laptop widths */
+    grid-template-columns: minmax(0, 1.45fr) minmax(calc(18rem + 2px), 0.55fr);
     column-gap: clamp(3.5rem, 5.5vw, 6rem);
     row-gap: 0;
     align-items: center;
@@ -637,7 +638,7 @@ h6 {
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .home-hero-grid-layout {
-    grid-template-columns: minmax(0, 1.35fr) minmax(16.5rem, 0.65fr);
+    grid-template-columns: minmax(0, 1.35fr) minmax(calc(16.5rem + 2px), 0.65fr);
     column-gap: clamp(2rem, 3.5vw, 3.5rem);
   }
 
@@ -766,7 +767,9 @@ h6 {
 }
 
 .home-hero-secondary {
-  max-width: 28rem;
+  max-width: calc(28rem + 2px);
+  /* Subpixel right breathing room so title glyphs are not clipped by overflow */
+  padding-inline-end: 2px;
 }
 
 .home-hero-rule {

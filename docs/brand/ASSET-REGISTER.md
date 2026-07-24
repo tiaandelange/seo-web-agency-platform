@@ -11,7 +11,7 @@
 | Export lockups | **Optional** | `public/brand/koppie-logo-horizontal.svg` etc. | Not used in site chrome |
 | React logo helpers | **Available** | `components/brand/koppie-logo.tsx` | Same SVG + HTML text pattern |
 | Social share default (1200×630) | **Active (live)** | `app/opengraph-image.jpg`, `app/twitter-image.jpg` | File-convention OG/Twitter; mirror at `public/images/og/koppie-systems.jpg` |
-| Homepage preferred thumbnail (1200×675) | **Active (live)** | `public/images/seo/koppie-systems-homepage-thumbnail.jpg` | Visible on home + `primaryImageOfPage`; KPI figures covered + labelled illustrative |
+| Homepage preferred thumbnail (1200×675) | **Active (live)** | `public/images/seo/koppie-systems-homepage-thumbnail.jpg` | Visible on home + `primaryImageOfPage`; labelled illustrative (section copy + footer strip; no white callout card) |
 
 ## Policy
 
