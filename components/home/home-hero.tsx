@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { brand } from '@/config/brand';
+import { HomeHeroRotator } from '@/components/home/home-hero-rotator';
 
 /** Decorative mountain silhouette — dimensions match the WebP asset (prevents CLS). */
 const HERO_MOUNTAIN = {
@@ -53,9 +54,10 @@ export function HomeHero() {
               Websites and systems built to generate enquiries
             </h1>
             <p className="home-hero-lead text-lead">
-              {brand.name} builds the public website and the operational layer behind it — forms,
-              portals, dashboards and quoting workflows — for technical, industrial and service
-              businesses throughout South Africa.
+              {brand.name} is an SEO-first website design and development company in South Africa. We
+              build sites that get you found on Google — plus the business systems behind them: forms,
+              portals, dashboards and quotation workflows — for technical, industrial and service
+              businesses.
             </p>
             <div className="home-hero-actions">
               <Link href="/request-a-quote/" className="home-hero-cta-primary">
@@ -69,17 +71,7 @@ export function HomeHero() {
             </div>
           </div>
           <div className="home-hero-secondary">
-            <p className="text-micro text-cta">System 01 · Commercial acquisition</p>
-            <span className="home-hero-rule" aria-hidden="true" />
-            <p className="home-hero-secondary-title">
-              From search demand
-              <span className="block">
-                to <span className="text-cta">signed quotation.</span>
-              </span>
-            </p>
-            <p className="home-hero-secondary-body">
-              {brand.tagline} Based in {brand.baseCity}, delivering nationwide.
-            </p>
+            <HomeHeroRotator />
           </div>
         </div>
       </div>
