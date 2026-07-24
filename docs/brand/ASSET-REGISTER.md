@@ -6,9 +6,12 @@
 | Circular mark (SVG) | **Available** | `public/brand/koppie-logo-symbol.svg` | Figma master with field `#14242B`; favicon/apple still use this |
 | Header brand lockup | **Active (live)** | `components/brand-wordmark.tsx` | SVG mark + HTML “Koppie” / “Systems” |
 | Favicon / apple icon | **Active (live)** | `app/icon.svg`, `app/apple-icon.svg` | Synced from symbol via `scripts/build-logo-variants.cjs` |
+| Manifest icon (512×512) | **Active (live)** | `public/icon.png` | Referenced by `app/manifest.ts` |
+| Google Business / Organization logo (1024×1024) | **Active (live)** | `public/images/brand/koppie-systems-logo-google.png` | White background; Organization `logo` ImageObject; upload manually to GBP |
 | Export lockups | **Optional** | `public/brand/koppie-logo-horizontal.svg` etc. | Not used in site chrome |
 | React logo helpers | **Available** | `components/brand/koppie-logo.tsx` | Same SVG + HTML text pattern |
-| Social share default (1200×630) | **Open** | — | Derive from mark + type |
+| Social share default (1200×630) | **Active (live)** | `app/opengraph-image.jpg`, `app/twitter-image.jpg` | File-convention OG/Twitter; mirror at `public/images/og/koppie-systems.jpg` |
+| Homepage preferred thumbnail (1200×675) | **Active (live)** | `public/images/seo/koppie-systems-homepage-thumbnail.jpg` | Visible on home + `primaryImageOfPage`; KPI figures covered + labelled illustrative |
 
 ## Policy
 

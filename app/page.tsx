@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { brand } from '@/config/brand';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, HOMEPAGE_THUMBNAIL } from '@/lib/seo';
 import { JsonLd } from '@/components/json-ld';
 import { professionalServiceSchema, webPageSchema } from '@/lib/schema';
 import { Section } from '@/components/section';
@@ -19,27 +19,24 @@ import { EditorialBreak } from '@/components/home/editorial-break';
 import { ProofPreview } from '@/components/home/proof-preview';
 import { HomeAuditStrip } from '@/components/home/home-audit-strip';
 import { HomePackagesFocus } from '@/components/home/home-packages-focus';
+import { HomeInterfaceConcept } from '@/components/home/home-interface-concept';
 
 const HOME_TITLE = 'SEO-First Websites & Digital Systems';
 const HOME_DESCRIPTION =
   'Koppie Systems builds SEO-first websites, ecommerce platforms and practical digital systems for technical and service businesses across South Africa.';
 
-/** Social share description — separate from decorative in-page hero alt (which stays empty). */
-const HOME_OG_IMAGE_DESCRIPTION =
-  'Koppie Systems — SEO-first websites, ecommerce platforms and custom business systems in South Africa';
-
-const HOME_OG_IMAGE = '/images/koppie-systems-website-development-hero.webp';
+/** Social share description — dedicated OG card copy, not the in-page hero. */
+const HOME_OG_DESCRIPTION =
+  'Professional websites, customer portals and custom digital systems for South African businesses.';
 
 export const metadata: Metadata = {
   ...buildMetadata({
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
     path: '/',
-    ogDescription: HOME_OG_IMAGE_DESCRIPTION,
-    socialImage: HOME_OG_IMAGE,
-    socialImageAlt: HOME_OG_IMAGE_DESCRIPTION,
-    socialImageWidth: 2400,
-    socialImageHeight: 900,
+    ogTitle: `${brand.name} | Websites and Business Systems`,
+    ogDescription: HOME_OG_DESCRIPTION,
+    // Site-wide card from app/opengraph-image.jpg + twitter-image.jpg (no duplicate images here).
   }),
   title: { absolute: `${HOME_TITLE} | ${brand.name}` },
 };
@@ -50,6 +47,7 @@ export default function HomePage() {
       <HomeHero />
       <EnquirySystemAnchor />
       <HomeProofStrip />
+      <HomeInterfaceConcept />
       <CapabilityPaths />
       <ServiceArchitecture />
       <EditorialBreak />
@@ -90,7 +88,17 @@ export default function HomePage() {
       <JsonLd
         data={[
           professionalServiceSchema(),
-          webPageSchema({ path: '/', title: HOME_TITLE, description: HOME_DESCRIPTION }),
+          webPageSchema({
+            path: '/',
+            title: `${HOME_TITLE} | ${brand.name}`,
+            description: HOME_DESCRIPTION,
+            primaryImage: {
+              path: HOMEPAGE_THUMBNAIL.path,
+              width: HOMEPAGE_THUMBNAIL.width,
+              height: HOMEPAGE_THUMBNAIL.height,
+              caption: HOMEPAGE_THUMBNAIL.caption,
+            },
+          }),
         ]}
       />
     </>

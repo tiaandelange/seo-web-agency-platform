@@ -6,8 +6,8 @@ Builders in `lib/schema.ts`; rendered via `<JsonLd/>` (`components/json-ld.tsx`)
 
 | Page | Types emitted |
 |---|---|
-| All pages (root layout) | `Organization` (with `@id`), `WebSite` (publisher ref) |
-| Home | `ProfessionalService` (areaServed from brand config; address omitted while null), `WebPage` |
+| All pages (root layout) | `Organization` (with `@id` + `logo` ImageObject), `WebSite` (publisher ref, `alternateName`, `inLanguage`) |
+| Home | `ProfessionalService` (areaServed from brand config; address omitted while null), `WebPage` (+ optional `primaryImageOfPage` when a visible preferred image is present) |
 | Every subpage | `WebPage` (`isPartOf` WebSite, `breadcrumb` ref) + `BreadcrumbList` |
 | Service pages | `Service` (name, description, provider→Organization `@id`, areaServed, serviceType) |
 | Package pages | `Service`; `Offer` deliberately omitted until owner confirms publishable pricing (D-11) |

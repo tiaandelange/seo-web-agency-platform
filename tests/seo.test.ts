@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { absoluteUrl, buildMetadata } from '../lib/seo';
+import { absoluteUrl, buildMetadata, DEFAULT_SOCIAL_IMAGE } from '../lib/seo';
 import sitemap from '../app/sitemap';
 import robots from '../app/robots';
 import { getAllRoutes } from '../lib/routes';
@@ -50,6 +50,22 @@ describe('buildMetadata', () => {
     expect(meta.title).toBe('Ecommerce Website Development South Africa');
   });
 
+  it('leaves Open Graph images to the App Router file convention when none is provided', () => {
+    const meta = buildMetadata({
+      title: 'Test Page',
+      description: 'A test description for metadata building checks.',
+      path: '/services/',
+    });
+    const og = meta.openGraph as {
+      images?: Array<{ url: string; alt?: string; width?: number; height?: number }>;
+    };
+    expect(og.images).toBeUndefined();
+    expect(meta.twitter).toMatchObject({
+      card: 'summary_large_image',
+    });
+    expect(meta.twitter).not.toHaveProperty('images');
+  });
+
   it('emits Open Graph image metadata with alt and dimensions when provided', () => {
     const alt =
       'Koppie Systems — SEO-first websites, ecommerce platforms and custom business systems in South Africa';
@@ -59,10 +75,10 @@ describe('buildMetadata', () => {
         'Koppie Systems builds SEO-first websites, ecommerce platforms and practical digital systems for technical and service businesses across South Africa.',
       path: '/',
       ogDescription: alt,
-      socialImage: '/images/koppie-systems-website-development-hero.webp',
+      socialImage: DEFAULT_SOCIAL_IMAGE.url,
       socialImageAlt: alt,
-      socialImageWidth: 2400,
-      socialImageHeight: 900,
+      socialImageWidth: 1200,
+      socialImageHeight: 630,
     });
     const og = meta.openGraph as {
       description?: string;
@@ -70,15 +86,15 @@ describe('buildMetadata', () => {
     };
     expect(og.description).toBe(alt);
     expect(og.images?.[0]).toEqual({
-      url: '/images/koppie-systems-website-development-hero.webp',
+      url: DEFAULT_SOCIAL_IMAGE.url,
       alt,
-      width: 2400,
-      height: 900,
+      width: 1200,
+      height: 630,
     });
     expect(meta.twitter).toMatchObject({
       card: 'summary_large_image',
       description: alt,
-      images: ['/images/koppie-systems-website-development-hero.webp'],
+      images: [DEFAULT_SOCIAL_IMAGE.url],
     });
   });
 });

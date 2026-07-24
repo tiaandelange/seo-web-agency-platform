@@ -25,8 +25,11 @@ Implementation: `lib/seo.ts` → `buildMetadata()`. Root layout sets the title t
 ## Open Graph / social
 
 - `og:title` (defaults to title), `og:description` (defaults to meta description), `og:type` (`website` | `article`), `og:url` (canonical), `og:locale` = `en_ZA`, `og:site_name` = brand name.
-- `og:image`: site-wide default asset pending (KNOWN PLACEHOLDER — visual phase); field supported per page via `socialImage`.
-- Twitter card: `summary_large_image` once the image exists; harmless meanwhile.
+- Site-wide `og:image` / Twitter image: App Router files `app/opengraph-image.jpg` and `app/twitter-image.jpg` (1200×630) with matching `.alt.txt` files. Do not also set `openGraph.images` in root metadata (avoids duplicates).
+- Per-page overrides: pass `socialImage` / `socialImageAlt` / dimensions to `buildMetadata()` when a route needs a different card.
+- Prefer dedicated promotional cards over full-page screenshots — text must remain readable when platforms crop to a small preview.
+- Homepage preferred Google image: visible `public/images/seo/koppie-systems-homepage-thumbnail.jpg` + `primaryImageOfPage` on `WebPage` schema (illustrative concept; not live metrics).
+
 
 ## Dates
 

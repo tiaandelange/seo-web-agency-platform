@@ -23,6 +23,7 @@ const eslintConfig = [
       'scripts/production-*.cjs',
       'scripts/capture-work-screenshots.cjs',
       'scripts/build-logo-variants.cjs',
+      'scripts/install-seo-images.cjs',
     ],
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),

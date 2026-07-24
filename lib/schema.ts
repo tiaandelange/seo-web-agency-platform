@@ -1,5 +1,5 @@
 import { brand, siteOrigin, publicEmail } from '@/config/brand';
-import { absoluteUrl } from '@/lib/seo';
+import { absoluteAssetUrl, absoluteUrl, ORGANIZATION_LOGO } from '@/lib/seo';
 import { getApprovedAuthor } from '@/data/authors';
 import type { Article, Comparison, Faq, LocationArea, Project, Service } from '@/types/content';
 import type { Crumb } from '@/lib/routes';
@@ -25,6 +25,7 @@ export function websiteId(): string {
 
 export function organizationSchema(): SchemaObject {
   const email = publicEmail();
+  const logoUrl = absoluteAssetUrl(ORGANIZATION_LOGO.path);
   return {
     '@context': CONTEXT,
     '@type': 'Organization',
@@ -35,6 +36,16 @@ export function organizationSchema(): SchemaObject {
     ...(brand.social.length > 0 ? { sameAs: brand.social } : {}),
     ...(email ? { email } : {}),
     ...(brand.contact.phone ? { telephone: brand.contact.phone } : {}),
+    logo: {
+      '@type': 'ImageObject',
+      '@id': `${siteOrigin()}/#logo`,
+      url: logoUrl,
+      contentUrl: logoUrl,
+      width: ORGANIZATION_LOGO.width,
+      height: ORGANIZATION_LOGO.height,
+      caption: ORGANIZATION_LOGO.caption,
+    },
+    image: { '@id': `${siteOrigin()}/#logo` },
   };
 }
 
@@ -45,6 +56,8 @@ export function websiteSchema(): SchemaObject {
     '@id': websiteId(),
     url: `${siteOrigin()}/`,
     name: brand.name,
+    alternateName: brand.shortName,
+    inLanguage: 'en-ZA',
     publisher: { '@id': organizationId() },
   };
 }
@@ -86,15 +99,43 @@ export function webPageSchema(input: {
   description: string;
   pageType?: 'WebPage' | 'CollectionPage' | 'AboutPage' | 'ContactPage';
   dateModified?: string;
+  /** Preferred page image (homepage thumbnail). Must also be visible on-page. */
+  primaryImage?: {
+    path: string;
+    width: number;
+    height: number;
+    caption: string;
+  };
 }): SchemaObject {
+  const primaryImage = input.primaryImage
+    ? (() => {
+        const imageUrl = absoluteAssetUrl(input.primaryImage.path);
+        return {
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            '@id': `${imageUrl}#primaryimage`,
+            url: imageUrl,
+            contentUrl: imageUrl,
+            width: input.primaryImage.width,
+            height: input.primaryImage.height,
+            caption: input.primaryImage.caption,
+          },
+        };
+      })()
+    : {};
+
   return {
     '@context': CONTEXT,
     '@type': input.pageType ?? 'WebPage',
+    ...(input.path === '/' ? { '@id': `${siteOrigin()}/#webpage` } : {}),
     url: absoluteUrl(input.path),
     name: input.title,
     description: input.description,
+    inLanguage: 'en-ZA',
     isPartOf: { '@id': websiteId() },
+    ...(input.path === '/' ? { about: { '@id': organizationId() } } : {}),
     ...(input.dateModified ? { dateModified: input.dateModified } : {}),
+    ...primaryImage,
   };
 }
 

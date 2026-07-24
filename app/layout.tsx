@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Manrope, Inter, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { brand, siteOrigin } from '@/config/brand';
@@ -41,7 +41,16 @@ export const metadata: Metadata = {
     template: `%s | ${brand.name}`,
   },
   description: brand.description,
-  // Favicon is provided by app/icon.svg (App Router file convention).
+  applicationName: brand.name,
+  creator: brand.name,
+  publisher: brand.name,
+  // Favicon: app/icon.svg. Social images: app/opengraph-image.jpg + twitter-image.jpg.
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#14242b',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

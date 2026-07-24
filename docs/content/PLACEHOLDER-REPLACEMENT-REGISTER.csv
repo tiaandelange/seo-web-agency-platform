@@ -30,7 +30,7 @@ P-28,Legal,Cookie policy,operational draft placeholder:false,data/legal.ts,Updat
 P-29,Legal,Company registration details,VAT not registered recorded; reg number open,legal pages + footer,Reg number,Register + supply,Yes,Partial
 P-30,Legal,POPIA Information Officer,open — contact form/phone used meantime,data/legal.ts,Named officer + contact,Designate,Yes,Open
 P-31,Technical,Lead delivery,Resend/webhook/log in lib/lead-delivery.ts — host secrets required,.env + lib/lead-delivery.ts,Configure Preview env + live test,Set Vercel secrets,Yes,Code ready
-P-32,Technical,OG/social share image,none,public/,Branded 1200x630 image (after final logo),Create after logo,No,Open
+P-32,Technical,OG/social share image,app/opengraph-image.jpg + twitter-image.jpg,public/images/og/,Branded 1200x630 image (after final logo),Installed 2026-07-24,No,Done
 P-33,Technical,Analytics,GA measurement ID unset (disabled),env NEXT_PUBLIC_GA_MEASUREMENT_ID,GA4 property + consent handling,Create accounts (input #11),No,Open
 P-34,Technical,Search Console,not set up,launch checklist,Domain property verified,Post-domain,Yes,Open
 P-35,Brand,Design tokens,Koppie palette implemented in app/globals.css,app/globals.css,Final logo + any token tweaks after logo,Approve logo,No,Preview complete
