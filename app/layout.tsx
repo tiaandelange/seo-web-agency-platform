@@ -44,7 +44,15 @@ export const metadata: Metadata = {
   applicationName: brand.name,
   creator: brand.name,
   publisher: brand.name,
-  // Favicon: app/icon.svg. Social images: app/opengraph-image.jpg + twitter-image.jpg.
+  // Favicon: app/icon.svg + app/favicon.ico. Apple: public/apple-touch-icon.png
+  // (file-convention /apple-icon breaks under trailingSlash). Social: opengraph/twitter images.
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml', sizes: 'any' },
+      { url: '/favicon.ico', sizes: '48x48' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
 };
 
 export const viewport: Viewport = {

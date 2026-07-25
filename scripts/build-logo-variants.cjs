@@ -1,6 +1,7 @@
 /**
  * Build horizontal + mono logo variants from the Figma symbol master.
- * Also syncs app/icon.svg + app/apple-icon.svg. No PNG outputs.
+ * Syncs app/icon.svg, public/brand/favicon.svg, app/favicon.ico,
+ * public/favicon.ico, and public/apple-touch-icon.png.
  * Run: node scripts/build-logo-variants.cjs
  */
 const fs = require('fs');
@@ -8,9 +9,11 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const brandDir = path.join(root, 'public', 'brand');
+const publicDir = path.join(root, 'public');
 const appDir = path.join(root, 'app');
 const symbolPath = path.join(brandDir, 'koppie-logo-symbol.svg');
 const symbol = fs.readFileSync(symbolPath, 'utf8');
+const ink = { r: 0x14, g: 0x24, b: 0x2b, alpha: 1 };
 
 function stripChrome(svg) {
   return svg
@@ -103,7 +106,7 @@ function buildNoBgSymbol(source) {
   const defs = defsMatch ? defsMatch[0] : '';
   art = art.replace(/<defs>[\s\S]*?<\/defs>\s*/, '');
 
-  const inner = art
+  const markInner = art
     .replace(/^<svg[^>]*>/i, '')
     .replace(/<\/svg>\s*$/i, '')
     .replace(/<title>[\s\S]*?<\/title>\s*/i, '')
@@ -122,18 +125,91 @@ ${maskPaths}
 ${defs.replace(/^<defs>/, '').replace(/<\/defs>$/, '')}
   </defs>
   <g mask="url(#ks-nobg-mask)">
-${inner}
+${markInner}
   </g>
 </svg>
 `;
 }
 
-fs.writeFileSync(path.join(brandDir, 'koppie-logo-horizontal.svg'), horizontal);
-fs.writeFileSync(path.join(brandDir, 'koppie-logo-white.svg'), monoHorizontal('white'));
-fs.writeFileSync(path.join(brandDir, 'koppie-logo-dark.svg'), monoHorizontal('dark'));
-fs.writeFileSync(path.join(brandDir, 'koppie-logo-symbol-nobg.svg'), buildNoBgSymbol(symbol));
-fs.writeFileSync(path.join(brandDir, 'favicon.svg'), favicon);
-fs.writeFileSync(path.join(appDir, 'icon.svg'), favicon);
-fs.writeFileSync(path.join(appDir, 'apple-icon.svg'), favicon);
+/** Pack PNG buffers into a multi-size ICO (PNG-in-ICO, Vista+). */
+function createIco(images) {
+  const count = images.length;
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0, 0);
+  header.writeUInt16LE(1, 2);
+  header.writeUInt16LE(count, 4);
 
-console.log('Wrote horizontal, white, dark, nobg, favicon, app/icon.svg, app/apple-icon.svg');
+  const entries = [];
+  let dataOffset = 6 + count * 16;
+  const blobs = [];
+
+  for (const { size, buf } of images) {
+    const entry = Buffer.alloc(16);
+    entry.writeUInt8(size >= 256 ? 0 : size, 0);
+    entry.writeUInt8(size >= 256 ? 0 : size, 1);
+    entry.writeUInt8(0, 2);
+    entry.writeUInt8(0, 3);
+    entry.writeUInt16LE(1, 4);
+    entry.writeUInt16LE(32, 6);
+    entry.writeUInt32LE(buf.length, 8);
+    entry.writeUInt32LE(dataOffset, 12);
+    entries.push(entry);
+    blobs.push(buf);
+    dataOffset += buf.length;
+  }
+
+  return Buffer.concat([header, ...entries, ...blobs]);
+}
+
+async function writeRasterFavicons() {
+  let sharp;
+  try {
+    sharp = require('sharp');
+  } catch {
+    console.warn('sharp not available — skipped favicon.ico / apple-touch-icon.png');
+    return;
+  }
+
+  const sizes = [16, 32, 48];
+  const images = [];
+  for (const size of sizes) {
+    const buf = await sharp(symbolPath, { density: 400 })
+      .resize(size, size, { fit: 'contain', background: ink })
+      .png()
+      .toBuffer();
+    images.push({ size, buf });
+  }
+
+  const ico = createIco(images);
+  fs.writeFileSync(path.join(appDir, 'favicon.ico'), ico);
+  fs.writeFileSync(path.join(publicDir, 'favicon.ico'), ico);
+
+  const apple = await sharp(symbolPath, { density: 400 })
+    .resize(180, 180, { fit: 'contain', background: ink })
+    .png()
+    .toBuffer();
+  fs.writeFileSync(path.join(publicDir, 'apple-touch-icon.png'), apple);
+
+  console.log('Wrote favicon.ico + apple-touch-icon.png');
+}
+
+async function main() {
+  fs.writeFileSync(path.join(brandDir, 'koppie-logo-horizontal.svg'), horizontal);
+  fs.writeFileSync(path.join(brandDir, 'koppie-logo-white.svg'), monoHorizontal('white'));
+  fs.writeFileSync(path.join(brandDir, 'koppie-logo-dark.svg'), monoHorizontal('dark'));
+  fs.writeFileSync(path.join(brandDir, 'koppie-logo-symbol-nobg.svg'), buildNoBgSymbol(symbol));
+  fs.writeFileSync(path.join(brandDir, 'favicon.svg'), favicon);
+  fs.writeFileSync(path.join(appDir, 'icon.svg'), favicon);
+
+  // File-convention /apple-icon breaks under trailingSlash — use public PNG instead.
+  const legacyApple = path.join(appDir, 'apple-icon.svg');
+  if (fs.existsSync(legacyApple)) fs.unlinkSync(legacyApple);
+
+  await writeRasterFavicons();
+  console.log('Wrote horizontal, white, dark, nobg, favicon.svg, app/icon.svg');
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

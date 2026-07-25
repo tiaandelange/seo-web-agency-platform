@@ -5,10 +5,12 @@
 - **`koppie-logo-symbol-nobg.svg`** — live header mark (transparent, no circular field)
 - **`koppie-logo-symbol.svg`** — Figma circular mark (field = theme ink `#14242B`; favicon/apple)
 - Wordmark — HTML beside the mark in `components/brand-wordmark.tsx`
-- **`app/icon.svg`** / **`app/apple-icon.svg`** — same mark (synced by build script)
+- **`app/icon.svg`** — SVG favicon (synced by build script)
+- **`app/favicon.ico`** / **`public/favicon.ico`** — classic ICO fallback (16/32/48)
+- **`public/apple-touch-icon.png`** — 180×180 Apple home-screen icon
 - **`favicon.svg`** — copy under `public/brand/` for static review
 
-No PNG logo assets ship with the site.
+Chrome logos in UI stay SVG; raster favicons are generated from the circular mark.
 
 ## Export / review lockups
 

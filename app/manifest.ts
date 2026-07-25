@@ -3,7 +3,7 @@ import { brand } from '@/config/brand';
 
 /**
  * Web app manifest — brand presence for install/home-screen contexts.
- * Browser favicon remains `app/icon.svg` (file convention).
+ * Browser favicon: `app/icon.svg` + `favicon.ico`; Apple: `public/apple-touch-icon.png`.
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
