@@ -91,6 +91,15 @@
 /* Base */
 html {
   scroll-behavior: smooth;
+  /* Hide native scrollbars site-wide; scrolling still works via wheel / touch / keys */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 body {
@@ -100,6 +109,58 @@ body {
   font-size: var(--text-body);
   line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Fixed back-to-top — subtle circle + arrow; scrolls to #hero */
+.back-to-top {
+  position: fixed;
+  z-index: 40;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+  background: color-mix(in srgb, var(--color-canvas) 92%, var(--color-ink));
+  color: var(--color-ink);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--color-ink) 14%, transparent);
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.back-to-top:hover {
+  background: var(--color-ink);
+  color: var(--color-accent-contrast);
+  border-color: var(--color-ink);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-ink) 22%, transparent);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 3px;
+}
+
+.back-to-top-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .back-to-top:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Sit above the cookie bar when it is present */
+body:has(.cookie-consent-bar) .back-to-top {
+  bottom: max(5.5rem, calc(env(safe-area-inset-bottom) + 4.75rem));
 }
 
 h1,
@@ -612,8 +673,8 @@ h6 {
 
 @media (min-width: 1024px) {
   .home-hero-grid-layout {
-    /* +2px secondary min — prevents Howzit title glyph clip on laptop widths */
-    grid-template-columns: minmax(0, 1.45fr) minmax(calc(18rem + 2px), 0.55fr);
+    /* Wider secondary so “Howzit — you found us” stays one line (2-line title total) */
+    grid-template-columns: minmax(0, 1.25fr) minmax(22rem, 0.75fr);
     column-gap: clamp(3.5rem, 5.5vw, 6rem);
     row-gap: 0;
     align-items: center;
@@ -638,7 +699,7 @@ h6 {
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .home-hero-grid-layout {
-    grid-template-columns: minmax(0, 1.35fr) minmax(calc(16.5rem + 2px), 0.65fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(20.5rem, 0.85fr);
     column-gap: clamp(2rem, 3.5vw, 3.5rem);
   }
 
@@ -767,7 +828,7 @@ h6 {
 }
 
 .home-hero-secondary {
-  max-width: calc(28rem + 2px);
+  max-width: calc(30rem + 2px);
   /* Subpixel right breathing room so title glyphs are not clipped by overflow */
   padding-inline-end: 2px;
 }
@@ -1310,13 +1371,14 @@ h6 {
 
 .mobile-nav-sublist {
   margin: 0 0 0.35rem;
-  padding: 0 0 0 0.75rem;
+  padding: 0;
   list-style: none;
-  border-left: 2px solid var(--color-line);
 }
 
 .mobile-nav-sublink {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   min-height: 2.75rem;
   padding: 0.65rem 0.75rem;
   border-radius: var(--radius-card);
@@ -1325,6 +1387,13 @@ h6 {
   font-weight: 500;
   color: var(--color-muted);
   text-decoration: none;
+}
+
+.mobile-nav-sublink::before {
+  content: '–';
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.75;
 }
 
 .mobile-nav-sublink:hover,
@@ -1416,10 +1485,6 @@ body:has(.home-hero) .mobile-nav-link[aria-current='page'] {
 }
 
 /* Immersive homepage: dark panel — sublinks must not keep light-theme muted/ink colours */
-body:has(.home-hero) .mobile-nav-sublist {
-  border-left-color: color-mix(in srgb, var(--color-sandstone) 28%, transparent);
-}
-
 body:has(.home-hero) .mobile-nav-sublink,
 body:has(.home-hero) .mobile-nav-sublink:visited {
   color: color-mix(in srgb, var(--color-sandstone) 86%, white);
@@ -2048,18 +2113,28 @@ body:has(.home-hero) .mobile-nav-sublink:focus-visible {
 /*
  * Proof strip — mobile-only horizontal swipe track (≤639px).
  * Tablet/desktop keep the Tailwind grid (sm:2 / lg:3).
+ * Slides must not widen the document (sr-only / abspos overflow) — that caused
+ * horizontal rubber-banding and the cookie bar painting into empty white space.
  */
 @media (max-width: 639px) {
+  html {
+    overflow-x: clip;
+  }
+
+  #selected-work {
+    overflow-x: clip;
+  }
+
   .home-proof-strip {
     display: flex;
     grid-template-columns: none;
     gap: 1rem;
-    margin-inline: -1.25rem;
-    padding-inline: 1.25rem;
+    margin-inline: calc(-1 * var(--gutter-content));
+    padding-inline: var(--gutter-content);
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: 1.25rem;
+    scroll-padding-inline: var(--gutter-content);
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
     scrollbar-width: none;
@@ -2070,9 +2145,15 @@ body:has(.home-hero) .mobile-nav-sublink:focus-visible {
   }
 
   .home-proof-strip__slide {
+    position: relative;
     flex: 0 0 min(88%, 22rem);
     scroll-snap-align: center;
     min-width: 0;
+  }
+
+  .home-proof-strip__slide .sr-only {
+    left: 0;
+    top: 0;
   }
 }
 

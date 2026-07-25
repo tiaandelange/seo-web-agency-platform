@@ -4,6 +4,7 @@ import './globals.css';
 import { brand, siteOrigin } from '@/config/brand';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { BackToTop } from '@/components/back-to-top';
 import { JsonLd } from '@/components/json-ld';
 import { AnalyticsProvider } from '@/components/analytics/analytics-provider';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           <main id="main">{children}</main>
           <SiteFooter />
+          <BackToTop />
           <JsonLd data={[organizationSchema(), websiteSchema()]} />
         </AnalyticsProvider>
       </body>

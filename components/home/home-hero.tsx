@@ -57,7 +57,7 @@ function HeroMountainImage() {
 
 export function HomeHero() {
   return (
-    <header className="home-hero band-ink relative overflow-hidden">
+    <header id="hero" className="home-hero band-ink relative overflow-hidden">
       <div className="home-hero-bg" aria-hidden="true">
         <div className="home-hero-base" />
         <div className="home-hero-atmosphere" />

@@ -30,7 +30,7 @@ describe('structure & theme audit fixes', () => {
 
   it('uses a single editorial display role on the home hero', () => {
     const hero = read('components/home/home-hero.tsx');
-    expect(hero).toContain('<header className="home-hero');
+    expect(hero).toMatch(/<header[^>]*className="home-hero/);
     expect(hero).toContain('text-display-editorial home-hero-title');
     expect(hero).not.toContain('text-display-marketing home-hero-title');
   });

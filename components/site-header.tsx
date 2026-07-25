@@ -15,7 +15,7 @@ import { HeaderNavLinks } from '@/components/header-nav-links';
  */
 export function SiteHeader() {
   return (
-    <header className="site-header relative border-b border-line bg-canvas">
+    <header id="top" className="site-header relative border-b border-line bg-canvas">
       <div className="site-header-inner koppie-container flex items-center justify-between gap-4 py-3.5">
         <BrandWordmark />
 

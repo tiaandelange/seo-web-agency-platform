@@ -46,7 +46,7 @@ export function PageHero({
   const leadColor = variant === 'inverse' ? 'text-sandstone' : '';
 
   return (
-    <header className={`${variantShell[variant]} relative overflow-hidden`}>
+    <header id="hero" className={`${variantShell[variant]} relative overflow-hidden`}>
       {motif && (
         <div
           className="contour-grid pointer-events-none absolute inset-0 opacity-70"
