@@ -190,14 +190,14 @@ export const services: Service[] = [
     title: 'Ecommerce Website Development',
     seoTitle: 'Ecommerce Website Development South Africa',
     metaDescription:
-      'Ecommerce websites built for South African retailers: fast product pages that rank, local payment gateways, and a checkout your customers finish.',
+      'SA ecommerce: search-first product architecture, local gateways, mobile checkout and purchase tracking. Indicative from R45,000 — not a theme shop.',
     heading: 'Ecommerce website development',
     intro:
-      'An online store succeeds on three things: products that get found, pages that load fast, and a checkout people finish. We build ecommerce websites for South African sellers with local payment gateways and search-first product architecture.',
-    summary: 'Online stores with SA payment gateways and product pages built to rank.',
+      'An online store succeeds when products get found, pages load fast on mobile, checkout completes with South African payment methods, and you can see where revenue drops. We build for those four jobs — architecture, SA payments, fulfilment fit and measurement — not for the cheapest theme launch.',
+    summary: 'Online stores with SA payments, search-first products and measurable checkouts.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     problems: [
       'Platform template stores all look identical and rank for nothing.',
       'High platform and plugin fees eat thin retail margins.',
@@ -211,7 +211,7 @@ export const services: Service[] = [
       'South African payment gateway integration (PayFast, Yoco, Peach — chosen at scoping)',
       'Delivery options, order confirmation and status emails',
       'Unique metadata and structured data per product',
-      'Search Console, analytics and ecommerce conversion events',
+      'Search Console, analytics and ecommerce purchase / funnel events',
       'Order management workflow suited to your fulfilment process',
       'Performance budget: fast mobile loads as a hard requirement',
     ],
@@ -230,7 +230,13 @@ export const services: Service[] = [
       {
         question: 'Why not just use Shopify or WooCommerce?',
         answer:
-          'Sometimes you should, and we will say so when that is the honest answer. A custom build earns its cost when SEO performance, page speed, B2B pricing rules or unusual workflows matter more than the quickest possible start. Our comparison guidance covers the trade-offs openly.',
+          'Sometimes you should, and we will say so when that is the honest answer — especially for a tiny range and a speed-to-launch priority. Theme and quick WooCommerce installs often sit well below our indicative ecommerce floor because they price setup, not lasting product SEO architecture, SA gateway and delivery logic, or purchase measurement. A scoped build earns its cost when findability, page speed, B2B pricing rules or unusual workflows matter more than the quickest possible start.',
+        group: 'cost',
+      },
+      {
+        question: 'What does the indicative R45,000–R110,000 band actually cover?',
+        answer:
+          'Search-structured categories and products, a mobile-tuned cart and checkout, an SA payment gateway chosen at scoping, delivery and order messaging that matches how you fulfil, and GA4 ecommerce events so purchase funnels are readable. Marketplace feeds, ERP sync and large-range photography stay out of scope until quoted. Fixed quote after scoping — the range is for budgeting, not a menu price.',
         group: 'cost',
       },
     ],

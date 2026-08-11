@@ -17,7 +17,7 @@ Prepared 2026-07-21; ladder updated 2026-08-11 (D-44). Reviews `PRICING-ARCHITEC
 | Starter business website | R9,500–R18,000 | Small professional band |
 | Professional lead-generation website | R22,000–R45,000 | Hero package |
 | Product catalogue website | R35,000–R70,000 | Spec / RFQ premium |
-| Ecommerce website | R45,000–R110,000 | Above cheap Woo specials |
+| Ecommerce website | R45,000–R110,000 | Above theme/Woo setup quotes; architecture + SA payments + measurement |
 | Custom web system | from R65,000 (discovery R6,500–R12,000) | Paid discovery held |
 | Hourly (out-of-plan) | R650–R950/h | Upper half of market |
 | SEO Audit & Priority Fix Pack | R2,950 once-off (fixed) | Entry product |

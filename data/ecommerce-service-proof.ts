@@ -61,9 +61,9 @@ export const COMMERCE_LAYERS: CommerceLayer[] = [
   {
     id: 'storefront',
     index: '01',
-    heading: 'Storefront',
+    heading: 'Storefront architecture',
     items: [
-      'Product catalogue with SEO-structured category and product pages',
+      'Category and product information architecture mapped for search intent — not only a theme catalogue grid',
       'Unique metadata and structured data per product',
       'Performance budget: fast mobile loads as a hard requirement',
     ],
@@ -71,24 +71,31 @@ export const COMMERCE_LAYERS: CommerceLayer[] = [
   {
     id: 'transaction',
     index: '02',
-    heading: 'Transaction',
+    heading: 'SA payments & checkout',
     items: [
       'Cart and checkout tuned for completion on mobile',
       'South African payment gateway integration (PayFast, Yoco, Peach — chosen at scoping)',
-      'Delivery options, order confirmation and status emails',
+      'Delivery pricing and options shown early enough to reduce abandoned carts',
     ],
   },
   {
     id: 'operations',
     index: '03',
     heading: 'Operations',
-    items: ['Order management workflow suited to your fulfilment process'],
+    items: [
+      'Order management workflow suited to your fulfilment process',
+      'Order confirmation and status emails that cut post-purchase support noise',
+    ],
   },
   {
     id: 'growth',
     index: '04',
-    heading: 'Growth infrastructure',
-    items: ['Search Console, analytics and ecommerce conversion events'],
+    heading: 'Measurement',
+    items: [
+      'Search Console onboarding for product and category URLs',
+      'GA4 ecommerce purchase and funnel events (add-to-cart → checkout → purchase)',
+      'Readable numbers from day one — not “we’ll add tracking later”',
+    ],
   },
 ];
 

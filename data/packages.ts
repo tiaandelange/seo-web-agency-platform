@@ -227,10 +227,10 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'ecommerce-websites',
     title: 'Ecommerce Website Package',
     metaDescription:
-      'Ecommerce website package for SA sellers: SEO product architecture, local payment gateway, delivery setup and conversion tracking. Indicative R45,000–R110,000.',
+      'Ecommerce package (indicative R45k–R110k): SEO product architecture, SA payments, delivery logic and purchase tracking — not a theme install.',
     heading: 'Ecommerce website package',
     intro:
-      'A store built to sell: product pages structured for search, a mobile checkout people finish, South African payment and delivery realities handled properly — and the numbers visible from day one.',
+      'This band buys a commerce system, not a theme: search-ready category and product architecture, a mobile checkout people finish, South African payment and delivery realities wired in, and purchase funnel measurement from day one. Theme shops and quick WooCommerce installs often advertise far below this floor — they ship a look; we ship findability, completion and readable numbers.',
     status: 'live',
     dateCreated: '2026-07-21',
     dateUpdated: '2026-08-11',
@@ -245,7 +245,7 @@ export const packages: PackageOffer[] = [
       'Cart and checkout tuned for mobile completion',
       'SA payment gateway integration chosen at scoping (PayFast/Yoco/Peach)',
       'Delivery options, order emails and status flow',
-      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with conversion events for calls, WhatsApp and forms',
+      'POPIA-compliant conversion tracking setup: GA4, Tag Manager and Consent Mode v2, with ecommerce purchase and funnel events',
       'Order management suited to your fulfilment process',
       'Performance budget enforced: fast mobile loads',
       'Full SEO baseline: schema, sitemap, Search Console onboarding',
@@ -262,6 +262,12 @@ export const packages: PackageOffer[] = [
         question: 'What determines where we land in the price range?',
         answer:
           'Range size and data readiness, payment/delivery complexity, B2B features like account pricing, and how much product content help you need. Scoping produces a fixed quote with the drivers itemised.',
+        group: 'cost',
+      },
+      {
+        question: 'Why is this higher than cheap WooCommerce or theme stores?',
+        answer:
+          'Those quotes usually price a theme, plugins and a launch. Our indicative floor covers product and category architecture for search, gateway and delivery logic for South African buyers, performance targets on mobile, and GA4 ecommerce events so you can see where checkout drops — work that template installs typically leave as “later”. If a theme store genuinely fits, we say so and point you at catalogue or simpler packages instead.',
         group: 'cost',
       },
       {

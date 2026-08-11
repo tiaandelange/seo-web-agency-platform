@@ -127,12 +127,12 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'ecommerce-websites',
       headline: 'Ecommerce website system',
       projectValueLabel: packageRangeLabel('ecommerce-website'),
-      budgetHint: 'R40,000–R75,000',
+      budgetHint: 'R45,000–R75,000',
       items: [
-        'Category and product pages structured for search and conversion',
+        'Search-first category and product architecture (not a theme grid)',
         'Cart and checkout with a South African payment gateway',
-        'Order notifications plus a practical product/order admin',
-        'Analytics events for purchase and key funnel steps',
+        'Delivery options and order notifications that match fulfilment',
+        'GA4 purchase and funnel events readable from day one',
       ],
     };
   }

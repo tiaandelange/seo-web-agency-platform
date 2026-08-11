@@ -55,13 +55,19 @@ export function EcommerceServiceView({ service }: { service: Service }) {
                 <span className="text-cta" aria-hidden>
                   →
                 </span>
-                Product pages structured to be found — not only to look like a store.
+                Product architecture built to be found — not only to look like a store.
               </li>
               <li className="flex gap-2">
                 <span className="text-cta" aria-hidden>
                   →
                 </span>
-                Checkout and fulfilment designed for completion on mobile.
+                South African payments and mobile checkout designed for completion.
+              </li>
+              <li className="flex gap-2">
+                <span className="text-cta" aria-hidden>
+                  →
+                </span>
+                Purchase funnel measurement from day one — not bolted on later.
               </li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -177,7 +183,9 @@ export function EcommerceServiceView({ service }: { service: Service }) {
 
       <Section heading="Pricing and packages" measure="narrow">
         <p className="leading-relaxed text-muted">
-          {relatedPackages.length > 0 ? (
+          The indicative ecommerce band (from R45,000) sits above theme and quick store installs
+          because it prices architecture, SA payment and delivery wiring, and purchase measurement —
+          not a theme licence. {relatedPackages.length > 0 ? (
             <>
               This service is available as{' '}
               {relatedPackages.map((pkg, i) => (
@@ -188,10 +196,10 @@ export function EcommerceServiceView({ service }: { service: Service }) {
                   </Link>
                 </span>
               ))}
-              . Indicative ranges on our{' '}
+              . Full ranges on our{' '}
             </>
           ) : (
-            <>Indicative ranges on our </>
+            <>Full ranges on our </>
           )}
           <Link href="/pricing/" className="text-accent underline">
             pricing page

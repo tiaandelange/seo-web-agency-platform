@@ -32,6 +32,11 @@ const PRICING_FAQS = [
       'Different product. Volume packages optimise for launching fast; our builds start with search research and architecture, which is skilled time. If a template site genuinely fits your situation, our custom-vs-template comparison says so openly.',
   },
   {
+    question: 'Why is ecommerce from around R45,000 when WooCommerce shops look cheaper?',
+    answer:
+      'Theme and quick store installs usually price a look and a launch. Our indicative ecommerce band prices search-first product architecture, South African payment and delivery wiring, and purchase-funnel measurement from day one. If a theme store genuinely fits, we will say so — and may steer you to a catalogue or simpler package instead of forcing checkout.',
+  },
+  {
     question: 'Do prices include VAT?',
     answer:
       'VAT treatment will be stated clearly on every quote once registration status is confirmed. Quotes always state the total you will actually pay. The fixed SEO Audit pack is currently shown as a once-off total while we are not VAT registered.',
