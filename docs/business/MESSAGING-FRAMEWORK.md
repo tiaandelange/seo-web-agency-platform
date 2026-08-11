@@ -95,6 +95,6 @@ Shortlist (full evaluation: `TAGLINE-OPTIONS.md`): recommended — **"Websites t
 - "Innovative digital solutions", "cutting-edge experiences", "we bring ideas to life", "results-driven creativity", "passionate about pixels" — vague agency filler.
 - Any ranking or traffic guarantee: "get to #1", "dominate Google", "guaranteed leads" (rule 10).
 - Unsupported claims: "trusted by hundreds", "award-winning", "X% more leads" (until a verified case study exists).
-- Cheapness signals: "affordable", "cheap", "from R999" (contradicts positioning).
+- Cheapness signals: "cheap", "from R999", Insly-floor package language (contradicts positioning and D-47). Prefer honest ranges over "affordable" as a hero claim; do not primary-target bargain SERPs.
 - Startup-cute register: "supercharge", "unleash", "magic", emoji in copy.
 - "World-class", "best-in-class", "leading" — unverifiable superlatives.

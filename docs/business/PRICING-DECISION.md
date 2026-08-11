@@ -32,6 +32,7 @@ Prepared 2026-07-21; ladder updated 2026-08-11 (D-44). Reviews `PRICING-ARCHITEC
 2. `/pricing/` is the single all-numbers page.
 3. No discount theatre.
 4. No ranking-promise SEO retainers; Search Care and Measurement are the honest monthly products.
+5. **No cheap-website SERP chase (D-47)** — titles and metadata own cost/prices/packages intent; never primary-target bargain keywords. See `PRICING-ARCHITECTURE.md` “SERP stance”.
 
 ## Exclusions (state on proposals and the pricing page)
 

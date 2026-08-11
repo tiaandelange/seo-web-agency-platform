@@ -13,8 +13,10 @@ Date: 2026-07-21. No paid keyword tool was available; demand ratings are **quali
 → `/areas-we-serve/pretoria/`, `/areas-we-serve/johannesburg/` (Centurion/Gauteng consolidated into Pretoria page — no separate pages, D-08).
 
 ### 3. Price/packages (High, Med) — highest conversion intent
-`website design prices south africa`, `website cost south africa`, `how much does a website cost`, `business website packages south africa`, `affordable website design` (we deliberately do not chase “cheap website design”).
+`website design prices south africa`, `website cost south africa`, `how much does a website cost`, `business website packages south africa`, `affordable website design` (secondary — never as primary title bait).
 → `/pricing/` (commercial) + `/resources/website-cost-south-africa/` (informational) + `/website-packages/` (transactional). Three intents, three pages, heavily cross-linked; cannibalisation notes in the CSV.
+
+**Explicit non-targets (D-47):** do not create or optimise pages for `cheap website`, `cheap website design`, `cheap web design south africa`, `website from R1500` / `from R1,500`, volume-subscription bargain phrasing, or Insly-floor package language. Those SERPs select for template shops; competing there contradicts Direction 2 positioning and the D-44 ladder. Roadmap piece “The Real Cost of a Cheap Website” (if published) educates mid-market buyers — it must not use bargain keywords as primary targets.
 
 ### 4. Service-specific commercial (Med, Med)
 Per service: `business website design`, `lead generation website`, `product catalogue website south africa`, `ecommerce website development south africa`, `website redesign south africa`, `seo website design south africa`, `website maintenance south africa` (+ `website maintenance cost`).

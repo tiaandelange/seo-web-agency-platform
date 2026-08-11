@@ -38,6 +38,18 @@ Three presentation layers, one data source (`data/packages.ts`):
 
 Starter and one-page sit above the template floor to filter cheap enquiries while remaining competitive in the professional SME band. Search Care owns entry monthly “SEO cost” buyers without selling ranking campaigns.
 
+## SERP stance — no bargain chase (D-47)
+
+Compete on **transparent cost / prices / packages** queries, not **cheap / from-R1.5k** queries.
+
+| Do | Do not |
+|---|---|
+| Rank for website cost, prices, packages, SEO cost (guides + `/pricing/` + products) | Target “cheap website (design)” or Insly-floor phrasing in title/H1/meta |
+| Publish indicative floors from the ladder (from R4,500 one-page; audits/tracking from R2,950) | Discount theatre, “from R999”, or hide scope to win bargain clicks |
+| Use compare/cost content to explain why template floors fail lead gen | Build a landing page whose only job is to siphon cheap-website SERP traffic |
+
+Misaligned enquiries filtered by price honesty beat volume that never converts at our scope.
+
 ## Discount and negotiation policy
 
 - Scope down, don’t price down.
