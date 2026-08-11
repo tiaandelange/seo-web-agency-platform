@@ -1,8 +1,8 @@
 # Sitemap (information architecture)
 
-Authoritative human-readable map. Machine source of truth: `lib/routes.ts` (drives `app/sitemap.ts`, breadcrumbs and the SEO validator). Full per-URL flags: `URL-REGISTER.csv`.
+Authoritative human-readable map. Machine source of truth: `lib/routes.ts` (drives `app/sitemap.ts`, breadcrumbs and the SEO validator). Full per-URL flags: `URL-REGISTER.csv`. Crawl snapshot (not the live generator): `docs/technical/production-crawl-artifacts/sitemap.xml`.
 
-Legend: ✅ indexable at launch · 🚫 generated but noindex · 🕐 planned, not generated.
+Legend: ✅ indexable · 🚫 generated but noindex · 🕐 planned, not generated.
 
 ```
 /                                                ✅ Home — company-level commercial intent
@@ -17,6 +17,8 @@ Legend: ✅ indexable at launch · 🚫 generated but noindex · 🕐 planned, n
 │   ├── /customer-and-supplier-portals/          ✅
 │   ├── /website-redesign/                       ✅
 │   ├── /seo-website-development/                ✅
+│   ├── /analytics-and-conversion-tracking/      ✅
+│   ├── /search-care/                            ✅ monthly SEO health (D-45)
 │   └── /website-maintenance-and-support/        ✅ (all support plans on this one page)
 ├── /solutions/                                  ✅ Hub (industries)
 │   ├── /contractors/                            ✅
@@ -26,22 +28,27 @@ Legend: ✅ indexable at launch · 🚫 generated but noindex · 🕐 planned, n
 │   ├── /professional-services/                  ✅
 │   └── /small-businesses/                       ✅
 ├── /website-packages/                           ✅ Hub (transactional)
+│   ├── /one-page-website/                       ✅
 │   ├── /starter-business-website/               ✅
 │   ├── /professional-business-website/          ✅
 │   ├── /product-catalogue-website/              ✅
 │   ├── /ecommerce-website/                      ✅
 │   └── /custom-web-system/                      ✅
-├── /projects/                                   ✅ Hub (honest “new studio” copy)
-│   ├── /websites/                               🚫 noindex until ≥1 real project (D-07)
-│   ├── /ecommerce/                              🚫
-│   ├── /admin-systems/                          🚫
-│   └── /[project-slug]/                         🚫 4 clearly-marked case-study templates
+├── /projects/                                   ✅ Hub
+│   ├── /websites/                               ✅ (Damtech published)
+│   ├── /ecommerce/                              🚫 until ≥1 real ecommerce project
+│   ├── /admin-systems/                          ✅ (Proplytic published)
+│   ├── /damtech-website/                        ✅
+│   └── /proplytic-property-software/            ✅
 ├── /resources/                                  ✅ Hub
 │   ├── /website-cost-guides/                    ✅ category
 │   ├── /seo-guides/                             ✅ category
-│   ├── /ecommerce-guides/                       🕐 planned (empty at launch — D-18)
+│   ├── /ecommerce-guides/                       🕐 planned (empty — D-18)
 │   ├── /business-systems/                       🕐 planned
-│   └── /[article-slug]/                         ✅ 3 launch articles
+│   ├── /website-cost-south-africa/              ✅
+│   ├── /seo-cost-south-africa/                  ✅ (D-46)
+│   ├── /what-is-an-seo-first-website/           ✅
+│   └── /choosing-a-website-development-company/ ✅
 ├── /compare/                                    ✅ Hub
 │   ├── /custom-website-vs-template/             ✅
 │   ├── /wordpress-vs-nextjs/                    ✅
@@ -49,8 +56,14 @@ Legend: ✅ indexable at launch · 🚫 generated but noindex · 🕐 planned, n
 │   └── /website-maintenance-options/            ✅
 ├── /areas-we-serve/                             ✅ Hub
 │   ├── /pretoria/                               ✅ (Centurion consolidated here)
-│   ├── /johannesburg/                           ✅ (Sandton/Midrand consolidated here)
+│   ├── /johannesburg/                           🚫 deferred evidence / indexation gate
 │   └── /cape-town/                              🕐 phase 2 (D-08)
+├── /seo-audit/                                  ✅ Priority Fix Pack hub
+│   ├── /intake/                                 🚫
+│   ├── /thank-you/                              🚫
+│   └── /advanced/                               ✅ Advanced audit
+│       ├── /intake/                             🚫
+│       └── /thank-you/                          🚫
 ├── /about/                                      ✅
 ├── /process/                                    ✅
 ├── /pricing/                                    ✅
@@ -64,13 +77,14 @@ Legend: ✅ indexable at launch · 🚫 generated but noindex · 🕐 planned, n
     └── /cookie-policy/                          ✅
 ```
 
-Counts at launch: **52 indexable URLs**, 12 generated-noindex (thank-you/intake utilities + project gates), planned categories remain deferred.
+Current registry totals: **68 routes / 59 indexable / 9 noindex** (validator). Planned empty categories remain deferred.
 
 ## Consolidations vs the blueprint’s starting hypothesis
 
 | Hypothesised page | Decision |
 |---|---|
 | Per-plan maintenance pages | Consolidated into one maintenance service page (thin-page risk) |
+| Ranking SEO retainer product | Not sold; Search Care + Measurement are the honest monthly products (D-45, D-47) |
 | `next.js development` service page | Consolidated into custom-web-applications + wordpress-vs-nextjs compare until demand proves out |
 | Cape Town location | Deferred (rule 11 — needs genuine evidence) |
 | `ecommerce-guides`, `business-systems` categories | Defined in taxonomy, not generated while empty |
