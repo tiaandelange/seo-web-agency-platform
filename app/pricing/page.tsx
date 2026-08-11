@@ -10,13 +10,13 @@ import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
-import { packages } from '@/data/packages';
+import { packages, customSystemPriceLabel } from '@/data/packages';
 import { SEO_AUDIT_PROJECT_PRICING } from '@/config/seo-audit-product';
 
 const PATH = '/pricing/';
-const TITLE = 'Website Design Pricing';
+const TITLE = 'Website Prices South Africa';
 const DESCRIPTION =
-  'Website design and development pricing in South Africa, published openly: indicative ranges per package, what moves price up or down, and support plan costs.';
+  'Website prices in South Africa, published openly: packages from R4,500, SEO audits from R2,950, Search Care R3,950/mo. Ranges indicative; quote after scoping.';
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -52,8 +52,8 @@ export default function PricingPage() {
         variant="inverse"
         motif
         eyebrow="Pricing"
-        title="Website design and development pricing"
-        description="Published openly because price-hiding wastes everyone's time. Ranges below are indicative; every project receives a fixed, itemised quote after one scoping conversation, and the quote is the binding number."
+        title="Website prices in South Africa"
+        description="Published openly: packages from R4,500, SEO audits from R2,950, monthly Search Care at R3,950. Ranges are indicative; every project gets a fixed, itemised quote after one scoping conversation — the quote is the binding number."
         aside={
           <div className="rounded-card border border-white/15 bg-ink/40 p-5 shadow-card">
             <p className="text-label text-cta">Binding number</p>
@@ -158,7 +158,7 @@ export default function PricingPage() {
                   <td className="py-3 pr-4 text-muted">
                     {pkg.priceRange
                       ? `R${pkg.priceRange.min.toLocaleString('en-ZA')} – R${pkg.priceRange.max.toLocaleString('en-ZA')} (indicative)`
-                      : 'From R80,000; discovery R8,000–R15,000 (indicative)'}
+                      : customSystemPriceLabel()}
                   </td>
                   <td className="py-3 text-muted">{pkg.timeline}</td>
                 </tr>
@@ -188,9 +188,14 @@ export default function PricingPage() {
           <Link href="/services/analytics-and-conversion-tracking/" className="text-link underline">
             Measurement &amp; Reporting
           </Link>{' '}
-          add-on: from R950/mo (monthly conversion reporting + dashboard), stackable on any
-          support plan. VAT treatment is stated on quotes once registration status is confirmed —
-          ranges here are VAT-neutral.
+          add-on: R1,250/mo (monthly conversion reporting + dashboard), stackable on any support
+          plan.{' '}
+          <Link href="/services/search-care/" className="text-link underline">
+            Search Care
+          </Link>
+          : R3,950/mo (capped technical and on-page fixes plus reporting — no ranking guarantees).
+          VAT treatment is stated on quotes once registration status is confirmed — ranges here are
+          VAT-neutral.
         </p>
       </Section>
 
@@ -213,8 +218,12 @@ export default function PricingPage() {
           <Link href="/resources/website-cost-south-africa/" className="text-cta underline">
             website costs in South Africa
           </Link>{' '}
-          covers the full market honestly — from R2,000 templates to R160,000 builds — with dated
-          sources, so you can sanity-check any quote, including ours.
+          and{' '}
+          <Link href="/resources/seo-cost-south-africa/" className="text-cta underline">
+            SEO costs in South Africa
+          </Link>{' '}
+          cover the wider market honestly — with dated sources — so you can sanity-check any quote,
+          including ours.
         </p>
       </InkBand>
 

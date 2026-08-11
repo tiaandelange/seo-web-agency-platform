@@ -14,14 +14,14 @@ Seven plans are architecturally sound but operationally heavy for a solo founder
 | **Business support** | Business website support (as is) | R1,800–R3,500 | Lead-gen/professional sites: Essential + 2h changes, form/lead monitoring, Search Console review, quarterly improvement call |
 | **System & store support** | Ecommerce support + Web application support | R3,000–R8,000 (quoted within band per system) | Online stores and custom systems: SLA response targets, payment/checkout or workflow monitoring, bug fixes, dependency updates, small-enhancement backlog |
 
-### Add-ons (attach to any plan)
+### Add-ons / monthly search products (2026-08-11)
 
-| Add-on | Indicative /month |
-|---|---|
-| Search performance reporting (GSC/GA plain-language report) | R950–R1,800 |
-| Content & SEO support (1–2 mapped articles/pages + metadata/linking upkeep) | R4,500–R9,000 |
+| Product | Price | Notes |
+|---|---|---|
+| Measurement & Reporting | **R1,250/mo** | Stackable on any care plan; reporting only |
+| Search Care | **R3,950/mo** | Distinct service URL `/services/search-care/`; capped fixes + reporting; no ranking guarantees |
 
-Rationale for merging: hosting-only clients are rare and low-margin at launch (fold into Essential); ecommerce and application support share the same operational reality (SLA, monitoring, updates) and differ only in what is monitored — one plan, quoted within the band, is simpler to sell and staff.
+Content & SEO support (R4,500–R9,000) **deferred** — not published until capacity exists.
 
 ## Support boundaries (state on the page and in proposals)
 

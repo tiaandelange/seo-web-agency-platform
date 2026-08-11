@@ -26,6 +26,10 @@ export function ProofPreview() {
               <span>seo audit south africa</span>
               <span className="text-ink">/seo-audit/</span>
             </li>
+            <li className="flex justify-between gap-4 border-b border-line py-2">
+              <span>seo cost south africa</span>
+              <span className="text-ink">/resources/seo-cost-south-africa/</span>
+            </li>
             <li className="flex justify-between gap-4 py-2">
               <span>website cost south africa</span>
               <span className="text-ink">/resources/website-cost-south-africa/</span>
@@ -35,7 +39,7 @@ export function ProofPreview() {
         <div>
           <p className="font-mono text-xs uppercase tracking-widest text-cta">Delivery evidence</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
-            <li>64 routes with explicit indexation rules — inspect view-source on any page</li>
+            <li>Central route registry with explicit indexation rules — inspect view-source on any page</li>
             <li>Performance and accessibility budgets enforced in CI</li>
             <li>Authorised case studies publish only with owner permission</li>
           </ul>

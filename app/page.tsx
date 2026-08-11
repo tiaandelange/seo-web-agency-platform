@@ -20,6 +20,7 @@ import { ProofPreview } from '@/components/home/proof-preview';
 import { HomeAuditStrip } from '@/components/home/home-audit-strip';
 import { HomePackagesFocus } from '@/components/home/home-packages-focus';
 import { HomeInterfaceConcept } from '@/components/home/home-interface-concept';
+import { HomePriceStrip } from '@/components/home/home-price-strip';
 
 const HOME_TITLE = 'SEO-First Websites & Digital Systems';
 const HOME_DESCRIPTION =
@@ -46,6 +47,7 @@ export default function HomePage() {
     <>
       <HomeHero />
       <EnquirySystemAnchor />
+      <HomePriceStrip />
       <HomeProofStrip />
       <HomeInterfaceConcept />
       <CapabilityPaths />

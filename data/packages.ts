@@ -12,13 +12,13 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'lead-generation-websites',
     title: 'One-Page Website Package',
     metaDescription:
-      'One-page website package: focused landing page for one offer, SEO-structured, yours to own. Indicative R6,500–R12,000. Fixed quote after scoping.',
+      'One-page website package: focused landing page for one offer, SEO-structured, yours to own. Indicative R4,500–R8,500. Fixed quote after scoping.',
     heading: 'One-page website package',
     intro:
       'A deliberately single-page website for one clear offer — a campaign landing page, a single-service trade or contractor site, or a credible first presence. One long-form page with sectioned anchors, structured for search and owned by you — not a cut-down multi-page site. When you need more pages later, it upgrades cleanly into the Starter or Professional builds on the same architecture.',
     status: 'live',
     dateCreated: '2026-07-23',
-    dateUpdated: '2026-07-23',
+    dateUpdated: '2026-08-11',
     placeholder: false,
     idealFor: [
       'A single-service contractor or trade that needs one strong page, not a full brochure site',
@@ -45,7 +45,7 @@ export const packages: PackageOffer[] = [
       'Copywriting beyond structural guidance (add-on)',
       'Ongoing SEO campaigns',
     ],
-    priceRange: { min: 6500, max: 12000, currency: 'ZAR', indicative: true },
+    priceRange: { min: 4500, max: 8500, currency: 'ZAR', indicative: true },
     timeline: '1–2 weeks from content kickoff',
     faqs: [
       {
@@ -68,13 +68,13 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'business-websites',
     title: 'Starter Business Website Package',
     metaDescription:
-      'Starter business website package: up to 6 SEO-structured pages, mobile-first build, Search Console setup. Indicative R14,000–R25,000. Fixed quote after scoping.',
+      'Starter business website package: up to 6 SEO-structured pages, mobile-first build, Search Console setup. Indicative R9,500–R18,000. Fixed quote after scoping.',
     heading: 'Starter business website package',
     intro:
       'The right first website: compact, properly structured for search, and owned by you. Built for new and small businesses replacing no site — or a DIY site Google ignores.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     placeholder: false,
     idealFor: [
       'A new business that needs a credible presence customers can find',
@@ -99,7 +99,7 @@ export const packages: PackageOffer[] = [
       'Ecommerce, catalogues or custom features — see the larger packages',
       'Ongoing SEO campaigns',
     ],
-    priceRange: { min: 14000, max: 25000, currency: 'ZAR', indicative: true },
+    priceRange: { min: 9500, max: 18000, currency: 'ZAR', indicative: true },
     timeline: '2–4 weeks from content kickoff',
     faqs: [
       {
@@ -122,13 +122,13 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'lead-generation-websites',
     title: 'Professional Business Website Package',
     metaDescription:
-      'Professional lead-generation website package: 8–15 mapped pages, conversion structure, tracking and case-study setup. Indicative R28,000–R60,000.',
+      'Professional lead-generation website package: 8–15 mapped pages, conversion structure, tracking and case-study setup. Indicative R22,000–R45,000.',
     heading: 'Professional business website package',
     intro:
       'The full lead-generation build: search-mapped architecture across all your services, conversion structure, measurement and proof — for established businesses that want the website carrying real commercial weight.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     placeholder: false,
     idealFor: [
       'A contractor or service business whose growth depends on steady enquiries',
@@ -151,7 +151,7 @@ export const packages: PackageOffer[] = [
       'Paid-advertising management',
       'Ecommerce functionality — see the Ecommerce package',
     ],
-    priceRange: { min: 28000, max: 60000, currency: 'ZAR', indicative: true },
+    priceRange: { min: 22000, max: 45000, currency: 'ZAR', indicative: true },
     timeline: '4–7 weeks from content kickoff',
     faqs: [
       {
@@ -174,13 +174,13 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'product-catalogue-websites',
     title: 'Product Catalogue Website Package',
     metaDescription:
-      'Product catalogue website package: structured range, spec sheets, RFQ basket and bulk loading from your spreadsheets. Indicative R45,000–R90,000.',
+      'Product catalogue website package: structured range, spec sheets, RFQ basket and bulk loading from your spreadsheets. Indicative R35,000–R70,000.',
     heading: 'Product catalogue website package',
     intro:
       'Your full range online, structured and quotable: category and product pages built for search, spec sheets where buyers expect them, and an RFQ basket that turns browsing into quote requests.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     placeholder: false,
     idealFor: [
       'A manufacturer or distributor whose range lives in PDF price lists',
@@ -204,7 +204,7 @@ export const packages: PackageOffer[] = [
       'Live ERP/stock integration (scoped separately)',
       'Data cleaning of severely unstructured ranges (quoted after a sample)',
     ],
-    priceRange: { min: 45000, max: 90000, currency: 'ZAR', indicative: true },
+    priceRange: { min: 35000, max: 70000, currency: 'ZAR', indicative: true },
     timeline: '5–8 weeks, driven mostly by product-data readiness',
     faqs: [
       {
@@ -227,13 +227,13 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'ecommerce-websites',
     title: 'Ecommerce Website Package',
     metaDescription:
-      'Ecommerce website package for SA sellers: SEO product architecture, local payment gateway, delivery setup and conversion tracking. Indicative R70,000–R160,000.',
+      'Ecommerce website package for SA sellers: SEO product architecture, local payment gateway, delivery setup and conversion tracking. Indicative R45,000–R110,000.',
     heading: 'Ecommerce website package',
     intro:
       'A store built to sell: product pages structured for search, a mobile checkout people finish, South African payment and delivery realities handled properly — and the numbers visible from day one.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     placeholder: false,
     idealFor: [
       'A retailer outgrowing a template-platform store that ranks for nothing',
@@ -255,7 +255,7 @@ export const packages: PackageOffer[] = [
       'Large-range product photography and copywriting (quoted separately)',
       'Ongoing trading support (Ecommerce support plan available)',
     ],
-    priceRange: { min: 70000, max: 160000, currency: 'ZAR', indicative: true },
+    priceRange: { min: 45000, max: 110000, currency: 'ZAR', indicative: true },
     timeline: '6–10 weeks depending on range size and integrations',
     faqs: [
       {
@@ -278,13 +278,13 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'custom-web-applications',
     title: 'Custom Web System',
     metaDescription:
-      'Custom web systems — admin panels, RFQ and quotation tools, portals — scoped through paid discovery. Indicative from R80,000; discovery R8,000–R15,000.',
+      'Custom web systems — admin panels, RFQ and quotation tools, portals — scoped through paid discovery. Indicative from R65,000; discovery R6,500–R12,000.',
     heading: 'Custom web system',
     intro:
       'For the processes no product fits: admin panels, quotation systems, portals and workflow tools, scoped honestly through paid discovery so you see the specification and the number before committing to a build.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     placeholder: false,
     idealFor: [
       'A business run on spreadsheets that have started costing real money',
@@ -324,6 +324,24 @@ export const packages: PackageOffer[] = [
     primaryKeywordCluster: 'custom web system',
   },
 ];
+
+/** Custom package has priceRange null — shared published floors for UI mirrors. */
+export const CUSTOM_SYSTEM_FROM_ZAR = 65000;
+export const CUSTOM_DISCOVERY_MIN_ZAR = 6500;
+export const CUSTOM_DISCOVERY_MAX_ZAR = 12000;
+
+export function formatZar(amount: number): string {
+  // Comma thousands (not NBSP) so labels match published audit/pricing copy sitewide.
+  return `R${amount.toLocaleString('en-US')}`;
+}
+
+export function formatPackageIndicativeRange(min: number, max: number): string {
+  return `${formatZar(min)} – ${formatZar(max)} (indicative)`;
+}
+
+export function customSystemPriceLabel(): string {
+  return `From ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)}; discovery ${formatZar(CUSTOM_DISCOVERY_MIN_ZAR)}–${formatZar(CUSTOM_DISCOVERY_MAX_ZAR)} (indicative)`;
+}
 
 export function getPackage(slug: string): PackageOffer | undefined {
   return packages.find((p) => p.slug === slug);

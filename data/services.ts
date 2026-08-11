@@ -1,7 +1,7 @@
 import type { Service } from '@/types/content';
 
 /**
- * The 12 services. One page per commercial search intent —
+ * The live services catalogue. One page per commercial search intent —
  * see docs/seo/KEYWORD-TO-PAGE-MAP.csv before adding entries.
  */
 export const services: Service[] = [
@@ -282,7 +282,7 @@ export const services: Service[] = [
       {
         question: 'What does a custom web application cost?',
         answer:
-          'Meaningful systems typically start around R80,000, with discovery quoted separately so you get a specification and honest number before committing to the build. Anyone quoting a fixed price for unscoped custom software is guessing with your money — our indicative ranges are published on the pricing page.',
+          'Meaningful systems typically start around R65,000, with discovery quoted separately so you get a specification and honest number before committing to the build. Anyone quoting a fixed price for unscoped custom software is guessing with your money — our indicative ranges are published on the pricing page.',
         group: 'cost',
       },
       {
@@ -573,7 +573,7 @@ export const services: Service[] = [
       {
         question: 'Do we still need monthly SEO after the build?',
         answer:
-          'The build gets the foundation right, which is where most sites fail. After that, growth comes from content added against the keyword map and from Search Console-driven improvements — available as a support plan, but never a forced subscription.',
+          'The build gets the foundation right, which is where most sites fail. After that, growth comes from content against the keyword map and from Search Console-driven improvements. For capped monthly technical care and reporting without a growth campaign, see Search Care (R3,950/mo) or Measurement & Reporting (R1,250/mo) — never a forced ranking-promise subscription.',
         group: 'support',
       },
     ],
@@ -582,11 +582,12 @@ export const services: Service[] = [
       'website-redesign',
       'business-websites',
       'analytics-and-conversion-tracking',
+      'search-care',
     ],
     relatedPackageSlugs: ['professional-business-website'],
     relatedSolutionSlugs: ['contractors', 'small-businesses'],
     relatedProjectSlugs: ['damtech-website'],
-    relatedArticleSlugs: ['what-is-an-seo-first-website'],
+    relatedArticleSlugs: ['what-is-an-seo-first-website', 'seo-cost-south-africa'],
     primaryKeywordCluster: 'seo website design south africa',
     ctaType: 'consultation',
   },
@@ -623,7 +624,7 @@ export const services: Service[] = [
       'Full handover — you own the accounts, tags and configuration',
     ],
     exclusions: [
-      'Ongoing reporting and optimisation (available on a support plan — see website maintenance)',
+      'Ongoing reporting and optimisation (Measurement & Reporting R1,250/mo on a support plan, or Search Care R3,950/mo)',
       'Paid-ads management and media buying',
       'BigQuery warehousing and custom data pipelines',
       'Historical Universal Analytics data recovery',
@@ -654,7 +655,11 @@ export const services: Service[] = [
         group: 'process',
       },
     ],
-    relatedServiceSlugs: ['seo-website-development', 'website-maintenance-and-support'],
+    relatedServiceSlugs: [
+      'seo-website-development',
+      'website-maintenance-and-support',
+      'search-care',
+    ],
     relatedPackageSlugs: ['professional-business-website'],
     relatedSolutionSlugs: ['small-businesses', 'professional-services'],
     relatedProjectSlugs: [],
@@ -690,7 +695,7 @@ export const services: Service[] = [
       'Uptime and form monitoring with proactive fixes',
       'Monthly change time for content and small improvements',
       'Search Console review and plain-language monthly reporting (plan-dependent)',
-      'Optional Measurement & Reporting add-on (from R950/mo): monthly conversion reporting, Looker Studio dashboard upkeep and a plain-English insight readout',
+      'Optional Measurement & Reporting add-on (R1,250/mo): monthly conversion reporting, Looker Studio dashboard upkeep and a plain-English insight readout',
       'Priority response targets on business and ecommerce plans',
       'Quarterly improvement recommendations from real usage data',
     ],
@@ -715,7 +720,7 @@ export const services: Service[] = [
       {
         question: 'Can you report on my results each month?',
         answer:
-          'Yes — via the optional Measurement & Reporting add-on (from R950/mo), stackable on any support plan. It builds on the once-off Analytics & Conversion Tracking Setup: we keep GA4 and Consent Mode v2 configuration healthy, maintain the Looker Studio dashboard, and turn the numbers into a plain-English monthly readout you can act on. Month-to-month, no lock-in.',
+          'Yes — via the optional Measurement & Reporting add-on (R1,250/mo), stackable on any support plan. It builds on the once-off Analytics & Conversion Tracking Setup: we keep GA4 and Consent Mode v2 configuration healthy, maintain the Looker Studio dashboard, and turn the numbers into a plain-English monthly readout you can act on. For capped technical and on-page search work, see Search Care at R3,950/mo. Month-to-month, no lock-in.',
         group: 'support',
       },
     ],
@@ -724,12 +729,88 @@ export const services: Service[] = [
       'ecommerce-websites',
       'website-redesign',
       'analytics-and-conversion-tracking',
+      'search-care',
     ],
     relatedPackageSlugs: [],
     relatedSolutionSlugs: ['small-businesses'],
     relatedProjectSlugs: [],
     relatedArticleSlugs: ['website-cost-south-africa'],
     primaryKeywordCluster: 'website maintenance south africa',
+    ctaType: 'quote',
+  },
+  {
+    slug: 'search-care',
+    category: 'recurring',
+    title: 'Search Care',
+    seoTitle: 'Search Care South Africa — Monthly SEO Health',
+    metaDescription:
+      'Monthly Search Care for South African sites: Search Console and GA4 review, capped on-page fixes, plain reporting. R3,950/mo. No ranking guarantees.',
+    heading: 'Search Care — monthly search health',
+    intro:
+      'A fixed monthly search-health retainer for businesses that want ongoing technical and on-page care with honest reporting — not a content mill, link-building campaign or ranking promise. You get capped implementation time, Search Console and GA4 review, and a plain-English readout each month.',
+    summary: 'R3,950/mo: capped SEO fixes, Search Console care and clear reporting — no ranking guarantees.',
+    status: 'live',
+    dateCreated: '2026-08-11',
+    dateUpdated: '2026-08-11',
+    problems: [
+      'You bought an SEO audit but nobody is applying the next fixes.',
+      'Search Console warnings pile up between busy months.',
+      'Agencies quote R15,000+/mo retainers you do not need yet.',
+      'You want measurement and light on-page care without a content factory.',
+      'Previous SEO retainers promised rankings and delivered vague activity reports.',
+    ],
+    deliverables: [
+      'Monthly Search Console and GA4 health review',
+      'Up to five eligible technical/on-page fixes or two hours of implementation — whichever comes first',
+      'Looker Studio / conversion reporting kept current (assumes healthy tracking)',
+      'Plain-English monthly readout with prioritised next actions',
+      'Internal link, title/meta and heading hygiene within the monthly cap',
+      'Month-to-month billing with 30 days’ notice to cancel',
+    ],
+    exclusions: [
+      'Content mills, blog-article packages or link-building / outreach',
+      'Ranking, traffic or enquiry guarantees',
+      'Full website rebuilds, migrations or ecommerce architecture projects',
+      'Paid advertising management',
+      'Work beyond the monthly fix/hours cap (quoted separately or deferred)',
+    ],
+    faqs: [
+      {
+        question: 'How is Search Care different from a full SEO retainer?',
+        answer:
+          'Full growth retainers typically fund continuous content production and link acquisition at R8,000–R30,000+/mo. Search Care is deliberately narrower: health monitoring, reporting and a capped batch of technical/on-page fixes. We do not sell ranking promises.',
+        group: 'process',
+      },
+      {
+        question: 'Do I need the Analytics & Conversion Tracking Setup first?',
+        answer:
+          'If tracking is already healthy, we build on it. If not, the once-off Analytics & Conversion Tracking Setup (R2,950) gets GA4, Tag Manager and conversion events in place first — or we include that as a prerequisite quote.',
+        group: 'process',
+      },
+      {
+        question: 'What does Search Care cost?',
+        answer:
+          'R3,950 per month, month-to-month. Measurement & Reporting alone is R1,250/mo if you only need dashboard and conversion reporting without implementation hours.',
+        group: 'cost',
+      },
+      {
+        question: 'Will you guarantee page-one rankings?',
+        answer:
+          'No. No honest provider can. Search Care improves technical health and on-page clarity within a capped scope; visibility still depends on competition, content depth, authority and work outside this retainer.',
+        group: 'technical',
+      },
+    ],
+    relatedServiceSlugs: [
+      'analytics-and-conversion-tracking',
+      'website-maintenance-and-support',
+      'seo-website-development',
+      'website-redesign',
+    ],
+    relatedPackageSlugs: [],
+    relatedSolutionSlugs: ['small-businesses', 'professional-services'],
+    relatedProjectSlugs: [],
+    relatedArticleSlugs: ['what-is-an-seo-first-website', 'seo-cost-south-africa'],
+    primaryKeywordCluster: 'seo care south africa',
     ctaType: 'quote',
   },
 ];

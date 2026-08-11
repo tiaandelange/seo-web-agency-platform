@@ -1,45 +1,45 @@
 # Pricing architecture
 
-## Market anchors (2026 research — see COMPETITOR-RESEARCH.md)
+## Market anchors (2026 research — see COMPETITOR-RESEARCH.md; ladder D-44)
 
-- Template/volume market: R1,990–R10,000 (we do not compete here).
-- Professional business sites with SEO architecture: ~R20,000–R60,000.
-- Ecommerce: ~R60,000–R150,000+.
+- Template/volume market: R1,500–R10,000 (we do not compete at the Insly floor).
+- Professional business sites with SEO architecture: ~R15,000–R60,000.
+- Ecommerce: wide spread; our band R45,000–R110,000.
 - Agency hourly rates: mostly R450–R950/h.
 
 ## Our structure
 
 Three presentation layers, one data source (`data/packages.ts`):
 
-1. **Packages** (`/website-packages/…`) — productised entry points with indicative “from” ranges. Serve price-intent searches honestly.
-2. **Pricing page** (`/pricing/`) — all ranges in one table + what moves price up/down + hourly rate + support plans. Serves “website design prices south africa” intent and disarms the biggest buyer anxiety.
-3. **Service pages** — no hard numbers; link to pricing/packages (keeps scope pages evergreen).
+1. **Packages** (`/website-packages/…`) — productised entry points with indicative ranges.
+2. **Pricing page** (`/pricing/`) — all ranges + monthly products + what moves price.
+3. **Service pages** — hard numbers only where fixed (audits, tracking, Search Care, Measurement); otherwise link to pricing/packages.
 
-## Presentation rules (anti-fabrication)
-
-- Every figure renders with the word “indicative” and the data flag `indicative: true`; final numbers only via quote.
-- No “was/now” discounting, no fake urgency.
-- Ranges, never single prices, for builds; support plans may show fixed prices once confirmed.
-- VAT status must be stated once registered (owner input #10).
-
-## Placeholder ranges (owner must confirm — input #6)
+## Published ladder (indicative builds)
 
 | Offering | Indicative range (ZAR) |
 |---|---|
-| Starter business website | 14,000–25,000 |
-| Professional lead-generation website | 28,000–60,000 |
-| Product catalogue website | 45,000–90,000 |
-| Ecommerce website | 70,000–160,000 |
-| Custom web system | from 80,000 (discovery 8,000–15,000) |
+| One-page website | 4,500–8,500 |
+| Starter business website | 9,500–18,000 |
+| Professional lead-generation website | 22,000–45,000 |
+| Product catalogue website | 35,000–70,000 |
+| Ecommerce website | 45,000–110,000 |
+| Custom web system | from 65,000 (discovery 6,500–12,000) |
 | Hourly (out-of-plan) | 650–950/h |
-| Support plans | see SUPPORT-PACKAGES.md |
 
-## Rationale for sitting above the volume market
+## Monthly products (fixed)
 
-The positioning (D-06) sells measurable lead generation and systems capability to businesses with high job values; a R5k price signal would contradict the promise and attract the wrong buyer. The Starter package is the defensible floor: it exists to catch smaller businesses in the audience without dragging the brand into template-price comparisons.
+| Product | Price | Page |
+|---|---|---|
+| Measurement & Reporting | R1,250/mo | Maintenance add-on + pricing |
+| Search Care | R3,950/mo | `/services/search-care/` |
 
-## Discount and negotiation policy (proposed)
+## Rationale
 
-- Scope down, don’t price down (remove pages/features rather than cutting rate).
-- Phased delivery for budget-constrained fits (site now, system later).
+Starter and one-page sit above the template floor to filter cheap enquiries while remaining competitive in the professional SME band. Search Care owns entry monthly “SEO cost” buyers without selling ranking campaigns.
+
+## Discount and negotiation policy
+
+- Scope down, don’t price down.
+- Phased delivery for budget-constrained fits.
 - No free spec work beyond the published discovery offer.

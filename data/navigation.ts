@@ -29,6 +29,7 @@ export const headerNav: NavItem[] = [
         label: 'Analytics & Conversion Tracking',
         href: '/services/analytics-and-conversion-tracking/',
       },
+      { label: 'Search Care', href: '/services/search-care/' },
     ],
   },
   { label: 'Industries', href: '/solutions/' },
@@ -58,6 +59,7 @@ export const footerColumns: FooterColumn[] = [
         label: 'Analytics & conversion tracking',
         href: '/services/analytics-and-conversion-tracking/',
       },
+      { label: 'Search Care', href: '/services/search-care/' },
       { label: 'All services', href: '/services/' },
     ],
   },
@@ -77,6 +79,7 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: 'Guides & resources', href: '/resources/' },
       { label: 'Website cost guide', href: '/resources/website-cost-south-africa/' },
+      { label: 'SEO cost guide', href: '/resources/seo-cost-south-africa/' },
       { label: 'Comparisons', href: '/compare/' },
       { label: 'Areas we serve', href: '/areas-we-serve/' },
       { label: 'Request a proposal', href: '/request-a-quote/' },

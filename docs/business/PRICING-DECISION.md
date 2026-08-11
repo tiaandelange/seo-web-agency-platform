@@ -1,57 +1,38 @@
 # Pricing decision
 
-Prepared 2026-07-21 for owner sign-off. Reviews the placeholder ranges in `PRICING-ARCHITECTURE.md` / `data/packages.ts` against 2026 market evidence. **All figures remain `indicative: true` in the codebase until the owner confirms — nothing here publishes as final.**
+Prepared 2026-07-21; ladder updated 2026-08-11 (D-44). Reviews `PRICING-ARCHITECTURE.md` / `data/packages.ts` against SA market evidence. Package ranges remain `indicative: true` until each quote binds.
 
-## Market check (sources accessed 2026-07-21)
+## Market check (sources accessed 2026-07-21; ladder re-checked 2026-08-11)
 
-- Template/volume floor: R1,500–R8,000 once-off (shepherddesignedit.co.za; jwd.co.za; hikarilabs.co.za) and subscriptions R179–R7,999/month (cjxstudio.co.za).
-- Professional tier: R25,000–R60,000 (symaxx.com/web-design/pricing); R8,000–R20,000 for smaller professional builds (hikarilabs.co.za).
-- Custom applications: R80,000–R250,000+ (symaxx.com).
-- Conclusion: the repository's placeholder ranges (A-10) remain market-consistent. No structural change needed; recommendations below are presentational.
+- Template/volume floor: R1,500–R8,000 once-off and subscriptions (Insly and peers).
+- Professional tier: roughly R15,000–R60,000 for SEO-architected business sites.
+- Custom applications: typically from ~R65,000–R80,000+ with paid discovery.
+- Conclusion: competitive ladder sits above the template floor and inside professional bands.
 
-## Recommended indicative ranges (confirm or amend each)
+## Published indicative ranges (D-44)
 
-| Offering | Current placeholder | Recommendation | Note |
-|---|---|---|---|
-| Starter business website | R14,000–R25,000 | **Keep** | Deliberately above the template floor; the "cheap enquiry" filter. |
-| Professional lead-generation website | R28,000–R60,000 | **Keep** | Sits exactly on the professional-tier evidence; hero package. |
-| Product catalogue website | R45,000–R90,000 | **Keep** | Premium vs generic ecommerce is justified by RFQ/spec complexity. |
-| Ecommerce website | R70,000–R160,000 | **Keep** | Matches R60k–R150k+ evidence. |
-| Custom web system | from R80,000 (discovery R8,000–R15,000) | **Keep** | Paid discovery is the scope-protection mechanism — hold the line. |
-| Hourly (out-of-plan) | R650–R950/h | **Keep** | Market band R450–R950/h; positioning supports the upper half. |
-| SEO Audit & Priority Fix Pack | **R1,999 once-off (fixed)** | **Publish as fixed** | Entry product (D-30/D-31). Not indicative. |
-| Advanced SEO Audit & Implementation Roadmap | **R5,999 once-off (fixed)** | **Publish as fixed** | Large-site tier (D-31). Custom above 250 URLs. |
+| Offering | Indicative range | Note |
+|---|---|---|
+| One-page / landing | R4,500–R8,500 | Above R1,500–R3,000 volume floor |
+| Starter business website | R9,500–R18,000 | Small professional band |
+| Professional lead-generation website | R22,000–R45,000 | Hero package |
+| Product catalogue website | R35,000–R70,000 | Spec / RFQ premium |
+| Ecommerce website | R45,000–R110,000 | Above cheap Woo specials |
+| Custom web system | from R65,000 (discovery R6,500–R12,000) | Paid discovery held |
+| Hourly (out-of-plan) | R650–R950/h | Upper half of market |
+| SEO Audit & Priority Fix Pack | R2,950 once-off (fixed) | Entry product |
+| Advanced SEO Audit | R8,500 once-off (fixed) | Large-site tier |
+| Analytics & Conversion Tracking | R2,950 once-off (fixed) | |
+| Measurement & Reporting | R1,250/mo (fixed) | Dashboard + readout add-on |
+| Search Care | R3,950/mo (fixed) | Capped SEO health; no ranking guarantees |
 
-## Indicative price presentation (recommended rules — already partially implemented)
+## Presentation rules
 
-1. Ranges only for builds, each rendered with the word "indicative" and the visible notice (implemented: `indicative: true` flag).
-2. The `/pricing/` page stays the single "all numbers in one place" answer — it serves the highest-anxiety search and differentiates against "request a quote to see anything" competitors.
-3. "What moves the price up/down" explanations stay adjacent to every range (scope honesty).
-4. No discount theatre: no was/now, no countdowns, no "this month only".
-5. VAT status statement added the day registration status is known (input #10).
-6. Once confirmed, switch copy from "indicative range" to "typical range" — still ranges, never fixed public prices for builds.
-
-## Payment terms (proposed — owner must confirm)
-
-- Builds: 40% deposit · 40% at design/build milestone · 20% at handover. Work starts on deposit clearance.
-- Custom systems: paid discovery invoiced separately; build quoted after discovery; milestone billing monthly for engagements >8 weeks.
-- Support plans: monthly in advance, debit order/EFT; 30 days' notice to cancel.
-- Out-of-plan work: quoted or hourly (published rate), invoiced monthly.
-- Late payment: work pauses after 14 days overdue (stated in terms, applied with judgement).
+1. Ranges for builds with the word “indicative”; quote after scoping is binding.
+2. `/pricing/` is the single all-numbers page.
+3. No discount theatre.
+4. No ranking-promise SEO retainers; Search Care and Measurement are the honest monthly products.
 
 ## Exclusions (state on proposals and the pricing page)
 
-Content writing beyond agreed scope; photography; logo/brand design (referred or quoted separately); paid advertising management; ongoing SEO retainers promising rankings (never sold); third-party licence fees (payment gateways, email services); domain/hosting fees unless on a care plan that includes them.
-
-## Change-request rules (proposed)
-
-- Scope defined in the proposal by pages, features and revision rounds (2 rounds included per phase).
-- Changes within scope: included. New scope: written mini-quote before work proceeds — no verbal scope creep.
-- "Scope down, don't price down" negotiation policy stands (PRICING-ARCHITECTURE.md).
-
-## Owner decisions required
-
-1. Confirm/adjust each range above (input #6 — launch-blocking unless prices are hidden).
-2. Confirm deposit/milestone percentages and support billing terms.
-3. Confirm the exclusions list.
-4. Confirm the 2-revision-rounds rule.
+Content writing beyond agreed scope; photography; logo/brand design; paid advertising management; ongoing SEO retainers promising rankings; third-party licence fees; domain/hosting fees unless on a care plan that includes them.

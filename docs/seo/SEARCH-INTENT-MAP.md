@@ -35,5 +35,8 @@ Rules:
 | “how much does a website cost in south africa” | Informational (market question) | `/resources/website-cost-south-africa/` |
 | “website design prices south africa” | Commercial (show me your prices) | `/pricing/` |
 | “business website packages” | Transactional (sell me a defined thing) | `/website-packages/` |
+| “what does seo cost in south africa 2026” | Informational (SEO market + our prices) | `/resources/seo-cost-south-africa/` |
+| “seo audit south africa” | Transactional (buy audit) | `/seo-audit/` |
+| “seo care / monthly seo reporting” | Commercial (monthly search health) | `/services/search-care/` |
 
 Each page states which question it answers in its intro and links to the other two — this is the documented defence against the closest cannibalisation risk in the architecture.

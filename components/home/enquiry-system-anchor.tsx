@@ -109,6 +109,8 @@ export function EnquirySystemAnchor() {
                     <option value="portal">Portal / quotation system</option>
                     <option value="systems">Custom workflow</option>
                     <option value="seo-audit">SEO audit</option>
+                    <option value="search-care">Search Care (monthly)</option>
+                    <option value="measurement-reporting">Measurement &amp; reporting (monthly)</option>
                   </select>
                 </label>
                 <div className="home-enquiry-field">

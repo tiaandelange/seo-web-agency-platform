@@ -1,8 +1,16 @@
 /**
  * Honest system-shape recommendations for the homepage enquiry anchor.
  * Describes scope and published indicative ranges — never fabricated outcomes.
- * Ranges mirror data/packages.ts and config/seo-audit-product.ts (D-11).
+ * Ranges derive from data/packages.ts and config/seo-audit-product.ts (D-11).
  */
+
+import {
+  CUSTOM_SYSTEM_FROM_ZAR,
+  formatPackageIndicativeRange,
+  formatZar,
+  getPackage,
+} from '@/data/packages';
+import { SEO_AUDIT_PRODUCTS } from '@/config/seo-audit-product';
 
 export type EnquiryInputs = {
   businessType: string;
@@ -29,20 +37,72 @@ type SystemShape = {
   budgetHint: string;
 };
 
+const MEASUREMENT_REPORTING_ZAR = 1250;
+const SEARCH_CARE_ZAR = 3950;
+
+function packageRangeLabel(slug: string): string {
+  const pkg = getPackage(slug);
+  if (!pkg?.priceRange) {
+    throw new Error(`Package ${slug} must have a priceRange for enquiry labels`);
+  }
+  return formatPackageIndicativeRange(pkg.priceRange.min, pkg.priceRange.max);
+}
+
+function starterToProfessionalSpanLabel(): string {
+  const starter = getPackage('starter-business-website');
+  const pro = getPackage('professional-business-website');
+  if (!starter?.priceRange || !pro?.priceRange) {
+    throw new Error('Starter and professional packages require priceRange');
+  }
+  return formatPackageIndicativeRange(starter.priceRange.min, pro.priceRange.max);
+}
+
 function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
   const { businessType, primaryNeed, websiteStatus } = inputs;
 
   if (primaryNeed === 'seo-audit') {
+    const basic = SEO_AUDIT_PRODUCTS['priority-fix'].defaultPriceZar;
+    const advanced = SEO_AUDIT_PRODUCTS['advanced'].defaultPriceZar;
     return {
       serviceSlug: 'seo-audit-basic',
       headline: 'SEO audit with priority fixes',
-      projectValueLabel: 'R2,950 – R8,500 (fixed packs)',
+      projectValueLabel: `${formatZar(basic)} – ${formatZar(advanced)} (fixed packs)`,
       budgetHint: 'R5,000–R10,000',
       items: [
         'Technical and on-page review of the live site (crawl + priority pages)',
         'Prioritised fix list ranked by commercial impact',
-        'Choice of Priority Fix Pack (R2,950) or Advanced audit (R8,500)',
+        `Choice of Priority Fix Pack (${formatZar(basic)}) or Advanced audit (${formatZar(advanced)})`,
         'Written findings you can action in-house or hand to a developer',
+      ],
+    };
+  }
+
+  if (primaryNeed === 'search-care') {
+    return {
+      serviceSlug: 'search-care',
+      headline: 'Search Care — monthly search health',
+      projectValueLabel: `${formatZar(SEARCH_CARE_ZAR)}/mo`,
+      budgetHint: 'Under R5,000',
+      items: [
+        'Monthly Search Console and GA4 health review with plain-English actions',
+        'Capped technical and on-page fixes (up to five eligible fixes or two hours)',
+        'Looker Studio / reporting kept current so you can see enquiry trends',
+        'No content mill, link-building or ranking guarantees — month-to-month',
+      ],
+    };
+  }
+
+  if (primaryNeed === 'measurement-reporting') {
+    return {
+      serviceSlug: 'analytics-and-conversion-tracking',
+      headline: 'Measurement & Reporting (monthly add-on)',
+      projectValueLabel: `${formatZar(MEASUREMENT_REPORTING_ZAR)}/mo`,
+      budgetHint: 'Under R5,000',
+      items: [
+        'Monthly conversion reporting from GA4 events that matter (calls, WhatsApp, forms)',
+        'Looker Studio dashboard upkeep after a healthy tracking setup',
+        'Plain-English insight readout you can act on each month',
+        'Stackable on a support plan — not a full SEO campaign',
       ],
     };
   }
@@ -51,7 +111,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
     return {
       serviceSlug: 'product-catalogue-websites',
       headline: 'Catalogue & RFQ system',
-      projectValueLabel: 'R45,000 – R90,000 (indicative)',
+      projectValueLabel: packageRangeLabel('product-catalogue-website'),
       budgetHint: 'R40,000–R75,000',
       items: [
         'Searchable product catalogue with category and product SEO pages',
@@ -66,8 +126,8 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
     return {
       serviceSlug: 'ecommerce-websites',
       headline: 'Ecommerce website system',
-      projectValueLabel: 'R70,000 – R160,000 (indicative)',
-      budgetHint: 'R75,000+',
+      projectValueLabel: packageRangeLabel('ecommerce-website'),
+      budgetHint: 'R40,000–R75,000',
       items: [
         'Category and product pages structured for search and conversion',
         'Cart and checkout with a South African payment gateway',
@@ -81,7 +141,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
     return {
       serviceSlug: 'rfq-and-quotation-systems',
       headline: 'Enquiry-to-quote workflow',
-      projectValueLabel: 'From R80,000 (indicative; discovery first)',
+      projectValueLabel: `From ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)} (indicative; discovery first)`,
       budgetHint: 'R75,000+',
       items: [
         'Public website with qualification forms that feed a structured RFQ',
@@ -96,7 +156,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
     return {
       serviceSlug: 'lead-generation-websites',
       headline: 'Lead-generation website system',
-      projectValueLabel: 'R14,000 – R60,000 (indicative)',
+      projectValueLabel: starterToProfessionalSpanLabel(),
       budgetHint: 'R20,000–R40,000',
       items: [
         'SEO-mapped service and location pages matched to how buyers search',
@@ -111,8 +171,8 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
   return {
     serviceSlug: 'website-redesign',
     headline: 'Redesign with search architecture',
-    projectValueLabel: 'R28,000 – R60,000 (indicative)',
-    budgetHint: 'R40,000–R75,000',
+    projectValueLabel: packageRangeLabel('professional-business-website'),
+    budgetHint: 'R20,000–R40,000',
     items: [
       'Audit of current structure, indexation and enquiry pathways',
       'Rebuilt page map aligned to real search demand',

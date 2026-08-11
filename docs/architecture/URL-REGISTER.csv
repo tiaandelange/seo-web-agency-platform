@@ -13,6 +13,7 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /services/seo-website-development/,SEO Website Development,service,live-skeleton,index,self,yes,header,/services/,1,seo website design south africa
 /services/analytics-and-conversion-tracking/,Analytics & Conversion Tracking Setup,service,live-skeleton,index,self,yes,header+footer,/services/,1,conversion tracking setup south africa
 /services/website-maintenance-and-support/,Website Maintenance & Support,service,live-skeleton,index,self,yes,footer,/services/,1,website maintenance south africa
+/services/search-care/,Search Care,service,live-skeleton,index,self,yes,header+footer,/services/,1,seo care south africa
 /solutions/,Industry Solutions,hub,live-skeleton,index,self,yes,header,/,1,websites by industry
 /solutions/contractors/,Websites for Contractors,solution,live-skeleton,index,self,yes,none,/solutions/,1,websites for contractors
 /solutions/engineering-companies/,Websites for Engineering Companies,solution,live-skeleton,index,self,yes,none,/solutions/,1,engineering company website
@@ -41,6 +42,7 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /resources/website-cost-south-africa/,How Much Does a Website Cost in South Africa?,article,draft-live,index,self,yes,none,/resources/website-cost-guides/,1,website cost south africa
 /resources/choosing-a-website-development-company/,How to Choose a Website Development Company in South Africa,article,draft-live,index,self,yes,none,/resources/website-cost-guides/,1,how to choose a web developer
 /resources/what-is-an-seo-first-website/,What Is an SEO-First Website?,article,draft-live,index,self,yes,none,/resources/seo-guides/,1,what is seo website design
+/resources/seo-cost-south-africa/,What Does SEO Cost in South Africa (2026)?,article,draft-live,index,self,yes,footer,/resources/seo-guides/,1,seo cost south africa
 /compare/,Comparisons,hub,live-skeleton,index,self,yes,footer,/,1,website decision comparisons
 /compare/custom-website-vs-template/,Custom Website vs Template: Which Should You Choose?,comparison,live-skeleton,index,self,yes,none,/compare/,1,custom website vs template
 /compare/wordpress-vs-nextjs/,WordPress vs Next.js for Business Websites,comparison,live-skeleton,index,self,yes,none,/compare/,1,wordpress vs nextjs
@@ -52,7 +54,7 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /areas-we-serve/cape-town/,Website Design & Development in Cape Town,location,planned,not-generated,self,no,none,/areas-we-serve/,2,website design cape town
 /about/,About Us,about,live-skeleton,index,self,yes,footer,/,1,about (navigational)
 /process/,Our Web Development Process,process,live-skeleton,index,self,yes,footer,/,1,web development process
-/pricing/,Website Design Pricing,pricing,live-skeleton,index,self,yes,header+footer,/,1,website design prices south africa
+/pricing/,Website Prices South Africa,pricing,live-skeleton,index,self,yes,header+footer,/,1,website design prices south africa
 /faq/,Frequently Asked Questions,faq,live-skeleton,index,self,yes,footer,/,1,web development company faq
 /contact/,Contact Us,contact,live-skeleton,index,self,yes,header+footer,/,1,contact web developer
 /request-a-quote/,Request a Proposal,quote,live-skeleton,index,self,yes,cta,/,1,request website quote

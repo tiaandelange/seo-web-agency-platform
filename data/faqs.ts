@@ -10,7 +10,7 @@ export const faqs: Faq[] = [
     group: 'cost',
     question: 'How much does a website cost?',
     answer:
-      'Our published indicative ranges: starter business websites R14,000–R25,000, professional lead-generation sites R28,000–R60,000, product catalogues R45,000–R90,000, ecommerce R70,000–R160,000, and custom systems from R80,000 with paid discovery first. Every project gets a fixed itemised quote after scoping — the ranges exist so you can budget before we talk. All figures are indicative and confirmed in your quote.',
+      'Our published indicative ranges: one-page sites R4,500–R8,500, starter business websites R9,500–R18,000, professional lead-generation sites R22,000–R45,000, product catalogues R35,000–R70,000, ecommerce R45,000–R110,000, and custom systems from R65,000 with paid discovery first. Every project gets a fixed itemised quote after scoping — the ranges exist so you can budget before we talk. All figures are indicative and confirmed in your quote.',
   },
   {
     group: 'cost',

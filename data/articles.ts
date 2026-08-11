@@ -64,15 +64,19 @@ export const articles: Article[] = [
     title: 'How Much Does a Website Cost in South Africa?',
     seoTitle: 'Website Cost in South Africa (2026)',
     metaDescription:
-      'Website costs in South Africa in 2026: real market ranges from R2,000 templates to R160,000+ ecommerce builds, what moves the price, and how to budget sensibly.',
+      'Website costs in South Africa in 2026: market bands from R2,000 templates to R160,000+ builds, what moves price, and our indicative ranges from R4,500.',
     heading: 'How much does a website cost in South Africa?',
     intro:
       'Quotes for “a website” in South Africa range from under R2,000 to well over R200,000 — and both ends can be rational. This guide explains the market’s real 2026 price bands, what actually moves the price, and how to decide where your business should sit.',
     status: 'live',
     dateCreated: '2026-07-21',
-    dateUpdated: '2026-07-21',
+    dateUpdated: '2026-08-11',
     supportsServiceSlugs: ['business-websites'],
-    relatedArticleSlugs: ['choosing-a-website-development-company', 'what-is-an-seo-first-website'],
+    relatedArticleSlugs: [
+      'choosing-a-website-development-company',
+      'what-is-an-seo-first-website',
+      'seo-cost-south-africa',
+    ],
     authorSlug: 'tiaan-de-lange',
     body: [
       {
@@ -80,6 +84,15 @@ export const articles: Article[] = [
         paragraphs: [
           'Publicly published South African pricing in 2026 clusters into recognisable bands. Entry-level template and package sites advertise from roughly R2,000 to R10,000. Standard five-page small-business sites mostly land between about R5,500 and R15,000 — one 2026 agency survey puts the average near R6,250. Professionally architected business websites with proper SEO structure typically run R20,000 to R60,000. Product catalogues, ecommerce and custom builds range from around R45,000 to R160,000 and beyond, depending on scope.',
           'Hourly rates tell the same story: published South African rates span roughly R250 to R1,500 per hour, with most established providers billing R450 to R950. A R3,000 website and a R60,000 website are not the same product at different mark-ups — they are different amounts of skilled time applied to different problems.',
+        ],
+      },
+      {
+        heading: 'What you typically get at each market band',
+        paragraphs: [
+          'R2,000–R10,000: a fast, standardised launch — often a shared template, thin unique content and little search architecture. Fine for a temporary brochure; weak if Google enquiries are the growth plan.',
+          'R12,000–R25,000: a competent small-business site with a clearer page list, basic SEO hygiene and ownership that does not trap you. Still not a full multi-service lead-generation system.',
+          'R25,000–R60,000: professional SEO-structured builds — unique pages per commercial intent, conversion pathways and measurement. This is where most established service businesses that depend on search should budget.',
+          'R45,000–R160,000+: catalogues, ecommerce and custom workflows. Price is driven by data readiness, payments, RFQ rules and integrations more than “page count”. Above that sits paid-discovery custom software, not a brochure with extras.',
         ],
       },
       {
@@ -96,10 +109,30 @@ export const articles: Article[] = [
         ],
       },
       {
+        heading: 'Koppie Systems published indicative ranges',
+        paragraphs: [
+          'Our published ladder (indicative until quoted) sits inside the professional market, above the template floor: one-page sites R4,500–R8,500; starter business websites R9,500–R18,000; professional lead-generation sites R22,000–R45,000; product catalogues R35,000–R70,000; ecommerce R45,000–R110,000; custom systems from R65,000 with paid discovery. Fixed once-off SEO audits start at R2,950. Full tables and what moves each band live on the pricing page.',
+          'We use ranges because honest fixed prices need scope. Scoping converts your page list and features into a fixed itemised quote — that quote is the binding number.',
+        ],
+      },
+      {
+        heading: 'Website cost vs SEO cost',
+        paragraphs: [
+          'Buyers often blur “website price” with “SEO price”. The build is a one-off architecture decision; monthly SEO is ongoing content and technical work. If you are comparing retainers and audits rather than build packages, read the SEO cost guide — it covers once-off audits, monthly Search Care and what growth retainers typically cost in South Africa.',
+        ],
+      },
+      {
         heading: 'Budgeting sensibly: a practical rule',
         paragraphs: [
-          'Work backwards from the value of a customer. If an average new client is worth R5,000 and a properly structured site brings a handful per month once established, the arithmetic on a R30,000 build is short. If your site is a business card for referral traffic only, spending R60,000 is theatre — a well-made starter site is the rational buy.',
+          'Work backwards from the value of a customer. If an average new client is worth R5,000 and a properly structured site brings a handful per month once established, the arithmetic on a R30,000-class build is short. If your site is a business card for referral traffic only, spending at the top of the professional band is theatre — a well-made starter site is the rational buy.',
           'Whatever the budget, insist on: ownership of your domain, content and code; itemised inclusions and exclusions; published or clearly-explained pricing logic; and measurement (Search Console at minimum) wired in from launch. Our own indicative ranges are published on the pricing page, and a fixed quote follows a scoping conversation — the same standard this guide asks you to hold anyone to.',
+        ],
+      },
+      {
+        heading: 'Questions to ask before you pay a deposit',
+        paragraphs: [
+          'Who decides the page list — and can you see the keyword-to-page reasoning? What is excluded in writing? Who owns the domain, hosting login and code at handover? How will you measure enquiries (calls, WhatsApp, forms) after launch? What happens if Google Search Console shows indexation problems in the first 90 days?',
+          'If those answers are vague, the quote number is not the risk — the missing process is.',
         ],
       },
     ],
@@ -162,7 +195,11 @@ export const articles: Article[] = [
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
     supportsServiceSlugs: ['seo-website-development'],
-    relatedArticleSlugs: ['website-cost-south-africa', 'choosing-a-website-development-company'],
+    relatedArticleSlugs: [
+      'website-cost-south-africa',
+      'choosing-a-website-development-company',
+      'seo-cost-south-africa',
+    ],
     authorSlug: 'tiaan-de-lange',
     body: [
       {
@@ -187,6 +224,93 @@ export const articles: Article[] = [
       },
     ],
     sources: [],
+  },
+  {
+    slug: 'seo-cost-south-africa',
+    category: 'seo-guides',
+    title: 'What Does SEO Cost in South Africa (2026)?',
+    seoTitle: 'SEO Cost South Africa (2026)',
+    metaDescription:
+      'What SEO costs in South Africa in 2026: once-off audits, monthly retainers and honest Koppie prices — including Search Care at R3,950/mo. No ranking guarantees.',
+    heading: 'What does SEO cost in South Africa in 2026?',
+    intro:
+      '“What does SEO cost?” is really three questions: once-off diagnosis, monthly care, or a full growth retainer. This guide sets out published 2026 South African market bands, what each model buys, and Koppie Systems’ fixed prices — without ranking promises.',
+    status: 'live',
+    dateCreated: '2026-08-11',
+    dateUpdated: '2026-08-11',
+    supportsServiceSlugs: [
+      'search-care',
+      'analytics-and-conversion-tracking',
+      'seo-website-development',
+    ],
+    relatedArticleSlugs: ['what-is-an-seo-first-website', 'website-cost-south-africa'],
+    authorSlug: 'tiaan-de-lange',
+    body: [
+      {
+        heading: 'The short answer: 2026 SA SEO price bands',
+        paragraphs: [
+          'Published South African figures in 2026 typically split three ways. Once-off SEO audits for small service sites often start around R3,500–R8,500; deeper technical or ecommerce audits commonly run R8,500–R35,000 and can exceed that for large or enterprise sites. Entry or local monthly SEO packages often advertise R3,000–R8,000 per month. Serious small-business and mid-market growth retainers more often sit between about R8,000 and R30,000 per month, with competitive or national programmes higher still.',
+          'Those bands describe different scopes. A R4,000 monthly package is usually light maintenance, local listings and thin reporting. A R20,000 retainer typically buys strategy, content production and link or digital-PR work. Treating both as “SEO” is how buyers overpay for activity that does not match the job.',
+        ],
+      },
+      {
+        heading: 'Once-off audit vs monthly care vs growth retainer',
+        paragraphs: [
+          'An audit answers: what is broken or missing, and what should be fixed first. It is a diagnosis with a limited implementation allowance — useful when you need a decision, a handoff to an in-house person, or a scoped rebuild conversation. Monthly Search Care sits in the middle: ongoing monitoring, reporting and a capped set of technical or on-page fixes. A full growth retainer funds continuous content and authority work over many months.',
+          'Growth retainers are rational when enquiry value is high and you will fund content long enough for compounding to matter. They are wasteful when the site itself is the bottleneck — wrong pages, thin duplication, broken tracking — or when the brief is “keep Search Console clean and fix the next batch of issues” rather than “publish and promote every month”.',
+        ],
+      },
+      {
+        heading: 'What moves the price',
+        paragraphs: [
+          'Site size and platform complexity (a ten-page brochure site is not a 250-URL catalogue). Whether ecommerce, multilingual or multi-location rules apply. How much content must be written versus edited. Competitive intensity in your category. And whether you are buying diagnosis, capped care or an ongoing content and authority programme.',
+          'Anyone quoting a single number without looking at the crawl, Search Console and commercial page list is guessing. Insist on eligibility limits, inclusions, exclusions and what happens when the monthly hours run out.',
+        ],
+      },
+      {
+        heading: 'Koppie Systems published SEO prices',
+        paragraphs: [
+          'We publish fixed once-off and monthly prices so you can budget before a call. SEO Audit & Priority Fix Pack: R2,950 once-off (small sites, capped fixes). Advanced SEO Audit & Implementation Roadmap: R8,500 once-off (larger or catalogue/ecommerce sites within the published limits). Analytics & Conversion Tracking Setup: R2,950 once-off. Measurement & Reporting: R1,250 per month (dashboard and conversion readout). Search Care: R3,950 per month (capped technical and on-page fixes plus reporting).',
+          'We do not sell ranking guarantees, content mills or link-building campaigns. Build and package indicative ranges for websites sit on the pricing page; the website cost guide covers the broader market for builds.',
+        ],
+      },
+      {
+        heading: 'Website build vs SEO bolt-on',
+        paragraphs: [
+          'If customers cannot find a clear page for what they search, monthly SEO on a broken architecture is expensive theatre. SEO-first website development and redesign fix the page map first. If the architecture is sound and you need ongoing hygiene, Search Care or Measurement & Reporting is the honest next step. If you need a market map of website prices rather than SEO prices, use the website cost guide.',
+        ],
+      },
+      {
+        heading: 'How to budget sensibly',
+        paragraphs: [
+          'Work backwards from enquiry value and realistic timeline. SEO compounds slowly; expect months, not a two-week miracle. Prefer scoped deliverables you can inspect (crawl summaries, fixed lists, Search Console screenshots, before-and-after titles) over vague “optimisation hours”. And refuse ranking guarantees — they are a reliability signal about the seller, not about Google.',
+        ],
+      },
+      {
+        heading: 'Sources',
+        paragraphs: [
+          'Market bands summarised from published 2026 South African agency guides (including Algorithm Agency, Growth Pulse Media, Symaxx Digital, Honey Whale, BaseCloud, Juicy Designs, SEO Strategist and Seed & Scale ranges for audits and retainers). Accessed August 2026. Market prices change — treat third-party bands as directional. Koppie figures are our published prices as of August 2026.',
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: 'Algorithm Agency — How Much Does SEO Cost in South Africa? 2026',
+        url: 'https://www.algorithm.agency/guides/how-much-does-seo-cost-in-south-africa',
+      },
+      {
+        label: 'Growth Pulse Media — SEO Pricing South Africa 2026',
+        url: 'https://www.growthpulsemedia.co.za/seo-pricing-south-africa/',
+      },
+      {
+        label: 'Juicy Designs — SEO Audit South Africa',
+        url: 'https://www.juicydesigns.co.za/services/seo-audit/',
+      },
+      {
+        label: 'SEO Strategist — Technical SEO Audit Pricing',
+        url: 'https://seostrategist.co.za/seo-pricing/technical-seo-audit-cost/',
+      },
+    ],
   },
 ];
 

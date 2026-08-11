@@ -20,15 +20,17 @@ describe('route registry', () => {
     }
   });
 
-  it('contains the expected launch architecture (57 indexable after case-study indexation)', () => {
+  it('contains the expected launch architecture (59 indexable after Search Care + SEO cost guide)', () => {
     const indexable = routes.filter((r) => r.index);
-    expect(indexable.length).toBe(57);
+    expect(indexable.length).toBe(59);
     expect(routes.some((r) => r.path === '/website-packages/one-page-website/' && r.index)).toBe(
       true,
     );
     expect(
       routes.some((r) => r.path === '/services/analytics-and-conversion-tracking/' && r.index),
     ).toBe(true);
+    expect(routes.some((r) => r.path === '/services/search-care/' && r.index)).toBe(true);
+    expect(routes.some((r) => r.path === '/resources/seo-cost-south-africa/' && r.index)).toBe(true);
     expect(routes.some((r) => r.path === '/projects/damtech-website/' && r.index)).toBe(true);
     expect(routes.some((r) => r.path === '/projects/proplytic-property-software/' && r.index)).toBe(
       true,

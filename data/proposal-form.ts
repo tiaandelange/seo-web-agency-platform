@@ -12,6 +12,7 @@ export const PROPOSAL_SERVICE_OPTIONS = [
   { value: 'seo-audit-basic', label: 'SEO audit' },
   { value: 'seo-audit-advanced', label: 'Advanced SEO audit' },
   { value: 'analytics-and-conversion-tracking', label: 'Analytics & conversion tracking' },
+  { value: 'search-care', label: 'Search Care (monthly)' },
   { value: 'customer-and-supplier-portals', label: 'Customer or supplier portal' },
   { value: 'admin-panel-development', label: 'Admin or quotation system' },
   { value: 'custom-web-applications', label: 'Workflow automation' },

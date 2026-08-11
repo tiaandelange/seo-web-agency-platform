@@ -188,6 +188,17 @@ export const SERVICE_PROOF_MAP: ServiceProofEntry[] = [
       },
     ],
   },
+  {
+    serviceSlug: 'search-care',
+    note: 'Search Care is a capped monthly health retainer — proof is scoped deliverables and exclusions, not ranking screenshots.',
+    items: [
+      {
+        kind: 'none',
+        relevance:
+          'No fabricated before/after rankings. Proof is the published scope: Search Console review, capped fixes and plain-English reporting with explicit exclusions.',
+      },
+    ],
+  },
 ];
 
 export function getServiceProof(serviceSlug: string): ServiceProofEntry | undefined {

@@ -95,7 +95,7 @@ export const comparisons: Comparison[] = [
     criteria: [
       { name: 'Core job', aNote: 'Be found, build trust, generate enquiries', bNote: 'Run a process: capture, workflow, records, roles' },
       { name: 'Users', aNote: 'The public and your prospects', bNote: 'Logged-in staff, customers or suppliers' },
-      { name: 'Typical SA cost', aNote: 'R14,000–R90,000 depending on scope', bNote: 'R80,000+ with paid discovery first' },
+      { name: 'Typical SA cost', aNote: 'R9,500–R70,000 depending on scope', bNote: 'R65,000+ with paid discovery first' },
       { name: 'Success metric', aNote: 'Enquiries, quote requests, calls', bNote: 'Hours saved, errors removed, visibility gained' },
       { name: 'SEO relevance', aNote: 'Central — the site exists to be found', bNote: 'Minimal — applications sit behind logins' },
       { name: 'Failure mode', aNote: 'Built pretty, found never', bNote: 'Built big, adopted never' },
