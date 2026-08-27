@@ -88,9 +88,18 @@ export default function AboutPage() {
           (indicative ranges published openly), and{' '}
           <Link href="/projects/" className="text-link underline">
             work
+          </Link>
+          . We publish selected real projects when the work, role and evidence can be represented
+          accurately — including the{' '}
+          <Link href="/projects/damtech-website/" className="text-link underline">
+            Damtech website
           </Link>{' '}
-          (live and internal projects with truthful labels — case studies stay noindex until
-          narratives clear the publication gate).
+          (client work) and{' '}
+          <Link href="/projects/proplytic-property-software/" className="text-link underline">
+            Proplytic
+          </Link>{' '}
+          (an internal product, founder-built, labelled as such). Template examples stay labelled
+          and noindex.
         </p>
       </Section>
 
