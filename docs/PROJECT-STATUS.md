@@ -1,7 +1,7 @@
 # Project status
 
 Project: SEO-first website platform — **Koppie Systems**.
-Last updated: 2026-07-24 (production indexing live; SEO audit P0/P1 remediation).
+Last updated: 2026-08-27 (GSC/lead-measurement baseline recorded; production indexing live).
 
 ## Current phase
 
@@ -35,3 +35,5 @@ Last updated: 2026-07-24 (production indexing live; SEO audit P0/P1 remediation)
 ## Remaining owner work
 
 See `docs/brand/KOPPIE-REMAINING-INPUTS.md`. Forms: `docs/technical/RESEND-INTEGRATION.md`. GBP logo asset: `public/images/brand/koppie-systems-logo-google.png`.
+
+GSC + lead measurement: owner checklist in `docs/seo/GSC-BASELINE.md` (associate GA4 with Search Console; mark `generate_lead` as a key event; compare GA4 to successful emails). First Performance snapshot: 22 July–24 August 2026, 8 clicks / 689 impressions.

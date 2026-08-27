@@ -7,7 +7,7 @@ Cadence anchors: 30 min daily (week 1), then weekly working session (~2 h), mont
 - Daily: GSC Page indexing + URL Inspection of home/services/pricing; confirm sitemap "Success"; crawl stats sane.
 - Verify the deliberate noindex set is excluded exactly (thank-you, project templates/categories).
 - Fix anything Google reports (soft 404s, redirect errors) same-day.
-- Record baseline: indexed count, impressions (will be ~0 — that's fine), CWV lab scores.
+- Record baseline: first GSC Performance snapshot is `docs/seo/GSC-BASELINE.md` (22 July–24 August 2026: 8 clicks, 689 impressions). Do not treat impressions as zero; do not mix later windows into that file.
 
 ## Days 8–30 — First signal
 

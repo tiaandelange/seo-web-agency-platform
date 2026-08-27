@@ -27,7 +27,7 @@
 
 ## 5. Ongoing use (feeds the 90-day plan)
 
-- Performance report weekly: queries, impressions, positions per page — this replaces guessed keyword volumes with real demand data (A-07 resolution).
+- Performance report weekly: queries, impressions, positions per page — this replaces guessed keyword volumes with real demand data (A-07 resolution). First written snapshot: `docs/seo/GSC-BASELINE.md` (22 July–24 August 2026). Do not add Page, Query and Country table totals together.
 - Page indexing monthly; Core Web Vitals when field data accrues; Security & Manual actions should stay empty.
 - Every new/changed key page: URL Inspection → request indexing.
 

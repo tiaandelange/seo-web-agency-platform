@@ -27,11 +27,11 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 ## 3. Events and approved parameters
 
-| Event | Trigger | Parameters |
-| --- | --- | --- |
-| `generate_lead` | Confirmed successful form submission | `form_id` |
-| `contact_click` | Phone, email or WhatsApp click | `contact_method`, `link_location` |
-| `seo_audit_eligibility_complete` | Completed SEO eligibility routing | `audit_route` |
+| Event | Role | Trigger | Parameters |
+| --- | --- | --- | --- |
+| `generate_lead` | **Primary** (the only lead conversion) | Confirmed successful form submission (`track: true` after `deliverLead()`) | `form_id` |
+| `contact_click` | Secondary | Phone, email or WhatsApp click | `contact_method`, `link_location` |
+| `seo_audit_eligibility_complete` | Secondary (not a lead) | Completed SEO eligibility routing | `audit_route` |
 
 Page views, sessions and engagement (including time-related engagement metrics) come from GA4 automatically. Do not add custom pageview or timer events.
 
@@ -53,7 +53,13 @@ Client flow:
 2. A one-time `useRef` guard fires `generate_lead` once.
 3. Client navigates to the thank-you (or next) URL.
 
-No event on: submit click, validation failure, delivery failure, spam/honeypot discard (`track: false`), thank-you refresh, or direct thank-you navigation.
+No event on: submit click, eligibility completion, scroll, page view, validation failure, delivery failure, spam/honeypot discard (`track: false`), thank-you refresh, or direct thank-you navigation.
+
+Thank-you routes do not import analytics hooks. Eligibility uses `seo_audit_eligibility_complete` only (`useEligibilitySuccessTracking`).
+
+If the visitor has not granted analytics cookies (or the measurement ID is unset in that environment), `generate_lead` does not fire even when the email was delivered. Treat Resend/inbox as the operational lead record; GA4 is the consented subset. There is no server-side Measurement Protocol ping.
+
+Owner ops (associate GSC, mark `generate_lead` as a key event, reconcile GA4 vs email): `docs/seo/GSC-BASELINE.md`.
 
 ## 6. SEO-audit `audit_route` mapping
 
