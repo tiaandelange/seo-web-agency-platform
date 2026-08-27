@@ -88,12 +88,12 @@ export default async function AdvancedSeoAuditPage({
           <div className="mt-8">
             <SeoAuditTierCta id="advanced" />
             <p className="mt-3 text-sm text-muted">
-              Instant checkout is inactive until a payment provider is configured — request the pack
-              via intake, or{' '}
+              Eligible websites: request the Advanced Audit and complete the intake. If you are
+              above the published limits,{' '}
               <Link href={SEO_AUDIT_CUSTOM_QUOTE_PATH} className="text-link underline">
                 request a custom audit
-              </Link>{' '}
-              if you are above the limits.
+              </Link>
+              .
             </p>
           </div>
         ) : (
@@ -212,9 +212,8 @@ export default async function AdvancedSeoAuditPage({
           ))}
         </ol>
         <p className="mt-6 max-w-3xl leading-relaxed text-muted">
-          {product.turnaround}. Complexity discovered after purchase may require an agreed scope
-          reduction, an upgrade to a custom audit, or a refund before substantive audit work begins
-          — commercial policy to be confirmed before public checkout launch.
+          {product.turnaround}. If complexity is discovered after booking, we may agree a scope
+          reduction, an upgrade to a custom audit, or a refund before substantive audit work begins.
         </p>
       </Section>
 

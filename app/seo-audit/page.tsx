@@ -135,8 +135,8 @@ export default async function SeoAuditHubPage({
 
       <Section heading="Eligibility check" id="eligibility">
         <p className="mb-6 max-w-3xl leading-relaxed text-muted">
-          Answer a few questions before checkout. We route you to the Priority Fix Pack, the Advanced
-          Audit, or a custom proposal — we keep the lead either way.
+          Answer a few questions so we can route you to the Priority Fix Pack intake, the Advanced
+          Audit intake, or a custom proposal.
         </p>
         {error === 'eligibility' && (
           <p role="alert" className="mb-6 max-w-2xl rounded-card border border-line bg-surface p-4 text-ink">

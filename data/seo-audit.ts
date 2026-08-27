@@ -121,8 +121,8 @@ export const seoAuditDeliverables = [
 
 export const seoAuditProcess = [
   {
-    title: 'Purchase and complete the intake',
-    body: 'Buy via secure checkout when configured, or request the pack and complete the intake form.',
+    title: 'Request and complete the intake',
+    body: 'Request the pack and complete the intake form. We confirm payment instructions after we review eligibility and access.',
   },
   {
     title: 'Supply website and Search Console access',

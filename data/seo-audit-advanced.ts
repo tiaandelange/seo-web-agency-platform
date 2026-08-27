@@ -191,7 +191,7 @@ export const advancedDeliverables = [
 
 export const advancedProcess = [
   {
-    title: 'Purchase or request and complete intake',
+    title: 'Request and complete intake',
     body: 'Confirm eligibility, then complete the advanced intake with access and competitor details.',
   },
   {
