@@ -2,19 +2,23 @@ import Link from 'next/link';
 import { brand } from '@/config/brand';
 import { showcaseProjects } from '@/data/projects-showcase';
 import { HomeSection } from '@/components/home/home-section';
-import { HomeProofStripRotator } from '@/components/home/home-proof-strip-rotator';
+import { HomeProofGallery } from '@/components/home/home-proof-gallery';
 
-const PROOF_SLUGS = ['damtech-website', 'proplytic-property-software', 'wedding-website-portfolio'] as const;
+const PROOF_SLUGS = ['damtech-website', 'proplytic-property-software'] as const;
 
 /**
- * Early homepage proof — real screenshots with truthful labels (not a logo strip).
- * Cards open the live sites so visitors can inspect the real work.
- * Mobile: horizontal swipe + 5s auto-advance (see HomeProofStripRotator).
+ * Homepage proof gallery — authorised Damtech + Proplytic captures at native
+ * aspect ratios. Each row pairs desktop and mobile frames; primary CTA opens
+ * the case study on koppiesystems.co.za (live sites linked from case studies).
  */
 export function HomeProofStrip() {
   const projects = PROOF_SLUGS.map((slug) => showcaseProjects.find((p) => p.slug === slug)).filter(
-    (p): p is (typeof showcaseProjects)[number] & { externalSiteUrl: string } =>
-      Boolean(p?.externalSiteUrl),
+    (
+      p,
+    ): p is (typeof showcaseProjects)[number] & {
+      externalSiteUrl: string;
+      proofMedia: NonNullable<(typeof showcaseProjects)[number]['proofMedia']>;
+    } => Boolean(p?.externalSiteUrl && p.proofMedia),
   );
 
   return (
@@ -26,8 +30,8 @@ export function HomeProofStrip() {
       headingLevel="functional"
       intro={`${brand.name} builds public websites as well as the forms, portals, dashboards and operational workflows behind them. Here is what that looks like in practice — labelled honestly.`}
     >
-      <HomeProofStripRotator projects={projects} />
-      <p className="mt-8">
+      <HomeProofGallery projects={projects} />
+      <p className="mt-10 md:mt-12">
         <Link href="/projects/" className="font-semibold text-link hover:underline">
           View all projects →
         </Link>

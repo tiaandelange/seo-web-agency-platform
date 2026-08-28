@@ -24,13 +24,17 @@ const paddingClass: Record<PageHeroVariant, string> = {
   inverse: 'py-14 md:py-20',
 };
 
+export type PageHeroAsideLayout = 'stat' | 'proof';
+
 export function PageHero({
   eyebrow,
   title,
   description,
   variant = 'standard',
   aside,
+  asideLayout = 'stat',
   meta,
+  trailingMeta,
   motif = false,
 }: {
   eyebrow?: string;
@@ -38,12 +42,21 @@ export function PageHero({
   description?: string;
   variant?: PageHeroVariant;
   aside?: ReactNode;
+  /** `proof` widens the aside column for authorised screenshot compositions. */
+  asideLayout?: PageHeroAsideLayout;
   meta?: ReactNode;
+  /** Renders after the aside in DOM — use for metadata/actions below proof on mobile. */
+  trailingMeta?: ReactNode;
   /** Apply the site-wide .contour-grid texture behind the hero. */
   motif?: boolean;
 }) {
   const titleColor = variant === 'inverse' ? 'text-accent-contrast' : '';
   const leadColor = variant === 'inverse' ? 'text-sandstone' : '';
+  const proofAside = aside && asideLayout === 'proof';
+  const primarySpan = proofAside ? 'lg:col-span-7' : aside ? 'lg:col-span-8' : '';
+  const asideSpan = proofAside
+    ? 'lg:col-span-5 lg:col-start-8 lg:row-span-2'
+    : 'lg:col-span-3 lg:col-start-10 lg:pt-1';
 
   return (
     <header id="hero" className={`${variantShell[variant]} relative overflow-hidden`}>
@@ -58,7 +71,7 @@ export function PageHero({
           aside ? 'lg:grid-cols-12' : ''
         }`}
       >
-        <div className={aside ? 'lg:col-span-8' : 'measure-narrow'}>
+        <div className={`${primarySpan || ''} ${aside ? '' : 'measure-narrow'}`.trim()}>
           {eyebrow && <Eyebrow className={variant === 'inverse' ? 'text-sandstone' : ''}>{eyebrow}</Eyebrow>}
           <Heading
             as="h1"
@@ -70,9 +83,12 @@ export function PageHero({
           {description && (
             <Lead className={`mt-4 ${leadColor}`.trim()}>{description}</Lead>
           )}
-          {meta && <div className="mt-4">{meta}</div>}
+          {meta && !trailingMeta && <div className="mt-4">{meta}</div>}
         </div>
-        {aside && <aside className="lg:col-span-3 lg:col-start-10 lg:pt-1">{aside}</aside>}
+        {aside && <aside className={asideSpan}>{aside}</aside>}
+        {trailingMeta && (
+          <div className={`${proofAside ? 'lg:col-span-7' : ''} mt-0`.trim()}>{trailingMeta}</div>
+        )}
       </Container>
     </header>
   );

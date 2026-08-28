@@ -26,12 +26,6 @@ export function HomePackagesFocus() {
               Indicative {formatPackageIndicativeRange(FEATURED.priceRange.min, FEATURED.priceRange.max)}
             </p>
           )}
-          <Link
-            href="/request-a-quote/"
-            className="mt-6 inline-block rounded-sm bg-cta px-5 py-2.5 text-sm font-semibold text-cta-contrast hover:opacity-90"
-          >
-            Request a proposal
-          </Link>
         </article>
         <div>
           <p className="text-sm font-medium text-ink">Other starting points</p>

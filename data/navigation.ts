@@ -25,6 +25,7 @@ export const headerNav: NavItem[] = [
       { label: 'Ecommerce', href: '/services/ecommerce-websites/' },
       { label: 'Portals & Systems', href: '/services/custom-web-applications/' },
       { label: 'SEO', href: '/services/seo-website-development/' },
+      { label: 'SEO Audits', href: '/seo-audit/' },
       {
         label: 'Analytics & Conversion Tracking',
         href: '/services/analytics-and-conversion-tracking/',
@@ -59,6 +60,7 @@ export const footerColumns: FooterColumn[] = [
         label: 'Analytics & conversion tracking',
         href: '/services/analytics-and-conversion-tracking/',
       },
+      { label: 'SEO audits', href: '/seo-audit/' },
       { label: 'Search Care', href: '/services/search-care/' },
       { label: 'All services', href: '/services/' },
     ],

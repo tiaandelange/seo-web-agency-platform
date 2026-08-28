@@ -306,7 +306,7 @@ export function QuoteForm({
       </button>
       <p className="text-sm text-muted">
         {isQuote
-          ? 'We normally respond within one business day. No obligation and no automatic mailing-list signup. We do not sell your personal information.'
+          ? 'We do not sell your personal information. No automatic mailing-list signup.'
           : 'We use your information only to respond to and manage your enquiry, as explained in our privacy policy. We do not sell your personal information.'}
       </p>
     </form>

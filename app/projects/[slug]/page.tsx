@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { PageHeader } from '@/components/page-header';
+import { CaseStudyHero } from '@/components/projects/case-study-hero';
 import { Section, BulletList } from '@/components/section';
 import { RelatedContent, type RelatedItem } from '@/components/related-content';
 import { PlaceholderNotice } from '@/components/placeholder-notice';
@@ -132,11 +133,16 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
 
   const narrativeReady = isCaseStudyNarrativeReady(project);
   const statusLabel = showcase?.statusLabel ?? project.publicLabel;
+  const heroProofReady = Boolean(showcase?.proofMedia && desktopShot);
 
   return (
     <>
       <Breadcrumbs path={path} />
-      <PageHeader heading={project.heading} intro={project.intro} updated={project.dateUpdated} />
+      {heroProofReady && showcase ? (
+        <CaseStudyHero project={project} showcase={showcase} statusLabel={statusLabel} />
+      ) : (
+        <PageHeader heading={project.heading} intro={project.intro} updated={project.dateUpdated} />
+      )}
       {project.status === 'template' && (
         <PlaceholderNotice>
           This is an example case-study structure, not a real project. It is excluded from search
@@ -151,7 +157,7 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
         </PlaceholderNotice>
       )}
 
-      {desktopShot && (
+      {desktopShot && !heroProofReady && (
         <Section heading="Interface evidence" tone="surface">
           <div className="mx-auto max-w-5xl space-y-8">
             <ProjectScreenshot
@@ -178,7 +184,7 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
         </Section>
       )}
 
-      <Section heading="Project overview" tone={desktopShot ? undefined : 'surface'}>
+      <Section heading="Project overview" tone={desktopShot && !heroProofReady ? undefined : 'surface'}>
         <dl className="grid max-w-4xl gap-4 text-sm sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <dt className="font-semibold text-ink">Client / product</dt>
@@ -212,15 +218,16 @@ export default async function ProjectOrCategoryPage({ params }: { params: Promis
           </div>
           {project.liveUrl && (
             <div>
-              <dt className="font-semibold text-ink">Live URL</dt>
+              <dt className="font-semibold text-ink">Live site</dt>
               <dd className="mt-1">
                 <a
                   href={project.liveUrl}
-                  className="text-link underline"
+                  className="text-sm text-muted underline-offset-2 hover:text-link hover:underline"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  {project.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                  {project.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
+                  <span className="sr-only"> (opens live site in a new tab)</span>
                 </a>
               </dd>
             </div>

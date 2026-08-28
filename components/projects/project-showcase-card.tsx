@@ -89,10 +89,16 @@ export function ProjectShowcaseCard({ project }: { project: ProjectCardData }) {
   );
 }
 
-export function FeaturedProjectCard({ project }: { project: ProjectCardData }) {
+export function FeaturedProjectCard({
+  project,
+  omitMedia = false,
+}: {
+  project: ProjectCardData;
+  omitMedia?: boolean;
+}) {
   return (
     <article className={cardShell}>
-      <ProjectCardMedia project={project} priority />
+      {!omitMedia && <ProjectCardMedia project={project} priority />}
       <ProjectCardBody project={project} />
     </article>
   );

@@ -6,9 +6,9 @@ import { JsonLd } from '@/components/json-ld';
 import { professionalServiceSchema, webPageSchema } from '@/lib/schema';
 import { Section } from '@/components/section';
 import { FaqList } from '@/components/faq-list';
-import { CtaQuote } from '@/components/cta-quote';
 import { faqs } from '@/data/faqs';
 import { HomeHero } from '@/components/home/home-hero';
+import { HomeActionLedger } from '@/components/home/home-action-ledger';
 import { HomeProofStrip } from '@/components/home/home-proof-strip';
 import { EnquirySystemAnchor } from '@/components/home/enquiry-system-anchor';
 import { CapabilityPaths } from '@/components/home/capability-paths';
@@ -49,15 +49,36 @@ export default function HomePage() {
       <EnquirySystemAnchor />
       <HomePriceStrip />
       <HomeProofStrip />
+      <HomeActionLedger
+        id="home-action-after-proof"
+        tone="sandstone"
+        copy="Authorised Damtech and Proplytic work is inspectable on this site — tell us your brief when you are ready to scope something similar."
+        secondaryHref="/projects/"
+        secondaryLabel="Inspect our work"
+      />
       <HomeInterfaceConcept />
       <CapabilityPaths />
       <ServiceArchitecture />
       <EditorialBreak />
       <WorkflowExploded />
       <MethodologySpine />
+      <HomeActionLedger
+        id="home-action-after-method"
+        tone="ink"
+        copy="Research, structure, build and measure — one documented method. Share your operations and we will map the website or system shape in discovery."
+        secondaryHref="/process/"
+        secondaryLabel="Full process documentation"
+      />
       <ProofPreview />
       <HomeAuditStrip />
       <HomePackagesFocus />
+      <HomeActionLedger
+        id="home-action-after-pricing"
+        tone="sandstone"
+        copy="Indicative packages and fixed-price audits are starting points — the quote after scoping is the binding number."
+        secondaryHref="/seo-audit/"
+        secondaryLabel="Compare audit tiers"
+      />
 
       <Section heading="A new company, run on senior standards">
         <p className="max-w-prose leading-relaxed text-muted">
@@ -82,10 +103,19 @@ export default function HomePage() {
         </p>
       </Section>
 
-      <CtaQuote
-        heading="Ready to talk about your project?"
-        body="Tell us what you need and get a straight answer — clear scope, indicative pricing and a fixed quote after one scoping conversation."
-        ctaLabel="Request a Proposal"
+      <HomeActionLedger
+        id="home-action-closing"
+        tone="ink"
+        title="Ready to talk about your project?"
+        copy="Tell us what you need and get a straight answer — clear scope, indicative pricing and a fixed quote after one scoping conversation."
+        primaryLabel="Request a Proposal"
+        secondaryHref={
+          brand.contact.whatsapp
+            ? `https://wa.me/${brand.contact.whatsapp}`
+            : '/contact/'
+        }
+        secondaryLabel={brand.contact.whatsapp ? 'Or WhatsApp us' : 'Or contact us'}
+        secondaryExternal={Boolean(brand.contact.whatsapp)}
       />
       <JsonLd
         data={[

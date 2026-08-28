@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Homepage proof layout options — static mockups</title>
+  <style>
+    :root {
+      --ink: #14242b;
+      --graphite: #2c3338;
+      --muted: #4a5560;
+      --surface: #f6f7f4;
+      --sandstone: #e8dfc9;
+      --line: #d8dde2;
+      --canvas: #ffffff;
+      --link: #1e6f6d;
+      --cta: #b85c24;
+      --content: 1152px;
+      --gutter: 24px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--graphite);
+      background: var(--surface);
+      line-height: 1.5;
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px var(--gutter);
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+    }
+    .toolbar button {
+      border: 1px solid rgba(255,255,255,.25);
+      background: transparent;
+      color: inherit;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font: inherit;
+    }
+    .toolbar button[aria-pressed="true"] {
+      background: var(--cta);
+      border-color: var(--cta);
+    }
+    .page {
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 32px var(--gutter) 64px;
+    }
+    .mockup-shell {
+      margin: 0 auto 48px;
+      border: 1px solid var(--line);
+      background: var(--canvas);
+      overflow: hidden;
+    }
+    .mockup-shell[data-w="1440"] { width: min(1440px, 100%); }
+    .mockup-shell[data-w="390"] { width: 390px; }
+    .mockup-label {
+      padding: 10px 16px;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .section {
+      padding: 28px 20px 32px;
+      background: var(--surface);
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cta);
+      margin: 0 0 8px;
+    }
+    h2 {
+      font-family: Manrope, Inter, sans-serif;
+      color: var(--ink);
+      font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+    .intro { color: var(--muted); max-width: 52ch; margin: 0 0 24px; font-size: 15px; }
+    .browser {
+      border: 1px solid var(--line);
+      background: var(--canvas);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .browser__bar {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      background: var(--sandstone);
+      border-bottom: 1px solid var(--line);
+    }
+    .browser__bar span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--ink) 18%, transparent);
+    }
+    .browser img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: top;
+    }
+    .chip {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: var(--canvas);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .chip--live { color: var(--ink); }
+    .title { font-weight: 700; color: var(--ink); margin: 0 0 4px; font-size: 18px; }
+    .meta { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+    .copy { font-size: 13px; color: var(--graphite); margin: 0 0 8px; }
+    .label { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 12px 0 4px; }
+    .cta {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--link);
+      text-decoration: none;
+    }
+    .caption {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .option-a-desktop {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .option-a-desktop .support { display: flex; flex-direction: column; }
+    .option-a-desktop .support .browser { flex: 1; }
+    .option-b-row {
+      display: grid;
+      grid-template-columns: 1.4fr .85fr;
+      gap: 16px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+    .option-b-row:last-child { margin-bottom: 0; }
+    .phone {
+      max-width: 220px;
+      margin-inline: auto;
+    }
+    .stack { display: grid; gap: 20px; }
+    .compare-note {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--link);
+      background: color-mix(in srgb, var(--canvas) 70%, var(--surface));
+      font-size: 13px;
+      color: var(--muted);
+    }
+    [hidden] { display: none !important; }
+    @media (max-width: 900px) {
+      .option-a-desktop, .option-b-row { grid-template-columns: 1fr; }
+      .phone { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>Viewport mockup:</span>
+    <button type="button" data-w="1440" aria-pressed="true">1440 desktop</button>
+    <button type="button" data-w="390" aria-pressed="false">390 mobile</button>
+    <span style="margin-left:auto;opacity:.8">Option A recommended · authorised assets only</span>
+  </div>
+
+  <div class="page">
+    <div class="mockup-shell" data-w="1440" id="shell">
+      <div class="mockup-label" id="mockup-label">1440px — Option A (featured Damtech) + Option B preview below</div>
+
+      <div class="section" id="option-a">
+        <p class="eyebrow">Selected work</p>
+        <h2>Proof you can inspect</h2>
+        <p class="intro">Real client and founder-product interfaces — labelled honestly. Primary action opens the case study on koppiesystems.co.za.</p>
+
+        <div class="option-a-desktop" id="option-a-layout">
+          <div>
+            <span class="chip chip--live">Live project</span>
+            <p class="title">Damtech</p>
+            <p class="meta">Lead-generation website and operational system</p>
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="damtech-desktop.jpg" alt="Damtech desktop capture at 1440×900" width="1440" height="900" />
+            </div>
+            <p class="caption">Public marketing site capture · 1440×900 · legible at large size</p>
+            <p class="label">Problem</p>
+            <p class="copy">Buyers needed clear service pages and structured quote requests; staff needed RFQs and PDF quotes.</p>
+            <p class="label">Solution</p>
+            <p class="copy">Crawlable Next.js site plus admin layer for RFQ intake, estimating and quotation PDFs.</p>
+            <a class="cta" href="#">Inspect the case study →</a>
+          </div>
+          <div class="support">
+            <span class="chip">Internal product</span>
+            <p class="title">Proplytic</p>
+            <p class="meta">Custom web application</p>
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="proplytic-desktop.jpg" alt="Proplytic desktop capture at 1440×900" width="1440" height="900" />
+            </div>
+            <p class="caption">Marketing homepage only · dashboard preview is product demo UI</p>
+            <a class="cta" href="#">Inspect the case study →</a>
+          </div>
+        </div>
+
+        <div class="stack" id="option-a-mobile" hidden>
+          <div>
+            <span class="chip chip--live">Live project</span>
+            <p class="title">Damtech</p>
+            <div class="browser phone">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="damtech-mobile.jpg" alt="Damtech mobile capture" width="623" height="919" />
+            </div>
+            <p class="caption">Purposeful mobile crop · not a shrunk desktop frame</p>
+            <a class="cta" href="#">Inspect the case study →</a>
+          </div>
+          <div>
+            <span class="chip">Internal product</span>
+            <p class="title">Proplytic</p>
+            <div class="browser phone">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="proplytic-mobile.jpg" alt="Proplytic mobile capture" width="611" height="772" />
+            </div>
+            <a class="cta" href="#">Inspect the case study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" style="border-top:1px solid var(--line); background:var(--canvas)" id="option-b">
+        <p class="eyebrow">Option B — equal gallery</p>
+        <h2>Two large project rows</h2>
+        <p class="intro">Alternating rows with desktop + mobile frames. Higher page height; all four assets lazy-loaded as each row approaches the viewport.</p>
+
+        <div class="option-b-row" id="option-b-layout">
+          <div>
+            <span class="chip chip--live">Live project · Damtech</span>
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="damtech-desktop.jpg" alt="" width="1440" height="900" />
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="browser phone">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="damtech-mobile.jpg" alt="" width="623" height="919" />
+            </div>
+          </div>
+        </div>
+        <div class="option-b-row">
+          <div>
+            <span class="chip">Internal product · Proplytic</span>
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="proplytic-desktop.jpg" alt="" width="1440" height="900" />
+            </div>
+          </div>
+          <div>
+            <div class="browser phone">
+              <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="proplytic-mobile.jpg" alt="" width="611" height="772" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-note">
+        Illustrative interface concept (below this section on the live homepage) uses a 1200×675 JPG (~118 KB). Option A gives Damtech a larger real-work frame than today’s twin 16:9 cards; Option B matches or exceeds that visual weight twice.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const shell = document.getElementById('shell');
+    const label = document.getElementById('mockup-label');
+    const aDesktop = document.getElementById('option-a-layout');
+    const aMobile = document.getElementById('option-a-mobile');
+    const bSection = document.getElementById('option-b');
+    const bLayout = document.getElementById('option-b-layout');
+    document.querySelectorAll('.toolbar button[data-w]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toolbar button[data-w]').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        const w = btn.dataset.w;
+        shell.dataset.w = w;
+        const mobile = w === '390';
+        aDesktop.hidden = mobile;
+        aMobile.hidden = !mobile;
+        bSection.hidden = mobile;
+        label.textContent = mobile
+          ? '390px — Option A stacked mobile frames (Option B hidden — too tall for narrow mockup)'
+          : '1440px — Option A (featured Damtech) with Option B gallery below';
+      });
+    });
+  </script>
+</body>
+</html>

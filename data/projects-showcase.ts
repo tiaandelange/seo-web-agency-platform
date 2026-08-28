@@ -18,6 +18,16 @@ export type ProjectCardData = {
   imageAlt: string;
   /** CSS object-position for desktop crop */
   focalPosition?: string;
+  /** Condensed from case-study businessProblem — homepage proof strip only. */
+  problem?: string;
+  /** Condensed from case-study solutionSummary — homepage proof strip only. */
+  solution?: string;
+  /** Native capture dimensions + captions for homepage proof gallery (Option B). */
+  proofMedia?: {
+    desktop: { width: number; height: number; caption: string };
+    mobile: { width: number; height: number; caption: string };
+    mobileAlt?: string;
+  };
 };
 
 export const showcaseProjects: ProjectCardData[] = [
@@ -46,6 +56,23 @@ export const showcaseProjects: ProjectCardData[] = [
     imageAlt:
       'Desktop screenshot of the Damtech homepage showing dam-lining and water-storage services with a quote call to action',
     focalPosition: 'center top',
+    problem:
+      'Buyers researching dam linings and waterproofing needed clear service pages and structured quote requests; staff needed RFQs and PDF quotes instead of rebuilding from scattered price lists.',
+    solution:
+      'A Next.js site for crawlable service pages plus an admin layer for RFQ intake, estimating and quotation PDFs.',
+    proofMedia: {
+      desktop: {
+        width: 1440,
+        height: 900,
+        caption: 'Live client project · public marketing site capture (1440×900)',
+      },
+      mobile: {
+        width: 623,
+        height: 919,
+        caption: 'Mobile viewport capture · hero and enquiry paths',
+      },
+      mobileAlt: 'Mobile screenshot of the Damtech homepage hero and primary navigation',
+    },
   },
   {
     slug: 'proplytic-property-software',
@@ -71,6 +98,24 @@ export const showcaseProjects: ProjectCardData[] = [
     imageAlt:
       'Desktop screenshot of the Proplytic marketing homepage with portfolio software positioning and product interface preview',
     focalPosition: 'center top',
+    problem:
+      'Owner-managers reconciled bonds, rent and expenses across spreadsheets and rebuilt investor reports by hand.',
+    solution:
+      'An authenticated web application linking property records, rental admin, portfolio metrics and PDF exports — with a public marketing layer at proplytic.co.za.',
+    proofMedia: {
+      desktop: {
+        width: 1440,
+        height: 900,
+        caption:
+          'Internal product · marketing homepage capture; dashboard preview is product demo UI, not client data',
+      },
+      mobile: {
+        width: 611,
+        height: 772,
+        caption: 'Mobile marketing homepage capture',
+      },
+      mobileAlt: 'Mobile screenshot of the Proplytic marketing homepage',
+    },
   },
   {
     slug: 'wedding-website-portfolio',

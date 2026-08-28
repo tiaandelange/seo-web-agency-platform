@@ -55,11 +55,6 @@ export function MethodologySpine() {
           ))}
         </ol>
       </div>
-      <p className="mt-6">
-        <Link href="/process/" className="font-medium text-link hover:underline">
-          Full process documentation →
-        </Link>
-      </p>
     </HomeSection>
   );
 }
