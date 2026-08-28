@@ -1,0 +1,235 @@
+{
+  "generatedAt": "2026-08-27T12:20:58.823Z",
+  "origin": "http://127.0.0.1:3010",
+  "label": "local-lcp-final",
+  "liveBaseline": {
+    "mobile": {
+      "performance": 0.87,
+      "lcp": 3840,
+      "cls": 0,
+      "tbt": 39,
+      "bytes": 561000
+    },
+    "desktop": {
+      "performance": 0.64,
+      "lcp": 3580,
+      "cls": 0.0006,
+      "tbt": 116,
+      "bytes": 723000
+    }
+  },
+  "mobile": {
+    "form": "mobile",
+    "performance": 0.79,
+    "lcp": 4140.2408,
+    "cls": 0.1176380263783341,
+    "tbt": 114,
+    "totalByteWeight": 518718,
+    "fetchPriorityHighAll": true,
+    "passes": [
+      {
+        "form": "mobile",
+        "pass": 1,
+        "file": "local-lcp-final_____mobile__pass1.report.json",
+        "performance": 0.79,
+        "accessibility": 0.97,
+        "lcp": 4151.1753,
+        "cls": 0.1176380263783341,
+        "tbt": 78,
+        "totalByteWeight": 518875,
+        "formFactor": "mobile",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "lcpSelector": "div.home-hero-bg > div.home-hero-mountains > picture > img.home-hero-mountain-image",
+        "lcpParts": {
+          "timeToFirstByte": 44,
+          "resourceLoadDelay": 12,
+          "resourceLoadDuration": 118,
+          "elementRenderDelay": 1620
+        },
+        "discovery": {
+          "fetchPriorityHigh": true,
+          "discoverable": true,
+          "notLazy": true
+        },
+        "fetchpriorityAttr": true
+      },
+      {
+        "form": "mobile",
+        "pass": 2,
+        "file": "local-lcp-final_____mobile__pass2.report.json",
+        "performance": 0.79,
+        "accessibility": 0.97,
+        "lcp": 4140.2408,
+        "cls": 0.1176380263783341,
+        "tbt": 117,
+        "totalByteWeight": 518718,
+        "formFactor": "mobile",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "lcpSelector": "div.home-hero-bg > div.home-hero-mountains > picture > img.home-hero-mountain-image",
+        "lcpParts": {
+          "timeToFirstByte": 10,
+          "resourceLoadDelay": 9,
+          "resourceLoadDuration": 27,
+          "elementRenderDelay": 1750
+        },
+        "discovery": {
+          "fetchPriorityHigh": true,
+          "discoverable": true,
+          "notLazy": true
+        },
+        "fetchpriorityAttr": true
+      },
+      {
+        "form": "mobile",
+        "pass": 3,
+        "file": "local-lcp-final_____mobile__pass3.report.json",
+        "performance": 0.82,
+        "accessibility": 0.97,
+        "lcp": 3912.5865999999996,
+        "cls": 0.1176380263783341,
+        "tbt": 114,
+        "totalByteWeight": 518718,
+        "formFactor": "mobile",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "lcpSelector": "div.home-hero-bg > div.home-hero-mountains > picture > img.home-hero-mountain-image",
+        "lcpParts": {
+          "timeToFirstByte": 8,
+          "resourceLoadDelay": 10,
+          "resourceLoadDuration": 16,
+          "elementRenderDelay": 807
+        },
+        "discovery": {
+          "fetchPriorityHigh": true,
+          "discoverable": true,
+          "notLazy": true
+        },
+        "fetchpriorityAttr": true
+      }
+    ]
+  },
+  "desktop": {
+    "form": "desktop",
+    "performance": 0.57,
+    "lcp": 4137.3694000000005,
+    "cls": 0.2045801075321776,
+    "tbt": 63,
+    "totalByteWeight": 692370,
+    "fetchPriorityHighAll": true,
+    "passes": [
+      {
+        "form": "desktop",
+        "pass": 1,
+        "file": "local-lcp-final_____desktop__pass1.report.json",
+        "performance": 0.56,
+        "accessibility": 0.97,
+        "lcp": 4139.0006,
+        "cls": 0.2045801075321776,
+        "tbt": 66,
+        "totalByteWeight": 692380,
+        "formFactor": "desktop",
+        "screen": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "lcpSelector": "div.home-hero-bg > div.home-hero-mountains > picture > img.home-hero-mountain-image",
+        "lcpParts": {
+          "timeToFirstByte": 7,
+          "resourceLoadDelay": 7,
+          "resourceLoadDuration": 14,
+          "elementRenderDelay": 846
+        },
+        "discovery": {
+          "fetchPriorityHigh": true,
+          "discoverable": true,
+          "notLazy": true
+        },
+        "fetchpriorityAttr": true
+      },
+      {
+        "form": "desktop",
+        "pass": 2,
+        "file": "local-lcp-final_____desktop__pass2.report.json",
+        "performance": 0.57,
+        "accessibility": 0.97,
+        "lcp": 4137.3694000000005,
+        "cls": 0.2045801075321776,
+        "tbt": 63,
+        "totalByteWeight": 692365,
+        "formFactor": "desktop",
+        "screen": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "lcpSelector": "div.home-hero-bg > div.home-hero-mountains > picture > img.home-hero-mountain-image",
+        "lcpParts": {
+          "timeToFirstByte": 7,
+          "resourceLoadDelay": 6,
+          "resourceLoadDuration": 13,
+          "elementRenderDelay": 910
+        },
+        "discovery": {
+          "fetchPriorityHigh": true,
+          "discoverable": true,
+          "notLazy": true
+        },
+        "fetchpriorityAttr": true
+      },
+      {
+        "form": "desktop",
+        "pass": 3,
+        "file": "local-lcp-final_____desktop__pass3.report.json",
+        "performance": 0.57,
+        "accessibility": 0.97,
+        "lcp": 4137.0042,
+        "cls": 0.2045801075321776,
+        "tbt": 58.5,
+        "totalByteWeight": 692370,
+        "formFactor": "desktop",
+        "screen": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "lcpSelector": "div.home-hero-bg > div.home-hero-mountains > picture > img.home-hero-mountain-image",
+        "lcpParts": {
+          "timeToFirstByte": 7,
+          "resourceLoadDelay": 6,
+          "resourceLoadDuration": 15,
+          "elementRenderDelay": 854
+        },
+        "discovery": {
+          "fetchPriorityHigh": true,
+          "discoverable": true,
+          "notLazy": true
+        },
+        "fetchpriorityAttr": true
+      }
+    ]
+  }
+}

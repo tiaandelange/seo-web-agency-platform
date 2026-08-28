@@ -19,6 +19,8 @@ const manrope = Manrope({
   // Distinct from @theme --font-heading to avoid circular var() references.
   variable: '--font-manrope',
   display: 'swap',
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const inter = Inter({
@@ -26,6 +28,8 @@ const inter = Inter({
   weight: ['400', '500', '600'],
   variable: '--font-inter',
   display: 'swap',
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -33,6 +37,9 @@ const plexMono = IBM_Plex_Mono({
   weight: ['400', '500'],
   variable: '--font-plex-mono',
   display: 'swap',
+  // Not required above the fold — avoid competing with Inter/Manrope on LCP path.
+  preload: false,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

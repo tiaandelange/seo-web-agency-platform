@@ -593,8 +593,9 @@ h6 {
   height: 100%;
   object-fit: cover;
   object-position: center bottom;
+  /* Filter baked into *.lcp-baked.webp sources (Prompt 3.2.1) — avoid runtime
+     CSS filter on the LCP image (major element-render delay). */
   opacity: 0.72;
-  filter: brightness(0.3) contrast(1.18) saturate(0.62);
 }
 
 .home-hero-mountain-tone {
@@ -720,6 +721,13 @@ h6 {
   letter-spacing: var(--tracking-display);
   color: var(--color-accent-contrast);
   text-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+  .home-hero-title {
+    /* 3 lines × --text-display-editorial (3.5rem) × --leading-display (1.1) — fixed rem, not lh (font-swap safe) */
+    min-height: 11.55rem;
+  }
 }
 
 .home-hero-lead {
@@ -1131,8 +1139,7 @@ h6 {
     object-fit: cover;
     /* Shift focal point up beside the lede / primary copy */
     object-position: 68% 28%;
-    filter: brightness(0.55) contrast(1.08) saturate(0.85);
-    opacity: 0.95;
+    /* Filter baked into hero-mobile.lcp-baked.webp (Prompt 3.2.1) — no runtime filter */
   }
 
   .home-hero-mountain-tone {
@@ -1663,8 +1670,17 @@ body:has(.home-hero) .mobile-nav-sublink:focus-visible {
 
 .home-enquiry-form-title {
   max-width: 18ch;
+  font-family: var(--font-heading);
   line-height: 1.25;
   text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  /* Inter fallback wraps this title to 3 lines (~105px); Manrope settles at 2 (~70px).
+     Reserve the taller fallback footprint so font swap does not shift #enquiry-system. */
+  .home-enquiry-form-title {
+    min-height: 6.5625rem;
+  }
 }
 
 .home-enquiry-form-lead {

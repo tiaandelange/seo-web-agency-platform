@@ -1,0 +1,21 @@
+{
+  "origin": "http://127.0.0.1:3010",
+  "views": [
+    {
+      "viewport": "390x844",
+      "fetchPriority": "high",
+      "decoding": "async",
+      "loading": null,
+      "currentSrc": "http://127.0.0.1:3010/images/hero-mobile.lcp-baked.webp",
+      "overflowX": false
+    },
+    {
+      "viewport": "1350x940",
+      "fetchPriority": "high",
+      "decoding": "async",
+      "loading": null,
+      "currentSrc": "http://127.0.0.1:3010/images/koppie-systems-website-development-hero.lcp-baked.webp",
+      "overflowX": false
+    }
+  ]
+}

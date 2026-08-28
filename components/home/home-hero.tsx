@@ -3,15 +3,16 @@ import Link from 'next/link';
 import { brand } from '@/config/brand';
 import { HomeHeroRotator } from '@/components/home/home-hero-rotator';
 
-/** Decorative mountain layers — desktop landscape + mobile portrait (max-width 767px). */
+/** Decorative mountain layers — desktop landscape + mobile portrait (max-width 767px).
+ *  Sources are filter-baked (brightness/contrast/saturate) so the LCP <img> needs no CSS filter. */
 const HERO_MOUNTAIN_DESKTOP = {
-  src: '/images/koppie-systems-website-development-hero.webp',
+  src: '/images/koppie-systems-website-development-hero.lcp-baked.webp',
   width: 2400,
   height: 900,
 } as const;
 
 const HERO_MOUNTAIN_MOBILE = {
-  src: '/images/hero-mobile.webp',
+  src: '/images/hero-mobile.lcp-baked.webp',
   width: 1080,
   height: 1920,
 } as const;
@@ -25,6 +26,13 @@ function CtaArrow() {
 }
 
 function HeroMountainImage() {
+  /**
+   * Art-directed <picture> for the LCP mountain:
+   * - Sources are filter-baked (*.lcp-baked.webp) so the <img> needs no CSS filter.
+   * - Do not use next/image `priority` / preload — getImageProps does not emit
+   *   fetchPriority, and preload would fetch both art-directed sources.
+   * - Explicit fetchPriority="high"; strip loading=lazy from getImageProps defaults.
+   */
   const common = {
     alt: '',
     sizes: '100vw',
@@ -35,7 +43,6 @@ function HeroMountainImage() {
   } = getImageProps({
     ...common,
     ...HERO_MOUNTAIN_MOBILE,
-    priority: true,
   });
 
   const {
@@ -43,14 +50,21 @@ function HeroMountainImage() {
   } = getImageProps({
     ...common,
     ...HERO_MOUNTAIN_DESKTOP,
-    priority: true,
   });
+
+  const imgProps = { ...desktopRest };
+  delete imgProps.loading;
 
   return (
     <picture>
       <source media="(max-width: 767px)" srcSet={mobileSrcSet} sizes="100vw" />
       <source media="(min-width: 768px)" srcSet={desktopSrcSet} sizes="100vw" />
-      <img {...desktopRest} alt="" className="home-hero-mountain-image" />
+      <img
+        {...imgProps}
+        alt=""
+        className="home-hero-mountain-image"
+        fetchPriority="high"
+      />
     </picture>
   );
 }
@@ -80,7 +94,9 @@ export function HomeHero() {
           <div className="home-hero-primary">
             <p className="home-eyebrow home-hero-eyebrow">SEO-first websites &amp; digital systems</p>
             <h1 className="text-display-editorial home-hero-title">
-              Websites and systems built to generate{' '}
+              Websites and systems built to generate
+              <br className="max-lg:hidden" />
+              {' '}
               <span className="text-cta">enquiries</span>
             </h1>
             <p className="home-hero-lead text-lead">
