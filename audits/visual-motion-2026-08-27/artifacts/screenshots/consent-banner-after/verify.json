@@ -1,0 +1,98 @@
+{
+  "origin": "http://127.0.0.1:3010",
+  "viewports": [
+    {
+      "viewport": "360x800",
+      "initial": {
+        "overflowX": false,
+        "barRect": {
+          "top": 644.25,
+          "bottom": 792,
+          "left": 8,
+          "right": 352
+        },
+        "acceptMinH": "44px",
+        "rejectMinH": "44px",
+        "acceptBg": "rgb(255, 255, 255)",
+        "rejectBg": "rgb(255, 255, 255)",
+        "acceptOrder": "Accept",
+        "rejectOrder": "Reject",
+        "policyVisible": true,
+        "primaryVisible": true,
+        "secondaryVisible": true,
+        "backToTopOverlapsBar": false,
+        "scrollPaddingBottom": "156px",
+        "ariaModal": null,
+        "role": "region"
+      },
+      "gaBeforeConsent": 0
+    },
+    {
+      "viewport": "390x844",
+      "initial": {
+        "overflowX": false,
+        "barRect": {
+          "top": 688.25,
+          "bottom": 836,
+          "left": 8,
+          "right": 382
+        },
+        "acceptMinH": "44px",
+        "rejectMinH": "44px",
+        "acceptBg": "rgb(255, 255, 255)",
+        "rejectBg": "rgb(255, 255, 255)",
+        "acceptOrder": "Accept",
+        "rejectOrder": "Reject",
+        "policyVisible": true,
+        "primaryVisible": true,
+        "secondaryVisible": true,
+        "backToTopOverlapsBar": false,
+        "scrollPaddingBottom": "156px",
+        "ariaModal": null,
+        "role": "region"
+      },
+      "gaBeforeConsent": 0
+    },
+    {
+      "viewport": "430x932",
+      "initial": {
+        "overflowX": false,
+        "barRect": {
+          "top": 776.25,
+          "bottom": 924,
+          "left": 8,
+          "right": 422
+        },
+        "acceptMinH": "44px",
+        "rejectMinH": "44px",
+        "acceptBg": "rgb(255, 255, 255)",
+        "rejectBg": "rgb(255, 255, 255)",
+        "acceptOrder": "Accept",
+        "rejectOrder": "Reject",
+        "policyVisible": true,
+        "primaryVisible": true,
+        "secondaryVisible": true,
+        "backToTopOverlapsBar": false,
+        "scrollPaddingBottom": "156px",
+        "ariaModal": null,
+        "role": "region"
+      },
+      "gaBeforeConsent": 0
+    }
+  ],
+  "states": {
+    "acceptBannerGone": true,
+    "rejectBannerGone": true,
+    "rejectStored": "denied",
+    "returningVisitorBanner": false
+  },
+  "axe": {
+    "violations": []
+  },
+  "ga": {
+    "beforeAccept": 0,
+    "afterAccept": 0,
+    "beforeReject": 0,
+    "afterReject": 0
+  }
+}

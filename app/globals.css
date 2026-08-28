@@ -158,9 +158,16 @@ body {
   }
 }
 
-/* Sit above the cookie bar when it is present */
+/* Sit above the cookie sheet when it is present — transition avoids a hard jump on dismiss. */
 body:has(.cookie-consent-bar) .back-to-top {
-  bottom: max(5.5rem, calc(env(safe-area-inset-bottom) + 4.75rem));
+  bottom: max(9.75rem, calc(env(safe-area-inset-bottom) + 8.75rem));
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    bottom 200ms ease-out;
 }
 
 h1,
@@ -2704,11 +2711,11 @@ body:has(.home-hero) .mobile-nav-sublink:focus-visible {
   }
 }
 
-/* Slim analytics consent bar — restrained entrance only */
+/* Analytics consent — compact bottom sheet (Option B) */
 @keyframes cookie-consent-in {
   from {
     opacity: 0;
-    transform: translateY(0.5rem);
+    transform: translateY(0.75rem);
   }
   to {
     opacity: 1;
@@ -2717,7 +2724,17 @@ body:has(.home-hero) .mobile-nav-sublink:focus-visible {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .cookie-consent-bar {
+  .cookie-consent-sheet__surface {
     animation: cookie-consent-in 200ms ease-out;
   }
+}
+
+.cookie-consent-sheet__surface {
+  border-top-width: 2px;
+  box-shadow: 0 -8px 28px color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+/* Reserve scroll space while the sheet is visible so hero actions stay reachable. */
+body:has(.cookie-consent-bar) {
+  scroll-padding-bottom: max(9.75rem, calc(env(safe-area-inset-bottom) + 8.75rem));
 }

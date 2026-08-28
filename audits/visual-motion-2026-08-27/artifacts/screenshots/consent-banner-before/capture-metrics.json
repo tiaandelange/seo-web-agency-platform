@@ -1,0 +1,276 @@
+{
+  "capturedAt": "2026-08-28T04:34:54.616Z",
+  "origin": "http://127.0.0.1:3010",
+  "safeAreaEmulation": {
+    "top": 47,
+    "bottom": 34,
+    "left": 0,
+    "right": 0
+  },
+  "results": [
+    {
+      "viewport": "360x800",
+      "origin": "http://127.0.0.1:3010",
+      "metrics": {
+        "overflowX": false,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "viewport": {
+          "w": 360,
+          "h": 800
+        },
+        "safeAreaBottom": "0px",
+        "barPresent": true,
+        "barRect": {
+          "top": 681,
+          "bottom": 800,
+          "left": 0,
+          "right": 360,
+          "width": 360,
+          "height": 120
+        },
+        "barBorderTop": "1px",
+        "barBg": "rgb(255, 255, 255)",
+        "accept": {
+          "text": "Accept",
+          "rect": {
+            "top": 744,
+            "bottom": 788,
+            "left": 16,
+            "right": 175,
+            "width": 159,
+            "height": 44
+          },
+          "minHeight": "44px",
+          "bg": "rgb(184, 92, 36)"
+        },
+        "reject": {
+          "text": "Reject",
+          "rect": {
+            "top": 744,
+            "bottom": 788,
+            "left": 183,
+            "right": 344,
+            "width": 161,
+            "height": 44
+          },
+          "minHeight": "44px",
+          "bg": "rgb(255, 255, 255)"
+        },
+        "policyLink": "Cookie Policy",
+        "heroVisible": true,
+        "primaryCta": {
+          "visible": true,
+          "rect": {
+            "top": 566,
+            "bottom": 612,
+            "left": 20,
+            "right": 340,
+            "width": 320,
+            "height": 46
+          }
+        },
+        "secondaryCta": {
+          "visible": true,
+          "rect": {
+            "top": 628,
+            "bottom": 673,
+            "left": 20,
+            "right": 340,
+            "width": 320,
+            "height": 46
+          }
+        },
+        "backToTop": {
+          "present": true,
+          "rect": {
+            "top": 668,
+            "bottom": 712,
+            "left": 300,
+            "right": 344,
+            "width": 44,
+            "height": 44
+          },
+          "visible": true
+        },
+        "bodyPaddingBottom": "0px"
+      }
+    },
+    {
+      "viewport": "390x844",
+      "origin": "http://127.0.0.1:3010",
+      "metrics": {
+        "overflowX": false,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "viewport": {
+          "w": 390,
+          "h": 844
+        },
+        "safeAreaBottom": "0px",
+        "barPresent": true,
+        "barRect": {
+          "top": 725,
+          "bottom": 844,
+          "left": 0,
+          "right": 390,
+          "width": 390,
+          "height": 120
+        },
+        "barBorderTop": "1px",
+        "barBg": "rgb(255, 255, 255)",
+        "accept": {
+          "text": "Accept",
+          "rect": {
+            "top": 788,
+            "bottom": 832,
+            "left": 16,
+            "right": 190,
+            "width": 174,
+            "height": 44
+          },
+          "minHeight": "44px",
+          "bg": "rgb(184, 92, 36)"
+        },
+        "reject": {
+          "text": "Reject",
+          "rect": {
+            "top": 788,
+            "bottom": 832,
+            "left": 198,
+            "right": 374,
+            "width": 176,
+            "height": 44
+          },
+          "minHeight": "44px",
+          "bg": "rgb(255, 255, 255)"
+        },
+        "policyLink": "Cookie Policy",
+        "heroVisible": true,
+        "primaryCta": {
+          "visible": true,
+          "rect": {
+            "top": 566,
+            "bottom": 612,
+            "left": 20,
+            "right": 370,
+            "width": 350,
+            "height": 46
+          }
+        },
+        "secondaryCta": {
+          "visible": true,
+          "rect": {
+            "top": 628,
+            "bottom": 673,
+            "left": 20,
+            "right": 370,
+            "width": 350,
+            "height": 46
+          }
+        },
+        "backToTop": {
+          "present": true,
+          "rect": {
+            "top": 712,
+            "bottom": 756,
+            "left": 330,
+            "right": 374,
+            "width": 44,
+            "height": 44
+          },
+          "visible": true
+        },
+        "bodyPaddingBottom": "0px"
+      }
+    },
+    {
+      "viewport": "430x932",
+      "origin": "http://127.0.0.1:3010",
+      "metrics": {
+        "overflowX": false,
+        "scrollWidth": 430,
+        "clientWidth": 430,
+        "viewport": {
+          "w": 430,
+          "h": 932
+        },
+        "safeAreaBottom": "0px",
+        "barPresent": true,
+        "barRect": {
+          "top": 813,
+          "bottom": 932,
+          "left": 0,
+          "right": 430,
+          "width": 430,
+          "height": 120
+        },
+        "barBorderTop": "1px",
+        "barBg": "rgb(255, 255, 255)",
+        "accept": {
+          "text": "Accept",
+          "rect": {
+            "top": 876,
+            "bottom": 920,
+            "left": 16,
+            "right": 210,
+            "width": 194,
+            "height": 44
+          },
+          "minHeight": "44px",
+          "bg": "rgb(184, 92, 36)"
+        },
+        "reject": {
+          "text": "Reject",
+          "rect": {
+            "top": 876,
+            "bottom": 920,
+            "left": 218,
+            "right": 414,
+            "width": 196,
+            "height": 44
+          },
+          "minHeight": "44px",
+          "bg": "rgb(255, 255, 255)"
+        },
+        "policyLink": "Cookie Policy",
+        "heroVisible": true,
+        "primaryCta": {
+          "visible": true,
+          "rect": {
+            "top": 537,
+            "bottom": 582,
+            "left": 20,
+            "right": 410,
+            "width": 390,
+            "height": 46
+          }
+        },
+        "secondaryCta": {
+          "visible": true,
+          "rect": {
+            "top": 598,
+            "bottom": 644,
+            "left": 20,
+            "right": 410,
+            "width": 390,
+            "height": 46
+          }
+        },
+        "backToTop": {
+          "present": true,
+          "rect": {
+            "top": 800,
+            "bottom": 844,
+            "left": 370,
+            "right": 414,
+            "width": 44,
+            "height": 44
+          },
+          "visible": true
+        },
+        "bodyPaddingBottom": "0px"
+      }
+    }
+  ]
+}
