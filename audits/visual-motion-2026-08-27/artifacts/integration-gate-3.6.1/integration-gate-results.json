@@ -1,0 +1,387 @@
+{
+  "generatedAt": "2026-08-28T05:50:30.412Z",
+  "origin": "http://127.0.0.1:3010",
+  "lcpImage": {
+    "360": {
+      "viewport": 360,
+      "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75",
+      "sources": [
+        {
+          "media": "(max-width: 767px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=750&q=7"
+        },
+        {
+          "media": "(min-width: 768px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fkoppie-s"
+        }
+      ],
+      "filter": "none",
+      "opacity": "0.72",
+      "fetchPriority": "high",
+      "loading": null,
+      "naturalWidth": 360,
+      "naturalHeight": 640
+    },
+    "390": {
+      "viewport": 390,
+      "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75",
+      "sources": [
+        {
+          "media": "(max-width: 767px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=750&q=7"
+        },
+        {
+          "media": "(min-width: 768px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fkoppie-s"
+        }
+      ],
+      "filter": "none",
+      "opacity": "0.72",
+      "fetchPriority": "high",
+      "loading": null,
+      "naturalWidth": 390,
+      "naturalHeight": 693
+    },
+    "412": {
+      "viewport": 412,
+      "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75",
+      "sources": [
+        {
+          "media": "(max-width: 767px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=750&q=7"
+        },
+        {
+          "media": "(min-width: 768px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fkoppie-s"
+        }
+      ],
+      "filter": "none",
+      "opacity": "0.72",
+      "fetchPriority": "high",
+      "loading": null,
+      "naturalWidth": 412,
+      "naturalHeight": 732
+    },
+    "430": {
+      "viewport": 430,
+      "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75",
+      "sources": [
+        {
+          "media": "(max-width: 767px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=750&q=7"
+        },
+        {
+          "media": "(min-width: 768px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fkoppie-s"
+        }
+      ],
+      "filter": "none",
+      "opacity": "0.72",
+      "fetchPriority": "high",
+      "loading": null,
+      "naturalWidth": 430,
+      "naturalHeight": 764
+    },
+    "1350": {
+      "viewport": 1350,
+      "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=1920&q=75",
+      "sources": [
+        {
+          "media": "(max-width: 767px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=750&q=7"
+        },
+        {
+          "media": "(min-width: 768px)",
+          "srcset": "/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=640&q=75 640w, /_next/image/?url=%2Fimages%2Fkoppie-s"
+        }
+      ],
+      "filter": "none",
+      "opacity": "0.72",
+      "fetchPriority": "high",
+      "loading": null,
+      "naturalWidth": 1350,
+      "naturalHeight": 506
+    }
+  },
+  "axe": [
+    {
+      "route": "/",
+      "viewport": 390,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/",
+      "viewport": 1350,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/projects/",
+      "viewport": 390,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/projects/",
+      "viewport": 1350,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/request-a-quote/",
+      "viewport": 390,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/request-a-quote/",
+      "viewport": 1350,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/contact/",
+      "viewport": 390,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    },
+    {
+      "route": "/contact/",
+      "viewport": 1350,
+      "violations": 0,
+      "seriousCritical": 0,
+      "serious": []
+    }
+  ],
+  "cls": {
+    "mobile": [
+      {
+        "run": 1,
+        "returning": false,
+        "cls": 0,
+        "shiftCount": 0,
+        "largest": null,
+        "shifts": []
+      },
+      {
+        "run": 2,
+        "returning": true,
+        "cls": 0,
+        "shiftCount": 0,
+        "largest": null,
+        "shifts": []
+      },
+      {
+        "run": 3,
+        "returning": true,
+        "cls": 0,
+        "shiftCount": 0,
+        "largest": null,
+        "shifts": []
+      }
+    ],
+    "desktop": [
+      {
+        "run": 1,
+        "cls": 0.0003,
+        "shiftCount": 2,
+        "largest": {
+          "value": 0.0003,
+          "selector": ".site-header-nav"
+        },
+        "shifts": [
+          {
+            "value": 0.0003,
+            "selector": ".site-header-nav"
+          },
+          {
+            "value": 0.0003,
+            "selector": "unknown"
+          }
+        ]
+      },
+      {
+        "run": 2,
+        "cls": 0.0003,
+        "shiftCount": 2,
+        "largest": {
+          "value": 0.0003,
+          "selector": ".site-header-nav"
+        },
+        "shifts": [
+          {
+            "value": 0.0003,
+            "selector": ".site-header-nav"
+          },
+          {
+            "value": 0.0003,
+            "selector": "unknown"
+          }
+        ]
+      },
+      {
+        "run": 3,
+        "cls": 0.0003,
+        "shiftCount": 2,
+        "largest": {
+          "value": 0.0003,
+          "selector": ".site-header-nav"
+        },
+        "shifts": [
+          {
+            "value": 0.0003,
+            "selector": ".site-header-nav"
+          },
+          {
+            "value": 0.0003,
+            "selector": "unknown"
+          }
+        ]
+      }
+    ],
+    "reducedMotion": {
+      "cls": 0,
+      "shiftCount": 0,
+      "largest": null,
+      "shifts": []
+    },
+    "firstVisitCookie": {
+      "cls": 0.005,
+      "shifts": [
+        {
+          "value": 0.0006
+        },
+        {
+          "value": 0.0007
+        },
+        {
+          "value": 0.0006
+        },
+        {
+          "value": 0.0006
+        },
+        {
+          "value": 0.0005
+        },
+        {
+          "value": 0.0005
+        },
+        {
+          "value": 0.0004
+        },
+        {
+          "value": 0.0004
+        },
+        {
+          "value": 0.0003
+        },
+        {
+          "value": 0.0003
+        },
+        {
+          "value": 0.0001
+        }
+      ]
+    }
+  },
+  "lcp": {
+    "mobile": [
+      {
+        "lcpMs": 200,
+        "lcpElement": "home-hero-mountain-image",
+        "img": {
+          "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fhero-mobile.lcp-baked.webp&w=640&q=75",
+          "fetchPriority": "high",
+          "loading": null,
+          "filter": "none",
+          "opacity": "0.72"
+        },
+        "observedMs": 2243
+      }
+    ],
+    "desktop": [
+      {
+        "lcpMs": 372,
+        "lcpElement": "home-hero-mountain-image",
+        "img": {
+          "currentSrc": "http://127.0.0.1:3010/_next/image/?url=%2Fimages%2Fkoppie-systems-website-development-hero.lcp-baked.webp&w=1920&q=75",
+          "fetchPriority": "high",
+          "loading": null,
+          "filter": "none",
+          "opacity": "0.72"
+        },
+        "observedMs": 2383
+      }
+    ]
+  },
+  "overflow": [
+    {
+      "viewport": 360,
+      "scrollWidth": 360,
+      "viewportWidth": 360,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 390,
+      "scrollWidth": 390,
+      "viewportWidth": 390,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 412,
+      "scrollWidth": 412,
+      "viewportWidth": 412,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 430,
+      "scrollWidth": 430,
+      "viewportWidth": 430,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 768,
+      "scrollWidth": 768,
+      "viewportWidth": 768,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "viewportWidth": 1024,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 1350,
+      "scrollWidth": 1350,
+      "viewportWidth": 1350,
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "viewportWidth": 1440,
+      "horizontalOverflow": false
+    }
+  ],
+  "headerHeight": 74.6,
+  "summary": {
+    "axeSeriousTotal": 0,
+    "clsMobileMedian": 0,
+    "clsDesktopMedian": 0.0003,
+    "clsMobileMax": 0,
+    "clsDesktopMax": 0.0003,
+    "overflowFails": 0,
+    "lcpMobileMs": 200,
+    "lcpDesktopMs": 372,
+    "mobileFilterNone": true
+  }
+}

@@ -11,7 +11,12 @@ export function WorkflowExploded() {
       headingLevel="major"
       intro="Once enquiries arrive, the same partner can build the admin layer — quotation tools, status tracking and customer records behind the public site."
     >
-      <div className="home-workflow mt-12 overflow-x-auto pb-4">
+      <div
+        className="home-workflow mt-12 overflow-x-auto pb-4"
+        tabIndex={0}
+        role="region"
+        aria-label="RFQ workflow steps"
+      >
         <ol className="flex min-w-[640px] gap-0">
           {HOME_WORKFLOW_STEPS.map((step, i) => (
             <li key={step.step} className="home-workflow-step relative flex-1 px-2">

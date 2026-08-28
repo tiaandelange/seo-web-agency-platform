@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-08-28T05:09:39.551Z",
+  "origin": "http://127.0.0.1:3010",
+  "axe": [
+    {
+      "route": "/",
+      "violations": 2,
+      "seriousCritical": 2,
+      "seriousIds": [
+        "color-contrast",
+        "scrollable-region-focusable"
+      ]
+    },
+    {
+      "route": "/projects/",
+      "violations": 0,
+      "seriousCritical": 0,
+      "seriousIds": []
+    },
+    {
+      "route": "/request-a-quote/",
+      "violations": 0,
+      "seriousCritical": 0,
+      "seriousIds": []
+    },
+    {
+      "route": "/contact/",
+      "violations": 0,
+      "seriousCritical": 0,
+      "seriousIds": []
+    }
+  ],
+  "lcp": {
+    "found": true,
+    "fetchPriority": "high",
+    "loading": null,
+    "filter": "brightness(0.55) contrast(1.08) saturate(0.85)",
+    "hasRuntimeFilter": true
+  },
+  "headerHeights": [
+    {
+      "viewport": "1024",
+      "heightPx": 74.6
+    },
+    {
+      "viewport": "1440",
+      "heightPx": 74.6
+    }
+  ],
+  "reducedMotion": {
+    "prefersReducedMotion": true,
+    "enginePulseAnimation": "none"
+  },
+  "cookieBackToTopSeparation": {
+    "ok": true,
+    "cookieBottom": 892,
+    "backToTopTop": 700,
+    "gap": -192
+  }
+}

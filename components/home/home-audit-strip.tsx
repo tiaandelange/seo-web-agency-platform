@@ -9,7 +9,7 @@ export function HomeAuditStrip() {
       headingLevel="functional"
       intro="Start with a clear picture of what your website needs — without a monthly retainer."
     >
-      <div className="mt-8 grid gap-6 md:grid-cols-2">
+      <div className="home-audit-strip mt-8 grid gap-6 md:grid-cols-2">
         <div className="border border-line bg-surface p-5 md:p-6">
           <p className="font-mono text-xs uppercase tracking-widest text-cta">Small sites</p>
           <h3 className="mt-2 text-lg font-bold text-ink">SEO Audit &amp; Priority Fix Pack</h3>

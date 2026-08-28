@@ -53,7 +53,7 @@ export function IndustrialEngineLazy() {
   }, []);
 
   return (
-    <div ref={hostRef} className="min-h-[52rem]">
+    <div ref={hostRef} className="min-h-[52rem]" data-industrial-engine-host>
       {shouldLoad ? <IndustrialEnginePreview /> : <EngineSkeleton />}
     </div>
   );

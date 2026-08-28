@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { ScenarioPreset } from '@/lib/industrial-engine/presets';
 import type { EngineInputs } from '@/lib/industrial-engine/types';
 
@@ -23,7 +24,7 @@ export function EngineControls({
   presets: ScenarioPreset[];
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-[#0f2229] p-5">
+    <div className="engine-controls rounded-lg border border-white/10 bg-[#0f2229] p-5">
       <fieldset>
         <legend className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/50">
           Scenario preset
@@ -143,30 +144,64 @@ export function EngineControls({
             <option value="yes">Yes</option>
           </select>
         </label>
-        <div>
-          <label htmlFor="engine-files" className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/50">
-            Supporting files
-          </label>
-          <div className="mt-2 flex gap-3">
+        <div className="engine-instrument">
+          <div className="engine-instrument-header">
+            <label
+              htmlFor="engine-files-range"
+              id="engine-files-label"
+              className="font-mono text-label uppercase tracking-[0.14em] text-white/75"
+            >
+              Uploaded documents
+            </label>
+            <output
+              id="engine-files-value"
+              htmlFor="engine-files-range"
+              className="font-mono text-sm tabular-nums text-white"
+              aria-live="off"
+            >
+              {inputs.supportingFiles}
+            </output>
+          </div>
+          <p id="engine-files-hint" className="mt-1 font-mono text-[0.625rem] leading-snug text-white/55">
+            Count of RFQ attachments (0 = none attached)
+          </p>
+          <div className="mt-2 flex items-center gap-3">
             <input
               id="engine-files-range"
               type="range"
               min={0}
               max={10}
+              step={1}
               value={inputs.supportingFiles}
               onChange={(e) => onSetInput('supportingFiles', Number(e.target.value))}
-              className="min-h-11 flex-1 accent-cta"
-              aria-describedby="engine-files"
+              className="engine-range min-h-11 flex-1"
+              style={
+                {
+                  '--engine-range-progress': `${(inputs.supportingFiles / 10) * 100}%`,
+                } as CSSProperties
+              }
+              aria-valuetext={`${inputs.supportingFiles} uploaded document${inputs.supportingFiles === 1 ? '' : 's'}`}
+              aria-describedby="engine-files-hint engine-files-bounds"
             />
             <input
               id="engine-files"
               type="number"
               min={0}
               max={10}
+              step={1}
               value={inputs.supportingFiles}
               onChange={(e) => onSetInput('supportingFiles', Number(e.target.value))}
-              className="min-h-11 w-16 rounded border border-white/15 bg-white/5 px-2 py-1 text-sm text-white"
+              aria-label="Uploaded documents exact value"
+              aria-describedby="engine-files-hint"
+              className="min-h-11 w-16 rounded border border-white/15 bg-white/5 px-2 py-1 text-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cta"
             />
+          </div>
+          <div
+            id="engine-files-bounds"
+            className="mt-1 flex justify-between font-mono text-[0.625rem] uppercase tracking-[0.12em] text-white/50"
+          >
+            <span>0 none</span>
+            <span>10 max</span>
           </div>
         </div>
       </div>

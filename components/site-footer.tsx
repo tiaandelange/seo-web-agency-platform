@@ -9,7 +9,7 @@ export function SiteFooter() {
   const hasContact = Boolean(brand.contact.phone || email || brand.contact.whatsapp);
 
   return (
-    <footer className="band-ink mt-16 border-t border-line">
+    <footer className="site-footer band-ink mt-16 border-t border-line">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {footerColumns.map((column) => (
@@ -20,7 +20,7 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-2">
                 {column.links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-accent-contrast/80 hover:text-accent-contrast">
+                    <Link href={link.href} className="site-footer-link text-sm text-accent-contrast/80 hover:text-accent-contrast">
                       {link.label}
                     </Link>
                   </li>
@@ -34,28 +34,28 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm text-accent-contrast/80">
               {brand.contact.phone && (
                 <li>
-                  <a href={`tel:${brand.contact.phone}`} className="hover:text-accent-contrast">
+                  <a href={`tel:${brand.contact.phone}`} className="site-footer-link hover:text-accent-contrast">
                     {brand.contact.phone}
                   </a>
                 </li>
               )}
               {email && (
                 <li>
-                  <a href={`mailto:${email}`} className="hover:text-accent-contrast">
+                  <a href={`mailto:${email}`} className="site-footer-link hover:text-accent-contrast">
                     {email}
                   </a>
                 </li>
               )}
               {brand.contact.whatsapp && (
                 <li>
-                  <a href={`https://wa.me/${brand.contact.whatsapp}`} className="hover:text-accent-contrast">
+                  <a href={`https://wa.me/${brand.contact.whatsapp}`} className="site-footer-link hover:text-accent-contrast">
                     WhatsApp us
                   </a>
                 </li>
               )}
               {!hasContact && (
                 <li>
-                  <Link href="/request-a-quote/" className="hover:text-accent-contrast">
+                  <Link href="/request-a-quote/" className="site-footer-link hover:text-accent-contrast">
                     Request a proposal
                   </Link>
                 </li>
@@ -81,13 +81,13 @@ export function SiteFooter() {
           <ul className="flex flex-wrap items-center gap-4">
             {footerLegal.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-accent-contrast">
+                <Link href={link.href} className="site-footer-link hover:text-accent-contrast">
                   {link.label}
                 </Link>
               </li>
             ))}
             <li>
-              <CookieSettingsButton />
+              <CookieSettingsButton className="site-footer-link text-sm text-accent-contrast/70 underline-offset-2 hover:text-accent-contrast hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sandstone" />
             </li>
           </ul>
         </div>

@@ -1,0 +1,124 @@
+{
+  "origin": "http://127.0.0.1:3010",
+  "viewports": [
+    {
+      "viewport": "360x800",
+      "meta": {
+        "labelText": "Uploaded documents",
+        "labelFor": "engine-files-range",
+        "rangeId": "engine-files-range",
+        "rangeMin": "0",
+        "rangeMax": "10",
+        "rangeDescribedBy": "engine-files-hint engine-files-bounds",
+        "rangeValueText": "3 uploaded documents",
+        "outputText": "3",
+        "outputLive": "off",
+        "hintText": "Count of RFQ attachments (0 = none attached)",
+        "numberAriaLabel": "Uploaded documents exact value"
+      },
+      "overflowX": {
+        "overflowX": false,
+        "scrollWidth": 360,
+        "clientWidth": 360
+      }
+    },
+    {
+      "viewport": "390x844",
+      "meta": {
+        "labelText": "Uploaded documents",
+        "labelFor": "engine-files-range",
+        "rangeId": "engine-files-range",
+        "rangeMin": "0",
+        "rangeMax": "10",
+        "rangeDescribedBy": "engine-files-hint engine-files-bounds",
+        "rangeValueText": "3 uploaded documents",
+        "outputText": "3",
+        "outputLive": "off",
+        "hintText": "Count of RFQ attachments (0 = none attached)",
+        "numberAriaLabel": "Uploaded documents exact value"
+      },
+      "overflowX": {
+        "overflowX": false,
+        "scrollWidth": 390,
+        "clientWidth": 390
+      }
+    },
+    {
+      "viewport": "768x1024",
+      "meta": {
+        "labelText": "Uploaded documents",
+        "labelFor": "engine-files-range",
+        "rangeId": "engine-files-range",
+        "rangeMin": "0",
+        "rangeMax": "10",
+        "rangeDescribedBy": "engine-files-hint engine-files-bounds",
+        "rangeValueText": "3 uploaded documents",
+        "outputText": "3",
+        "outputLive": "off",
+        "hintText": "Count of RFQ attachments (0 = none attached)",
+        "numberAriaLabel": "Uploaded documents exact value"
+      },
+      "overflowX": {
+        "overflowX": false,
+        "scrollWidth": 768,
+        "clientWidth": 768
+      }
+    },
+    {
+      "viewport": "1440x900",
+      "meta": {
+        "labelText": "Uploaded documents",
+        "labelFor": "engine-files-range",
+        "rangeId": "engine-files-range",
+        "rangeMin": "0",
+        "rangeMax": "10",
+        "rangeDescribedBy": "engine-files-hint engine-files-bounds",
+        "rangeValueText": "3 uploaded documents",
+        "outputText": "3",
+        "outputLive": "off",
+        "hintText": "Count of RFQ attachments (0 = none attached)",
+        "numberAriaLabel": "Uploaded documents exact value"
+      },
+      "overflowX": {
+        "overflowX": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      }
+    }
+  ],
+  "axe": {
+    "violations": []
+  },
+  "keyboard": {
+    "focused": true,
+    "before": 3,
+    "after": 4,
+    "changed": true
+  },
+  "overflow": [
+    {
+      "viewport": "360x800",
+      "overflowX": false,
+      "scrollWidth": 360,
+      "clientWidth": 360
+    },
+    {
+      "viewport": "390x844",
+      "overflowX": false,
+      "scrollWidth": 390,
+      "clientWidth": 390
+    },
+    {
+      "viewport": "768x1024",
+      "overflowX": false,
+      "scrollWidth": 768,
+      "clientWidth": 768
+    },
+    {
+      "viewport": "1440x900",
+      "overflowX": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    }
+  ]
+}

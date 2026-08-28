@@ -273,23 +273,28 @@ export function QuoteForm({
         />
       </div>
 
-      <div className="flex items-start gap-3">
-        <input
-          id={`consent_${formType}`}
-          name="consent"
-          type="checkbox"
-          required
-          className="mt-3 h-4 w-4 shrink-0"
-        />
-        <label htmlFor={`consent_${formType}`} className="min-h-11 py-2 text-sm leading-relaxed text-muted">
+      <label
+        htmlFor={`consent_${formType}`}
+        className="form-consent-row flex cursor-pointer items-start gap-2"
+      >
+        <span className="form-consent-checkbox-hit">
+          <input
+            id={`consent_${formType}`}
+            name="consent"
+            type="checkbox"
+            required
+            className="h-4 w-4 shrink-0"
+          />
+        </span>
+        <span className="min-h-11 flex-1 py-2 text-sm leading-relaxed text-muted">
           I agree that Koppie Systems may use my details to respond to and manage this enquiry, as
           described in the{' '}
           <Link href="/legal/privacy-policy/" className="text-link underline">
             privacy policy
           </Link>
           . <span className="text-muted">(Required)</span>
-        </label>
-      </div>
+        </span>
+      </label>
 
       <button
         type="submit"

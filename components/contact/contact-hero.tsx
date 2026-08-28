@@ -15,7 +15,7 @@ export function ContactHero({ title, intro }: { title: string; intro: string }) 
         </svg>
       </div>
       <Container className="relative py-8 md:py-10">
-        <p className="text-label flex items-center gap-3 text-cta">
+        <p className="text-label flex items-center gap-3 text-cta-label">
           <span className="inline-block h-px w-7 bg-cta" aria-hidden="true" />
           {brand.baseCity.toUpperCase()}-BASED · SERVING SOUTH AFRICA
         </p>

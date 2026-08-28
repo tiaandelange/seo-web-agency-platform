@@ -36,7 +36,7 @@ function ProjectCardBody({ project }: { project: ProjectCardData }) {
       <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-line pt-5">
         <Link
           href={project.href}
-          className="inline-flex items-center gap-2 font-medium text-link transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-within:translate-x-1 group-focus-within:-translate-y-1"
+          className="project-card-cta inline-flex items-center gap-2 font-medium text-link transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-within:translate-x-1 group-focus-within:-translate-y-1"
         >
           {project.ctaLabel}
           <span
@@ -51,7 +51,7 @@ function ProjectCardBody({ project }: { project: ProjectCardData }) {
             href={project.externalSiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-muted underline-offset-2 hover:text-link hover:underline"
+            className="project-card-external text-sm text-muted underline-offset-2 hover:text-link hover:underline"
           >
             Live site
           </a>
