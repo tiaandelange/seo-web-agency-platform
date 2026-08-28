@@ -71,10 +71,10 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
       'A focused SEO audit for small South African business websites, including a prioritised action plan and implementation of selected high-impact fixes.',
     seoTitle: 'SEO Audit South Africa',
     metaDescription:
-      `Compare once-off SEO audits for South African websites: ${formatZar(2950)} priority fixes for small sites, or ${formatZar(8500)} advanced technical and content audits.`,
+      `Website SEO audit services for South African businesses — ${formatZar(2950)} Priority Fix or ${formatZar(8500)} Advanced. Once-off ZAR pricing, no retainer.`,
     heading: 'SEO Audits with Priority Fixes — Clear Scope, Once-Off Price',
     supportingStatement:
-      'Choose a focused audit for a small business website, or a comprehensive technical and content audit for larger, ecommerce and catalogue sites — without a monthly retainer.',
+      `Once-off SEO audit services for South African websites — from ${formatZar(2950)} for small sites or ${formatZar(8500)} for larger and ecommerce sites. Fixed scope, fixed price, no monthly retainer.`,
     bestFor: [
       'Small service and brochure websites',
       'Contractors and professional practices',

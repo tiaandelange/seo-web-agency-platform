@@ -147,6 +147,56 @@ export const seoAuditExampleIssues = [
   'Search Console coverage gaps that nobody is watching',
 ];
 
+/** Hub opening — commercial SA intent without repeating title/H1. */
+export const seoAuditHubOpening = {
+  lead:
+    'Koppie Systems provides fixed-price SEO audit services for South African business websites — delivered once-off in ZAR, with no monthly retainer. Choose the Priority Fix Pack for small brochure and local service sites, or the Advanced SEO Audit for larger, ecommerce and catalogue sites.',
+  delivery:
+    'Payment is upfront. Delivery starts within five business days (Priority Fix) or seven to ten business days (Advanced) once payment, eligibility and platform access are confirmed. Rankings are never guaranteed — you receive an honest assessment, eligible fixes where the pack allows, and a prioritised plan for what comes next.',
+  servicesAnswer:
+    'If you searched for SEO audit services in South Africa, both packs are delivered remotely for SA business websites. You grant CMS and Search Console access through each platform’s permission system — no passwords via email.',
+} as const;
+
+/** At-a-glance scope summary for the hub comparison section. */
+export const seoAuditAtAGlance = {
+  examined:
+    'Technical crawl, on-page review, Search Console review (where access is supplied), conversion check, capped priority fixes, written report and handover call or recording.',
+  excluded:
+    'Full page rewrites, new location pages, platform migrations, ecommerce/multilingual SEO, penalty recovery, unlimited revisions, or ongoing campaign management. Google Business Profile setup is available separately.',
+  turnaround: 'Five business days (Priority Fix) · seven to ten business days (Advanced), starting after access is received.',
+} as const;
+
+/**
+ * Sample finding categories from Koppie Systems’ own site architecture —
+ * illustrative of audit checks, not client results or traffic claims.
+ */
+export const seoAuditOwnSiteSampleFindings = [
+  {
+    title: 'Sitemap and route registry alignment',
+    body: 'Our sitemap, breadcrumbs and robots metadata derive from a single route registry. The build validator fails if an indexable page is missing from the sitemap or a noindex page appears in it.',
+  },
+  {
+    title: 'Conversion URLs gated from search',
+    body: 'Intake and thank-you routes (for example /seo-audit/intake/ and /request-a-quote/thank-you/) are registered noindex and excluded from the sitemap so lead flows do not earn organic entrances.',
+  },
+  {
+    title: 'Unique metadata across indexable routes',
+    body: 'The SEO validator rejects duplicate titles and meta descriptions across services, packages and articles — the same discipline we apply when auditing client sites.',
+  },
+  {
+    title: 'Indexation rules for unpublished templates',
+    body: 'Project case-study templates stay noindex until publication gates pass. The validator blocks flipping a template to index without owner permission.',
+  },
+  {
+    title: 'Internal-link orphan prevention',
+    body: 'Every indexable route must be reachable from home via header, footer or hub links. Orphan indexable URLs fail validation before deploy.',
+  },
+  {
+    title: 'Measurement before conversion claims',
+    body: 'Lead and eligibility events are defined in our analytics contract before we treat forms as measurable. Search Console baselines are recorded as diagnostic input — not ranking or conversion guarantees.',
+  },
+] as const;
+
 export const seoAuditFollowUps = [
   'Priority SEO implementation sprint',
   'Website content and service-page improvement',
@@ -201,6 +251,12 @@ export const seoAuditFaqs: Faq[] = [
   {
     question: 'How fast is delivery?',
     answer: `Within ${SEO_AUDIT_PRODUCT.turnaroundBusinessDays} business days after payment, eligibility confirmation and receipt of all required access.`,
+    group: 'process',
+  },
+  {
+    question: 'Do you offer SEO audit services across South Africa?',
+    answer:
+      'Yes. Both audit packs are delivered remotely for South African business websites. Grant CMS and Search Console access through each platform’s permission system — never send passwords by email. The eligibility check routes small local service sites, professional practices, and larger ecommerce or catalogue sites to the right pack or a custom audit quote.',
     group: 'process',
   },
 ];

@@ -106,7 +106,7 @@ export function SeoAuditComparison() {
             ))}
           </dl>
           <div className="mt-5">
-            <SeoAuditTierCta id="advanced" />
+            <SeoAuditTierCta id="advanced" eligibilityHref={`${SEO_AUDIT_HUB_PATH}#eligibility`} />
             <p className="mt-3 text-sm">
               <Link href={advanced.route} className="text-link underline">
                 Full advanced audit details →
@@ -147,7 +147,7 @@ export function SeoAuditComparison() {
         <div className="mt-6 grid max-w-5xl gap-4 sm:grid-cols-2">
           <SeoAuditTierCta id="priority-fix" eligibilityHref={`${SEO_AUDIT_HUB_PATH}#eligibility`} />
           <div>
-            <SeoAuditTierCta id="advanced" />
+            <SeoAuditTierCta id="advanced" eligibilityHref={`${SEO_AUDIT_HUB_PATH}#eligibility`} />
             <p className="mt-2 text-sm">
               <Link href={advanced.route} className="text-link underline">
                 Full advanced audit details →
