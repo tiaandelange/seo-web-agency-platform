@@ -11,8 +11,9 @@ import {
   seoAuditTierPrimaryCtaHref,
   seoAuditTierPrimaryCtaLabel,
 } from '../config/seo-audit-product';
-import { seoAuditServiceSchema } from '../lib/schema';
+import { formatZarOnceOff } from '@/lib/format-zar';
 import { buildMetadata } from '../lib/seo';
+import { seoAuditServiceSchema } from '../lib/schema';
 import { getAllRoutes } from '../lib/routes';
 
 afterEach(() => {
@@ -27,14 +28,14 @@ describe('SEO Audit two-tier config', () => {
     expect(getSeoAuditProduct('advanced').route).toBe('/seo-audit/advanced/');
     expect(seoAuditTierPriceZar('priority-fix')).toBe(2950);
     expect(seoAuditTierPriceZar('advanced')).toBe(8500);
-    expect(seoAuditTierPriceLabel('priority-fix')).toBe('R2,950 once-off');
-    expect(seoAuditTierPriceLabel('advanced')).toBe('R8,500 once-off');
+    expect(seoAuditTierPriceLabel('priority-fix')).toBe(formatZarOnceOff(2950));
+    expect(seoAuditTierPriceLabel('advanced')).toBe(formatZarOnceOff(8500));
   });
 
   it('keeps comparison rows aligned for both tiers', () => {
     expect(SEO_AUDIT_COMPARISON_ROWS.length).toBeGreaterThanOrEqual(10);
-    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.basic).toContain('2,950');
-    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.advanced).toContain('8,500');
+    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.basic).toContain('2\u202f950');
+    expect(SEO_AUDIT_COMPARISON_ROWS[0]?.advanced).toContain('8\u202f500');
   });
 
   it('uses Request CTAs when checkout URLs are unset', () => {

@@ -1,4 +1,16 @@
 import type { PackageOffer } from '@/types/content';
+import {
+  formatZar,
+  formatZarIndicativeRange,
+  formatZarRange,
+} from '@/lib/format-zar';
+
+export { formatZar, formatZarIndicativeRange as formatPackageIndicativeRange } from '@/lib/format-zar';
+
+/** Custom package has priceRange null — shared published floors for UI mirrors. */
+export const CUSTOM_SYSTEM_FROM_ZAR = 65000;
+export const CUSTOM_DISCOVERY_MIN_ZAR = 6500;
+export const CUSTOM_DISCOVERY_MAX_ZAR = 12000;
 
 /**
  * Productised packages — transactional intent pages.
@@ -12,7 +24,7 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'lead-generation-websites',
     title: 'One-Page Website Package',
     metaDescription:
-      'One-page website package: focused landing page for one offer, SEO-structured, yours to own. Indicative R4,500–R8,500. Fixed quote after scoping.',
+      `One-page website package: focused landing page for one offer, SEO-structured, yours to own. Indicative ${formatZarIndicativeRange(4500, 8500)}. Fixed quote after scoping.`,
     heading: 'One-page website package',
     intro:
       'A deliberately single-page website for one clear offer — a campaign landing page, a single-service trade or contractor site, or a credible first presence. One long-form page with sectioned anchors, structured for search and owned by you — not a cut-down multi-page site. When you need more pages later, it upgrades cleanly into the Starter or Professional builds on the same architecture.',
@@ -68,7 +80,7 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'business-websites',
     title: 'Starter Business Website Package',
     metaDescription:
-      'Starter business website package: up to 6 SEO-structured pages, mobile-first build, Search Console setup. Indicative R9,500–R18,000. Fixed quote after scoping.',
+      `Starter business website package: up to 6 SEO-structured pages, mobile-first build, Search Console setup. Indicative ${formatZarIndicativeRange(9500, 18000)}. Fixed quote after scoping.`,
     heading: 'Starter business website package',
     intro:
       'The right first website: compact, properly structured for search, and owned by you. Built for new and small businesses replacing no site — or a DIY site Google ignores.',
@@ -122,7 +134,7 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'lead-generation-websites',
     title: 'Professional Business Website Package',
     metaDescription:
-      'Professional lead-generation website package: 8–15 mapped pages, conversion structure, tracking and case-study setup. Indicative R22,000–R45,000.',
+      `Professional lead-generation website package: 8–15 mapped pages, conversion structure, tracking and case-study setup. Indicative ${formatZarIndicativeRange(22000, 45000)}.`,
     heading: 'Professional business website package',
     intro:
       'The full lead-generation build: search-mapped architecture across all your services, conversion structure, measurement and proof — for established businesses that want the website carrying real commercial weight.',
@@ -174,7 +186,7 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'product-catalogue-websites',
     title: 'Product Catalogue Website Package',
     metaDescription:
-      'Product catalogue website package: structured range, spec sheets, RFQ basket and bulk loading from your spreadsheets. Indicative R35,000–R70,000.',
+      `Product catalogue website package: structured range, spec sheets, RFQ basket and bulk loading from your spreadsheets. Indicative ${formatZarIndicativeRange(35000, 70000)}.`,
     heading: 'Product catalogue website package',
     intro:
       'Your full range online, structured and quotable: category and product pages built for search, spec sheets where buyers expect them, and an RFQ basket that turns browsing into quote requests.',
@@ -227,7 +239,7 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'ecommerce-websites',
     title: 'Ecommerce Website Package',
     metaDescription:
-      'Ecommerce package (indicative R45k–R110k): SEO product architecture, SA payments, delivery logic and purchase tracking — not a theme install.',
+      `Ecommerce package (indicative ${formatZarRange(45000, 110000)}): SEO product architecture, SA payments, delivery logic and purchase tracking — not a theme install.`,
     heading: 'Ecommerce website package',
     intro:
       'This band buys a commerce system, not a theme: search-ready category and product architecture, a mobile checkout people finish, South African payment and delivery realities wired in, and purchase funnel measurement from day one. Theme shops and quick WooCommerce installs often advertise far below this floor — they ship a look; we ship findability, completion and readable numbers.',
@@ -284,7 +296,7 @@ export const packages: PackageOffer[] = [
     serviceSlug: 'custom-web-applications',
     title: 'Custom Web System',
     metaDescription:
-      'Custom web systems — admin panels, RFQ and quotation tools, portals — scoped through paid discovery. Indicative from R65,000; discovery R6,500–R12,000.',
+      `Custom web systems — admin panels, RFQ and quotation tools, portals — scoped through paid discovery. Indicative from ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)}; discovery ${formatZarRange(CUSTOM_DISCOVERY_MIN_ZAR, CUSTOM_DISCOVERY_MAX_ZAR)}.`,
     heading: 'Custom web system',
     intro:
       'For the processes no product fits: admin panels, quotation systems, portals and workflow tools, scoped honestly through paid discovery so you see the specification and the number before committing to a build.',
@@ -331,22 +343,8 @@ export const packages: PackageOffer[] = [
   },
 ];
 
-/** Custom package has priceRange null — shared published floors for UI mirrors. */
-export const CUSTOM_SYSTEM_FROM_ZAR = 65000;
-export const CUSTOM_DISCOVERY_MIN_ZAR = 6500;
-export const CUSTOM_DISCOVERY_MAX_ZAR = 12000;
-
-export function formatZar(amount: number): string {
-  // Comma thousands (not NBSP) so labels match published audit/pricing copy sitewide.
-  return `R${amount.toLocaleString('en-US')}`;
-}
-
-export function formatPackageIndicativeRange(min: number, max: number): string {
-  return `${formatZar(min)} – ${formatZar(max)} (indicative)`;
-}
-
 export function customSystemPriceLabel(): string {
-  return `From ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)}; discovery ${formatZar(CUSTOM_DISCOVERY_MIN_ZAR)}–${formatZar(CUSTOM_DISCOVERY_MAX_ZAR)} (indicative)`;
+  return `From ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)}; discovery ${formatZarRange(CUSTOM_DISCOVERY_MIN_ZAR, CUSTOM_DISCOVERY_MAX_ZAR)} (indicative)`;
 }
 
 export function getPackage(slug: string): PackageOffer | undefined {

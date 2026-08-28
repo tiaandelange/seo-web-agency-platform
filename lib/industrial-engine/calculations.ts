@@ -7,6 +7,7 @@ import {
 } from './constants';
 import { presetForInputs } from './presets';
 import type { ComplexityLevel, DerivedCommercial, EngineInputs, UrgencyLevel } from './types';
+import { formatZar } from '@/lib/format-zar';
 
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
@@ -116,14 +117,8 @@ export function deriveCommercial(inputs: EngineInputs, runId: number): DerivedCo
   };
 }
 
-const zarFormatter = new Intl.NumberFormat('en-ZA', {
-  style: 'currency',
-  currency: 'ZAR',
-  maximumFractionDigits: 0,
-});
-
 export function formatCurrency(value: number): string {
-  return zarFormatter.format(Math.round(value));
+  return formatZar(Math.round(value));
 }
 
 export function riskClassification(score: number): string {

@@ -6,6 +6,7 @@ import {
   getPackage,
 } from '@/data/packages';
 import { HomeSection } from '@/components/home/home-section';
+import { formatZarOnceOff } from '@/lib/format-zar';
 
 /**
  * Plain-language price answer after the enquiry preview — not a second hero.
@@ -61,7 +62,7 @@ export function HomePriceStrip() {
         ))}
       </dl>
       <p className="mt-4 text-sm text-muted">
-        SEO audits from R2,950 once-off. Catalogues, ecommerce and monthly Search Care are on the
+        SEO audits from {formatZarOnceOff(2950)}. Catalogues, ecommerce and monthly Search Care are on the
         pricing page.
       </p>
       <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">

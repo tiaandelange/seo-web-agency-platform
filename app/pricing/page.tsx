@@ -10,13 +10,19 @@ import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
 import { webPageSchema } from '@/lib/schema';
-import { packages, customSystemPriceLabel } from '@/data/packages';
-import { SEO_AUDIT_PROJECT_PRICING } from '@/config/seo-audit-product';
+import { packages, customSystemPriceLabel, formatPackageIndicativeRange } from '@/data/packages';
+import { SEO_AUDIT_PROJECT_PRICING, seoAuditTierPriceLabel } from '@/config/seo-audit-product';
+import {
+  formatZar,
+  formatZarIndicativeRange,
+  formatZarMonthly,
+  formatZarOnceOff,
+  formatZarRange,
+} from '@/lib/format-zar';
 
 const PATH = '/pricing/';
 const TITLE = 'Website Prices South Africa';
-const DESCRIPTION =
-  'Website prices in South Africa, published openly: packages from R4,500, SEO audits from R2,950, Search Care R3,950/mo. Ranges indicative; quote after scoping.';
+const DESCRIPTION = `Website prices in South Africa, published openly: packages from ${formatZar(4500)}, SEO audits from ${formatZar(2950)}, Search Care ${formatZarMonthly(3950)}. Ranges indicative; quote after scoping.`;
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -27,12 +33,12 @@ const PRICING_FAQS = [
       'Because honest fixed prices require scope, and scope requires a conversation. The ranges bound your budgeting; the scoping call converts your specifics into a fixed, itemised quote — which is the binding number.',
   },
   {
-    question: 'Why are you more expensive than R3,000 package sites?',
+    question: `Why are you more expensive than ${formatZar(3000)} package sites?`,
     answer:
       'Different product. Volume packages optimise for launching fast; our builds start with search research and architecture, which is skilled time. If a template site genuinely fits your situation, our custom-vs-template comparison says so openly.',
   },
   {
-    question: 'Why is ecommerce from around R45,000 when WooCommerce shops look cheaper?',
+    question: `Why is ecommerce from around ${formatZar(45000)} when WooCommerce shops look cheaper?`,
     answer:
       'Theme and quick store installs usually price a look and a launch. Our indicative ecommerce band prices search-first product architecture, South African payment and delivery wiring, and purchase-funnel measurement from day one. If a theme store genuinely fits, we will say so — and may steer you to a catalogue or simpler package instead of forcing checkout.',
   },
@@ -58,7 +64,7 @@ export default function PricingPage() {
         motif
         eyebrow="Pricing"
         title="Website prices in South Africa"
-        description="Published openly: packages from R4,500, SEO audits from R2,950, monthly Search Care at R3,950. Ranges are indicative; every project gets a fixed, itemised quote after one scoping conversation — the quote is the binding number."
+        description={`Published openly: packages from ${formatZar(4500)}, SEO audits from ${formatZar(2950)}, monthly Search Care at ${formatZar(3950)}. Ranges are indicative; every project gets a fixed, itemised quote after one scoping conversation — the quote is the binding number.`}
         aside={
           <div className="rounded-card border border-white/15 bg-ink/40 p-5 shadow-card">
             <p className="text-label text-cta">Binding number</p>
@@ -75,30 +81,30 @@ export default function PricingPage() {
           and measurement setup with capped scope.
         </p>
         <div className="grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
+          <article className="pricing-offer-card rounded-card border border-line bg-canvas p-6 shadow-card">
             <h3 className="text-card-title text-ink">
               <Link href="/seo-audit/" className="hover:underline">
                 SEO Audit &amp; Priority Fix Pack
               </Link>
             </h3>
-            <p className="mt-2 text-base font-medium text-ink">R2,950 once-off</p>
+            <p className="mt-2 text-base font-medium text-ink">{seoAuditTierPriceLabel('priority-fix')}</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Up to 10 pages · five fixes or 90 minutes · 30-day plan · five business days after
               access. Not for ecommerce/multilingual sites.
             </p>
             <p className="mt-4">
-              <Link href="/seo-audit/#eligibility" className="text-sm font-semibold text-link underline">
+              <Link href="/seo-audit/#eligibility" className="pricing-offer-cta text-sm font-semibold text-link underline">
                 Check eligibility
               </Link>
             </p>
           </article>
-          <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
+          <article className="pricing-offer-card rounded-card border border-line bg-canvas p-6 shadow-card">
             <h3 className="text-card-title text-ink">
               <Link href="/seo-audit/advanced/" className="hover:underline">
                 Advanced SEO Audit &amp; Implementation Roadmap
               </Link>
             </h3>
-            <p className="mt-2 text-base font-medium text-ink">R8,500 once-off</p>
+            <p className="mt-2 text-base font-medium text-ink">{seoAuditTierPriceLabel('advanced')}</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Up to 250 crawlable URLs · architecture/content/competitors · eight fixes or two hours
               · 90-day roadmap · 7–10 business days after access.
@@ -106,19 +112,19 @@ export default function PricingPage() {
             <p className="mt-4">
               <Link
                 href="/seo-audit/advanced/#eligibility"
-                className="text-sm font-semibold text-link underline"
+                className="pricing-offer-cta text-sm font-semibold text-link underline"
               >
                 Check eligibility
               </Link>
             </p>
           </article>
-          <article className="rounded-card border border-line bg-canvas p-6 shadow-card">
+          <article className="pricing-offer-card rounded-card border border-line bg-canvas p-6 shadow-card">
             <h3 className="text-card-title text-ink">
               <Link href="/services/analytics-and-conversion-tracking/" className="hover:underline">
                 Analytics &amp; Conversion Tracking Setup
               </Link>
             </h3>
-            <p className="mt-2 text-base font-medium text-ink">R2,950 once-off</p>
+            <p className="mt-2 text-base font-medium text-ink">{seoAuditTierPriceLabel('priority-fix')}</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               GA4 + Tag Manager + conversion events · POPIA / Consent Mode v2 · Looker Studio
               dashboard · for sites we did not build.
@@ -126,7 +132,7 @@ export default function PricingPage() {
             <p className="mt-4">
               <Link
                 href="/request-a-quote/?type=analytics-setup"
-                className="text-sm font-semibold text-link underline"
+                className="pricing-offer-cta text-sm font-semibold text-link underline"
               >
                 Request analytics setup
               </Link>
@@ -162,7 +168,7 @@ export default function PricingPage() {
                   </th>
                   <td className="py-3 pr-4 text-muted">
                     {pkg.priceRange
-                      ? `R${pkg.priceRange.min.toLocaleString('en-ZA')} – R${pkg.priceRange.max.toLocaleString('en-ZA')} (indicative)`
+                      ? formatPackageIndicativeRange(pkg.priceRange.min, pkg.priceRange.max)
                       : customSystemPriceLabel()}
                   </td>
                   <td className="py-3 text-muted">{pkg.timeline}</td>
@@ -175,8 +181,10 @@ export default function PricingPage() {
                   </Link>
                 </th>
                 <td className="py-3 pr-4 text-muted">
-                  R{SEO_AUDIT_PROJECT_PRICING.priceRange.min.toLocaleString('en-ZA')} – R
-                  {SEO_AUDIT_PROJECT_PRICING.priceRange.max.toLocaleString('en-ZA')} (indicative)
+                  {formatZarIndicativeRange(
+                    SEO_AUDIT_PROJECT_PRICING.priceRange.min,
+                    SEO_AUDIT_PROJECT_PRICING.priceRange.max,
+                  )}
                 </td>
                 <td className="py-3 text-muted">{SEO_AUDIT_PROJECT_PRICING.timeline}</td>
               </tr>
@@ -184,8 +192,8 @@ export default function PricingPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm text-muted">
-          Out-of-plan hourly work: indicative R650–R950 per hour. Support plans: indicative
-          R850–R8,000 per month by tier — detailed on the{' '}
+          Out-of-plan hourly work: indicative {formatZarRange(650, 950)} per hour. Support plans: indicative{' '}
+          {formatZarRange(850, 8000)} per month by tier — detailed on the{' '}
           <Link href="/services/website-maintenance-and-support/" className="text-link underline">
             maintenance and support page
           </Link>
@@ -193,12 +201,12 @@ export default function PricingPage() {
           <Link href="/services/analytics-and-conversion-tracking/" className="text-link underline">
             Measurement &amp; Reporting
           </Link>{' '}
-          add-on: R1,250/mo (monthly conversion reporting + dashboard), stackable on any support
+          add-on: {formatZarMonthly(1250)} (monthly conversion reporting + dashboard), stackable on any support
           plan.{' '}
           <Link href="/services/search-care/" className="text-link underline">
             Search Care
           </Link>
-          : R3,950/mo (capped technical and on-page fixes plus reporting — no ranking guarantees).
+          : {formatZarMonthly(3950)} (capped technical and on-page fixes plus reporting — no ranking guarantees).
           VAT treatment is stated on quotes once registration status is confirmed — ranges here are
           VAT-neutral.
         </p>

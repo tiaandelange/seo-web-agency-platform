@@ -10,6 +10,7 @@ import {
   PROPOSAL_SERVICE_OPTIONS,
   PROPOSAL_TIMELINES,
 } from '@/data/proposal-form';
+import { formatZar } from '@/lib/format-zar';
 
 /**
  * Proposal / contact form — progressive enhancement via useActionState.
@@ -189,7 +190,7 @@ export function QuoteForm({
                 className="proposal-audit-notice proposal-audit-notice--basic mt-3 hidden rounded-card border border-notice-border bg-notice p-3 text-sm text-ink"
                 role="status"
               >
-                This service has a fixed price of R2,950.{' '}
+                This service has a fixed price of {formatZar(2950)}.{' '}
                 <Link href="/seo-audit/" className="font-semibold text-link underline">
                   View the package and check eligibility
                 </Link>
@@ -199,7 +200,7 @@ export function QuoteForm({
                 className="proposal-audit-notice proposal-audit-notice--advanced mt-3 hidden rounded-card border border-notice-border bg-notice p-3 text-sm text-ink"
                 role="status"
               >
-                This service has a fixed price of R8,500 for eligible websites.{' '}
+                This service has a fixed price of {formatZar(8500)} for eligible websites.{' '}
                 <Link href="/seo-audit/advanced/" className="font-semibold text-link underline">
                   View the advanced audit
                 </Link>

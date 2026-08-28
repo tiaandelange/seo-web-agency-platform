@@ -1,4 +1,11 @@
 import type { Service } from '@/types/content';
+import { CUSTOM_SYSTEM_FROM_ZAR } from '@/data/packages';
+import {
+  formatZar,
+  formatZarMonthly,
+  formatZarOnceOff,
+  formatZarRange,
+} from '@/lib/format-zar';
 
 /**
  * The live services catalogue. One page per commercial search intent —
@@ -190,7 +197,7 @@ export const services: Service[] = [
     title: 'Ecommerce Website Development',
     seoTitle: 'Ecommerce Website Development South Africa',
     metaDescription:
-      'SA ecommerce: search-first product architecture, local gateways, mobile checkout and purchase tracking. Indicative from R45,000 — not a theme shop.',
+      `SA ecommerce: search-first product architecture, local gateways, mobile checkout and purchase tracking. Indicative from ${formatZar(45000)} — not a theme shop.`,
     heading: 'Ecommerce website development',
     intro:
       'An online store succeeds when products get found, pages load fast on mobile, checkout completes with South African payment methods, and you can see where revenue drops. We build for those four jobs — architecture, SA payments, fulfilment fit and measurement — not for the cheapest theme launch.',
@@ -234,7 +241,7 @@ export const services: Service[] = [
         group: 'cost',
       },
       {
-        question: 'What does the indicative R45,000–R110,000 band actually cover?',
+        question: `What does the indicative ${formatZarRange(45000, 110000)} band actually cover?`,
         answer:
           'Search-structured categories and products, a mobile-tuned cart and checkout, an SA payment gateway chosen at scoping, delivery and order messaging that matches how you fulfil, and GA4 ecommerce events so purchase funnels are readable. Marketplace feeds, ERP sync and large-range photography stay out of scope until quoted. Fixed quote after scoping — the range is for budgeting, not a menu price.',
         group: 'cost',
@@ -288,7 +295,7 @@ export const services: Service[] = [
       {
         question: 'What does a custom web application cost?',
         answer:
-          'Meaningful systems typically start around R65,000, with discovery quoted separately so you get a specification and honest number before committing to the build. Anyone quoting a fixed price for unscoped custom software is guessing with your money — our indicative ranges are published on the pricing page.',
+          `Meaningful systems typically start around ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)}, with discovery quoted separately so you get a specification and honest number before committing to the build. Anyone quoting a fixed price for unscoped custom software is guessing with your money — our indicative ranges are published on the pricing page.`,
         group: 'cost',
       },
       {
@@ -579,7 +586,7 @@ export const services: Service[] = [
       {
         question: 'Do we still need monthly SEO after the build?',
         answer:
-          'The build gets the foundation right, which is where most sites fail. After that, growth comes from content against the keyword map and from Search Console-driven improvements. For capped monthly technical care and reporting without a growth campaign, see Search Care (R3,950/mo) or Measurement & Reporting (R1,250/mo) — never a forced ranking-promise subscription.',
+          `The build gets the foundation right, which is where most sites fail. After that, growth comes from content against the keyword map and from Search Console-driven improvements. For capped monthly technical care and reporting without a growth campaign, see Search Care (${formatZarMonthly(3950)}) or Measurement & Reporting (${formatZarMonthly(1250)}) — never a forced ranking-promise subscription.`,
         group: 'support',
       },
     ],
@@ -603,11 +610,11 @@ export const services: Service[] = [
     title: 'Analytics & Conversion Tracking Setup',
     seoTitle: 'GA4 & Conversion Tracking South Africa',
     metaDescription:
-      'GA4, Google Tag Manager and conversion tracking set up properly and POPIA-compliant so you measure calls, WhatsApp and forms. Once-off R2,950. South Africa.',
+      `GA4, Google Tag Manager and conversion tracking set up properly and POPIA-compliant so you measure calls, WhatsApp and forms. Once-off ${formatZar(2950)}. South Africa.`,
     heading: 'Analytics & conversion tracking setup',
     intro:
-      'Measurement done to a senior standard: not merely installing GA4, but tracking the enquiries that matter — calls, WhatsApp and form submissions — with Consent Mode v2 configured for POPIA so the numbers can be trusted. Available as a once-off setup (R2,950) for sites we did not build, and included in every Koppie website build.',
-    summary: 'Once-off R2,950: GA4, Tag Manager and conversion events set up properly for POPIA.',
+      `Measurement done to a senior standard: not merely installing GA4, but tracking the enquiries that matter — calls, WhatsApp and form submissions — with Consent Mode v2 configured for POPIA so the numbers can be trusted. Available as a once-off setup (${formatZar(2950)}) for sites we did not build, and included in every Koppie website build.`,
+    summary: `${formatZarOnceOff(2950)}: GA4, Tag Manager and conversion events set up properly for POPIA.`,
     status: 'live',
     dateCreated: '2026-07-23',
     dateUpdated: '2026-07-23',
@@ -630,7 +637,7 @@ export const services: Service[] = [
       'Full handover — you own the accounts, tags and configuration',
     ],
     exclusions: [
-      'Ongoing reporting and optimisation (Measurement & Reporting R1,250/mo on a support plan, or Search Care R3,950/mo)',
+      `Ongoing reporting and optimisation (Measurement & Reporting ${formatZarMonthly(1250)} on a support plan, or Search Care ${formatZarMonthly(3950)})`,
       'Paid-ads management and media buying',
       'BigQuery warehousing and custom data pipelines',
       'Historical Universal Analytics data recovery',
@@ -657,7 +664,7 @@ export const services: Service[] = [
       {
         question: 'Can you set this up on a site you did not build?',
         answer:
-          'Yes. The once-off R2,950 setup is designed for existing sites — including those built elsewhere — provided we can access the site or Tag Manager and create or use your Google accounts. Every new Koppie build includes this measurement setup as part of the project.',
+          `Yes. The once-off ${formatZar(2950)} setup is designed for existing sites — including those built elsewhere — provided we can access the site or Tag Manager and create or use your Google accounts. Every new Koppie build includes this measurement setup as part of the project.`,
         group: 'process',
       },
     ],
@@ -701,7 +708,7 @@ export const services: Service[] = [
       'Uptime and form monitoring with proactive fixes',
       'Monthly change time for content and small improvements',
       'Search Console review and plain-language monthly reporting (plan-dependent)',
-      'Optional Measurement & Reporting add-on (R1,250/mo): monthly conversion reporting, Looker Studio dashboard upkeep and a plain-English insight readout',
+      `Optional Measurement & Reporting add-on (${formatZarMonthly(1250)}): monthly conversion reporting, Looker Studio dashboard upkeep and a plain-English insight readout`,
       'Priority response targets on business and ecommerce plans',
       'Quarterly improvement recommendations from real usage data',
     ],
@@ -726,7 +733,7 @@ export const services: Service[] = [
       {
         question: 'Can you report on my results each month?',
         answer:
-          'Yes — via the optional Measurement & Reporting add-on (R1,250/mo), stackable on any support plan. It builds on the once-off Analytics & Conversion Tracking Setup: we keep GA4 and Consent Mode v2 configuration healthy, maintain the Looker Studio dashboard, and turn the numbers into a plain-English monthly readout you can act on. For capped technical and on-page search work, see Search Care at R3,950/mo. Month-to-month, no lock-in.',
+          `Yes — via the optional Measurement & Reporting add-on (${formatZarMonthly(1250)}), stackable on any support plan. It builds on the once-off Analytics & Conversion Tracking Setup: we keep GA4 and Consent Mode v2 configuration healthy, maintain the Looker Studio dashboard, and turn the numbers into a plain-English monthly readout you can act on. For capped technical and on-page search work, see Search Care at ${formatZarMonthly(3950)}. Month-to-month, no lock-in.`,
         group: 'support',
       },
     ],
@@ -750,11 +757,11 @@ export const services: Service[] = [
     title: 'Search Care',
     seoTitle: 'Search Care South Africa — Monthly SEO Health',
     metaDescription:
-      'Monthly Search Care for South African sites: Search Console and GA4 review, capped on-page fixes, plain reporting. R3,950/mo. No ranking guarantees.',
+      `Monthly Search Care for South African sites: Search Console and GA4 review, capped on-page fixes, plain reporting. ${formatZarMonthly(3950)}. No ranking guarantees.`,
     heading: 'Search Care — monthly search health',
     intro:
       'A fixed monthly search-health retainer for businesses that want ongoing technical and on-page care with honest reporting — not a content mill, link-building campaign or ranking promise. You get capped implementation time, Search Console and GA4 review, and a plain-English readout each month.',
-    summary: 'R3,950/mo: capped SEO fixes, Search Console care and clear reporting — no ranking guarantees.',
+    summary: `${formatZarMonthly(3950)}: capped SEO fixes, Search Console care and clear reporting — no ranking guarantees.`,
     status: 'live',
     dateCreated: '2026-08-11',
     dateUpdated: '2026-08-11',
@@ -790,13 +797,13 @@ export const services: Service[] = [
       {
         question: 'Do I need the Analytics & Conversion Tracking Setup first?',
         answer:
-          'If tracking is already healthy, we build on it. If not, the once-off Analytics & Conversion Tracking Setup (R2,950) gets GA4, Tag Manager and conversion events in place first — or we include that as a prerequisite quote.',
+          `If tracking is already healthy, we build on it. If not, the once-off Analytics & Conversion Tracking Setup (${formatZar(2950)}) gets GA4, Tag Manager and conversion events in place first — or we include that as a prerequisite quote.`,
         group: 'process',
       },
       {
         question: 'What does Search Care cost?',
         answer:
-          'R3,950 per month, month-to-month. Measurement & Reporting alone is R1,250/mo if you only need dashboard and conversion reporting without implementation hours.',
+          `${formatZar(3950)} per month, month-to-month. Measurement & Reporting alone is ${formatZarMonthly(1250)} if you only need dashboard and conversion reporting without implementation hours.`,
         group: 'cost',
       },
       {

@@ -1,4 +1,5 @@
 import { brand } from '@/config/brand';
+import { formatZar, formatZarOnceOff } from '@/lib/format-zar';
 
 /**
  * Two-tier SEO audit products (D-30 / D-31).
@@ -70,7 +71,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
       'A focused SEO audit for small South African business websites, including a prioritised action plan and implementation of selected high-impact fixes.',
     seoTitle: 'SEO Audit South Africa',
     metaDescription:
-      'Compare once-off SEO audits for South African websites: R2,950 priority fixes for small sites, or R8,500 advanced technical and content audits.',
+      `Compare once-off SEO audits for South African websites: ${formatZar(2950)} priority fixes for small sites, or ${formatZar(8500)} advanced technical and content audits.`,
     heading: 'SEO Audits with Priority Fixes — Clear Scope, Once-Off Price',
     supportingStatement:
       'Choose a focused audit for a small business website, or a comprehensive technical and content audit for larger, ecommerce and catalogue sites — without a monthly retainer.',
@@ -111,7 +112,7 @@ export const SEO_AUDIT_PRODUCTS: Record<SeoAuditProductId, SeoAuditProduct> = {
       'Find the structural, technical and content problems affecting a larger website, understand what should be fixed first, and receive a prioritised 90-day implementation roadmap.',
     seoTitle: 'Advanced SEO Audit South Africa',
     metaDescription:
-      'Comprehensive technical, content and website-architecture SEO audit for larger websites. Includes priority fixes and a 90-day roadmap for R8,500.',
+      `Comprehensive technical, content and website-architecture SEO audit for larger websites. Includes priority fixes and a 90-day roadmap for ${formatZar(8500)}.`,
     heading: 'Advanced SEO Audit for Larger and More Complex Websites',
     supportingStatement:
       'Get a detailed assessment of your website’s technical foundation, indexation, architecture, content and organic-search opportunities, followed by a prioritised 90-day implementation roadmap.',
@@ -158,10 +159,6 @@ function parsePrice(raw: string | undefined, fallback: number): number {
   if (!raw) return fallback;
   const n = Number.parseInt(raw, 10);
   return Number.isFinite(n) && n > 0 ? n : fallback;
-}
-
-function formatAmount(amount: number): string {
-  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export function getSeoAuditProduct(id: SeoAuditProductId): SeoAuditProduct {
@@ -211,12 +208,12 @@ export function isSeoAuditTierCheckoutConfigured(id: SeoAuditProductId): boolean
 }
 
 export function seoAuditTierPriceLabel(id: SeoAuditProductId): string {
-  const amount = formatAmount(seoAuditTierPriceZar(id));
+  const label = formatZarOnceOff(seoAuditTierPriceZar(id));
   if (!brand.vat.registered) {
-    return `R${amount} once-off`;
+    return label;
   }
   const vatBit = brand.vat.number ? ` incl. VAT (${brand.vat.number})` : ' incl. VAT';
-  return `R${amount} once-off${vatBit}`;
+  return `${label}${vatBit}`;
 }
 
 export function seoAuditTierPrimaryCtaLabel(id: SeoAuditProductId): string {
@@ -242,7 +239,7 @@ export function seoAuditTierPrimaryCtaExternal(id: SeoAuditProductId): boolean {
 
 /** Comparison rows for the hub (mobile-friendly cards use the same source). */
 export const SEO_AUDIT_COMPARISON_ROWS: { feature: string; basic: string; advanced: string }[] = [
-  { feature: 'Price', basic: 'R2,950 once-off', advanced: 'R8,500 once-off' },
+  { feature: 'Price', basic: formatZarOnceOff(2950), advanced: formatZarOnceOff(8500) },
   { feature: 'Recommended website size', basic: 'Up to 10 pages', advanced: 'Up to 250 crawlable URLs' },
   { feature: 'Manual page review', basic: 'Up to 10 pages', advanced: 'Up to 25 priority pages' },
   { feature: 'Technical crawl', basic: 'Focused', advanced: 'Comprehensive' },

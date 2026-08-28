@@ -21,6 +21,10 @@ import { sendContactSubmission } from '../lib/email/send-contact-emails';
 import { sendProposalSubmission } from '../lib/email/send-proposal-emails';
 import { OPTIONAL_NOT_SUPPLIED, OPTIONAL_NOT_SPECIFIED } from '../lib/email/types';
 import { deliverLead } from '../lib/lead-delivery';
+import {
+  PROPOSAL_BUDGET_BAND_10_20,
+  PROPOSAL_BUDGET_BAND_20_40,
+} from '../data/proposal-form';
 
 function stubFullResendTemplates() {
   vi.stubEnv('LEAD_DELIVERY_PROVIDER', 'resend');
@@ -240,7 +244,7 @@ describe('contact and proposal template sends', () => {
       name: 'Ada',
       email: 'ada@example.com',
       serviceInterest: 'seo-website-development',
-      budgetBand: 'R20,000–R40,000',
+      budgetBand: PROPOSAL_BUDGET_BAND_20_40,
       timeline: 'Within 1–2 months',
       websiteUrl: '',
       message: 'Build a site',
@@ -296,7 +300,7 @@ describe('contact and proposal template sends', () => {
       company: '',
       websiteUrl: '',
       serviceInterest: 'ecommerce-websites',
-      budgetBand: 'R10,000–R20,000',
+      budgetBand: PROPOSAL_BUDGET_BAND_10_20,
       timeline: 'Just researching',
       message: 'Need a store',
       consent: true,

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { packages } from '@/data/packages';
+import { packages, formatPackageIndicativeRange } from '@/data/packages';
 import { HomeSection } from '@/components/home/home-section';
 
 const FEATURED = packages.find((p) => p.slug === 'professional-business-website');
@@ -23,8 +23,7 @@ export function HomePackagesFocus() {
           <p className="mt-3 max-w-prose leading-relaxed text-muted">{FEATURED.intro}</p>
           {FEATURED.priceRange && (
             <p className="mt-4 text-base font-semibold text-ink">
-              Indicative R{FEATURED.priceRange.min.toLocaleString('en-ZA')} – R
-              {FEATURED.priceRange.max.toLocaleString('en-ZA')}
+              Indicative {formatPackageIndicativeRange(FEATURED.priceRange.min, FEATURED.priceRange.max)}
             </p>
           )}
           <Link

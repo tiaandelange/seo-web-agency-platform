@@ -1,4 +1,11 @@
 import type { Article, ResourceCategory, ResourceCategoryInfo } from '@/types/content';
+import { CUSTOM_SYSTEM_FROM_ZAR } from '@/data/packages';
+import {
+  formatZar,
+  formatZarMonthly,
+  formatZarOnceOff,
+  formatZarRange,
+} from '@/lib/format-zar';
 
 /**
  * Resource categories. `ecommerce-guides` and `business-systems` are planned
@@ -64,7 +71,7 @@ export const articles: Article[] = [
     title: 'How Much Does a Website Cost in South Africa?',
     seoTitle: 'Website Cost in South Africa (2026)',
     metaDescription:
-      'Website costs in South Africa in 2026: market bands from R2,000 templates to R160,000+ builds, what moves price, and our indicative ranges from R4,500.',
+      `Website costs in South Africa in 2026: market bands from R2,000 templates to R160,000+ builds, what moves price, and our indicative ranges from ${formatZar(4500)}.`,
     heading: 'How much does a website cost in South Africa?',
     intro:
       'Quotes for “a website” in South Africa range from under R2,000 to well over R200,000 — and both ends can be rational. This guide explains the market’s real 2026 price bands, what actually moves the price, and how to decide where your business should sit.',
@@ -111,7 +118,7 @@ export const articles: Article[] = [
       {
         heading: 'Koppie Systems published indicative ranges',
         paragraphs: [
-          'Our published ladder (indicative until quoted) sits inside the professional market, above the template floor: one-page sites R4,500–R8,500; starter business websites R9,500–R18,000; professional lead-generation sites R22,000–R45,000; product catalogues R35,000–R70,000; ecommerce R45,000–R110,000; custom systems from R65,000 with paid discovery. Fixed once-off SEO audits start at R2,950. Full tables and what moves each band live on the pricing page.',
+          `Our published ladder (indicative until quoted) sits inside the professional market, above the template floor: one-page sites ${formatZarRange(4500, 8500)}; starter business websites ${formatZarRange(9500, 18000)}; professional lead-generation sites ${formatZarRange(22000, 45000)}; product catalogues ${formatZarRange(35000, 70000)}; ecommerce ${formatZarRange(45000, 110000)}; custom systems from ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)} with paid discovery. Fixed once-off SEO audits start at ${formatZar(2950)}. Full tables and what moves each band live on the pricing page.`,
           'We use ranges because honest fixed prices need scope. Scoping converts your page list and features into a fixed itemised quote — that quote is the binding number.',
         ],
       },
@@ -231,7 +238,7 @@ export const articles: Article[] = [
     title: 'What Does SEO Cost in South Africa (2026)?',
     seoTitle: 'SEO Cost South Africa (2026)',
     metaDescription:
-      'What SEO costs in South Africa in 2026: once-off audits, monthly retainers and honest Koppie prices — including Search Care at R3,950/mo. No ranking guarantees.',
+      `What SEO costs in South Africa in 2026: once-off audits, monthly retainers and honest Koppie prices — including Search Care at ${formatZarMonthly(3950)}. No ranking guarantees.`,
     heading: 'What does SEO cost in South Africa in 2026?',
     intro:
       '“What does SEO cost?” is really three questions: once-off diagnosis, monthly care, or a full growth retainer. This guide sets out published 2026 South African market bands, what each model buys, and Koppie Systems’ fixed prices — without ranking promises.',
@@ -270,7 +277,7 @@ export const articles: Article[] = [
       {
         heading: 'Koppie Systems published SEO prices',
         paragraphs: [
-          'We publish fixed once-off and monthly prices so you can budget before a call. SEO Audit & Priority Fix Pack: R2,950 once-off (small sites, capped fixes). Advanced SEO Audit & Implementation Roadmap: R8,500 once-off (larger or catalogue/ecommerce sites within the published limits). Analytics & Conversion Tracking Setup: R2,950 once-off. Measurement & Reporting: R1,250 per month (dashboard and conversion readout). Search Care: R3,950 per month (capped technical and on-page fixes plus reporting).',
+          `We publish fixed once-off and monthly prices so you can budget before a call. SEO Audit & Priority Fix Pack: ${formatZarOnceOff(2950)} (small sites, capped fixes). Advanced SEO Audit & Implementation Roadmap: ${formatZarOnceOff(8500)} (larger or catalogue/ecommerce sites within the published limits). Analytics & Conversion Tracking Setup: ${formatZarOnceOff(2950)}. Measurement & Reporting: ${formatZar(1250)} per month (dashboard and conversion readout). Search Care: ${formatZar(3950)} per month (capped technical and on-page fixes plus reporting).`,
           'We do not sell ranking guarantees, content mills or link-building campaigns. Build and package indicative ranges for websites sit on the pricing page; the website cost guide covers the broader market for builds.',
         ],
       },

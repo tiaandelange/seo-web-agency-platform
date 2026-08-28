@@ -4,6 +4,7 @@ import {
   isSeoAuditTierActive,
   seoAuditTierPriceZar,
 } from '@/config/seo-audit-product';
+import { formatZar } from '@/lib/format-zar';
 import { IconArrow } from '@/components/contact/contact-icons';
 
 const basic = SEO_AUDIT_PRODUCTS['priority-fix'];
@@ -11,10 +12,6 @@ const advanced = SEO_AUDIT_PRODUCTS.advanced;
 const basicActive = isSeoAuditTierActive('priority-fix');
 const advancedActive = isSeoAuditTierActive('advanced');
 const anyAuditActive = basicActive || advancedActive;
-
-function shortZar(amount: number): string {
-  return `R${amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
-}
 
 export function ContactRoutePanel() {
   return (
@@ -65,7 +62,7 @@ export function ContactRoutePanel() {
                     href={basic.route}
                     className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-link underline"
                   >
-                    View the {shortZar(seoAuditTierPriceZar('priority-fix'))} Audit
+                    View the {formatZar(seoAuditTierPriceZar('priority-fix'))} Audit
                     <IconArrow />
                   </Link>
                 )}
@@ -74,7 +71,7 @@ export function ContactRoutePanel() {
                     href={advanced.route}
                     className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-link underline"
                   >
-                    View the {shortZar(seoAuditTierPriceZar('advanced'))} Advanced Audit
+                    View the {formatZar(seoAuditTierPriceZar('advanced'))} Advanced Audit
                     <IconArrow />
                   </Link>
                 )}

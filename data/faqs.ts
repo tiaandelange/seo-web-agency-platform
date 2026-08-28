@@ -1,4 +1,11 @@
 import type { Faq } from '@/types/content';
+import {
+  CUSTOM_SYSTEM_FROM_ZAR,
+} from '@/data/packages';
+import {
+  formatZar,
+  formatZarRange,
+} from '@/lib/format-zar';
 
 /**
  * Sitewide FAQ page content (/faq/). Page-specific FAQs live on their own pages;
@@ -10,7 +17,7 @@ export const faqs: Faq[] = [
     group: 'cost',
     question: 'How much does a website cost?',
     answer:
-      'Our published indicative ranges: one-page sites R4,500–R8,500, starter business websites R9,500–R18,000, professional lead-generation sites R22,000–R45,000, product catalogues R35,000–R70,000, ecommerce R45,000–R110,000, and custom systems from R65,000 with paid discovery first. Every project gets a fixed itemised quote after scoping — the ranges exist so you can budget before we talk. All figures are indicative and confirmed in your quote.',
+      `Our published indicative ranges: one-page sites ${formatZarRange(4500, 8500)}, starter business websites ${formatZarRange(9500, 18000)}, professional lead-generation sites ${formatZarRange(22000, 45000)}, product catalogues ${formatZarRange(35000, 70000)}, ecommerce ${formatZarRange(45000, 110000)}, and custom systems from ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)} with paid discovery first. Every project gets a fixed itemised quote after scoping — the ranges exist so you can budget before we talk. All figures are indicative and confirmed in your quote.`,
   },
   {
     group: 'cost',

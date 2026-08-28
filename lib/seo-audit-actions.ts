@@ -13,6 +13,7 @@ import {
   isSeoAuditTierActive,
   seoAuditTierPriceZar,
 } from '@/config/seo-audit-product';
+import { formatZar, formatZarOnceOff } from '@/lib/format-zar';
 
 /**
  * SEO-audit server actions. This file must only export async functions
@@ -209,7 +210,7 @@ export async function submitSeoAuditIntake(
 
   const price = seoAuditTierPriceZar(tier);
   const message = [
-    `${product.name} intake (R${price})`,
+    `${product.name} intake (${formatZar(price)})`,
     `Tier: ${tier}`,
     `Website: ${websiteUrl}`,
     `Sitemap: ${sitemapUrl || '(none)'}`,
@@ -239,7 +240,7 @@ export async function submitSeoAuditIntake(
     company,
     websiteUrl,
     serviceInterest: product.sku,
-    budgetBand: `R${price} once-off`,
+    budgetBand: formatZarOnceOff(price),
     timeline: product.turnaround,
     message,
     consent: true,

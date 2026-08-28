@@ -5,6 +5,13 @@
  */
 
 import {
+  PROPOSAL_BUDGET_BAND_20_40,
+  PROPOSAL_BUDGET_BAND_40_75,
+  PROPOSAL_BUDGET_BAND_5_10,
+  PROPOSAL_BUDGET_BAND_75_PLUS,
+  PROPOSAL_BUDGET_BAND_UNDER_5K,
+} from '@/data/proposal-form';
+import {
   CUSTOM_SYSTEM_FROM_ZAR,
   formatPackageIndicativeRange,
   formatZar,
@@ -67,7 +74,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'seo-audit-basic',
       headline: 'SEO audit with priority fixes',
       projectValueLabel: `${formatZar(basic)} – ${formatZar(advanced)} (fixed packs)`,
-      budgetHint: 'R5,000–R10,000',
+      budgetHint: PROPOSAL_BUDGET_BAND_5_10,
       items: [
         'Technical and on-page review of the live site (crawl + priority pages)',
         'Prioritised fix list ranked by commercial impact',
@@ -82,7 +89,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'search-care',
       headline: 'Search Care — monthly search health',
       projectValueLabel: `${formatZar(SEARCH_CARE_ZAR)}/mo`,
-      budgetHint: 'Under R5,000',
+      budgetHint: PROPOSAL_BUDGET_BAND_UNDER_5K,
       items: [
         'Monthly Search Console and GA4 health review with plain-English actions',
         'Capped technical and on-page fixes (up to five eligible fixes or two hours)',
@@ -97,7 +104,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'analytics-and-conversion-tracking',
       headline: 'Measurement & Reporting (monthly add-on)',
       projectValueLabel: `${formatZar(MEASUREMENT_REPORTING_ZAR)}/mo`,
-      budgetHint: 'Under R5,000',
+      budgetHint: PROPOSAL_BUDGET_BAND_UNDER_5K,
       items: [
         'Monthly conversion reporting from GA4 events that matter (calls, WhatsApp, forms)',
         'Looker Studio dashboard upkeep after a healthy tracking setup',
@@ -112,7 +119,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'product-catalogue-websites',
       headline: 'Catalogue & RFQ system',
       projectValueLabel: packageRangeLabel('product-catalogue-website'),
-      budgetHint: 'R40,000–R75,000',
+      budgetHint: PROPOSAL_BUDGET_BAND_40_75,
       items: [
         'Searchable product catalogue with category and product SEO pages',
         'RFQ basket so buyers request quotes on selected items',
@@ -127,7 +134,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'ecommerce-websites',
       headline: 'Ecommerce website system',
       projectValueLabel: packageRangeLabel('ecommerce-website'),
-      budgetHint: 'R45,000–R75,000',
+      budgetHint: PROPOSAL_BUDGET_BAND_40_75,
       items: [
         'Search-first category and product architecture (not a theme grid)',
         'Cart and checkout with a South African payment gateway',
@@ -142,7 +149,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'rfq-and-quotation-systems',
       headline: 'Enquiry-to-quote workflow',
       projectValueLabel: `From ${formatZar(CUSTOM_SYSTEM_FROM_ZAR)} (indicative; discovery first)`,
-      budgetHint: 'R75,000+',
+      budgetHint: PROPOSAL_BUDGET_BAND_75_PLUS,
       items: [
         'Public website with qualification forms that feed a structured RFQ',
         'Admin inbox, quotation builder and status tracking',
@@ -157,7 +164,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
       serviceSlug: 'lead-generation-websites',
       headline: 'Lead-generation website system',
       projectValueLabel: starterToProfessionalSpanLabel(),
-      budgetHint: 'R20,000–R40,000',
+      budgetHint: PROPOSAL_BUDGET_BAND_20_40,
       items: [
         'SEO-mapped service and location pages matched to how buyers search',
         'Enquiry forms with call and WhatsApp conversion tracking',
@@ -172,7 +179,7 @@ function resolveSystemShape(inputs: EnquiryInputs): SystemShape {
     serviceSlug: 'website-redesign',
     headline: 'Redesign with search architecture',
     projectValueLabel: packageRangeLabel('professional-business-website'),
-    budgetHint: 'R20,000–R40,000',
+    budgetHint: PROPOSAL_BUDGET_BAND_20_40,
     items: [
       'Audit of current structure, indexation and enquiry pathways',
       'Rebuilt page map aligned to real search demand',

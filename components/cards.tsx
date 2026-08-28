@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Article, Comparison, PackageOffer, Project, Service, Solution } from '@/types/content';
+import { formatPackageIndicativeRange } from '@/data/packages';
 
 /**
  * Card components for hub pages and related-content blocks.
@@ -52,7 +53,7 @@ export function PackageCard({ pkg }: { pkg: PackageOffer }) {
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{pkg.intro}</p>
       <p className="mt-3 text-sm font-medium text-ink">
         {pkg.priceRange
-          ? `Indicative R${pkg.priceRange.min.toLocaleString('en-ZA')} – R${pkg.priceRange.max.toLocaleString('en-ZA')}`
+          ? `Indicative ${formatPackageIndicativeRange(pkg.priceRange.min, pkg.priceRange.max)}`
           : 'Scoped via paid discovery'}
       </p>
     </CardShell>

@@ -22,6 +22,7 @@ import {
   listSeoAuditProducts,
   seoAuditTierPriceZar,
 } from '@/config/seo-audit-product';
+import { formatZar } from '@/lib/format-zar';
 import {
   seoAuditDeliverables,
   seoAuditExclusions,
@@ -64,8 +65,8 @@ export default async function SeoAuditHubPage({
           <div className="rounded-card border border-line bg-surface p-5 shadow-card">
             <p className="text-label text-cta">Two packs</p>
             <p className="mt-2 text-sm text-muted">
-              Priority Fix Pack R{seoAuditTierPriceZar('priority-fix').toLocaleString('en-ZA')} ·
-              Advanced R{seoAuditTierPriceZar('advanced').toLocaleString('en-ZA')}
+              Priority Fix Pack {formatZar(seoAuditTierPriceZar('priority-fix'))} ·
+              Advanced {formatZar(seoAuditTierPriceZar('advanced'))}
             </p>
           </div>
         }

@@ -16,6 +16,8 @@ import { getSolution } from '@/data/solutions';
 import { getArticle } from '@/data/articles';
 import { relatedProjectItems } from '@/lib/project-proof';
 import { getServiceProof } from '@/data/service-proof-map';
+import { formatZar, formatZarOnceOff } from '@/lib/format-zar';
+import { seoAuditTierPriceZar } from '@/config/seo-audit-product';
 import { ServiceProofBlock } from '@/components/services/service-proof-block';
 import { IllustrativeWorkflow } from '@/components/services/illustrative-workflow';
 import { CommerceModelMatrix } from '@/components/services/commerce-model-matrix';
@@ -128,7 +130,7 @@ export function GenericServiceView({ service }: { service: Service }) {
       </Section>
 
       {isAnalyticsSetup ? (
-        <InkBand heading="Once-off setup — R2,950" motif>
+        <InkBand heading={`Once-off setup — ${formatZar(seoAuditTierPriceZar('priority-fix'))}`} motif>
           <p className="max-w-3xl text-lg leading-relaxed text-sandstone">
             Fixed-price conversion tracking setup for existing sites: GA4, Google Tag Manager,
             conversion events for calls, WhatsApp and forms, Consent Mode v2 for POPIA, Search
@@ -194,11 +196,11 @@ export function GenericServiceView({ service }: { service: Service }) {
             <Link href="/seo-audit/" className="text-link underline">
               SEO Audit &amp; Priority Fix Pack
             </Link>{' '}
-            (R2,950). Larger, ecommerce or catalogue sites: the{' '}
+            ({formatZar(seoAuditTierPriceZar('priority-fix'))}). Larger, ecommerce or catalogue sites: the{' '}
             <Link href="/seo-audit/advanced/" className="text-link underline">
               Advanced SEO Audit
             </Link>{' '}
-            (R8,500) with architecture review and a 90-day roadmap.
+            ({formatZar(seoAuditTierPriceZar('advanced'))}) with architecture review and a 90-day roadmap.
           </p>
         </Section>
       )}
@@ -213,7 +215,8 @@ export function GenericServiceView({ service }: { service: Service }) {
         }
         body={
           isAnalyticsSetup
-            ? 'Once-off R2,950 for GA4, Tag Manager and conversion tracking — POPIA-aware, with a Looker Studio dashboard and full handover.'
+            ? formatZarOnceOff(seoAuditTierPriceZar('priority-fix')) +
+              ' for GA4, Tag Manager and conversion tracking — POPIA-aware, with a Looker Studio dashboard and full handover.'
             : undefined
         }
         ctaLabel={

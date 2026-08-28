@@ -10,6 +10,8 @@ import { serviceSchema, webPageSchema } from '@/lib/schema';
 import { getPackage } from '@/data/packages';
 import { getSolution } from '@/data/solutions';
 import { relatedProjectItems } from '@/lib/project-proof';
+import { formatZar } from '@/lib/format-zar';
+import { seoAuditTierPriceZar } from '@/config/seo-audit-product';
 import { getArticle } from '@/data/articles';
 import { Container } from '@/components/layout/container';
 import { TechLabel } from '@/components/systems/tech-label';
@@ -183,7 +185,7 @@ export function EcommerceServiceView({ service }: { service: Service }) {
 
       <Section heading="Pricing and packages" measure="narrow">
         <p className="leading-relaxed text-muted">
-          The indicative ecommerce band (from R45,000) sits above theme and quick store installs
+          The indicative ecommerce band (from {formatZar(45000)}) sits above theme and quick store installs
           because it prices architecture, SA payment and delivery wiring, and purchase measurement —
           not a theme licence. {relatedPackages.length > 0 ? (
             <>
@@ -226,11 +228,11 @@ export function EcommerceServiceView({ service }: { service: Service }) {
           <Link href="/seo-audit/advanced/" className="text-link underline">
             Advanced SEO Audit
           </Link>{' '}
-          (R8,500) with architecture review and a 90-day roadmap. Smaller sites: the{' '}
+          ({formatZar(seoAuditTierPriceZar('advanced'))}) with architecture review and a 90-day roadmap. Smaller sites: the{' '}
           <Link href="/seo-audit/" className="text-link underline">
             SEO Audit &amp; Priority Fix Pack
           </Link>{' '}
-          (R2,950).
+          ({formatZar(seoAuditTierPriceZar('priority-fix'))}).
         </p>
       </Section>
 

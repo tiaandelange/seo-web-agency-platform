@@ -2,6 +2,11 @@
  * Curated proposal-form service options — labels for buyers, values for lead routing.
  * Includes fixed-price SEO audit products alongside build services.
  */
+import {
+  formatZarPlus,
+  formatZarRange,
+  formatZarUnder,
+} from '@/lib/format-zar';
 
 export const PROPOSAL_SERVICE_OPTIONS = [
   { value: 'seo-website-development', label: 'SEO-first business website' },
@@ -20,13 +25,21 @@ export const PROPOSAL_SERVICE_OPTIONS = [
   { value: 'not-sure', label: 'Not sure—please advise' },
 ] as const;
 
+/** Shared with enquiry recommender — must stay identical to select option values. */
+export const PROPOSAL_BUDGET_BAND_UNDER_5K = formatZarUnder(5000);
+export const PROPOSAL_BUDGET_BAND_5_10 = formatZarRange(5000, 10000);
+export const PROPOSAL_BUDGET_BAND_10_20 = formatZarRange(10000, 20000);
+export const PROPOSAL_BUDGET_BAND_20_40 = formatZarRange(20000, 40000);
+export const PROPOSAL_BUDGET_BAND_40_75 = formatZarRange(40000, 75000);
+export const PROPOSAL_BUDGET_BAND_75_PLUS = formatZarPlus(75000);
+
 export const PROPOSAL_BUDGET_BANDS = [
-  'Under R5,000',
-  'R5,000–R10,000',
-  'R10,000–R20,000',
-  'R20,000–R40,000',
-  'R40,000–R75,000',
-  'R75,000+',
+  PROPOSAL_BUDGET_BAND_UNDER_5K,
+  PROPOSAL_BUDGET_BAND_5_10,
+  PROPOSAL_BUDGET_BAND_10_20,
+  PROPOSAL_BUDGET_BAND_20_40,
+  PROPOSAL_BUDGET_BAND_40_75,
+  PROPOSAL_BUDGET_BAND_75_PLUS,
   'Not sure—please advise',
 ] as const;
 

@@ -20,6 +20,7 @@ import {
   seoAuditTierPriceLabel,
   seoAuditTierPriceZar,
 } from '@/config/seo-audit-product';
+import { formatZar } from '@/lib/format-zar';
 import {
   advancedComplexityBlocks,
   advancedCustomerMustSupply,
@@ -227,7 +228,7 @@ export default async function AdvancedSeoAuditPage({
           <Link href={SEO_AUDIT_HUB_PATH} className="text-cta underline">
             SEO Audit &amp; Priority Fix Pack
           </Link>{' '}
-          at R2,950. Use this advanced page when architecture, ecommerce, catalogues or scale demand
+          at {formatZar(seoAuditTierPriceZar('priority-fix'))}. Use this advanced page when architecture, ecommerce, catalogues or scale demand
           a deeper roadmap.
         </p>
       </InkBand>

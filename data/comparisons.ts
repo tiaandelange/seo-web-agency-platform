@@ -1,4 +1,6 @@
 import type { Comparison } from '@/types/content';
+import { CUSTOM_SYSTEM_FROM_ZAR } from '@/data/packages';
+import { formatZar, formatZarRange } from '@/lib/format-zar';
 
 /** Decision-stage comparison pages. Fairness rule: no strawmen (see prompt 09). */
 export const comparisons: Comparison[] = [
@@ -95,7 +97,7 @@ export const comparisons: Comparison[] = [
     criteria: [
       { name: 'Core job', aNote: 'Be found, build trust, generate enquiries', bNote: 'Run a process: capture, workflow, records, roles' },
       { name: 'Users', aNote: 'The public and your prospects', bNote: 'Logged-in staff, customers or suppliers' },
-      { name: 'Typical SA cost', aNote: 'R9,500–R70,000 depending on scope', bNote: 'R65,000+ with paid discovery first' },
+      { name: 'Typical SA cost', aNote: `${formatZarRange(9500, 70000)} depending on scope`, bNote: `${formatZar(CUSTOM_SYSTEM_FROM_ZAR)}+ with paid discovery first` },
       { name: 'Success metric', aNote: 'Enquiries, quote requests, calls', bNote: 'Hours saved, errors removed, visibility gained' },
       { name: 'SEO relevance', aNote: 'Central — the site exists to be found', bNote: 'Minimal — applications sit behind logins' },
       { name: 'Failure mode', aNote: 'Built pretty, found never', bNote: 'Built big, adopted never' },
@@ -129,7 +131,7 @@ export const comparisons: Comparison[] = [
     dateCreated: '2026-07-21',
     dateUpdated: '2026-07-21',
     criteria: [
-      { name: 'Monthly cost', aNote: 'Predictable: indicative R850–R8,000 by plan tier in SA', bNote: 'R0 until something breaks; then hourly at R650–R950+' },
+      { name: 'Monthly cost', aNote: `Predictable: indicative ${formatZarRange(850, 8000)} by plan tier in SA`, bNote: `R0 until something breaks; then hourly at ${formatZarRange(650, 950)}+` },
       { name: 'Response when things break', aNote: 'Priority targets; provider already knows the build', bNote: 'Queue position and re-learning time billed to you' },
       { name: 'Silent failures (forms, SSL, backups)', aNote: 'Monitored — caught before customers notice', bNote: 'Discovered by a customer, eventually' },
       { name: 'Software updates', aNote: 'Tested and applied routinely', bNote: 'Deferred until forced — the riskiest pattern' },
