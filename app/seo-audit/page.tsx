@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/routes';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { PageHero } from '@/components/layout/page-hero';
 import { Section, BulletList } from '@/components/section';
@@ -10,7 +9,7 @@ import { CardGrid, InfoCard } from '@/components/cards';
 import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
-import { breadcrumbSchema, seoAuditServiceSchema, webPageSchema } from '@/lib/schema';
+import { seoAuditServiceSchema, webPageSchema } from '@/lib/schema';
 import { SeoAuditComparison, SeoAuditTierCta } from '@/components/seo-audit-cta';
 import { SeoAuditEligibilityForm } from '@/components/seo-audit-eligibility-form';
 import {
@@ -229,7 +228,6 @@ export default async function SeoAuditHubPage({
       <JsonLd
         data={[
           webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION }),
-          breadcrumbSchema(getBreadcrumbs(PATH)),
           ...listSeoAuditProducts()
             .filter((p) => p.id === 'priority-fix' || isSeoAuditTierActive(p.id))
             .map((p) =>

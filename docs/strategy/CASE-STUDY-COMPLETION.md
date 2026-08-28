@@ -56,7 +56,7 @@ Neither source repository was modified.
 Publication gate passed for both; category pages `/projects/websites/` and `/projects/admin-systems/` are also indexable.
 
 ## Indexing decision
-Owner approved indexing 2026-07-23 (D-43). Route totals **66 / 57 indexable / 9 noindex**.
+Owner approved indexing 2026-07-23 (D-43). Route totals were **66 / 57 / 9** at D-43; current registry **68 / 59 / 9**.
 
 ## Internal links
 - Damtech already linked from business websites, lead-gen, SEO, contractors; **added** to RFQ & quotation systems
@@ -66,7 +66,7 @@ Owner approved indexing 2026-07-23 (D-43). Route totals **66 / 57 indexable / 9 
 
 | Check | Result |
 |---|---|
-| `npm run validate:seo` | Pass — 66 / 57 / 9 (after D-43) |
+| `npm run validate:seo` | Pass — 68 / 59 / 9 (current registry) |
 
 ## Remaining owner approvals
 1. Optional: approve additional safe feature screenshots beyond marketing homepage  

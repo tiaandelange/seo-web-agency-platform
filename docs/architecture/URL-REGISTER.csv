@@ -50,7 +50,7 @@ url,page_title,page_type,page_status,index_status,canonical,in_sitemap,in_naviga
 /compare/website-maintenance-options/,Website Maintenance Options Compared,comparison,live-skeleton,index,self,yes,none,/compare/,1,website maintenance options
 /areas-we-serve/,Areas We Serve,hub,live-skeleton,index,self,yes,footer,/,1,web development south africa areas
 /areas-we-serve/pretoria/,Website Design & Development in Pretoria,location,live-skeleton,index,self,yes,none,/areas-we-serve/,1,website design pretoria
-/areas-we-serve/johannesburg/,Website Design & Development in Johannesburg,location,live-skeleton,index,self,yes,none,/areas-we-serve/,1,website design johannesburg
+/areas-we-serve/johannesburg/,Website Design & Development in Johannesburg,location,live-skeleton,noindex,self,no,none,/areas-we-serve/,1,(noindex — deferred local evidence — D-08)
 /areas-we-serve/cape-town/,Website Design & Development in Cape Town,location,planned,not-generated,self,no,none,/areas-we-serve/,2,website design cape town
 /about/,About Us,about,live-skeleton,index,self,yes,footer,/,1,about (navigational)
 /process/,Our Web Development Process,process,live-skeleton,index,self,yes,footer,/,1,web development process

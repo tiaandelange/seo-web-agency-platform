@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/routes';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { PageHero } from '@/components/layout/page-hero';
 import { Section, BulletList } from '@/components/section';
@@ -9,7 +8,7 @@ import { InkBand } from '@/components/layout/ink-band';
 import { FaqList } from '@/components/faq-list';
 import { CtaQuote } from '@/components/cta-quote';
 import { JsonLd } from '@/components/json-ld';
-import { breadcrumbSchema, seoAuditServiceSchema, webPageSchema } from '@/lib/schema';
+import { seoAuditServiceSchema, webPageSchema } from '@/lib/schema';
 import { SeoAuditTierCta } from '@/components/seo-audit-cta';
 import { SeoAuditEligibilityForm } from '@/components/seo-audit-eligibility-form';
 import {
@@ -273,7 +272,6 @@ export default async function AdvancedSeoAuditPage({
       <JsonLd
         data={[
           webPageSchema({ path: PATH, title: TITLE, description: DESCRIPTION }),
-          breadcrumbSchema(getBreadcrumbs(PATH)),
           seoAuditServiceSchema({
             path: PATH,
             name: product.name,

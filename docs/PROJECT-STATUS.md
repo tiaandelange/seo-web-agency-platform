@@ -30,7 +30,7 @@ Last updated: 2026-08-27 (GSC/lead-measurement baseline recorded; production ind
 
 ## Architecture preserved
 
-66 routes · 57 indexable · 9 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic indexed (D-43) · sitewide default OG image via `buildMetadata()`.
+68 routes · 59 indexable · 9 noindex · route registry · sitemap/robots · canonicals · structured data · no fabricated reviews · Damtech/Proplytic indexed (D-43) · sitewide default OG image via `buildMetadata()`.
 
 ## Remaining owner work
 

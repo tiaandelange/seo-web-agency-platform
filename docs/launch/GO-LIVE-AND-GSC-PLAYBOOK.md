@@ -13,7 +13,7 @@ You do **not** need to fix these — confirmed by a live crawl today:
 - Apex/`http`/non-www all 308-redirect to `https://www.koppiesystems.co.za` (no loops, HSTS present).
 - `robots.txt` serves `Allow: /`, `Disallow: /api/`, and `Sitemap: https://www.koppiesystems.co.za/sitemap.xml` — i.e. **production env is active** (`NEXT_PUBLIC_SITE_ENV=production`, `NEXT_PUBLIC_SITE_URL=https://www.koppiesystems.co.za`).
 - Homepage canonical / OG URLs resolve to the www host (the earlier "localhost sitemap + `Disallow: /`" failure in `PRODUCTION-CRAWL-AUDIT.md` is closed).
-- 64 routes / 52 indexable / 12 noindex; sitemap URL count matches; no fabricated reviews.
+- 64 routes / 52 indexable / 12 noindex at 2026-07-23 verification (current registry: **68 / 59 / 9**); sitemap URL count matches; no fabricated reviews.
 
 The remaining work is **legal truth, a few config flags, lead-delivery + analytics wiring, verification gates, then the GSC submission itself.**
 
@@ -98,7 +98,7 @@ Verified locally on `/projects/` (`naturalWidth` > 0) and on production (`200` f
 
 ## Step 7 — Decide indexation for the case studies
 
-**Status:** Done (D-43, 2026-07-23). Damtech + Proplytic are indexable; `/projects/websites/` and `/projects/admin-systems/` unlocked. Route totals **66 / 57 indexable / 9 noindex**.
+**Status:** Done (D-43, 2026-07-23). Damtech + Proplytic are indexable; `/projects/websites/` and `/projects/admin-systems/` unlocked. Route totals were **66 / 57 / 9** at D-43; current registry **68 / 59 / 9** (Search Care + SEO cost guide added later).
 
 **Why (historical):** Case studies were complete but noindex pending explicit owner approval.
 
@@ -211,7 +211,7 @@ service, one package and one article are absolute, self, www and trailing-slash.
 Give me a Screaming Frog crawl checklist for https://www.koppiesystems.co.za: what
 to configure, and the exact things to confirm — zero internal 404s, zero redirect
 chains, one H1 per page, unique titles and meta descriptions across all indexable
-pages, and that only the intended 12 noindex routes are excluded.
+pages, and that only the intended 9 noindex routes are excluded.
 ```
 
 ## Step 17 — Rich Results / structured-data test
